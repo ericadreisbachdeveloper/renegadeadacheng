@@ -1,0 +1,380 @@
+/* ------------------------
+ Global
+------------------------ */
+
+
+// Break points
+%breakpoint {
+  background: orange;
+  content: 'MOBILE';
+  display: block;
+  position: fixed;
+   top: 0;
+   left: 0;©
+  z-index: 999;
+}
+
+[data-role="main"]:before { @extend %breakpoint; }
+
+
+
+
+// Typography©
+html * {
+  -webkit-font-smoothing: subpixel-antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: arial, helvetica, sans-serif;
+  color: black;
+}
+
+[data-role="main"] { line-height: 1.44; }
+
+article {
+  h1, h2 {
+    &> a {
+      text-decoration: none;
+      @include hover { text-decoration: none; }
+    }
+  }
+}
+
+
+%huge      { font-size: 2rem; line-height: 1.2;  }
+%large     { font-size: 1.5rem; line-height: 1.44; }
+%medium    { font-size: 1.125rem; line-height: 1.5; }
+%text      { font-size: 1rem; line-height: 1.66; }
+%small     { font-size: .9rem; line-height: 1.66; }
+
+
+[data-role="main"] h1 { @extend %large; }
+
+[data-role="main"] h2 { @extend %medium; }
+
+[data-role="main"] { @extend %text; }
+
+
+
+
+
+
+// Structure
+// Container
+.container-on-mobile,
+%container,
+%container-corset {
+  width: calc(100% - 3rem);
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+.gutenberg-container .corset { @extend %container-corset; }
+
+
+.site-header > .gutenberg-container,
+[data-role="main"] > .gutenberg-section:not(.core-cover) > .gutenberg-container,
+.wp-block-cover-image .wp-block-cover__inner-container,
+.wp-block-cover .wp-block-cover__inner-container,
+.container {
+  @extend %container;
+}
+
+
+
+
+[data-role="main"] {
+  width: 100%;
+  clear: left;
+  display: block;
+  float: left;
+}
+
+
+p { margin-bottom: .8rem; }
+* p:last-of-type { margin-bottom: 0; }
+
+
+#skip-link {
+  background: white;
+  position: absolute;
+   top: .25em;
+   left: .25em;
+  z-index: 9999;
+
+  &:active, &:focus {
+    background: white;
+    padding: .4em;
+    @include border-radius(.1em);
+  }
+}
+
+.sr-only-focusable:focus,
+.sr-only.sr-only-focusable:focus,
+#skip-link:focus {
+  width: auto;
+  display: block;
+  clip-path: unset;
+  visibility: visible;
+}
+
+.section {
+  width: 100%;
+  clear: both;
+  float: left;
+
+  &:last-of-type {
+    @extend %clear;
+  }
+}
+
+.-desktop { display: none; }
+
+
+
+
+// Classes
+%fadein {
+  opacity: 0;
+  @include transition-one(opacity);
+
+  &.-loaded { opacity: 1; }
+}
+
+.-txt-left { text-align: left; }
+.-txt-right { text-align: right; }
+.-txt-center { text-align: center; }
+
+.a { display: block; }
+
+// link behavior
+a { @include hover { cursor: pointer; } }
+
+%hidden {
+  width: 0;
+  clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+  display: none;
+  visibility: hidden;
+  position: absolute;
+   left: -99999px;
+}
+
+.sr-only { @include hover { @extend %hidden; } }
+
+%clear {
+  &:after {
+    display: block;
+    clear: both;
+    content: '';
+  }
+}
+
+%cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+%dark {
+  background: black;
+  color: white;
+
+  a {
+    color: white;
+    @include hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.nowrap { white-space: nowrap; }
+
+
+
+
+
+// Breadcrumbs
+#breadcrumbs {
+    list-style-type:none;
+    margin: 1.5em 0 0;
+    padding: 0;
+}
+
+#breadcrumbs li {
+    display:inline-block;
+    vertical-align:middle;
+    margin-right:1em;
+}
+
+#breadcrumbs .separator {
+    font-size:18px;
+    font-weight:100;
+    color:#ccc;
+}
+
+
+
+
+// Wordpress Stuff
+body.admin-bar .navbar-toggler { top: calc(1.5em + 32px); }
+body.admin-bar #skip-link { top: calc(.25em + 32px); }
+
+
+img, .img { display: block; }
+
+img[class*="wp-image"] { max-width: 100%; height: auto; }
+
+img.alignright {float:right; margin:0 0 1em 1em;}
+img.alignleft {float:left; margin:0 1em 1em 0;}
+img.aligncenter {margin-left:auto; margin-right:auto; margin-bottom:1.5em;}
+a img.alignright {float:right; margin:0 0 1em 1em;}
+a img.alignleft {float:left; margin:0 1em 1em 0;}
+a img.aligncenter {display: block; margin-left: auto; margin-right: auto;}
+
+
+figure.aligncenter figcaption { text-align: center; }
+figure.alignright figcaption  { text-align: right; }
+
+
+
+// Footer
+.site-footer {
+  width: 100%;
+  background: #ddd;
+  clear: left;
+  color: $nearblack;
+  float: left;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  [class*="col"] {
+    font-size: .9rem;
+    line-height: 1.44;
+
+    margin-bottom: 2em;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  [id^="media"] {
+    [href] { display: block; float: left; }
+
+    .image {
+      width: auto;
+      height: 6rem !important;
+    }
+  }
+
+  a {
+    color: $nearblack;
+    text-decoration: underline;
+    @include transition-one(color);
+
+    @include hover {
+      color: #333;
+      text-decoration: none;
+    }
+  }
+}
+
+
+
+// Social Nav
+
+.menu[id*="social"] {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  @include flex;
+  @include justify-content(flex-end);
+
+  &> li {
+    font-size: 1.4rem;
+
+    &> a {
+      width: 3rem;
+      height: 3rem;
+      color: transparent;
+      margin-right: .6rem;
+      position: relative;
+      overflow: hidden;
+
+      @include flex;
+
+      &:before {
+        width: 3rem;
+        height: 3rem;
+        background: rgba(255,255,255,.1);
+        color: $nearblack;
+        font-family: "Font Awesome 5 Brands";
+        position: absolute;
+         top: 0;
+         left: 0;
+        text-align: center;
+
+        @include transition-one(background);
+
+        @include flex;
+        @include align-items(center);
+        @include justify-content(center);
+      }
+
+
+      &[href*="facebook"]:before { content: '\f39e'; }
+      &[href*="twitter"]:before { content: '\f099'; }
+      &[href*="linkedin"]:before { content: '\f08c'; }
+      &[href*="pinterest"]:before { content: '\f0d2'; }
+      &[href*="mailto"]:before { content: '\f199'; font-family: "Font Awesome 5 Free"; }
+      &[href*="contact"]:before { content: '\f199'; font-family: "Font Awesome 5 Free"; }
+
+      @include hover {
+        &:before { background: rgba(255,255,255,.3); left: 0;  }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+// Edit link
+
+.post-edit-link {
+  width: 7.5em;
+  clear: left;
+  float: left;
+  font-family: sans-serif;
+}
+
+.post-admin-link {
+  float: left;
+  clear: left;
+}
+
+.post-admin-link,
+.post-edit-link {
+  background: red;
+  border: 2px solid red;
+  color: white;
+  display: block;
+  font-size: .9rem;
+  margin: .5em .5em .5em 0;
+  padding: .5em 1em;
+  text-decoration: none;
+  @include border-radius(.4em);
+  @include transition(all,.2s,ease-in-out);
+  @include hover { background: white; color: red; text-decoration: none; @include transition(all,.2s,ease-in-out); }
+
+  &:before {
+    content: '\f013';
+    display: inline-block;
+    font-family: "Font Awesome 5 Free";
+    margin-right: .3em;
+  }
+}

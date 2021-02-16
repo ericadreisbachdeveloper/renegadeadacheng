@@ -1,0 +1,8 @@
+/* ------------------------
+ Blocks
+------------------------ */
+
+.wp-block-media-text > figure + .wp-block-media-text__content,
+.wp-block-media-text > .wp-block-media-text__content + figure {
+  padding-top: 2rem;
+}

@@ -1,0 +1,133 @@
+/* ------------------------
+
+------------------------ */
+
+
+input {
+
+  &[type="text"],
+  //button
+  //checkbox
+  &[type="color"],
+  &[type="date"],
+  &[type="datetime-local"],
+  &[type="email"],
+  &[type="file"],
+//hidden
+  &[type="image"],
+  &[type="month"],
+  &[type="number"],
+  &[type="password"],
+  &[type="radio"],
+  &[type="range"],
+//reset
+//search
+//submit
+  &[type="tel"],
+  &[type="time"],
+  &[type="url"],
+  &[type="week"] {
+    border: .05em solid lightgray;
+    margin: 0;
+    padding: .5em;
+    @include simple-box-shadow(.05em, .05em, .1em, lightgray);
+  }
+
+
+  &[type="reset"],
+  &[type="search"],
+  &[type="submit"] {
+
+    &[disabled] {
+      background: gray;
+      box-shadow: 0 .1rem 0 darkgray;
+      color: lightgray;
+
+      &:hover { background: gray; cursor: default; }
+      &:active, &:focus { box-shadow: 0 .1rem 0 darkgray; }
+    }
+
+    background: dodgerblue;
+    border: none;
+    color: white;
+    letter-spacing: .05rem;
+    padding: .4rem 1.2rem;
+    position: relative;
+    text-transform: uppercase;
+
+    @include border-radius(.5em);
+    @include simple-box-shadow(0, .2rem, 0, rgba(0,0,255,.3));
+    @include transition-multi(background .2s ease-in-out, border .2s ease-in-out);
+
+    &:hover { background: steelblue; }
+
+    &:active, &:focus {
+      top: .1em;
+      @include simple-box-shadow(0, .1rem, 0 ,rgba(0,0,0,.3));
+    }
+  }
+}
+
+
+label { line-height: 1.8; }
+
+
+#loginform {
+  label, input[type="text"], input[type="password"], input[type="submit"] {
+    display: block;
+  }
+
+
+  input[type="text"], input[type="password"] {
+    width: 14em;
+    display: block;
+    margin-bottom: 1em;
+  }
+
+  input[type="submit"] { margin-top: 2em; }
+}
+
+
+
+// reCAPTCHA
+.g-recaptcha{ padding-top: .5em; padding-bottom: 1em;  }
+
+
+
+
+// Search
+#navmenu .search-input {
+  background: white;
+  color: $nearblack;
+  width: calc(100% - 6rem);
+  border: none;
+  padding: .9rem 4rem .7rem 2rem;
+  text-align: left;
+  text-transform: none;
+
+  @include border-radius(0);
+  @include placeholder { color: gray; }
+  @include simple-box-shadow(0,0,0,transparent);
+}
+
+#navmenu a[href="#display-form"] { display: none; }
+
+#navmenu .search { position: relative; }
+
+.search-submit {
+  background: none;
+  border: none;
+  position: absolute;
+   top: .65rem;
+   right: 2rem;
+
+  -webkit-appearance: none;
+
+  &:after {
+    color: $nearblack;
+    content: '\f002';
+    display: block;
+    font-family: 'Font Awesome 5 Free';
+    font-size: 1.3rem;
+  }
+}

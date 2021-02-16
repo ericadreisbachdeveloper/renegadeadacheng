@@ -1,0 +1,45 @@
+/* ------------------------
+ Fonts
+------------------------ */
+
+
+/*
+
+@font-face {
+  font-family:'NAME';
+  font-display: swap;
+  unicode-range: U+000-5FF; Download only latin glyphs
+  src: url('../fonts/EOT?') format('eot'), url('../fonts/OTF') format('opentype');
+}
+
+@mixin NAME {
+  font-family: 'NAME',sans-serif;
+  font-weight: 400;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
+}
+
+.NAME {
+  @include NAME;
+  em, i     { @include ITALICNAME; }
+  b, strong { @include BOLDNAME; }
+}
+
+*/
+
+
+
+
+
+@font-face {
+  font-family: 'arvo';
+  src: url('../webfonts/arvo-bolditalic.eot?') format('eot'), url('../webfonts/arvo-bolditalic.ttf') format('truetype');
+}
+
+%arvo {
+  font-family: 'arvo','Arial Black', sans-serif;
+  font-style: italic;
+  font-weight: 800;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
+}

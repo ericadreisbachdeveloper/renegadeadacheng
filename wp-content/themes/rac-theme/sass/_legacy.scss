@@ -1,0 +1,26 @@
+/* ------------------------
+ NOT IN USE - Legacy / Old Browsers
+------------------------ */
+
+
+.inlinesvg .pngbg { background-image: none !important; }
+
+
+
+.no-inlinesvg {
+
+  img[src*="svg"] { display: none; }
+
+  .pngbg {
+    display: block;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .header .logo > .pngbg {
+    background-image: url('../img/logo.png');
+
+  }
+
+}
