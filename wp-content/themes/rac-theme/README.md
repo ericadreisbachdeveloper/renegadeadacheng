@@ -28,7 +28,7 @@ Excellent tool for dynamically-generated sitemaps to improve search appearance
 - **Limit Login Attempts Reloaded** https://wordpress.org/plugins/limit-login-attempts-reloaded/ <br />
 Prevents brute force attacks to the site page <br />
 
-- **Simple 301 Redirects** https://wordpress.org/plugins/simple-301-redirects/ <br />
+- **Quick Page/Post Redirect Plugin** https://wordpress.org/plugins/quick-pagepost-redirect-plugin/ <br />
   Allows easy 301 redirects from previous generation of the site to the current site
 
 - **SVG Support** https://wordpress.org/plugins/svg-support/ <br />

@@ -116,9 +116,9 @@
   <em>Prevents brute force attacks to the site page</em><br />
   <strong>Settings > Limit Login Attempts </strong></li>
 
-  <li><a href="https://wordpress.org/plugins/simple-301-redirects/" target="_blank" rel="noopener">Simple 301 Redirects </a><br />
+  <li><a href="https://wordpress.org/plugins/quick-pagepost-redirect-plugin/" target="_blank" rel="noopener">Quick Page/Post Redirect Plugin</a><br />
     <em>Allows easy 301 redirects from previous generation of the site to the current site </em> <br />
-    <strong>Settings > 301 Redirects </strong>
+    <strong>Quick Redirects </strong>
   </li>
 
   <li><a href="https://wordpress.org/plugins/svg-support/" target="_blank" rel="noopener">SVG Support</a><br />
