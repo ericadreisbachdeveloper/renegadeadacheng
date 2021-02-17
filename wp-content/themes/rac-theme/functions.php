@@ -161,3 +161,31 @@ function remove_type_attr($tag, $handle) {
 
 // 14. Disable xml-rpc as this is commonly exploited to attack other sides
 add_filter( 'xmlrpc_enabled', '__return_false' );
+
+
+// 15. LOGIN
+
+
+// 15a. Remove login message that confirms username in functions.php
+//     src: https://ehikioya.com/forums/topic/how-to-change-or-remove-the-wordpress-login-error-message/
+function remove_error_msg( $error ) {
+    return '';
+}
+add_filter( 'login_errors', 'remove_error_msg' );
+
+
+// 15b. Add reCAPTCHA to login
+function load_custom_scripts() {
+
+		if ( is_page_template ( 'page-login.php' ) ) {
+			wp_register_script('recaptcha', 'https://www.google.com/recaptcha/api.js', 'jquery', '2.0.0', 'all');
+			wp_enqueue_script('recaptcha');
+
+			wp_register_script('recaptcha-sitekey', get_stylesheet_directory_uri() . '/js/recaptcha-sitekey.js', 'jquery', '1.0.1', 'all');
+			wp_enqueue_script('recaptcha-sitekey');
+		}
+}
+
+if(!is_admin()) {
+    add_action('wp_enqueue_scripts', 'load_custom_scripts', 99);
+}
