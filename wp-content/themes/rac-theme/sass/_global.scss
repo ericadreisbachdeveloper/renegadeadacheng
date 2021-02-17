@@ -10,7 +10,7 @@
   display: block;
   position: fixed;
    top: 0;
-   left: 0;©
+   left: 0;
   z-index: 999;
 }
 
@@ -160,7 +160,7 @@ a { @include hover { cursor: pointer; } }
    left: -99999px;
 }
 
-.sr-only { @include hover { @extend %hidden; } }
+.sr-only { @extend %hidden; @include hover { @extend %hidden; } }
 
 %clear {
   &:after {

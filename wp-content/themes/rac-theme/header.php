@@ -2,9 +2,6 @@
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
-
-
-
 <?php function sanitize_output($buffer) {
 	// minify html
 	require_once('minify/html.php');
@@ -13,11 +10,9 @@
 }
 ob_start('sanitize_output'); ?>
 
-<?php //global $post; var_dump($post); ?>
 
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta name="format-detection" content="telephone=no">
-<!-- <meta http-equiv="X-U cA-Compatible" content="IE=edge"> -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
@@ -103,9 +98,34 @@ ob_start('sanitize_output'); ?>
 
 
 
+<!-- pre-load assets -->
 <?php global $style_vsn; ?>
-<link href="<?= esc_url(get_stylesheet_directory_uri()); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" rel="stylesheet">
+<link rel="preload" href="<?= esc_url(get_stylesheet_directory_uri()); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" as="style">
+<style>
+@font-face {
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    font-weight: 400;
+    src: url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-solid-900.eot");
+    src: url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-solid-900.woff2") format("woff2"), url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-solid-900.woff") format("woff"),
+        url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-solid-900.ttf") format("truetype"), url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-solid-900.svg#fontawesome") format("svg");
+}
 
+.fa,
+.far,
+.fas {
+    font-family: "Font Awesome 5 Free";
+}
+
+@font-face {
+    font-family: "Font Awesome Brands";
+    font-style: normal;
+    font-weight: 400;
+    src: url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-brands-400.eot");
+    src: url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.woff") format("woff"),
+        url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-brands-400.ttf") format("truetype"), url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-brands-400.svg#fontawesome") format("svg");
+}
+</style>
 
 
 <?php wp_head(); ?>
