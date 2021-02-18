@@ -8,7 +8,7 @@
 
 
 # ignore any themes files that start with zz-
-wp-content/themes/*/zz-*
+wp-content/themes/**/zz-*
 
 
 # DO track these root files
