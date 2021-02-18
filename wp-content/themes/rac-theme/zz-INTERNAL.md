@@ -1,18 +1,15 @@
 # Theme Setup
-
-These instructions assume
-- Git is already installed
-- local MAMP server running
+###### current as of Feb 2021
 
 ## This Theme is a Child of HTML5 Blank
 Parent theme, if needed: http://html5blank.com/
 
 
 ## Create a Basic Wordpress Build
-1. Download and unzip the latest version of Wordpress to `~\Library\WebServer\Documents\root`
+1. Download and unzip the latest version of Wordpress to `~\Library\WebServer\Documents\[ROOT]`
 2. Create a new database in phpMyAdmin http://localhost/phpMyAdmin/
-3. Visit http://localhost/root and run database setup
-4. Delete all Wordpress themes in `wp-content\themes\` except for `wp-content\themes\twentynineteen`
+3. Visit http://localhost/[ROOT] and run database setup
+4. Delete all Wordpress themes in `wp-content\themes\` except for latest Wordpress theme
 
 ## Set up Server Environment
 In the remote web host:
@@ -58,7 +55,7 @@ i.e. explicit `$ pwd` string
 ###### src: http://toroid.org/ams/git-website-howto
 
 
-<span style="font-size: 3rem; line-height: 3;">Ok time to ACTUALLY set up Wordpress ...</span>
+<span style="font-size: 3rem; line-height: 3;">Ok time to ACTUALLY set up Wordpress</span>
 
 ## Plugins
 - **ACF Better Search** https://wordpress.org/plugins/acf-better-search <br />
@@ -94,7 +91,6 @@ Prevents brute force attacks to the site page <br />
 - **WP Migrate DB Pro** https://deliciousbrains.com/wp-migrate-db-pro/ <br />
   Easy database backups and migration
 
-###### current as of Feb 2021
 
 
 ## Create Screenshot
@@ -145,15 +141,15 @@ Import starter data under **Tools > Migrate DB Pro > Import**
 
 
 ## Pages
-Change Sample Page to Home
+1. Change Sample Page to Home
 
-Set Home as Front Page
+2. Set Home as Front Page
 
-Change Privacy Policy Order to 900
+3. Change Privacy Policy Order to 900
 
-Create Login page with template Login with Order 800
+4. Create Login page with template Login with Order 900 and permalink `admin-login`
 
-Add Login page ID to be excluded in native Wordpress search under <br />**Settings > SearchWP > Pages > Rules > Excluded IDs**
+5. Add Login page ID to be excluded in native Wordpress search under <br />**Settings > SearchWP > Pages > Rules > Excluded IDs**
 
 Set Kitchen Sink to order 999 and exclude from native Wordpress search
 
