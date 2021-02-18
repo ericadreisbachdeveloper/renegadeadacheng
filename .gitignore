@@ -7,15 +7,15 @@
 !icons/
 
 
-# ignore any theme files that start with zz-
-wp-content/themes/**/zz-*
-
-
 # DO track these root files
 !manifest.json
 !.editorconfig
 !README.md
 !.gitignore
+
+
+# ignore any theme files that start with zz-
+wp-content/themes/**/zz-*
 
 
 # DON'T track most of wp-content/
