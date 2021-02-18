@@ -82,8 +82,6 @@ article {
 }
 
 
-
-
 [data-role="main"] {
   width: 100%;
   clear: left;
@@ -110,6 +108,22 @@ p { margin-bottom: .8rem; }
   }
 }
 
+
+
+
+// Classes
+
+.sr-only {
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
 .sr-only-focusable:focus,
 .sr-only.sr-only-focusable:focus,
 #skip-link:focus {
@@ -118,6 +132,7 @@ p { margin-bottom: .8rem; }
   clip-path: unset;
   visibility: visible;
 }
+
 
 .section {
   width: 100%;
@@ -129,12 +144,10 @@ p { margin-bottom: .8rem; }
   }
 }
 
+
+
 .-desktop { display: none; }
 
-
-
-
-// Classes
 %fadein {
   opacity: 0;
   @include transition-one(opacity);

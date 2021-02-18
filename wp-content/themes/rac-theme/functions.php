@@ -71,8 +71,8 @@ function deregister_css() {
  	   wp_dequeue_style( 'bodhi-svgs-attachment' );
   wp_deregister_style( 'bodhi-svgs-attachment' );
 
-     wp_dequeue_style( 'wp-block-library' );
-  wp_deregister_style( 'wp-block-library' );
+  //   wp_dequeue_style( 'wp-block-library' );
+//  wp_deregister_style( 'wp-block-library' );
 
      wp_dequeue_style( 'normalize' );
   wp_deregister_style( 'normalize' );
