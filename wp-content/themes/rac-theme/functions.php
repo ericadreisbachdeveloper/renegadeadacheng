@@ -4,7 +4,7 @@
 
 
 // 0. set up a constant to the template directory to avoid extra queries to DB
-define('TDIR', get_bloginfo('template_directory'));
+define('TDIR', get_bloginfo('stylesheet_directory'));
 
 
 // 1. For debugging - output all scripts
@@ -71,8 +71,8 @@ function deregister_css() {
  	   wp_dequeue_style( 'bodhi-svgs-attachment' );
   wp_deregister_style( 'bodhi-svgs-attachment' );
 
-  //   wp_dequeue_style( 'wp-block-library' );
-//  wp_deregister_style( 'wp-block-library' );
+     wp_dequeue_style( 'wp-block-library' );
+  wp_deregister_style( 'wp-block-library' );
 
      wp_dequeue_style( 'normalize' );
   wp_deregister_style( 'normalize' );

@@ -7,7 +7,7 @@
 !icons/
 
 
-# ignore any themes files that start with zz-
+# ignore any theme files that start with zz-
 wp-content/themes/**/zz-*
 
 

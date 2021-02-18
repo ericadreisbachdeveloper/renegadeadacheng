@@ -101,6 +101,9 @@ ob_start('sanitize_output'); ?>
 <!-- pre-load assets -->
 <?php global $style_vsn; ?>
 <link rel="preload" href="<?= esc_url(get_stylesheet_directory_uri()); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" as="style">
+
+<link rel="stylesheet" href="<?php _e(TDIR); ?>/css/wp-block-library.css" media="print" onload="this.media='all'">
+
 <style>
 @font-face {
     font-family: "Font Awesome 5 Free";
