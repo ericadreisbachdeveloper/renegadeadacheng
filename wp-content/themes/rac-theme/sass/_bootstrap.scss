@@ -1,4 +1,4 @@
-/*! * Bootstrap v3.3.6 (http://getbootstrap.com) Copyright 2011-2015 Twitter, Inc.  Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE/  severely dieted down - emd 18 Feb 2021 */
+// Bootstrap v3.3.6 (http://getbootstrap.com) Copyright 2011-2015 Twitter, Inc.  Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE/  severely dieted down - emd 18 Feb 2021
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -23,14 +23,15 @@ body { margin: 0; }
 
 
 
-
-
-@media (min-width: 992px) {
-
-  .container { width: 970px; }
+//@media (min-width: 992px) {
+@media (min-width: 62rem) {
+  //.container { width: 970px; }
+  .container { width: 57rem; }
 }
 
-@media (min-width: 1200px) {
+
+
+@media (min-width: 62rem) {
   .row { margin-right: -1.5rem; margin-left: -1.5rem; }
 
   .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1,
@@ -81,7 +82,8 @@ body { margin: 0; }
 }
 
 
-@media (min-width: 768px) {
+//@media (min-width: 768px) {
+@media (min-width: 37.5rem) {
   .col-sm-1,
   .col-sm-2,
   .col-sm-3,
@@ -113,7 +115,11 @@ body { margin: 0; }
 
 
 
-@media (min-width: 992px) {
+
+
+//@media (min-width: 992px) {
+@media (min-width: 48rem) {
+
   .col-md-1,
   .col-md-2,
   .col-md-3,
@@ -145,7 +151,11 @@ body { margin: 0; }
 
 
 
-@media (min-width: 1200px) {
+
+
+
+//@media (min-width: 1200px) {
+@media (min-width: 62rem) {
   .col-md-1,
   .col-lg-2,
   .col-lg-3,

@@ -102,7 +102,9 @@ ob_start('sanitize_output'); ?>
 <?php global $style_vsn; ?>
 <link rel="preload" href="<?= esc_url(get_stylesheet_directory_uri()); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" as="style">
 
-<link rel="stylesheet" href="<?php _e(TDIR); ?>/css/wp-block-library.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="<?php esc_url(get_site_url()); ; ?>/wp-includes/css/dist/block-library/style.min.css" media="print" onload="this.media='all'">
+
+<link rel="stylesheet" href="<?= esc_url(get_stylesheet_directory_uri()); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" />
 
 <style>
 @font-face {
@@ -131,14 +133,33 @@ ob_start('sanitize_output'); ?>
 </style>
 
 
+<?php $custom_logo_svg = get_theme_mod( 'logo_svg' );
+      $custom_logo_png = get_theme_mod( 'logo_png_fallback' ); ?>
+
+<?php if($custom_logo_svg) : ?>
+<link rel="preload" as="image" href="<?= esc_url($custom_logo_svg); ?>">
+<?php else : ?>
+<link rel="preload" as="image" href="<?= esc_url(get_stylesheet_directory_uri()); ?>/img/logo.svg">
+<?php endif; ?>
+
+
 <?php wp_head(); ?>
 
 
 
 </head>
 
+<!-- default to assuming inline svg support (a reasonable assumption - https://caniuse.com/?search=svg ) -->
+<body <?php body_class(); ?> data-svg="inlinesvg">
 
-<body <?php body_class(); ?>>
+
+	<!-- detect SVG support -->
+	<script>
+	if (!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image", "1.1")) {
+		document.body.setAttribute('data-svg', 'no-inlinesvg');
+	}
+	</script>
+
 
 
 	<a href="#main" id="skip-link" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -151,11 +172,8 @@ ob_start('sanitize_output'); ?>
 			<div class="gutenberg-container">
 
 
-				<?php $custom_logo_svg = get_theme_mod( 'logo_svg' ); ?>
-				<?php $custom_logo_png = get_theme_mod( 'logo_png_fallback' ); ?>
-
-
 				<div class="logo-div">
+					<style scoped>.logo-a { background-image: url('<?= esc_url($custom_logo_png); ?>'); }</style>
 					<a href="<?php echo esc_url(get_home_url()); ?>" class="pngbg logo-a a">
 
 						<?php if($custom_logo_svg) : ?>

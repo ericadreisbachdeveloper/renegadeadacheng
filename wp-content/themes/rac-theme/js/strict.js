@@ -31,9 +31,6 @@
 
 		//Show subnavs on mobile by clicking .open-submenu-a carets
 		$( '.open-submenu-a' ).on('click', function(){
-
-		// xx Show subnavs on mobile by clicking items with children
-		// xx $('.menu-item-has-children > a').on('click', function(){
 			$(this).next('.open-submenu-a').toggleClass('mobile-show-submenu');
 			return false;
 		});

@@ -86,7 +86,7 @@ add_action('wp_enqueue_scripts', 'deregister_css', 100 );
 
 // 5. Style vsn
 global $style_vsn;
-$style_vsn = '1.1.03';
+$style_vsn = '1.1.05';
 
 
 
@@ -352,7 +352,6 @@ if (function_exists('add_theme_support')) {
 // 18. Inline scripts in footer
 //  a. Accessible nav - subnavs appear on hover
 //  b. Spamspan - protect email addresses from scrapers and spammers
-//  c. Add .-cssloaded to body when CSS loads
 function inline_scripts(){
 
 	global $style_vsn;
@@ -361,9 +360,7 @@ function inline_scripts(){
 	echo '<script>jQuery.fn.accessibleDropDown=function(){var e=jQuery(this);jQuery("li",e).mouseover(function(){jQuery(this).addClass("hover")}).mouseout(function(){jQuery(this).removeClass("hover")}),jQuery("a",e).focus(function(){jQuery(this).parents("li").addClass("show")}).blur(function(){jQuery(this).parents("li").removeClass("show")})},jQuery(".nav").accessibleDropDown();</script>';
 
 
-	echo '<script>var spamSpanMainClass="spamspan",spamSpanUserClass="u",spamSpanDomainClass="d",spamSpanAnchorTextClass="t",spamSpanParams=new Array("subject","body");function spamSpan(){for(var a=getElementsByClass(spamSpanMainClass,document,"span"),e=0;e<a.length;e++){for(var n=getSpanValue(spamSpanUserClass,a[e]),s=getSpanValue(spamSpanDomainClass,a[e]),t=getSpanValue(spamSpanAnchorTextClass,a[e]),p=new Array,r=0;r<spamSpanParams.length;r++){var l=getSpanValue(spamSpanParams[r],a[e]);l&&p.push(spamSpanParams[r]+"="+encodeURIComponent(l))}var m=String.fromCharCode(64),o=cleanSpan(n)+m+cleanSpan(s),d=document.createTextNode(t||o),c=String.fromCharCode(109,97,105,108,116,111,58)+o;c+=p.length?"?"+p.join("&"):"";var u=document.createElement("a");u.className=spamSpanMainClass,u.setAttribute("href",c),u.appendChild(d),a[e].parentNode.replaceChild(u,a[e])}}function getElementsByClass(a,e,n){var s=new Array;null==e&&(node=document),null==n&&(n="*");for(var t=e.getElementsByTagName(n),p=t.length,r=new RegExp("(^|s)"+a+"(s|$)"),l=0,m=0;l<p;l++)r.test(t[l].className)&&(s[m]=t[l],m++);return s}function getSpanValue(a,e){var n=getElementsByClass(a,e,"span");return!!n[0]&&n[0].firstChild.nodeValue}function cleanSpan(a){return a=(a=a.replace(/[\[\(\{]?[dD][oO0][tT][\}\)\]]?/g,".")).replace(/\s+/g,"")}function addEvent(a,e,n){a.addEventListener?a.addEventListener(e,n,!1):a.attachEvent&&(a["e"+e+n]=n,a[e+n]=function(){a["e"+e+n](window.event)},a.attachEvent("on"+e,a[e+n]))}addEvent(window,"load",spamSpan);</script>';
-
-  echo '<script>jQuery(document).ready(function(){var e=document.getElementsByTagName("head")[0],t=document.body,d=document.createElement("link"),n=document.createElement("img"),r="' . get_stylesheet_directory_uri() . '/css/style.css?ver=' . $style_vsn . '";d.href=r,d.rel="stylesheet",e.appendChild(d),n.onerror=function(){jQuery("body").addClass("-cssloaded"),t.removeChild(n)},t.appendChild(n),n.src=r});</script>';
+	echo '<script>var spamSpanMainClass="spamspan",spamSpanUserClass="u",spamSpanDomainClass="d",spamSpanAnchorTextClass="t",spamSpanParams=new Array("subject","body");function spamSpan(){for(var a=getElementsByClass(spamSpanMainClass,document,"span"),e=0;e<a.length;e++){for(var n=getSpanValue(spamSpanUserClass,a[e]),s=getSpanValue(spamSpanDomainClass,a[e]),t=getSpanValue(spamSpanAnchorTextClass,a[e]),p=new Array,r=0;r<spamSpanParams.length;r++){var	 l=getSpanValue(spamSpanParams[r],a[e]);l&&p.push(spamSpanParams[r]+"="+encodeURIComponent(l))}var m=String.fromCharCode(64),o=cleanSpan(n)+m+cleanSpan(s),d=document.createTextNode(t||o),c=String.fromCharCode(109,97,105,108,116,111,58)+o;c+=p.length?"?"+p.join("&"):"";var u=document.createElement("a");u.className=spamSpanMainClass,u.setAttribute("href",c),u.appendChild(d),a[e].parentNode.replaceChild(u,a[e])}}function getElementsByClass(a,e,n){var s=new Array;null==e&&(node=document),null==n&&(n="*");for(var t=e.getElementsByTagName(n),p=t.length,r=new RegExp("(^|s)"+a+"(s|$)"),l=0,m=0;l<p;l++)r.test(t[l].className)&&(s[m]=t[l],m++);return s}function getSpanValue(a,e){var n=getElementsByClass(a,e,"span");return!!n[0]&&n[0].firstChild.nodeValue}function cleanSpan(a){return a=(a=a.replace(/[\[\(\{]?[dD][oO0][tT][\}\)\]]?/g,".")).replace(/\s+/g,"")}function addEvent(a,e,n){a.addEventListener?a.addEventListener(e,n,!1):a.attachEvent&&(a["e"+e+n]=n,a[e+n]=function(){a["e"+e+n](window.event)},a.attachEvent("on"+e,a[e+n]))}addEvent(window,"load",spamSpan);</script>';
 
 }
 add_action( 'wp_footer', 'inline_scripts' );
@@ -724,7 +721,7 @@ add_action( 'widgets_init', 'dbllc_remove_widgets', 11 );
 
 
 // 31. Default timezone: Chicago
-// date_default_timezone_set('America/Chicago');
+date_default_timezone_set('America/Chicago');
 
 
 
@@ -745,7 +742,6 @@ function dbllc_customize_register( $wp_customize ) {
 		)));
 
 
-		/*
 	  // 32b. png fallback logo
 		$wp_customize->add_setting('logo_png_fallback', array(
 			'type' => 'theme_mod',
@@ -759,6 +755,6 @@ function dbllc_customize_register( $wp_customize ) {
 			'description' => __( 'For older browsers &amp; devices' ),
 			'priority' => 8,
 		)));
-		*/
+
 }
 add_action( 'customize_register', 'dbllc_customize_register');

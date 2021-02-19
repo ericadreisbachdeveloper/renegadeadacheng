@@ -1,26 +1,20 @@
 /* ------------------------
- NOT IN USE - Legacy / Old Browsers
+ Legacy / Old Browsers
 ------------------------ */
 
 
-.inlinesvg .pngbg { background-image: none !important; }
+[data-svg="inlinesvg"] { .pngbg { background-image: none !important; } }
 
 
 
-.no-inlinesvg {
+[data-svg="no-inlinesvg"] {
 
-  img[src*="svg"] { display: none; }
+  img[src*="svg"] { visibility: hidden; }
 
   .pngbg {
     display: block;
-    background-position: 0 0;
+    background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: contain;
-  }
-
-  .header .logo > .pngbg {
-    background-image: url('../img/logo.png');
-
   }
 
 }

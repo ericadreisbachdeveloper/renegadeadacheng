@@ -1,4 +1,5 @@
 // reCAPTCHA v3
+// get sitekey at https://www.google.com/recaptcha/admin
 // src https://developers.google.com/recaptcha/docs/v3
 
 function onSubmit(token) {

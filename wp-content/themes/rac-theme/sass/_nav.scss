@@ -8,7 +8,6 @@
 
 
 // I. Header
-
 $navh: 6rem;
 %nav-height { height: $navh; }
 %nav-menu-position {  top: calc(#{$navh} - .05em); }
@@ -177,12 +176,12 @@ $navh: 6rem;
 
     &>.opennav.-top {
       @include transform(0deg, (1,1), 0, 0, 0);
-      top: .5em;
+      top: .45rem;
     }
 
     &>.opennav.-bottom {
       @include transform(0deg, (1,1), 0, 0, 0);
-      top: 1.65em;
+      top: 1.32rem;
     }
   }
 
@@ -193,13 +192,13 @@ $navh: 6rem;
     &.-top {
       @include animation(toggle_top, ease-in-out, 1, .2s);
       @include transform(45deg, (1,1), 0, 0, 0);
-      top: 1em;
+      top: 1rem;
     }
 
     &.-bottom {
       @include animation(toggle_bottom, ease-in-out, 1, .2s);
       @include transform(-45deg, (1,1), 0, 0, 0);
-      top: 1em;
+      top: 1rem;
     }
 
     &.-middle { opacity: 0; }
