@@ -125,19 +125,20 @@ $navh: 6rem;
 .navbar-toggler:focus { outline: -webkit-focus-ring-color auto 5px; }
 
 .navbar-toggler {
-  width: 3.001em;
-  height: 3.001em;
+  width: 3rem;
+  height: 3rem;
   background: transparent;
+  //background: yellow;
   border: none;
-  margin-top: .3em;
   padding: 0;
 
   position: absolute;
-   top: 1.5em;
-   right: 2.5em;
+   top: 1rem;
+   right: 1rem;
 
   z-index: 910;
 
+  /*
   &:after {
     width: 100%;
     display: inline-block;
@@ -148,6 +149,7 @@ $navh: 6rem;
      bottom: -.1em;
      left: 0;
   }
+  */
 
   .icon-bar {
     width: 80%;
@@ -162,8 +164,8 @@ $navh: 6rem;
   // middle
   &.collapsed > .opennav.-middle { opacity: 1; }
   &> .opennav.-middle {
+    @extend %toggle_middle;
     @include transition-one(opacity);
-    top: 1.05em;
   }
 
 
@@ -175,13 +177,13 @@ $navh: 6rem;
     }
 
     &>.opennav.-top {
+      @extend %toggle_top;
       @include transform(0deg, (1,1), 0, 0, 0);
-      top: .45rem;
     }
 
     &>.opennav.-bottom {
+      @extend %toggle_bottom;
       @include transform(0deg, (1,1), 0, 0, 0);
-      top: 1.32rem;
     }
   }
 
@@ -190,15 +192,15 @@ $navh: 6rem;
   &[aria-expanded="true"] > .opennav {
 
     &.-top {
+      @extend %toggle_top_bottom_collapsed;
       @include animation(toggle_top, ease-in-out, 1, .2s);
       @include transform(45deg, (1,1), 0, 0, 0);
-      top: 1rem;
     }
 
     &.-bottom {
+      @extend %toggle_top_bottom_collapsed;
       @include animation(toggle_bottom, ease-in-out, 1, .2s);
       @include transform(-45deg, (1,1), 0, 0, 0);
-      top: 1rem;
     }
 
     &.-middle { opacity: 0; }
@@ -207,10 +209,10 @@ $navh: 6rem;
 
 
 
-// Animated
+// from x to hamburger
 .navbar-toggler.user-collapsed.collapsed {
-//  &>.opennav.-top { @include animation(toggle_top_collapsed, ease-in-out, 1, .2s); }
-//  &>.opennav.-bottom { @include animation(toggle_bottom_collapsed, ease-in-out, 1, .2s); }
+  &>.opennav.-top { @include animation(toggle_top_collapsed, ease-in-out, 1, .2s); }
+  &>.opennav.-bottom { @include animation(toggle_bottom_collapsed, ease-in-out, 1, .2s); }
 }
 
 
