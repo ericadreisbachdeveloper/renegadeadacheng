@@ -178,10 +178,10 @@ add_filter( 'login_errors', 'remove_error_msg' );
 function load_custom_scripts() {
 
 		if ( is_page_template ( 'page-login.php' ) ) {
-			wp_register_script('recaptcha', 'https://www.google.com/recaptcha/api.js', 'jquery', '2.0.0', 'all');
+			wp_register_script('recaptcha', 'https://www.google.com/recaptcha/api.js', 'jquery', '3.0.0', 'all');
 			wp_enqueue_script('recaptcha');
 
-			wp_register_script('recaptcha-sitekey', get_stylesheet_directory_uri() . '/js/recaptcha-sitekey.js', 'jquery', '1.0.1', 'all');
+			wp_register_script('recaptcha-sitekey', get_stylesheet_directory_uri() . '/js/recaptcha-sitekey.js', 'jquery', '3.0.0', 'all');
 			wp_enqueue_script('recaptcha-sitekey');
 		}
 }
@@ -191,9 +191,8 @@ if(!is_admin()) {
 }
 
 
-
 // 15c. Remove login message that confirms username in functions.php
-//add_filter('login_errors',create_function('$a', "return null;"));
+add_filter('login_errors',create_function('$a', "return null;"));
 
 
 // 15d. Hide default login screen
