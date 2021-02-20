@@ -112,28 +112,6 @@ p { margin-bottom: .8rem; }
 
 
 // Classes
-
-.sr-only {
-  width: 1px;
-  height: 1px;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-}
-
-.sr-only-focusable:focus,
-.sr-only.sr-only-focusable:focus,
-#skip-link:focus {
-  width: auto;
-  display: block;
-  clip-path: unset;
-  visibility: visible;
-}
-
-
 .section {
   width: 100%;
   clear: both;
@@ -166,14 +144,31 @@ a { @include hover { cursor: pointer; } }
 
 %hidden {
   width: 0;
+  height: 0;
   clip-path: polygon(0 0, 0 0, 0 0, 0 0);
-  display: none;
-  visibility: hidden;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
   position: absolute;
    left: -99999px;
 }
 
-.sr-only { @extend %hidden; @include hover { @extend %hidden; } }
+.sr-only { @extend %hidden; display: none; visibility: hidden; }
+
+.sr-only-focusable {
+  @extend %hidden;  
+  @include hover {
+    width: auto;
+    height: auto;
+    display: block;
+    clip-path: unset;
+    overflow: visible;
+     left: unset;
+  }
+}
+
+
+
 
 %clear {
   &:after {

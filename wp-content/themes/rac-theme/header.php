@@ -162,7 +162,7 @@ ob_start('sanitize_output'); ?>
 
 
 
-	<a href="#main" id="skip-link" class="sr-only sr-only-focusable">Skip to main content</a>
+	<a href="#main" id="skip-link" class="sr-only-focusable">Skip to main content</a>
 
 
 	<div class="wrapper">
