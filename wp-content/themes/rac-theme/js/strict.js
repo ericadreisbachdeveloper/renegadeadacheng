@@ -22,8 +22,18 @@
 
 		// Add two-part closing animation to navbar toggler
 		$('button[data-target="#navmenu"]').on('click', function(){
+
+			// the hamburger
 			if( $('#navmenu').hasClass('show')) {
 				$('button[data-target="#navmenu"]').addClass('user-collapsed');
+				$('#navmenu').removeClass('show').attr('aria-expanded', 'false').addClass('collapsed');
+				$('.navbar-toggler').attr('aria-expanded', 'false').addClass('collapsed');
+			}
+
+			// the x
+			else {
+				$('#navmenu').addClass('show').attr('aria-expanded', 'true').removeClass('collapsed');
+				$('.navbar-toggler').attr('aria-expanded', 'true').removeClass('collapsed');
 			}
 		});
 

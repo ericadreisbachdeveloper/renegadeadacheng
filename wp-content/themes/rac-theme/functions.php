@@ -86,7 +86,7 @@ add_action('wp_enqueue_scripts', 'deregister_css', 100 );
 
 // 5. Style vsn
 global $style_vsn;
-$style_vsn = '1.1.38';
+$style_vsn = '1.1.40';
 
 
 
@@ -137,10 +137,10 @@ add_action( 'wp_footer', 'deregister_footer' );
 
 // 11. Add footer scripts
 function footer_scripts() {
-  wp_register_script('bootstrap', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', 'jquery', '4.1.1');
+  wp_register_script('bootstrap', get_stylesheet_directory_uri() . '/js/xx-bootstrap.min.js', 'jquery', '4.1.1');
   wp_enqueue_script('bootstrap');
 }
-add_action('wp_footer', 'footer_scripts');
+//add_action('wp_footer', 'footer_scripts');
 
 
 

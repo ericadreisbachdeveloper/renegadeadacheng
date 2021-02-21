@@ -40,7 +40,6 @@ $navh: 6rem;
 
 
 // II. Nav
-
 #navmenu {
   @extend %nav-menu-position;
 
@@ -49,6 +48,8 @@ $navh: 6rem;
   position: absolute;
    left: 0;
   z-index: 900;
+
+  [href] { text-decoration: none; }
 }
 
 // using .container-on-mobile allows for a smooth full height dropdown
@@ -128,28 +129,14 @@ $navh: 6rem;
   width: 3rem;
   height: 3rem;
   background: transparent;
-  //background: yellow;
   border: none;
   padding: 0;
 
   position: absolute;
    top: 1rem;
-   right: 1rem;
+   right: 2rem;
 
   z-index: 910;
-
-  /*
-  &:after {
-    width: 100%;
-    display: inline-block;
-    content: 'MENU';
-    color: gray;
-    font-size: .6rem;
-    position: absolute;
-     bottom: -.1em;
-     left: 0;
-  }
-  */
 
   .icon-bar {
     width: 80%;
@@ -225,6 +212,7 @@ $navh: 6rem;
   width: 7rem;
   height: 3.1rem;
   background-color: transparent;
+  border-left: .05rem solid rgba(255,255,255,.1);
   display: block;
 
   position: absolute;
