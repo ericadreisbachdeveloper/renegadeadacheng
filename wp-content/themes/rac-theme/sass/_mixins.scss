@@ -163,12 +163,12 @@ $toggle_bottom: 2rem;
 
 @include keyframes(toggle_top_collapsed) {
   100% { @include transform(0deg, (1,1), 0, 0, 0); top: $toggle_top; }
-  50% { @include transform(0deg, (1,1), 0, 0, 0); top: $toggle_top_bottom_collapsed; }
+  70% { @include transform(0deg, (1,1), 0, 0, 0); top: $toggle_top_bottom_collapsed; }
   0% { @include transform(45deg, (1,1), 0, 0, 0); top: $toggle_top_bottom_collapsed; }
 }
 
 @include keyframes(toggle_bottom_collapsed) {
   100% { @include transform(0deg, (1,1), 0, 0, 0); top: $toggle_bottom; }
-  50% { @include transform(0deg, (1,1), 0, 0, 0); top: $toggle_top_bottom_collapsed; }
+  70% { @include transform(0deg, (1,1), 0, 0, 0); top: $toggle_top_bottom_collapsed; }
   0% { @include transform(-45deg, (1,1), 0, 0, 0); top: $toggle_top_bottom_collapsed; }
 }

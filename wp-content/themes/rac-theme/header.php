@@ -89,7 +89,7 @@ ob_start('sanitize_output'); ?>
 
 <!-- Favicons -->
 <?php include('favicons.php'); ?>
-<link href="<?php _e(get_stylesheet_directory_uri(), 'dbllc'); ?>/favicon.ico" type="image/x-icon" rel="shortcut icon">
+<link href="<?= esc_url(TDIR); ?>/favicon.ico" type="image/x-icon" rel="shortcut icon">
 
 
 
@@ -100,20 +100,20 @@ ob_start('sanitize_output'); ?>
 
 <!-- pre-load assets -->
 <?php global $style_vsn; ?>
-<link rel="preload" href="<?= esc_url(get_stylesheet_directory_uri()); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" as="style">
+<link rel="preload" href="<?= esc_url(TDIR); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" as="style">
 
 <link rel="stylesheet" href="<?php esc_url(get_site_url()); ; ?>/wp-includes/css/dist/block-library/style.min.css" media="print" onload="this.media='all'">
 
-<link rel="stylesheet" href="<?= esc_url(get_stylesheet_directory_uri()); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" />
+<link rel="stylesheet" href="<?= esc_url(TDIR); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" />
 
 <style>
 @font-face {
     font-family: "Font Awesome 5 Free";
     font-style: normal;
     font-weight: 400;
-    src: url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-solid-900.eot");
-    src: url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-solid-900.woff2") format("woff2"), url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-solid-900.woff") format("woff"),
-        url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-solid-900.ttf") format("truetype"), url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-solid-900.svg#fontawesome") format("svg");
+    src: url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.eot");
+    src: url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.woff2") format("woff2"), url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.woff") format("woff"),
+        url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.ttf") format("truetype"), url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.svg#fontawesome") format("svg");
 }
 
 .fa,
@@ -126,9 +126,9 @@ ob_start('sanitize_output'); ?>
     font-family: "Font Awesome Brands";
     font-style: normal;
     font-weight: 400;
-    src: url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-brands-400.eot");
-    src: url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.woff") format("woff"),
-        url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-brands-400.ttf") format("truetype"), url("<?= esc_url(get_stylesheet_directory_uri()); ?>/webfonts/fa-brands-400.svg#fontawesome") format("svg");
+    src: url("<?= esc_url(TDIR); ?>/webfonts/fa-brands-400.eot");
+    src: url("<?= esc_url(TDIR); ?>/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("<?= esc_url(TDIR); ?>/webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.woff") format("woff"),
+        url("<?= esc_url(TDIR); ?>/webfonts/fa-brands-400.ttf") format("truetype"), url("<?= esc_url(TDIR); ?>/webfonts/fa-brands-400.svg#fontawesome") format("svg");
 }
 </style>
 
@@ -139,7 +139,7 @@ ob_start('sanitize_output'); ?>
 <?php if($custom_logo_svg) : ?>
 <link rel="preload" as="image" href="<?= esc_url($custom_logo_svg); ?>">
 <?php else : ?>
-<link rel="preload" as="image" href="<?= esc_url(get_stylesheet_directory_uri()); ?>/img/logo.svg">
+<link rel="preload" as="image" href="<?= esc_url(TDIR); ?>/img/logo.svg">
 <?php endif; ?>
 
 
@@ -180,7 +180,7 @@ ob_start('sanitize_output'); ?>
 						<img class="logo-img" src="<?= esc_url($custom_logo_svg); ?>" />
 
 						<?php else : ?>
-						<img class="logo-img" src="<?= esc_url(get_stylesheet_directory_uri()); ?>/img/logo.svg" />
+						<img class="logo-img" src="<?= esc_url(TDIR); ?>/img/logo.svg" />
 
 						<?php endif; ?>
 

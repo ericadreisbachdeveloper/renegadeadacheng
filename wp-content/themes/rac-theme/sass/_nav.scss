@@ -2,6 +2,9 @@
  Nav + Header
 ------------------------ */
 
+$opennav_timing: .3s;
+
+
 
 // Default - hide menu until main menu is set up
 .menu { display: none; }
@@ -63,16 +66,17 @@ $navh: 6rem;
 
 .navbar-collapse {
 
-  &.collapse { display: none;
-    &.show   { display: block; }
+  &.collapse {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    @include transition(clip-path, .4s, ease);
   }
 
-  &.collapsing {
-    height: 0;
+  &.collapse.show {
+    height: auto;
+    display: block;
     clip-path: polygon(0 0, 100vw 0, 100vw 100%, 0 100%);
-    overflow: hidden;
+    overflow: scroll;
     position: relative;
-    transition: height .35s ease;
   }
 }
 
@@ -152,7 +156,7 @@ $navh: 6rem;
   &.collapsed > .opennav.-middle { opacity: 1; }
   &> .opennav.-middle {
     @extend %toggle_middle;
-    @include transition-one(opacity);
+    @include transition(opacity, $opennav_timing, ease-in-out);
   }
 
 
@@ -180,13 +184,13 @@ $navh: 6rem;
 
     &.-top {
       @extend %toggle_top_bottom_collapsed;
-      @include animation(toggle_top, ease-in-out, 1, .2s);
+      @include animation(toggle_top, ease-in-out, 1, $opennav_timing);
       @include transform(45deg, (1,1), 0, 0, 0);
     }
 
     &.-bottom {
       @extend %toggle_top_bottom_collapsed;
-      @include animation(toggle_bottom, ease-in-out, 1, .2s);
+      @include animation(toggle_bottom, ease-in-out, 1, $opennav_timing);
       @include transform(-45deg, (1,1), 0, 0, 0);
     }
 
@@ -196,10 +200,11 @@ $navh: 6rem;
 
 
 
+
 // from x to hamburger
 .navbar-toggler.user-collapsed.collapsed {
-  &>.opennav.-top { @include animation(toggle_top_collapsed, ease-in-out, 1, .2s); }
-  &>.opennav.-bottom { @include animation(toggle_bottom_collapsed, ease-in-out, 1, .2s); }
+  &>.opennav.-top { @include animation(toggle_top_collapsed, ease-in-out, 1, $opennav_timing); }
+  &>.opennav.-bottom { @include animation(toggle_bottom_collapsed, ease-in-out, 1, $opennav_timing); }
 }
 
 
@@ -262,7 +267,7 @@ $navh: 6rem;
   // 4. show full submenu if
   //    - caret was clicked and submemu has class .mobile-show-submenu
   //    - current page is a child page of a menu item and strict.js adds .mobile-show-submemu to submenu
-  &.mobile-show-submenu + .sub-menu { max-height: 40rem; height: 100%; }
+  &.mobile-show-submenu + .sub-menu { max-height: unset; height: 100%; }
 
 
   // 5. default submenu appearance - hidden by height
@@ -273,7 +278,7 @@ $navh: 6rem;
     overflow: hidden;
     text-transform: none;
 
-    @include transition-one(max-height);
+    @include transition(max-height, 2s, ease-in);
 
     // 6. submenu item padding
     a { padding: 1rem 0 1rem 3.5rem; }

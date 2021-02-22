@@ -40,8 +40,8 @@
 
 
 		//Show subnavs on mobile by clicking .open-submenu-a carets
-		$( '.open-submenu-a' ).on('click', function(){
-			$(this).next('.open-submenu-a').toggleClass('mobile-show-submenu');
+		$('.open-submenu-a').on('click', function(){
+			$(this).toggleClass('mobile-show-submenu');
 			return false;
 		});
 
@@ -50,15 +50,15 @@
 
 		// If viewing a child page
 		// show its containing submenu on mobile by default
-		if ( $('body').hasClass('page-child') ) {
-		   $('#navmenu .container-on-mobile .nav .current_page_ancestor .open-submenu-a').addClass('mobile-show-submenu');
+		if ( $('.current-menu-item').parent('ul').hasClass('sub-menu') ) {
+			$('.current-menu-item').parent('ul').parent('li').find('.open-submenu-a').addClass('mobile-show-submenu');
 		}
 
 
 		// If viewing a parent page
 		// show its child submenu on mobile by default
-		if ( $('body').hasClass('page-parent') ) {
-			 $('#navmenu .container-on-mobile .nav .current_page_item .open-submenu-a').addClass('mobile-show-submenu');
+		if ( $('.current-menu-item').hasClass('menu-item-has-children') ) {
+			 $('.current-menu-item .open-submenu-a').addClass('mobile-show-submenu');
 		}
 
 
