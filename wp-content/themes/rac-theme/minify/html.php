@@ -1,3 +1,4 @@
+<!-- src: https://github.com/mrclay/minify/blob/master/lib/Minify/HTML.php -->
 <?php if ( ! defined( 'ABSPATH' ) ) {  exit; } ?>
 
 <?php

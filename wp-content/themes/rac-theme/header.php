@@ -149,15 +149,18 @@ ob_start('sanitize_output'); ?>
 
 </head>
 
-<!-- default to assuming inline svg support (a reasonable assumption - https://caniuse.com/?search=svg ) -->
+<!-- default assumption - browser supports inline svgs - a reasonable assumption: https://caniuse.com/?search=svg -->
 <body <?php body_class(); ?> data-svg="inlinesvg">
 
 
-	<!-- detect SVG support -->
-	<script>
-	if (!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image", "1.1")) {
-		document.body.setAttribute('data-svg', 'no-inlinesvg');
-	}
+	<!-- 1. detect SVG support and update <body> attribute if needed - unminified version in THEME/js/svg-support.js -->
+	<!-- 2. add .-cssloaded to <body> after style.css loads - unminified vsn in THEME/js/cssloaded.js -->
+	<script defer>
+	document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||document.body.setAttribute("data-svg","no-inlinesvg");
+	<?php global $style_vsn; ?>
+	jQuery(document).ready(function () {
+	var style_vsn="<?= $style_vsn; ?>",tdir="<?= esc_url(TDIR); ?>",e=document.getElementsByTagName("head")[0],t=document.body,d=document.createElement("link"),n=document.createElement("img"),r=tdir+"/css/style.css?"+style_vsn;d.href=r,d.rel="stylesheet",e.appendChild(d),n.onerror=function(){jQuery("body").addClass("-cssloaded"),t.removeChild(n)},t.appendChild(n),n.src=r;
+	});
 	</script>
 
 

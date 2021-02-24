@@ -376,7 +376,7 @@
     }
 
     .search-input {
-      width: calc( 100% - 6rem);
+      width: 100%;
       background: $nearblack;
       color: white;
       display: block;
@@ -403,7 +403,12 @@
       &:after { color: white; }
     }
 
+    // show search
     .show-search {
+      [href="#display-search"]:after {
+        content: '\f00d';
+      }
+
       .search-input, .search-submit {
         max-height: 4rem;
         opacity: 1;
@@ -459,6 +464,13 @@
   %container-gutter { width: calc( #{$container} - 30px); margin-right: auto; margin-left: auto; }
 
 
+  // full-width header container on large
+  // Header - large
+  .site-header > .gutenberg-container {
+    width: calc(100% - 3rem);
+  }
+
+
 
   // Sticky Footer - large
   $footerh: 15rem;
@@ -490,11 +502,6 @@
     li { font-size: .85rem; }
   }
 
-
-  .col-footer:first-of-type { float: left; width: 66.666%; }
-  .col-footer:nth-of-type(2) { float: right; width: 33.333%; }
-
-
 }
 
 
@@ -507,7 +514,7 @@
   %breakpoint { background: mediumpurple; content: 'WIDE'; }
 
 
-  // Home - wide
+  // Header - wide
   .site-header {
     width: 100%;
     background: white;
@@ -527,11 +534,5 @@
   %container-wide { width: calc(#{$container} - 30px); margin-right: auto; margin-left: auto; }
 
   %container-gutter { width: calc( #{$container} - 30px); }
-
-
-  // Home - wide
-  .caption-container { left: -($container); }
-  .caption-extra { width: calc((100% - #{$container}) / 2); }
-
 
 }

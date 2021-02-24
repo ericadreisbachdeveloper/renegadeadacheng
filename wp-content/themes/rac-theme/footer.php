@@ -22,7 +22,6 @@
 
 
 
-
 <?php wp_footer(); ?>
 
 

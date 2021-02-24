@@ -16,6 +16,11 @@ The plugins below have been carefully seleted for optimal page speed and securit
 - **Async Javascript** https://wordpress.org/plugins/async-javascript/ <br />
 Adds the <span style="font-family: monospace; font-style: normal; font-weight: bold;">async</span> and/or <span style="font-family: monospace; font-style: normal; font-weight: bold;">defer</span> tags to Javascript files, improving page&nbsp;speed and Google search&nbsp;rank
 
+  **What is async? What is defer?** <br />
+  More here: https://flaviocopes.com/javascript-async-defer/ <br />
+  Short vsn: async blocks the parsing of the page while defer does not.
+  > The best thing to do to speed up your page loading when using scripts is to put them in the head, and add a defer attribute to your script tag:
+
 - **Google Sitemap Generator** https://wordpress.org/plugins/google-sitemap-generator <br />
 Excellent tool for dynamically-generated sitemaps to improve search appearance
 

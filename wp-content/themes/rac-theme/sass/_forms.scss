@@ -37,7 +37,7 @@ input {
 
   // buttons
   &[type="reset"],
-  &[type="search"],
+  //&[type="search"],
   &[type="submit"] {
 
     &[disabled] {
@@ -98,23 +98,28 @@ label { line-height: 1.8; }
 
 
 // Search
+#navmenu .search {  // the form
+  background: white;
+  position: relative;
+}
+
 #navmenu .search-input {
+  width: calc(100% - 6rem);
   background: white;
   color: $nearblack;
-  width: calc(100% - 6rem);
   border: none;
+  font-size: 1rem;
   padding: .9rem 4rem .7rem 2rem;
   text-align: left;
   text-transform: none;
 
   @include border-radius(0);
-  @include placeholder { color: gray; }
+  @include placeholder { color: dimgray; }
   @include simple-box-shadow(0,0,0,transparent);
 }
 
-#navmenu a[href="#display-form"] { display: none; }
 
-#navmenu .search { position: relative; }
+#navmenu a[href="#display-form"] { display: none; }
 
 .search-submit {
   background: none;
