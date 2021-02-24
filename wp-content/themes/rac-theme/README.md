@@ -2,7 +2,7 @@
 ###### current as of Feb 2021
 
 ## This Theme is a Child of HTML5 Blank
-Parent theme, if needed: http://html5blank.com/
+Parent theme: http://html5blank.com/
 
 ## Plugins
 The plugins below have been carefully seleted for optimal page speed and security. All plugins have been vetted in the <a href="https://wpscan.com/" target="_blank" rel="noopener">Wordpress Vulnerability Database</a> for any unaddressed security holes.
@@ -19,7 +19,7 @@ Adds the <span style="font-family: monospace; font-style: normal; font-weight: b
   **What is async? What is defer?** <br />
   More here: https://flaviocopes.com/javascript-async-defer/ <br />
   Short vsn: async blocks the parsing of the page while defer does not.
-  > The best thing to do to speed up your page loading when using scripts is to put them in the head, and add a defer attribute to your script tag:
+  > The best thing to do to speed up your page loading when using scripts is to put them in the head, and add a defer attribute to your script tag
 
 - **Google Sitemap Generator** https://wordpress.org/plugins/google-sitemap-generator <br />
 Excellent tool for dynamically-generated sitemaps to improve search appearance
@@ -71,3 +71,16 @@ Recommended: no more than 160 characters. This text usually appears as the snipp
 NOTE: this snippet may be overridden by Google.
 
 ALSO NOTE: Google does not use meta description keywords in search ranking <a href="https://webmasters.googleblog.com/2007/12/answering-more-popular-picks-meta-tags.html" target="_blank" rel="noopener">[citation]</a>
+
+
+
+
+## Tools
+
+1. Minify Javascript: https://javascript-minifier.com/
+
+2. Minify CSS: https://cssminifier.com/
+
+3. Compress SVGs: https://jakearchibald.github.io/svgomg/
+
+4. Convert SVGs to CSS: https://websemantics.uk/tools/svg-to-background-image-conversion/

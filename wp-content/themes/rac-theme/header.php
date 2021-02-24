@@ -102,35 +102,14 @@ ob_start('sanitize_output'); ?>
 <?php global $style_vsn; ?>
 <link rel="preload" href="<?= esc_url(TDIR); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" as="style">
 
-<link rel="stylesheet" href="<?php esc_url(get_site_url()); ; ?>/wp-includes/css/dist/block-library/style.min.css" media="print" onload="this.media='all'">
-
 <link rel="stylesheet" href="<?= esc_url(TDIR); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" />
 
-<style>
-@font-face {
-    font-family: "Font Awesome 5 Free";
-    font-style: normal;
-    font-weight: 400;
-    src: url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.eot");
-    src: url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.woff2") format("woff2"), url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.woff") format("woff"),
-        url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.ttf") format("truetype"), url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.svg#fontawesome") format("svg");
-}
+<link rel="stylesheet" href="<?php esc_url(get_site_url()); ; ?>/wp-includes/css/dist/block-library/style.min.css" media="print" onload="this.media='all'">
 
-.fa,
-.far,
-.fas {
-    font-family: "Font Awesome 5 Free";
-}
+<link rel="preload" href="<?= esc_url(TDIR); ?>/webfonts/leaguespartan-bold.otf" as="font" type="font/otf" crossOrigin="anonymous">
 
-@font-face {
-    font-family: "Font Awesome Brands";
-    font-style: normal;
-    font-weight: 400;
-    src: url("<?= esc_url(TDIR); ?>/webfonts/fa-brands-400.eot");
-    src: url("<?= esc_url(TDIR); ?>/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("<?= esc_url(TDIR); ?>/webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.woff") format("woff"),
-        url("<?= esc_url(TDIR); ?>/webfonts/fa-brands-400.ttf") format("truetype"), url("<?= esc_url(TDIR); ?>/webfonts/fa-brands-400.svg#fontawesome") format("svg");
-}
-</style>
+<!-- unminified vsn in THEME/sass/_fonts.scss -->
+<style>@font-face{font-family:"Font Awesome 5 Solid";font-style:normal;font-weight:400;src:url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.eot");src:url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"),url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.woff2") format("woff2"),url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.woff") format("woff"),url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.ttf") format("truetype"),url("<?= esc_url(TDIR); ?>/webfonts/fa-solid-900.svg#fontawesome") format("svg")}@font-face{font-family:"Font Awesome 5 Free";font-style:normal;font-weight:400;src:url("<?= esc_url(TDIR); ?>/webfonts/fa-regular-400.eot");src:url("<?= esc_url(TDIR); ?>/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"),url("<?= esc_url(TDIR); ?>/webfonts/fa-regular-400.woff2") format("woff2"),url("<?= esc_url(TDIR); ?>/webfonts/fa-regular-400.woff") format("woff"),url("<?= esc_url(TDIR); ?>/webfonts/fa-regular-400.ttf") format("truetype"),url("<?= esc_url(TDIR); ?>/webfonts/fa-regular-400.svg#fontawesome") format("svg")}@font-face{font-family:"Font Awesome Brands";font-style:normal;font-weight:400;src:url("<?= esc_url(TDIR); ?>/webfonts/fa-brands-400.eot");src:url("<?= esc_url(TDIR); ?>/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"),url("<?= esc_url(TDIR); ?>/webfonts/fa-brands-400.woff2") format("woff2"),url(../webfonts/fa-brands-400.woff) format("woff"),url("<?= esc_url(TDIR); ?>/webfonts/fa-brands-400.ttf") format("truetype"),url("<?= esc_url(TDIR); ?>/webfonts/fa-brands-400.svg#fontawesome") format("svg")}@font-face{font-family:"League Spartan";font-style:normal;font-weight:400;src:url("<?= esc_url(TDIR); ?>/webfonts/leaguespartan-bold.otf") format("opentype")}</style>
 
 
 <?php $custom_logo_svg = get_theme_mod( 'logo_svg' );

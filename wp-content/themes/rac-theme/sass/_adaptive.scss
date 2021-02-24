@@ -69,7 +69,7 @@
 
   .site-header .logo-div { height: $headerh; }
 
-  $logoh: 5.4rem;
+  $logoh: 5rem;
 
   .site-header .logo-img { height: $logoh; width: auto; max-width: 100%; }
 
@@ -103,7 +103,7 @@
 
 
   // nav element heights 100%
-  .nav,
+  //.nav,
   .nav > #navmenu,
   .nav > #navmenu .navbar-nav { height: 100%; }
 
@@ -111,6 +111,7 @@
   #navmenu {
     width: auto;
     background: none;
+    overflow: visible;
     position: static;
   }
 
@@ -130,15 +131,20 @@
   $navpad_left: 1.44rem;
   $navpad_nochildren_right: $navpad_left;
   $navpad_haschildren_right: 1.9rem;
+  $navpad_buttons_right: 1.2rem;
 
   #navmenu .navbar-nav > li {
     display: inline-block;
     font-size: .85rem;
+    margin-right: .2rem;
     position: relative;
 
-    &:not(.menu-item-has-children) > a {
+
+    &:not(.menu-item-has-children) > a:not([href*="events"]):not([href*="contact"]) {
       padding-right: $navpad_nochildren_right;
     }
+
+    &> [href*="events"], &> [href*="contact"] { padding-right: $navpad_buttons_right; }
 
     &.menu-item-has-children > a {
       padding-right: $navpad_haschildren_right;
@@ -149,31 +155,27 @@
       padding-bottom: $navpad_vertical;
       padding-left: $navpad_left;
 
-      @include hover {
-        color: $nearblack;
-      }
+      @include hover { color: $nearblack; }
 
       &:not([href="#"]) {
         @include transition(background, .3s, ease-in-out);
-        @include hover {
-          background: rgba(0,0,0,0.1);
-        }
+        @include hover { background: rgba(0,0,0,0.1); }
       }
     }
 
 
     // hover behavior - medium
-    &:not(.menu-item-has-children) > a {
+    &:not(.menu-item-has-children):not(.current-menu-item) > :not([href*="events"]):not([href*="contact"]) {
 
       &:before, &:after {
         width: 0;
-        height: .12rem;
+        height: .1rem;
         background: $nearblack;
         content: '';
         display: block;
         position: absolute;
          top: unset;
-         bottom: .2rem;
+         bottom: 0;
         @include border-radius(0);
         @include transition-one(width);
       }
@@ -200,8 +202,9 @@
 
   // hide mobile carets
   #navmenu .navbar-nav .menu-item-has-children > .open-submenu-a {
-    width: 1.8rem;
+    width: $navpad_haschildren_right;
     height: 100%;
+    border-left: none;
      right: 0;
 
     &:after {
@@ -253,6 +256,9 @@
   #navmenu .navbar-nav>li:first-of-type { margin-top: 0; }
   #navmenu .navbar-nav>li:last-of-type { margin-bottom: 0; }
 
+
+
+  #navmenu ul > li > a { border-bottom: none; }  // undoing mobile
 
 
 
@@ -324,13 +330,13 @@
     // style underlines on top level nav items
     &> a:before,
     &> a:after {
-      height: .12rem;
+      height: .1rem;
       background: $nearblack;
       content: '';
       display: block;
       position: absolute;
        top: unset;
-       bottom: .2rem;
+       bottom: 0;
       @include border-radius(0);
     }
   }
@@ -344,73 +350,89 @@
     .search {
       width: 2rem;
       height: 100%;
+      background: none; // undoing mobile
       @include flex;
       @include align-items(center);
     }
 
     [href="#display-search"] {
       display: block;
-      width: 2rem;
-      height: 2rem;
+      width: 2.5rem;
+      height: 2.5rem;
       background: transparent;
       color: $nearblack;
 
       @include flex;
       @include align-items(center);
       @include justify-content(center);
-      @include transition-multi(color .2s ease-in-out, background .2s ease-in-out);
-
-
-      @include hover { text-decoration: none; color: white; background: $nearblack;  }
+      @include transition-one(background-color);
 
       &:after {
-        content: '\f002';
+        // switching to inline svg to avoid FontAwesome "blink in"
+        // content: '\f002';
+        content: '';
+        width: 1rem;
+        height: 1rem;
+        background-color: transparent;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' overflow='visible'%3E%3Cpath fill='%231E1E1E' d='M11.077 6.77c0-1.187-.422-2.2-1.265-3.044-.842-.843-1.857-1.264-3.042-1.264-1.187 0-2.2.421-3.044 1.264-.843.843-1.264 1.857-1.264 3.044 0 1.186.421 2.2 1.264 3.043.844.843 1.857 1.265 3.044 1.265 1.186 0 2.2-.422 3.043-1.265s1.264-1.858 1.264-3.043zm4.923 8c0 .333-.122.621-.365.865a1.185 1.185 0 01-.865.365c-.347 0-.635-.122-.865-.365l-3.299-3.289a6.581 6.581 0 01-3.836 1.192 6.662 6.662 0 01-2.63-.533 6.767 6.767 0 01-2.164-1.442A6.797 6.797 0 01.533 9.399 6.665 6.665 0 010 6.77c0-.917.178-1.794.533-2.63a6.786 6.786 0 011.443-2.164A6.786 6.786 0 014.14.533 6.662 6.662 0 016.77 0 6.67 6.67 0 019.4.533a6.78 6.78 0 012.163 1.442 6.767 6.767 0 011.442 2.164c.355.836.533 1.713.533 2.63 0 1.41-.397 2.688-1.192 3.836l3.299 3.299c.237.237.355.526.355.866z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
         display: block;
-        font-family: 'Font Awesome 5 Free';
+
+        @include transition-one(background-image);
+      }
+
+      @include hover {
+        background-color: $nearblack;
+        color: white;
+        text-decoration: none;
+
+        &:after {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' overflow='visible'%3E%3Cpath fill='%23FFF' d='M11.077 6.77c0-1.187-.422-2.2-1.265-3.044-.842-.843-1.857-1.264-3.042-1.264-1.187 0-2.2.421-3.044 1.264-.843.843-1.264 1.857-1.264 3.044 0 1.186.421 2.2 1.264 3.043.844.843 1.857 1.265 3.044 1.265 1.186 0 2.2-.422 3.043-1.265s1.264-1.858 1.264-3.043zm4.923 8c0 .333-.122.621-.365.865a1.185 1.185 0 01-.865.365c-.347 0-.635-.122-.865-.365l-3.299-3.289a6.581 6.581 0 01-3.836 1.192 6.662 6.662 0 01-2.63-.533 6.767 6.767 0 01-2.164-1.442A6.797 6.797 0 01.533 9.399 6.665 6.665 0 010 6.77c0-.917.178-1.794.533-2.63a6.786 6.786 0 011.443-2.164A6.786 6.786 0 014.14.533 6.662 6.662 0 016.77 0 6.67 6.67 0 019.4.533a6.78 6.78 0 012.163 1.442 6.767 6.767 0 011.442 2.164c.355.836.533 1.713.533 2.63 0 1.41-.397 2.688-1.192 3.836l3.299 3.299c.237.237.355.526.355.866z'/%3E%3C/svg%3E");
+        }
       }
     }
 
-
     .search-input, .search-submit {
       position: fixed;
+      z-index: 900;
     }
 
     .search-input {
       width: 100%;
-      background: $nearblack;
       color: white;
       display: block;
        left: 0;
       text-align: center;
       z-index: -1;
-      @include placeholder {color: lightgray; text-indent: -3.5rem; }
+      @include placeholder {color: lightgray; }
     }
 
     .search-input, .search-submit {
-      max-height: 0;
-      opacity: 0;
-      top: $headerh;
-      @include transition-multi(max-height .2s ease-in-out, opacity .2s ease-in-out);
+      //opacity: 0;  // opacity set to 0 in _forms.scss
+      top: calc(#{$headerh} + 3rem);
+      @include transition-multi(opacity .2s ease-in-out);
     }
 
 
     .search-submit {
       display: block;
       width: 2rem;
-      height: 2rem;
-       top: 6.4rem;
-       right: 3.5rem;
+      height: 3.1rem;
+       right: 1.5rem;
       &:after { color: white; }
     }
 
     // show search
     .show-search {
-      [href="#display-search"]:after {
-        content: '\f00d';
+
+      [href="#display-search"] {
+        background: $nearblack;
+        color: white;
       }
+      [href="#display-search"]:after { content: '\f00d'; }
 
       .search-input, .search-submit {
-        max-height: 4rem;
         opacity: 1;
         z-index: 10;
       }
@@ -464,10 +486,80 @@
   %container-gutter { width: calc( #{$container} - 30px); margin-right: auto; margin-left: auto; }
 
 
-  // full-width header container on large
   // Header - large
-  .site-header > .gutenberg-container {
-    width: calc(100% - 3rem);
+  // full-width header container on large
+  .site-header > .gutenberg-container { width: calc(100% - 3rem); }
+
+
+  // Nav - large
+  .nav { height: 100%; }
+  $headerh: 6rem;
+  #navmenu { .search-input, .search-submit { top: $headerh; } }
+
+  $navpad_left: 1rem;
+  $navpad_nochildren_right: $navpad_left;
+  $navpad_haschildren_right: 1.2rem;
+  $navpad_buttons_right: .8rem;
+
+
+  #navmenu .navbar-nav > li {
+    &:not(.menu-item-has-children) > a:not([href*="events"]):not([href*="contact"]) {
+      padding-right: $navpad_nochildren_right;
+    }
+
+    &> [href*="events"], &> [href*="contact"] { padding-right: $navpad_buttons_right; }
+
+    // width of submenu caret
+    &.menu-item-has-children > .open-submenu-a:after {
+      width: $navpad_haschildren_right;
+    }
+
+    // space for submenu caret
+    &.menu-item-has-children > a {
+      padding-right: $navpad_haschildren_right;
+    }
+
+    // all the left pads are the same width
+    &> a { padding-left: $navpad_left; }
+
+
+    // i. hover
+    // li has no children and isn't Events / Contact
+    &:not(.menu-item-has-children):not(.current-menu-item) > :not([href*="events"]):not([href*="contact"]) {
+
+      a:before { left: 50%;  }
+      a:after  { right: 50%; }
+
+      @include hover {
+        &:before, &:after  {
+          width: calc( (100% - (2 * #{$navpad_left}) ) / 2 );
+        }
+      }
+    }
+  }
+
+
+  // ii. current
+  %current-page-or-current-parent-li {
+
+    // current parent or top level page does have children
+    &.menu-item-has-children > a:before,
+    &.menu-item-has-children > a:after {
+      // set width of underlines on parent top level nav items
+      width: calc( (100% - ( #{$navpad_left} + #{$navpad_haschildren_right} ) ) / 2);
+    }
+
+    &.menu-item-has-children > a:before { left: $navpad_left; }
+    &.menu-item-has-children > a:after { right: $navpad_haschildren_right; }
+
+    // current page has no children
+    &:not(.menu-item-has-children) {
+      a:after, a:before {
+        width: calc( (100% - (2 * #{$navpad_left}) ) / 2 );
+      }
+      a:before { left: 50%;  }
+      a:after  { right: 50%; }
+    }
   }
 
 
@@ -501,7 +593,6 @@
     text-align: left;
     li { font-size: .85rem; }
   }
-
 }
 
 
@@ -523,7 +614,15 @@
     @include simple-box-shadow(0,0,1em,rgba(0,0,0,.2));
   }
 
-  [data-role="main"] { padding-top: 6em; }
+  [data-role="main"] { padding-top: 6rem; }
+
+
+
+  // Nav - wide
+  $navpad_left: 1.44rem;
+  $navpad_nochildren_right: $navpad_left;
+  $navpad_haschildren_right: 1.9rem;
+  $navpad_buttons_right: 1.2rem;
 
 
 

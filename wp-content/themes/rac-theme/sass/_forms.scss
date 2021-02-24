@@ -99,22 +99,35 @@ label { line-height: 1.8; }
 
 // Search
 #navmenu .search {  // the form
-  background: white;
+  //background: white;
+  background: $nearblack;
   position: relative;
 }
 
+#navmenu [href="#display-search"]:after { @extend %fontawesome-solid; }
+
+
+// to avoid a blinking "black bar" when shifting browser width
+#navmenu {
+           .search-input, .search-submit { opacity: 0; }
+  &.show { .search-input, .search-submit { opacity: 1; } }
+}
+
+
 #navmenu .search-input {
+  @extend %leaguespartan;
+
   width: calc(100% - 6rem);
-  background: white;
-  color: $nearblack;
+  background-color: $nearblack;
+  color: white;
   border: none;
   font-size: 1rem;
-  padding: .9rem 4rem .7rem 2rem;
+  padding: 1.1rem 4rem .9rem 2rem;
   text-align: left;
   text-transform: none;
 
   @include border-radius(0);
-  @include placeholder { color: dimgray; }
+  @include placeholder { color: white; text-transform: uppercase; }
   @include simple-box-shadow(0,0,0,transparent);
 }
 
@@ -125,16 +138,16 @@ label { line-height: 1.8; }
   background: none;
   border: none;
   position: absolute;
-   top: .65rem;
+   top: .8rem;
    right: 2rem;
 
   -webkit-appearance: none;
 
   &:after {
-    color: $nearblack;
+    color: white;
     content: '\f002';
     display: block;
-    font-family: 'Font Awesome 5 Free';
+    font-family: 'Font Awesome 5 Solid';
     font-size: 1.3rem;
   }
 }

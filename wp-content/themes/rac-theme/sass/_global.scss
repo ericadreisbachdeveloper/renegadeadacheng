@@ -19,42 +19,61 @@
 
 
 
-// Typography©
+// Typography
 html * {
   -webkit-font-smoothing: subpixel-antialiased;
    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: arial, helvetica, sans-serif;
-  color: black;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+  color: $nearblack;
 }
 
-[data-role="main"] { line-height: 1.44; }
-
-article {
-  h1, h2 {
-    &> a {
-      text-decoration: none;
-      @include hover { text-decoration: none; }
-    }
-  }
-}
-
+%leaguespartan { font-family: 'League Spartan', 'Impact'; font-weight: 400; }
+%fontawesome { font-family: 'Font Awesome 5 Free'; font-weight: 400; }
+%fontawesome-solid { font-family: 'Font Awesome 5 Solid'; font-weight: 900;}
+%fontawesome-brands { font-family: 'Font Awesome Brands'; font-weight: 400;}
 
 %huge      { font-size: 2rem; line-height: 1.2;  }
 %large     { font-size: 1.5rem; line-height: 1.44; }
-%medium    { font-size: 1.125rem; line-height: 1.5; }
-%text      { font-size: 1rem; line-height: 1.66; }
-%small     { font-size: .9rem; line-height: 1.66; }
+%medium    { font-size: 1.125rem; line-height: 1.666; }
+%text      { font-size: 1rem; line-height: 1.666; }
+%small     { font-size: .9rem; line-height: 1.666; }
 
 
-[data-role="main"] h1 { @extend %large; }
+[data-role="main"] h1 { @extend %large; @extend %leaguespartan; text-transform: uppercase;  }
 
 [data-role="main"] h2 { @extend %medium; }
 
 [data-role="main"] { @extend %text; }
 
+
+[data-role="main"] [href] {
+  color: $magenta;
+  position: relative;
+  text-decoration: none;
+
+  &:after {
+    width: 100%;
+    height: .05rem;
+    background: $magenta;
+    position: absolute;
+     left: 0;
+     bottom: 0;
+    content: '';
+    @include transition-multi(width .2s ease-in-out, background .2s ease-in-out);
+  }
+
+  @include hover {
+    color: $mauve;
+
+    &:after {
+      width: 0;
+      background: $mauve;
+    }
+  }
+}
 
 
 
@@ -156,7 +175,7 @@ a { @include hover { cursor: pointer; } }
 .sr-only { @extend %hidden; display: none; visibility: hidden; }
 
 .sr-only-focusable {
-  @extend %hidden;  
+  @extend %hidden;
   @include hover {
     width: auto;
     height: auto;
@@ -352,8 +371,7 @@ figure.alignright figcaption  { text-align: right; }
 
 
 // Edit link
-
-.post-edit-link {
+[data-role="main"] .post-edit-link {
   width: 7.5em;
   clear: left;
   float: left;
@@ -365,8 +383,8 @@ figure.alignright figcaption  { text-align: right; }
   clear: left;
 }
 
-.post-admin-link,
-.post-edit-link {
+[data-role="main"] .post-admin-link,
+[data-role="main"] .post-edit-link {
   background: red;
   border: 2px solid red;
   color: white;
@@ -380,9 +398,9 @@ figure.alignright figcaption  { text-align: right; }
   @include hover { background: white; color: red; text-decoration: none; @include transition(all,.2s,ease-in-out); }
 
   &:before {
+    @extend %fontawesome-solid; 
     content: '\f013';
     display: inline-block;
-    font-family: "Font Awesome 5 Free";
     margin-right: .3em;
   }
 }
