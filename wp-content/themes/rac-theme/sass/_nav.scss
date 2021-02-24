@@ -64,18 +64,20 @@ $navh: 6rem;
   margin: 0;
 }
 
+
+// clip-path used to animate mobile menus
 .navbar-collapse {
+  overflow-x: hidden;
 
   &.collapse {
+    height: auto;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     @include transition(clip-path, .4s, ease);
   }
 
   &.collapse.show {
-    height: auto;
-    display: block;
     clip-path: polygon(0 0, 100vw 0, 100vw 100%, 0 100%);
-    overflow: scroll;
+    overflow-y: scroll;
     position: relative;
   }
 }
@@ -87,7 +89,8 @@ $navh: 6rem;
   padding: 0;
 
   // position relative on ALL li allows for correct display
-  // of current nav dot on mobile
+  // of current nav dot
+  // on mobile
   li { position: relative; }
 
   &> li { letter-spacing: .05em; }
@@ -99,7 +102,8 @@ $navh: 6rem;
 
 
 #navmenu .navbar-nav {  // div > ul
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 
   &> li {
@@ -267,18 +271,20 @@ $navh: 6rem;
   // 4. show full submenu if
   //    - caret was clicked and submemu has class .mobile-show-submenu
   //    - current page is a child page of a menu item and strict.js adds .mobile-show-submemu to submenu
-  &.mobile-show-submenu + .sub-menu { max-height: unset; height: 100%; }
+  &.mobile-show-submenu + .sub-menu {
+    height: 100%;
+    max-height: unset;
+  }
 
 
   // 5. default submenu appearance - hidden by height
   &+ .sub-menu {
+    height: 0;
+    max-height: 0;
     background: rgba(0,0,0,.1);
     display: block;
-    max-height: 0;
     overflow: hidden;
     text-transform: none;
-
-    @include transition(max-height, 2s, ease-in);
 
     // 6. submenu item padding
     a { padding: 1rem 0 1rem 3.5rem; }

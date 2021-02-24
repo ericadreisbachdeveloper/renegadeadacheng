@@ -39,12 +39,23 @@
 
 
 
-		//Show subnavs on mobile by clicking .open-submenu-a carets
+		// Show subnavs on mobile by clicking .open-submenu-a carets
 		$('.open-submenu-a').on('click', function(){
 			$(this).toggleClass('mobile-show-submenu');
 			return false;
 		});
 
+
+
+		// Show subnav on mobile if clicked a menu link with href="#"
+		$('.navbar-nav li a[href="#"]').on('click', function(){
+			if ( $(this).parent('li').find('.open-submenu-a').hasClass('mobile-show-submenu') ) {
+				$(this).parent('li').find('.open-submenu-a').removeClass('mobile-show-submenu')
+			}
+			else {
+				$(this).parent('li').find('.open-submenu-a').addClass('mobile-show-submenu');
+			}
+		});
 
 
 
