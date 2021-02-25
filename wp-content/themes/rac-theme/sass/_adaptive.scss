@@ -48,10 +48,10 @@
 
 
   // Header - medium
-  $headerh: 6rem;
 
-  .site-header { height: $headerh; }
+  //.site-header { height: $headerh; }
 
+  /*
   .site-header > .container { position: relative; }
 
   .site-header > .container {
@@ -60,7 +60,18 @@
       z-index: 10;
     }
   }
+  */
 
+  .site-header { height: auto; }
+
+  .site-header > .gutenberg-container {
+    @include flex;
+    @include flex-wrap(wrap);
+  }
+
+
+  $headerh: 6rem;
+  $logoh: 5rem;
 
   .site-header .logo-div {
     display: block;
@@ -68,8 +79,6 @@
   }
 
   .site-header .logo-div { height: $headerh; }
-
-  $logoh: 5rem;
 
   .site-header .logo-img { height: $logoh; width: auto; max-width: 100%; }
 
@@ -127,69 +136,52 @@
     }
   }
 
-  $navpad_vertical: .6rem;
-  $navpad_left: 1.44rem;
-  $navpad_nochildren_right: $navpad_left;
-  $navpad_haschildren_right: 1.9rem;
-  $navpad_buttons_right: 1.2rem;
+
+
+  // Nav buttons - medium
+  #navmenu .navbar-nav > li > [href*="events"]:after,
+  #navmenu .navbar-nav > li > [href*="contact"]:after { display: none; }
+
+  #navmenu .navbar-nav > li > [href*="events"]:not([href="#"]) { @include hover { background: $lavender2; } }
+  #navmenu .navbar-nav > li > [href*="contact"]:not([href="#"]) { @include hover { background: $lavender2; } }
 
   #navmenu .navbar-nav > li {
     display: inline-block;
     font-size: .85rem;
-    margin-right: .2rem;
+    margin-right: .5rem;
     position: relative;
+  }
 
 
-    &:not(.menu-item-has-children) > a:not([href*="events"]):not([href*="contact"]) {
-      padding-right: $navpad_nochildren_right;
-    }
+
+  // Nav pad - medium
+  $navpad_vertical: .6rem;
+  $navpad_left: 1rem;
+  $navpad_nochildren_right: $navpad_left;
+  $navpad_haschildren_right: 1.2rem;
+  $navpad_buttons_right: $navpad_left;
+
+  #navmenu .navbar-nav > li {
+    &:not(.menu-item-has-children) > a:not([href*="events"]):not([href*="contact"]) { padding-right: $navpad_nochildren_right;}
 
     &> [href*="events"], &> [href*="contact"] { padding-right: $navpad_buttons_right; }
 
-    &.menu-item-has-children > a {
-      padding-right: $navpad_haschildren_right;
-    }
+    &.menu-item-has-children > a { padding-right: $navpad_haschildren_right; }
 
     &> a {
       padding-top: $navpad_vertical;
       padding-bottom: $navpad_vertical;
       padding-left: $navpad_left;
-
-      @include hover { color: $nearblack; }
-
-      &:not([href="#"]) {
-        @include transition(background, .3s, ease-in-out);
-        @include hover { background: rgba(0,0,0,0.1); }
-      }
     }
+  }
 
+  #navmenu .navbar-nav > li > a:not([href*=events]):not([href*=contact]) {
+    @include hover { color: $nearblack; }
+  }
 
-    // hover behavior - medium
-    &:not(.menu-item-has-children):not(.current-menu-item) > :not([href*="events"]):not([href*="contact"]) {
-
-      &:before, &:after {
-        width: 0;
-        height: .1rem;
-        background: $nearblack;
-        content: '';
-        display: block;
-        position: absolute;
-         top: unset;
-         bottom: 0;
-        @include border-radius(0);
-        @include transition-one(width);
-      }
-
-      &:before { left: 50%; }
-      &:after { right: 50%; }
-
-      // on hover
-      @include hover {
-        &:before, &:after  {
-          width: calc( (100% - (2 * #{$navpad_left}) ) / 2 );
-        }
-      }
-    }
+  #navmenu .navbar-nav > li > a:not([href="#"]) {
+    @include transition(background, .3s, ease-in-out);
+    @include hover { background: rgba(0,0,0,0.1); }
   }
 
   #navmenu .navbar-nav>li { border: none; }
@@ -203,12 +195,19 @@
   // hide mobile carets
   #navmenu .navbar-nav .menu-item-has-children > .open-submenu-a {
     width: $navpad_haschildren_right;
+  }
+
+  #navmenu .navbar-nav .menu-item-has-children > .open-submenu-a:after {
+    width: $navpad_haschildren_right;
+  }
+
+
+  #navmenu .navbar-nav .menu-item-has-children > .open-submenu-a {
     height: 100%;
     border-left: none;
      right: 0;
 
     &:after {
-      width: 1.8rem;
       height: 100%;
       background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='8' overflow='visible'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' fill='111111' d='M12.598 0L6.529 5.859 0 0h12.598z'/%3E%3C/svg%3E");
       background-position: .3rem 52%;
@@ -307,11 +306,13 @@
     // ... on mobile bg is gray
     background: none;
 
-    &:not(.menu-item-has-children) > a:before,
-    &:not(.menu-item-has-children) > a:after {
-      // set width of underlines on childless top level nav items
-      width: calc( (100% - (2 * #{$navpad_left}) ) / 2 );
+    &:not(.menu-item-has-children) > a:not([href*=events]):not([href*=contact]) {
+      &:after, &:before {
+        // set width of underlines on childless top level nav items
+        width: calc( (100% - (2 * #{$navpad_left}) ) / 2 );
+      }
     }
+
 
     &.menu-item-has-children > a:before,
     &.menu-item-has-children > a:after {
@@ -324,8 +325,9 @@
     &> a:before { left: $navpad_left;  }
 
     // set position of right underlines
-    &:not(.menu-item-has-children) > a:after { right: $navpad_nochildren_right; }
-          &.menu-item-has-children > a:after { right: $navpad_haschildren_right; }
+    // fudging these values just a smidge
+    &:not(.menu-item-has-children) > a:after { right: calc( #{$navpad_nochildren_right} + .1rem); }
+          &.menu-item-has-children > a:after { right: calc( #{$navpad_haschildren_right} + .1rem); }
 
     // style underlines on top level nav items
     &> a:before,
@@ -465,7 +467,23 @@
 
 
 
+// Medium-large - awkward spot
+@media (min-width: 52rem) {
+  %breakpoint { background: deeppink; content: 'MD-LG'; }
 
+  #navmenu .navbar-nav > li > a { padding-top: 1rem; padding-bottom: 1rem; }
+
+  #navmenu .navbar-nav > li > [href*="events"],
+  #navmenu .navbar-nav > li > [href*="contact"],
+  #navmenu .navbar-nav > li > [href*="events"]:after,
+  #navmenu .navbar-nav > li > [href*="contact"]:after { @include flex; }
+
+  #navmenu .navbar-nav > li > [href*="events"]:after { margin-top: -.1rem; }
+
+  #navmenu .navbar-nav > li > [href*="events"],
+  #navmenu .navbar-nav > li > [href*="contact"] { padding-right: .3rem; }
+
+}
 
 
 
@@ -488,19 +506,23 @@
 
   // Header - large
   // full-width header container on large
-  .site-header > .gutenberg-container { width: calc(100% - 3rem); }
+  .site-header > .gutenberg-container { width: calc(100% - 3rem); @include justify-content(space-between); }
 
 
   // Nav - large
-  .nav { height: 100%; }
   $headerh: 6rem;
+  .site-header .nav { height: $headerh; }
   #navmenu { .search-input, .search-submit { top: $headerh; } }
 
-  $navpad_left: 1rem;
+  $navpad_left: .9rem;
   $navpad_nochildren_right: $navpad_left;
-  $navpad_haschildren_right: 1.2rem;
-  $navpad_buttons_right: .8rem;
+  $navpad_haschildren_right: 1.1rem;
+  $navpad_buttons_right: .4rem;
 
+
+  // Nav pad - large
+  // i. nav pad
+  #navmenu .navbar-nav .menu-item-has-children > .open-submenu-a:after { width: $navpad_haschildren_right; }
 
   #navmenu .navbar-nav > li {
     &:not(.menu-item-has-children) > a:not([href*="events"]):not([href*="contact"]) {
@@ -510,9 +532,7 @@
     &> [href*="events"], &> [href*="contact"] { padding-right: $navpad_buttons_right; }
 
     // width of submenu caret
-    &.menu-item-has-children > .open-submenu-a:after {
-      width: $navpad_haschildren_right;
-    }
+    &.menu-item-has-children > .open-submenu-a:after { width: $navpad_haschildren_right; }
 
     // space for submenu caret
     &.menu-item-has-children > a {
@@ -523,7 +543,8 @@
     &> a { padding-left: $navpad_left; }
 
 
-    // i. hover
+    // Nav hover - large
+    // ii. hover
     // li has no children and isn't Events / Contact
     &:not(.menu-item-has-children):not(.current-menu-item) > :not([href*="events"]):not([href*="contact"]) {
 
@@ -539,7 +560,8 @@
   }
 
 
-  // ii. current
+  // Nav current - large
+  // iii. current
   %current-page-or-current-parent-li {
 
     // current parent or top level page does have children
