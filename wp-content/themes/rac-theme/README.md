@@ -74,6 +74,11 @@ ALSO NOTE: Google does not use meta description keywords in search ranking <a hr
 
 
 
+## Best Practices
+
+Use `font-display: swap` in `@font-face` declarations
+
+
 
 ## Tools
 
