@@ -73,11 +73,13 @@ $navh: 6rem;
   &.collapse {
     height: auto;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    @include transition(clip-path, .4s, ease);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    @include transition-multi(clip-path .4s ease, -webkit-clip-path .4s ease);
   }
 
   &.collapse.show {
     clip-path: polygon(0 0, 100vw 0, 100vw 100%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100vw 0, 100vw 100%, 0 100%);
     overflow-y: scroll;
     position: relative;
   }
@@ -318,14 +320,13 @@ $navh: 6rem;
 
 %current-nav-a-white {
   @extend %current-nav-a;
-  &:before { background: white; }
+  &:before { background: $nearblack; }
 }
 
 
 
 // 2. Parents
 %current-page-or-current-parent-li { // mobile top level links get
-  //background: rgba(0,0,0,.2);
   background: $lavender1;
 }
 
