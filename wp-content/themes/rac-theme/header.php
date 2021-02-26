@@ -159,10 +159,10 @@ ob_start('sanitize_output'); ?>
 					<a href="<?php echo esc_url(get_home_url()); ?>" class="pngbg logo-a a">
 
 						<?php if($custom_logo_svg) : ?>
-						<img class="logo-img" src="<?= esc_url($custom_logo_svg); ?>" />
+						<img class="logo-img" src="<?= esc_url($custom_logo_svg); ?>" title="<?= get_bloginfo('name'); ?>" alt="logo for <?= get_bloginfo('name'); ?>"/>
 
 						<?php else : ?>
-						<img class="logo-img" src="<?= esc_url(TDIR); ?>/img/logo.svg" />
+						<img class="logo-img" src="<?= esc_url(TDIR); ?>/img/logo.svg" title="<?= get_bloginfo('name'); ?>" alt="logo for <?= get_bloginfo('name'); ?>" />
 
 						<?php endif; ?>
 
