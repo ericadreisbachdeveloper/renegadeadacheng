@@ -1,72 +1,67 @@
 /* ------------------------
-
+ Forms
 ------------------------ */
 
 
-input {
+%input {
+  @extend %arialrounded;
+  border-top: none;
+  border-right: none;
+  border-bottom: .3rem solid lightgray;
+  border-left: none;
+  font-size: 1rem;
+  padding: .666rem .1rem;
+  @include transition-one(border-bottom);
 
+  @include placeholder { font-size: 1rem; }
+
+  @include hover {
+    border-bottom: .3rem solid $magenta;
+  }
+}
+
+
+input {
   &[type="text"],
-  //button
-  //checkbox
   &[type="color"],
   &[type="date"],
   &[type="datetime-local"],
   &[type="email"],
   &[type="file"],
-//hidden
   &[type="image"],
   &[type="month"],
-  &[type="number"],
   &[type="password"],
-  &[type="radio"],
   &[type="range"],
-//reset
-//search
-//submit
   &[type="tel"],
-  &[type="time"],
-  &[type="url"],
-  &[type="week"] {
-    border: .05em solid lightgray;
-    margin: 0;
-    padding: .5em;
-    @include simple-box-shadow(.05em, .05em, .1em, lightgray);
+  &[type="url"] {
+    @extend %input;
   }
 
 
 
   // buttons
   &[type="reset"],
-  //&[type="search"],
   &[type="submit"] {
 
-    &[disabled] {
-      background: gray;
-      box-shadow: 0 .1rem 0 darkgray;
-      color: lightgray;
+    @extend %leaguespartan;
 
-      &:hover { background: gray; cursor: default; }
-      &:active, &:focus { box-shadow: 0 .1rem 0 darkgray; }
-    }
-
-    background: dodgerblue;
+    background: $magenta;
     border: none;
     color: white;
-    letter-spacing: .05rem;
-    padding: .4rem 1.2rem;
+    padding: .666rem 1.2rem;
     position: relative;
     text-transform: uppercase;
 
-    @include border-radius(.5em);
-    @include simple-box-shadow(0, .2rem, 0, rgba(0,0,255,.3));
-    @include transition-multi(background .2s ease-in-out, border .2s ease-in-out);
+    @include transition-one(background);
 
-    &:hover { background: steelblue; }
+    @include hover { background: $mauve; cursor: pointer; }
 
-    &:active, &:focus {
-      //top: .1em;
-      @include simple-box-shadow(0, .1rem, 0 ,rgba(0,0,0,.3));
+    &[disabled] {
+      background: gray;
+      color: lightgray;
+      &:hover { background: gray; cursor: default; }
     }
+
   }
 }
 
@@ -74,35 +69,34 @@ input {
 label { line-height: 1.8; }
 
 
+// Login
+
 #loginform {
-  label, input[type="text"], input[type="password"], input[type="submit"] {
+
+  label { @extend %hidden; }
+
+  input[type="text"], input[type="password"], input[type="submit"] {
     display: block;
   }
-
 
   input[type="text"], input[type="password"] {
-    width: 14em;
-    display: block;
-    margin-bottom: 1em;
+    width: 18rem;
+    margin-bottom: 1rem;
   }
 
-  input[type="submit"] { margin-top: 2em; }
+  input[type="submit"] { margin-top: 2rem; }
 }
 
-
-
-// reCAPTCHA
-.g-recaptcha{ padding-top: .5em; padding-bottom: 1em;  }
 
 
 
 
 // Search
 #navmenu .search {  // the form
-  //background: white;
   background: $nearblack;
   position: relative;
 }
+
 
 #navmenu [href="#display-search"]:after { @extend %fontawesome-solid; }
 
@@ -130,9 +124,6 @@ label { line-height: 1.8; }
   @include placeholder { color: white; text-transform: uppercase; }
   @include simple-box-shadow(0,0,0,transparent);
 }
-
-
-#navmenu a[href="#display-form"] { display: none; }
 
 .search-submit {
   background: none;
