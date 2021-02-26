@@ -155,7 +155,7 @@
 
 
   // Nav pad - medium
-  $navpad_vertical: .6rem;
+  $navpad_vertical: 1rem;
   $navpad_left: 1rem;
   $navpad_nochildren_right: $navpad_left;
   $navpad_haschildren_right: 1.2rem;
@@ -314,6 +314,7 @@
     }
 
 
+    // underlines - medium
     &.menu-item-has-children > a:before,
     &.menu-item-has-children > a:after {
       // set width of underlines on parent top level nav items
@@ -325,14 +326,16 @@
     &> a:before { left: $navpad_left;  }
 
     // set position of right underlines
-    // fudging these values just a smidge
-    &:not(.menu-item-has-children) > a:after { right: calc( #{$navpad_nochildren_right} + .1rem); }
-          &.menu-item-has-children > a:after { right: calc( #{$navpad_haschildren_right} + .1rem); }
+    // fudging this values just a smidge
+    &> a:not([href*="events"]):not([href*="contact"]) {
+      &:after { right: calc( #{$navpad_nochildren_right} + .1rem); }
+    }
+
 
     // style underlines on top level nav items
-    &> a:before,
-    &> a:after {
-      height: .1rem;
+    &> a:not([href*="events"]):not([href*="contact"]):before,
+    &> a:not([href*="events"]):not([href*="contact"]):after {
+      height: .06rem;
       background: $nearblack;
       content: '';
       display: block;
@@ -359,10 +362,12 @@
 
     [href="#display-search"] {
       display: block;
-      width: 2.5rem;
-      height: 2.5rem;
+      width: auto;
+      height: 3.063rem;
       background: transparent;
       color: $nearblack;
+      padding-left: .666rem;
+      padding-right: .666rem; 
 
       @include flex;
       @include align-items(center);
@@ -576,11 +581,13 @@
 
     // current page has no children
     &:not(.menu-item-has-children) {
-      a:after, a:before {
-        width: calc( (100% - (2 * #{$navpad_left}) ) / 2 );
+      &> a:not([href*="events"]):not([href*="contact"]) {
+        &:after, &:before {
+          width: calc( (100% - (2 * #{$navpad_left}) ) / 2 );
+        }
+        a:before { left: 50%;  }
+        a:after  { right: 50%; }
       }
-      a:before { left: 50%;  }
-      a:after  { right: 50%; }
     }
   }
 

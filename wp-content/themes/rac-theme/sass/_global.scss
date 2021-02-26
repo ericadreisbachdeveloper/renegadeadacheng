@@ -398,9 +398,11 @@ figure.alignright figcaption  { text-align: right; }
   @include hover { background: white; color: red; text-decoration: none; @include transition(all,.2s,ease-in-out); }
 
   &:before {
-    @extend %fontawesome-solid; 
+    @extend %fontawesome-solid;
     content: '\f013';
     display: inline-block;
     margin-right: .3em;
   }
+
+  &:after { display: none; }
 }
