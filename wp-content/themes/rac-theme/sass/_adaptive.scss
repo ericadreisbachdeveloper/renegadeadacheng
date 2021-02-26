@@ -94,7 +94,7 @@
 
 
   // Nav - medium
-  .nav[role="navigation"] { float: left; padding-left: 2rem; }
+  .gutenberg-container > .nav { float: left; padding-left: 2rem; }
   .navbar-toggler { display: none; }
 
   // undoing mobile stuff
@@ -104,8 +104,8 @@
   { display: block; clip-path: unset; }
 
 
-  .logo-div { float: left; }
-  .nav { float: right; }
+                    .logo-div { float: left; }
+  .gutenberg-container > .nav { float: right; }
 
 
   #navmenu > .container-on-mobile { width: auto; min-height: 0; }
@@ -352,7 +352,7 @@
     .container-on-mobile { @include flex; }
 
     .search {
-      width: 2rem;
+      width: 2.3rem;
       height: 100%;
       background: none; // undoing mobile
       @include flex;
@@ -361,21 +361,33 @@
 
     [href="#display-search"] {
       display: block;
-      width: auto;
+      width: 3.063rem;
       height: 3.063rem;
       background: transparent;
       color: $nearblack;
+      /*
       padding-left: .666rem;
       padding-right: .666rem;
+      */
+      position: relative;
 
       @include flex;
       @include align-items(center);
       @include justify-content(center);
       @include transition-one(background-color);
 
+
+      // input bg
+      &:before {
+        height: 3.23rem;
+        content: '';
+        opacity: 0;
+        position: fixed;
+         left: 0;
+      }
+
+      // the glass
       &:after {
-        // switching to inline svg to avoid FontAwesome "blink in"
-        // content: '\f002';
         content: '';
         width: 1rem;
         height: 1rem;
@@ -394,49 +406,69 @@
         text-decoration: none;
 
         &:after {
+          @include transition-one(background-image);
+
           background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' overflow='visible'%3E%3Cpath fill='%23FFF' d='M11.077 6.77c0-1.187-.422-2.2-1.265-3.044-.842-.843-1.857-1.264-3.042-1.264-1.187 0-2.2.421-3.044 1.264-.843.843-1.264 1.857-1.264 3.044 0 1.186.421 2.2 1.264 3.043.844.843 1.857 1.265 3.044 1.265 1.186 0 2.2-.422 3.043-1.265s1.264-1.858 1.264-3.043zm4.923 8c0 .333-.122.621-.365.865a1.185 1.185 0 01-.865.365c-.347 0-.635-.122-.865-.365l-3.299-3.289a6.581 6.581 0 01-3.836 1.192 6.662 6.662 0 01-2.63-.533 6.767 6.767 0 01-2.164-1.442A6.797 6.797 0 01.533 9.399 6.665 6.665 0 010 6.77c0-.917.178-1.794.533-2.63a6.786 6.786 0 011.443-2.164A6.786 6.786 0 014.14.533 6.662 6.662 0 016.77 0 6.67 6.67 0 019.4.533a6.78 6.78 0 012.163 1.442 6.767 6.767 0 011.442 2.164c.355.836.533 1.713.533 2.63 0 1.41-.397 2.688-1.192 3.836l3.299 3.299c.237.237.355.526.355.866z'/%3E%3C/svg%3E");
         }
       }
     }
 
-    .search-input, .search-submit {
+
+    .search-input, .search-submit, [href="#display-search"]:before {
       position: fixed;
+       top: calc(#{$headerh} + 3.2rem);
       z-index: 900;
-    }
 
-    .search-input {
-      width: 100%;
-      color: white;
-      display: block;
-       left: 0;
-      text-align: center;
-      z-index: -1;
-      @include placeholder {color: lightgray; }
-    }
-
-    .search-input, .search-submit {
-      //opacity: 0;  // opacity set to 0 in _forms.scss
-      top: calc(#{$headerh} + 3rem);
       @include transition-multi(opacity .2s ease-in-out);
     }
+  }
 
+
+  #navmenu {
+
+    $iw: 43.563rem;  // input width
+    $bw: 2.3rem;  // button width
+    $lm: 1.5rem;  // left margin
+    $sbgw: 100%;  // width of search bg
+
+    .search-input { width: calc(#{$iw} + #{$bw}); }
+    .search-submit { left: calc(#{$iw} + #{$lm}); }
+    .show-search [href="#display-search"]:before { width: $sbgw; }
+
+    .search-input {
+      background: none;
+      color: white;
+      display: block;
+       left: $lm;
+      text-align: center;
+      z-index: -1;
+      @include placeholder { color: lightgray; }
+    }
 
     .search-submit {
       display: block;
-      width: 2rem;
-      height: 3.1rem;
-       right: 1.5rem;
-      &:after { color: white; }
+      width: 2.3rem;
+      height: 3.2495rem;
     }
 
     // show search
     .show-search {
 
+      [href="#display-search"]:before {
+        background: $nearblack;
+        opacity: 1;
+        z-index: -2;
+      }
+
       [href="#display-search"] {
         background: $nearblack;
-        color: white;
+        background-position: 50% 50%;
+
+        // the x
+        &:after {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' overflow='visible'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' fill='%23FFF' d='M15.71 13.584l-2.121 2.121-5.73-5.73-5.738 5.738L0 13.592l5.738-5.738L.006 2.122 2.127 0l5.732 5.731L13.582.007l2.122 2.122L9.98 7.854l5.73 5.73z'/%3E%3C/svg%3E");
+        }
       }
-      [href="#display-search"]:after { content: '\f00d'; }
 
       .search-input, .search-submit {
         opacity: 1;
@@ -474,6 +506,22 @@
 // Medium-large - awkward spot
 @media (min-width: 52rem) {
   %breakpoint { background: deeppink; content: 'MD-LG'; }
+
+
+  $iw: calc(100% - 3rem); // input width (w/o button)
+  $bw: 2.3rem;  // button width
+  $lm: 1.5rem;  // left margin
+  $sbgw: 100%;  // width of search bg
+
+  #navmenu {
+    .search-input { width: $iw; }
+    .search-submit { left: calc(#{$iw} - .75rem); }
+    .show-search [href="#display-search"]:before { width: $sbgw; }
+  }
+                  .nav { width: 100%; float: unset; }
+  #navmenu .navbar-nav { width: calc(100% - #{$bw}); @include justify-content(space-around); }
+
+
 
   #navmenu .navbar-nav > li > a { padding-top: 1rem; padding-bottom: 1rem; }
 
@@ -516,7 +564,8 @@
   // Nav - large
   $headerh: 6rem;
   .site-header .nav { height: $headerh; }
-  #navmenu { .search-input, .search-submit { top: $headerh; } }
+
+  .gutenberg-container > .nav { width: auto; }
 
   $navpad_left: .9rem;
   $navpad_nochildren_right: $navpad_left;
@@ -545,6 +594,7 @@
 
     // all the left pads are the same width
     &> a { padding-left: $navpad_left; }
+
 
 
     // Nav hover - large
@@ -591,6 +641,15 @@
   }
 
 
+  // Nav - large
+  // iv. search bar and floats
+  .gutenberg-container > .nav { padding-left: 0; }
+
+  #navmenu { .search-input, .search-submit, [href="#display-search"]:before { top: $headerh; } }
+
+
+
+
 
   // Sticky Footer - large
   $footerh: 15rem;
@@ -633,6 +692,15 @@
   %breakpoint { background: mediumpurple; content: 'WIDE'; }
 
 
+  // Structure - wide
+  $container: 73rem;
+  %container { width: $container; }
+
+  %container-wide { width: calc(#{$container} - 30px); margin-right: auto; margin-left: auto; }
+
+  %container-gutter { width: calc( #{$container} - 30px); }
+
+
   // Header - wide
   .site-header {
     width: 100%;
@@ -653,13 +721,16 @@
   $navpad_buttons_right: 1.2rem;
 
 
+  $iw: $container; // input width (w/o button)
+  $bw: 2.3rem;  // button width
+  $lm: 1.5rem;  // left margin
+  $sbgw: 100%;  // width of search bg
 
-  // Structure - wide
-  $container: 73rem;
-  %container { width: $container; }
+  #navmenu {
+    .search-input { width: $iw; left: calc( 50% - (#{$container} / 2) ); }
+    .search-submit { left: unset; right: calc( 50% - (#{$container} / 2) ); }
+    .show-search [href="#display-search"]:before { width: $sbgw; }
+  }
 
-  %container-wide { width: calc(#{$container} - 30px); margin-right: auto; margin-left: auto; }
-
-  %container-gutter { width: calc( #{$container} - 30px); }
 
 }

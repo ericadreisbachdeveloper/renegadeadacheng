@@ -76,8 +76,13 @@
 
 		// Toggle search form on desktop upon clicking magnifying glass icon in header
 		$('a[href="#display-search"]').on('click', function(){
-			$('.search').toggleClass('show-search');
+			$('form.search').toggleClass('show-search');
 			$('#nav-search').focus();
+
+			if($('a[href="#display-search"]').attr('aria-pressed') == "false") {
+				$('a[href="#display-search"]').attr('aria-pressed', 'true');
+ 			}
+			else { $('a[href="#display-search"]').attr('aria-pressed', 'false'); }
 			return false;
 		});
 

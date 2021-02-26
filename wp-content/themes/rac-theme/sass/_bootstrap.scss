@@ -21,6 +21,10 @@ body { margin: 0; }
 
 [role="button"] { cursor: pointer; }
 
+button {
+  -webkit-appearance: none;
+      -moz-appearance: none;
+}
 
 
 //@media (min-width: 992px) {
