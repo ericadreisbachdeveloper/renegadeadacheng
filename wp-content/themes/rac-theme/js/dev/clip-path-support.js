@@ -30,6 +30,6 @@ var areClipPathShapesSupported = function () {
 	return false;
 };
 
-if !( areClipPathShapesSupported() ) {
+if ( !areClipPathShapesSupported() ) {
   document.body.setAttribute('data-clippath', 'no-clippath');
 }

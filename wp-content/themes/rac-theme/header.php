@@ -153,7 +153,7 @@ ob_start('sanitize_output'); ?>
 	<div class="wrapper">
 
 
-		<header class="site-header clear">
+		<header class="site-header clear" >
 			<div class="gutenberg-container">
 
 

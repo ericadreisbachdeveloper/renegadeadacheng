@@ -377,7 +377,7 @@
       @include transition-one(background-color);
 
 
-      // input bg
+      // input bg - medium
       &:before {
         height: 3.23rem;
         content: '';
@@ -424,12 +424,13 @@
   }
 
 
+  // search form - medium
   #navmenu {
 
     $iw: 43.563rem;  // input width
     $bw: 2.3rem;  // button width
     $lm: 1.5rem;  // left margin
-    $sbgw: 100%;  // width of search bg
+    $sbgw: calc(100% - 3rem);  // width of search bg
 
     .search-input { width: calc(#{$iw} + #{$bw}); }
     .search-submit { left: calc(#{$iw} + #{$lm}); }
@@ -451,7 +452,7 @@
       height: 3.2495rem;
     }
 
-    // show search
+    // show search - medium
     .show-search {
 
       [href="#display-search"]:before {
@@ -553,7 +554,7 @@
 
   %container-corset { width: 48rem; margin-right: auto; margin-left: auto; }
 
-  %container-gutter { width: calc( #{$container} - 30px); margin-right: auto; margin-left: auto; }
+  %container-gutter { width: calc( #{$container} - 3rem); margin-right: auto; margin-left: auto; }
 
 
   // Header - large
@@ -651,6 +652,7 @@
 
 
 
+
   // Sticky Footer - large
   $footerh: 15rem;
   .wrapper { min-height: 100vh; margin-bottom: -$footerh; }
@@ -724,12 +726,12 @@
   $iw: $container; // input width (w/o button)
   $bw: 2.3rem;  // button width
   $lm: 1.5rem;  // left margin
-  $sbgw: 100%;  // width of search bg
+  //$sbgw: calc(100% - 3rem);  // width of search bg
 
   #navmenu {
     .search-input { width: $iw; left: calc( 50% - (#{$container} / 2) ); }
     .search-submit { left: unset; right: calc( 50% - (#{$container} / 2) ); }
-    .show-search [href="#display-search"]:before { width: $sbgw; }
+    //.show-search [href="#display-search"]:before { width: $sbgw; }
   }
 
 
