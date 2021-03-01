@@ -129,11 +129,12 @@ ob_start('sanitize_output'); ?>
 </head>
 
 <!-- default assumption - browser supports inline svgs - a reasonable assumption: https://caniuse.com/?search=svg -->
-<body <?php body_class(); ?> data-svg="inlinesvg">
+<body <?php body_class(); ?> data-svg="inlinesvg" data-clippath="clippath">
 
 
-	<!-- 1. detect SVG support and update <body> attribute if needed - unminified version in THEME/js/svg-support.js -->
-	<!-- 2. add .-cssloaded to <body> after style.css loads - unminified vsn in THEME/js/cssloaded.js -->
+	<!-- 1. detect SVG support and update <body> attribute if needed - unminified version in THEME/js/dev/svg-support.js -->
+	<!-- 2. add .-cssloaded to <body> after style.css loads - unminified vsn in THEME/js/dev/cssloaded.js -->
+	<!-- 3. detect clip-path support and update <body> attribute if needed - unminified in THEME/js/dev/clip-path-support.js -->
 	<script defer>
 	document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||document.body.setAttribute("data-svg","no-inlinesvg");
 	<?php global $style_vsn; ?>
@@ -141,6 +142,8 @@ ob_start('sanitize_output'); ?>
 	var style_vsn="<?= $style_vsn; ?>",tdir="<?= esc_url(TDIR); ?>",e=document.getElementsByTagName("head")[0],t=document.body,d=document.createElement("link"),n=document.createElement("img"),r=tdir+"/css/style.css?"+style_vsn;d.href=r,d.rel="stylesheet",e.appendChild(d),n.onerror=function(){jQuery("body").addClass("-cssloaded"),t.removeChild(n)},t.appendChild(n),n.src=r;
 	});
 	</script>
+
+	<script src="<?= esc_url(TDIR); ?>/js/dev/clip-path-support.js" /></script>
 
 
 
@@ -159,10 +162,10 @@ ob_start('sanitize_output'); ?>
 					<a href="<?php echo esc_url(get_home_url()); ?>" class="pngbg logo-a a">
 
 						<?php if($custom_logo_svg) : ?>
-						<img class="logo-img" src="<?= esc_url($custom_logo_svg); ?>" title="<?= get_bloginfo('name'); ?>" alt="logo for <?= get_bloginfo('name'); ?>"/>
+						<img height="80rem" width="160rem" class="logo-img" src="<?= esc_url($custom_logo_svg); ?>" title="<?= get_bloginfo('name'); ?>" alt="logo for <?= get_bloginfo('name'); ?>"/>
 
 						<?php else : ?>
-						<img class="logo-img" src="<?= esc_url(TDIR); ?>/img/logo.svg" title="<?= get_bloginfo('name'); ?>" alt="logo for <?= get_bloginfo('name'); ?>" />
+						<img height="80rem" width="160rem" class="logo-img" src="<?= esc_url(TDIR); ?>/img/logo.svg" title="<?= get_bloginfo('name'); ?>" alt="logo for <?= get_bloginfo('name'); ?>" />
 
 						<?php endif; ?>
 
