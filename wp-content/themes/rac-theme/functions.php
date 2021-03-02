@@ -135,7 +135,7 @@ add_action( 'wp_footer', 'deregister_footer' );
 
 
 
-// 11. Add footer scripts
+// xxx 11. Add footer scripts
 function footer_scripts() {
   wp_register_script('bootstrap', get_stylesheet_directory_uri() . '/js/xx-bootstrap.min.js', 'jquery', '4.1.1');
   wp_enqueue_script('bootstrap');
@@ -414,9 +414,9 @@ if (function_exists('acf_set_options_page_menu')){
 function register_menu() {
     register_nav_menus(array(
         'main-menu' => __('Main Menu', 'dbllc'),
-				'footer-menu-1' => __('Footer 1', 'dbllc'),
-				'footer-menu-2' => __('Footer 2', 'dbllc'),
-				'footer-menu-3' => __('Footer 3', 'dbllc'),
+				//'footer-menu-1' => __('Footer 1', 'dbllc'),
+				//'footer-menu-2' => __('Footer 2', 'dbllc'),
+				//'footer-menu-3' => __('Footer 3', 'dbllc'),
 				'social-menu' => __('Social Media Menu', 'dbllc')
     ));
 }
@@ -486,24 +486,27 @@ function hide_editor() {
 
 // 24. Sidebars / Widgets
 if (function_exists('register_sidebar')) {
+
     // Define Footer Menus
+
     register_sidebar(array(
-        'name' => __('Footer Content', 'dbllc'),
+        'name' => __('Footer Widgets', 'dbllc'),
         'description' => __('Add footer content blocks here', 'dbllc'),
-        'id' => 'footer-menus',
-        'before_widget' => '<div id="%1$s" class="col-footer col-xs-12">',
+        'id' => 'footer-widgets',
+        'before_widget' => '<div id="%1$s" class="col-footer col-md-6">',
         'after_widget' => '</div>',
-        'before_title' => '<h3 class="sr-only">',
-        'after_title' => '</h3>'
+        'before_title' => '<h2 class="footer-h2">',
+        'after_title' => '</h2>'
     ));
+
 		register_sidebar(array(
 				'name' => __('Copyright', 'dbllc'),
 				'description' => __('Add copyright and other small-text footer information here. Add current year and copyright symbol with shortcode [copyright-year]', 'dbllc'),
 				'id' => 'copyright',
-				'before_widget' => '<div id="%1$s" class="col-xs-12">',
+				'before_widget' => '<div id="%1$s" class="col-sm-6">',
 				'after_widget' => '</div>',
-				'before_title' => '<h3 class="sr-only">',
-				'after_title' => '</h3>'
+				'before_title' => '<h2 class="sr-only">',
+				'after_title' => '</h2>'
 		));
 }
 

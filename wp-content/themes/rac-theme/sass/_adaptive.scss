@@ -41,27 +41,13 @@
   %monster { font-size: 4rem;  }
   %huge    { font-size: 3rem; }
   %large   { font-size: 2.5rem;  }
-  %medium  { font-size: 2rem; }
+  %medium  { font-size: 1.5rem; }
   %text    { font-size: 1rem; }
   %small   { font-size: .9rem; }
 
 
 
   // Header - medium
-
-  //.site-header { height: $headerh; }
-
-  /*
-  .site-header > .container { position: relative; }
-
-  .site-header > .container {
-    &> .logo-div, &> .nav {
-      position: relative;
-      z-index: 10;
-    }
-  }
-  */
-
   .site-header { height: auto; }
 
   .site-header > .gutenberg-container {
@@ -496,9 +482,7 @@
 
 
   // Footer - medium
-   #menu-footer, #menu-social { text-align: center; }
-
-   #menu-footer li { display: inline-block; padding: .8em 1.5em;  }
+   .footer-brand-container > .row > [id*="text"] { text-align: right; }
 
 }
 
@@ -654,7 +638,7 @@
 
 
   // Sticky Footer - large
-  $footerh: 15rem;
+  $footerh: 22rem;
   .wrapper { min-height: 100vh; margin-bottom: -$footerh; }
   .wrapper:after { content: ''; display: block; clear: both; }
   .wrapper:after, .site-footer { height:$footerh; }

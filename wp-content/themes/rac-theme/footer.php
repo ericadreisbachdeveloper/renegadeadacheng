@@ -3,21 +3,33 @@
 
 
 
-<footer class="site-footer container-fluid">
-	<div class="container">
-		<div class="row footer-menus-row">
-			<div class="col-md-6">
-				<a href="<?= esc_url(get_home_url()); ?>" class="footer-logo-a" title="Renegade Ada Cheng | Chicago-based Taiwanese Storyteller, Producer, Speaker | Home"></a>
-			<?php //if(is_active_sidebar('Footer Menus')) { dynamic_sidebar( 'Footer Menus' ); } ?>
-		</div>
-	</div>
+<footer class="site-footer">
 
-
-	<div class="row footer-copyright-row">
+	<div class="container-fluid -magenta-bg footer-social-container">
 		<div class="container">
-			<?php if(is_active_sidebar('Copyright')) { dynamic_sidebar('Copyright'); } ?>
+			<div class="row footer-widgets-row">
+				<?php if(is_active_sidebar('Footer Widgets')) { dynamic_sidebar( 'Footer Widgets' ); } ?>
+			</div>
 		</div>
 	</div>
+
+
+	<div class="container footer-brand-container">
+		<div class="row footer-menus-row">
+
+			<!-- logo -->
+			<div class="col-sm-6">
+				<a href="<?= esc_url(get_home_url()); ?>" class="footer-logo-a" title="Renegade Ada Cheng | Chicago-based Taiwanese Storyteller, Producer, Speaker | Home"></a>
+			</div>
+
+			<!-- copyright -->
+			<?php if(is_active_sidebar('Copyright')) { dynamic_sidebar('Copyright'); } ?>
+
+
+		</div>
+	</div>
+
+
 </footer>
 
 
