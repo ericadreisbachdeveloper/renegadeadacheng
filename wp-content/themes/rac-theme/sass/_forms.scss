@@ -21,70 +21,70 @@
 }
 
 
-input {
-  &[type="text"],
-  &[type="color"],
-  &[type="date"],
-  &[type="datetime-local"],
-  &[type="email"],
-  &[type="file"],
-  &[type="image"],
-  &[type="month"],
-  &[type="password"],
-  &[type="range"],
-  &[type="tel"],
-  &[type="url"] {
-    @extend %input;
-  }
+
+[type="text"],
+//[type="color"],
+//[type="date"],
+//[type="datetime-local"],
+[type="email"],
+//[type="file"],
+//[type="image"],
+//[type="month"],
+[type="password"],
+//[type="range"],
+//[type="tel"],
+//[type="url"]
+{  @extend %input; }
 
 
 
-  // buttons
-  &[type="reset"],
-  &[type="submit"] {
+// buttons
+[type="reset"],
+[type="submit"] {
 
-    @extend %leaguespartan;
+  @extend %leaguespartan;
 
-    background: $magenta;
-    border: none;
-    color: white;
-    padding: .666rem 1.2rem;
-    position: relative;
-    text-transform: uppercase;
+  background: $magenta;
+  border: none;
+  color: white;
+  padding: .666rem 1.2rem;
+  position: relative;
+  text-transform: uppercase;
 
-    @include transition-one(background);
+  @include transition-one(background);
 
-    @include hover { background: $mauve; cursor: pointer; }
+  @include hover { background: $mauve; cursor: pointer; }
 
-    &[disabled] {
-      background: gray;
-      color: lightgray;
-      &:hover { background: gray; cursor: default; }
-    }
-
+  &[disabled] {
+    background: gray;
+    color: lightgray;
+    &:hover { background: gray; cursor: default; }
   }
 }
+
+
 
 
 label { line-height: 1.8; }
 
 
-// Login
 
+// Login
+// Admin login
 #loginform {
 
   label { @extend %hidden; }
 
-  input[type="text"], input[type="password"], input[type="submit"] {
+  [type="text"], [type="password"], [type="submit"] {
     display: block;
   }
 
-  input[type="text"], input[type="password"] {
+  [type="text"], [type="password"] {
     width: 18rem;
     margin-bottom: 1rem;
   }
 
-  input[type="submit"] { margin-top: 2rem; }
+  [type="submit"] { margin-top: 2rem; }
 }
 
 
@@ -136,4 +136,15 @@ label { line-height: 1.8; }
   position: absolute;
    top: 0;
    right: 0;
+}
+
+
+
+
+// Footer enewsletter
+// Mailchimp
+.sitefooter {
+  [type="text"], [type="email"] {
+    @include placeholder { color: $nearblack; }
+  }
 }

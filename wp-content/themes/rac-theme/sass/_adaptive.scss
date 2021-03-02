@@ -638,7 +638,7 @@
 
 
   // Sticky Footer - large
-  $footerh: 22rem;
+  $footerh: 33rem;
   .wrapper { min-height: 100vh; margin-bottom: -$footerh; }
   .wrapper:after { content: ''; display: block; clear: both; }
   .wrapper:after, .site-footer { height:$footerh; }
@@ -693,7 +693,8 @@
     background: white;
     position: fixed;
      top: 0;
-    //@include simple-box-shadow(0,0,1em,rgba(0,0,0,.2));
+
+   &> .gutenberg-container { width: $container; margin-right: auto; margin-left: auto; }
   }
 
   [data-role="main"] { padding-top: 6rem; }
