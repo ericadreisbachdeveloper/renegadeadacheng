@@ -99,9 +99,13 @@ body {
 .container-on-mobile,
 %container,
 %container-corset {
-  width: calc(100% - 3rem);
-  margin-right: 1.5rem;
-  margin-left: 1.5rem;
+  width: 100%;
+}
+
+%container,
+%container-corset {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
 }
 
 .gutenberg-container .corset { @extend %container-corset; }
@@ -175,9 +179,9 @@ p { margin-bottom: .8rem; }
 a { @include hover { cursor: pointer; } }
 
 %hidden {
+  width: auto;
   width: 0;
   height: 0;
-  clip-path: polygon(0 0, 0 0, 0 0, 0 0);
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -185,19 +189,21 @@ a { @include hover { cursor: pointer; } }
    left: -99999px;
 }
 
-.sr-only { @extend %hidden; display: none; visibility: hidden; }
+.sr-only { @extend %hidden;  }
 
 .sr-only-focusable {
   @extend %hidden;
-  @include hover {
+
+  &:focus {
     width: auto;
     height: auto;
-    display: block;
-    clip-path: unset;
     overflow: visible;
+    position: unset;
      left: unset;
+    @include clip-path( unset );
   }
 }
+
 
 
 
@@ -284,6 +290,8 @@ figure.alignright figcaption  { text-align: right; }
     }
   }
 
+  .footer-widgets-row > .col-footer + .col-footer { padding-top: 3rem; }
+
 
   .footer-social-container {
     border-bottom: .3rem solid $mauve;
@@ -332,13 +340,10 @@ figure.alignright figcaption  { text-align: right; }
           @include justify-content(center);
         }
 
-
         &[href*="facebook"]:before { content: '\f39e'; }
         &[href*="linkedin"]:before { content: '\f08c'; }
         &[href*="instagram"]:before { content: '\f16d'; }
         &[href*="youtube"]:before { content: '\f167'; }
-        //&[href*="mailto"]:before { content: '\f199'; font-family: "Font Awesome 5 Free"; }
-        //&[href*="contact"]:before { content: '\f199'; font-family: "Font Awesome 5 Free"; }
 
         @include hover {
           &:before { background: rgba(255,255,255,.3); left: 0;  }

@@ -28,9 +28,11 @@ $navh: 6rem;
   .logo-a, .logo-img { display: block; }
 
   .logo-a {
-    width: 10rem;
+    width: 13rem;
     height: calc(#{$navh} - 1rem);
     float: left;  // float: left so that clicking logo is disambiguated from clicking menu icon
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
     @include flex;
     @include align-items(center);
   }

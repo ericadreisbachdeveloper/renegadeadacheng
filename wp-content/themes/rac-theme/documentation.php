@@ -112,9 +112,18 @@
     <strong>Settings > Hide My Site </strong>
   </li>
 
-  <li><a href="https://wordpress.org/plugins/limit-login-attempts-reloaded/" target="_blank">Limit Login Attempts Reloaded</a> <br />
+  <li><a href="https://wordpress.org/plugins/lazysizes/" target="_blank" rel="noopener">lazysizes</a> <br />
+    Defers loading offscreen images, improving mobile page load time.
+  </li>
+
+  <li><a href="https://wordpress.org/plugins/limit-login-attempts-reloaded/" target="_blank" rel="noopener">Limit Login Attempts Reloaded</a> <br />
   <em>Prevents brute force attacks to the site page</em><br />
   <strong>Settings > Limit Login Attempts </strong></li>
+
+  <li><a href="" target="_blank" rel="noopener">Mailchimp for Wordpress</a> <br />
+    <em>Powers enewsletter signup</em> <br />
+    <strong>MC4WP</strong>
+  </li>
 
   <li><a href="https://wordpress.org/plugins/quick-pagepost-redirect-plugin/" target="_blank" rel="noopener">Quick Page/Post Redirect Plugin</a><br />
     <em>Allows easy 301 redirects from previous generation of the site to the current site </em> <br />

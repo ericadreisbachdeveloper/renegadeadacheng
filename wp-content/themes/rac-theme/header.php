@@ -122,6 +122,13 @@ ob_start('sanitize_output'); ?>
 <?php endif; ?>
 
 
+
+<!-- clip-path support -->
+<!-- unminified version in THEME/js/dev -->
+<script defer>var areClipPathShapesSupported=function(){for(var t="clipPath",e=["webkit","moz","ms","o"],a=[t],r=document.createElement("testelement"),p=0,l=e.length;p<l;p++){var o=e[p]+t.charAt(0).toUpperCase()+t.slice(1);a.push(o)}for(p=0,l=a.length;p<l;p++){var n=a[p];if(""===r.style[n]&&(r.style[n]="polygon(50% 0%, 0% 100%, 100% 100%)",""!==r.style[n]))return!0}return!1};areClipPathShapesSupported()||document.body.setAttribute("data-clippath","no-clippath");</script>
+
+
+
 <?php wp_head(); ?>
 
 

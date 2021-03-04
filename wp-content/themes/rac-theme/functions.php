@@ -86,7 +86,7 @@ add_action('wp_enqueue_scripts', 'deregister_css', 100 );
 
 // 5. Style vsn
 global $style_vsn;
-$style_vsn = '1.1.106';
+$style_vsn = '1.1.108';
 
 
 
@@ -493,7 +493,7 @@ if (function_exists('register_sidebar')) {
         'name' => __('Footer Widgets', 'dbllc'),
         'description' => __('Add footer content blocks here', 'dbllc'),
         'id' => 'footer-widgets',
-        'before_widget' => '<div id="%1$s" class="col-footer col-md-6">',
+        'before_widget' => '<div id="%1$s" class="col-footer">',
         'after_widget' => '</div>',
         'before_title' => '<h2 class="footer-h2">',
         'after_title' => '</h2>'

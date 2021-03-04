@@ -46,7 +46,6 @@
       transition: $multi;
 }
 
-
 @mixin flex {
   display: -moz-box;
   display: -ms-flexbox;
@@ -55,15 +54,12 @@
   display: flex;
 }
 
-
 @mixin flex-wrap($args...) {
   -webkit-flex-wrap: $args;
   -moz-flex-wrap: $args;
   -ms-flex-wrap: $args;
   flex-wrap: $args;
 }
-
-
 
 @mixin justify-content($args...) {
   -webkit-justify-content: $args;
@@ -181,4 +177,21 @@ $toggle_bottom: 2rem;
   100% { @include transform(0deg, (1,1), 0, 0, 0); top: $toggle_bottom; }
   70% { @include transform(0deg, (1,1), 0, 0, 0); top: $toggle_top_bottom_collapsed; }
   0% { @include transform(-45deg, (1,1), 0, 0, 0); top: $toggle_top_bottom_collapsed; }
+}
+
+
+
+// Forms
+@mixin flex-direction($args...) {
+  -webkit-flex-direction: $args;
+  -moz-flex-direction: $args;
+  -ms-flex-direction: $args;
+  flex-direction: $args;
+}
+
+@mixin flex-grow($args...) {
+  -webkit-flex-grow: $args;
+  -moz-flex-grow: $args;
+  -ms-flex-grow: $args;
+  flex-grow: $args;
 }

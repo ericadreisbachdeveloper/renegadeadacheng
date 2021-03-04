@@ -96,6 +96,10 @@
 
   #navmenu > .container-on-mobile { width: auto; min-height: 0; }
 
+  // top-level items with focus are laid out over subnav
+  #navmenu .navbar-nav > .menu-item > [href]:focus { position: relative; z-index: 801; }
+
+
 
   // nav element heights 100%
   //.nav,
@@ -488,6 +492,8 @@
 
 
 
+
+
 // Medium-large - awkward spot
 @media (min-width: 52rem) {
   %breakpoint { background: deeppink; content: 'MD-LG'; }
@@ -543,7 +549,16 @@
 
   // Header - large
   // full-width header container on large
-  .site-header > .gutenberg-container { width: calc(100% - 3rem); @include justify-content(space-between); }
+  .site-header > .gutenberg-container {
+    width: 100%;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+
+    @include justify-content(space-between);
+  }
+
+  .site-header .logo-a { width: 11.5rem; padding-right: 0; padding-left: 0; }
+
 
 
   // Nav - large
@@ -666,6 +681,32 @@
     text-align: left;
     li { font-size: .85rem; }
   }
+
+
+  .footer-widgets-row { @include flex; }
+  .col-footer[id*="nav"] { padding-right: 1.5rem; }
+  .col-footer[id*="mc4wp"] { @include flex-grow(1); }
+
+  .site-footer > .container-fluid > .container { width: calc(100% - 3rem); }
+
+  .site-footer .footer-widgets-row > .col-footer + .col-footer { padding-top: 0; }
+
+  .site-footer .mc4wp-form-fields {
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+    @include justify-content(space-between);
+  }
+
+  .site-footer [type="submit"] { width: 6rem; }
+
+  .site-footer .mc4wp-form-fields p {
+    width: calc( (100% - 9rem) / 3 );
+    min-width: 12rem;
+
+    &:last-of-type { width: 6rem; min-width: 6rem; }
+  }
+
+
 }
 
 
@@ -711,13 +752,14 @@
   $iw: $container; // input width (w/o button)
   $bw: 2.3rem;  // button width
   $lm: 1.5rem;  // left margin
-  //$sbgw: calc(100% - 3rem);  // width of search bg
 
   #navmenu {
     .search-input { width: $iw; left: calc( 50% - (#{$container} / 2) ); }
     .search-submit { left: unset; right: calc( 50% - (#{$container} / 2) ); }
-    //.show-search [href="#display-search"]:before { width: $sbgw; }
   }
 
+
+  // Footer - wide
+  .site-footer > .container-fluid > .container { width: calc( #{$container} - 3rem); }
 
 }

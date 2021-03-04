@@ -39,6 +39,11 @@
 
 
 
+		// Add two-part display of search form
+		// so that accessible display can include display:none
+
+
+
 		// Show subnavs on mobile by clicking .open-submenu-a carets
 		$('.open-submenu-a').on('click', function(){
 			$(this).toggleClass('mobile-show-submenu');

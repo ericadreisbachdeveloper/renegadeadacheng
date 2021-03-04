@@ -44,16 +44,16 @@
 
   @extend %leaguespartan;
 
-  background: $magenta;
+  background-color: $magenta;
   border: none;
   color: white;
   padding: .666rem 1.2rem;
   position: relative;
   text-transform: uppercase;
 
-  @include transition-one(background);
+  @include transition-one(background-color);
 
-  @include hover { background: $mauve; cursor: pointer; }
+  @include hover { background-color: $mauve; cursor: pointer; }
 
   &[disabled] {
     background: gray;
@@ -143,8 +143,42 @@ label { line-height: 1.8; }
 
 // Footer enewsletter
 // Mailchimp
-.sitefooter {
-  [type="text"], [type="email"] {
-    @include placeholder { color: $nearblack; }
+.site-footer {
+  [for] { @extend %hidden; }
+
+  .mc4wp-form-fields {
+    @include flex;
+    @include align-items(center);
+    @include flex-direction(column);
   }
+
+  .mc4wp-form-fields p {
+    display: block;
+    width: 100%;
+    max-width: 20rem;
+    margin-top: 0;
+  }
+
+  [type="text"], [type="email"] {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    @include placeholder { color: $nearblack; }
+    @include hover { border-bottom: .3rem solid $mauve; }
+  }
+
+  [type="submit"] {
+
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+
+    background: $nearblack;
+    margin-bottom: .8rem;
+    padding-top: .885rem;
+    padding-bottom: .885rem;
+    @include hover { background: $mauve; }
+  }
+
+  .mc4wp-response { text-align: center; }
 }
