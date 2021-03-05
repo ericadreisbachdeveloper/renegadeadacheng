@@ -31,7 +31,7 @@ $navh: 6rem;
     width: 13rem;
     height: calc(#{$navh} - 1rem);
     float: left;  // float: left so that clicking logo is disambiguated from clicking menu icon
-    margin-top: .5rem; 
+    margin-top: .5rem;
     padding-right: 1.5rem;
     padding-left: 1.5rem;
     @include flex;

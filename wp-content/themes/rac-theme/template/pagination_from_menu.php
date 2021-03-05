@@ -83,7 +83,7 @@
 
 
 <!-- if this page has a parent, then show next sibling here -->
-<?php if($current_page_parent_menu_id !== '0') : ?>
+<?php if($current_page_parent_menu_id != '0') : ?>
 <div class="container-fluid -mauve-bg footer-nav">
 	<div class="container" role="navigation">
 
@@ -95,7 +95,7 @@
 
 
 <!-- if this page IS a parent, then show first sibling here -->
-<?php elseif($current_page_parent_menu_id == '0') : ?>
+<?php elseif($current_page_parent_menu_id = '0') : ?>
 
 <div class="container-fluid -mauve-bg footer-nav">
 	<div class="container" role="navigation">

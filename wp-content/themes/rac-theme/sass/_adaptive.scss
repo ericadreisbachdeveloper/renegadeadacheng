@@ -642,6 +642,9 @@
 
 
   // Footer - large
+  .site-footer .footer-nav:after { left: 1rem; }
+
+
   .site-footer .footer-h2 { text-align: left; }
   .site-footer .menu[id*="social"] { margin-left: -1.25rem; }
 
@@ -727,5 +730,7 @@
 
   // Footer - wide
   .site-footer > .container-fluid > .container { width: calc( #{$container} - 3rem); }
+  .site-footer .footer-nav:after { left: calc( (100% - #{$container}) / 2); }
+  .col-footer[id*="nav"] { padding-right: 2rem; } 
 
 }
