@@ -50,6 +50,7 @@ body {
 
 // look like h3
 .footer-h2,
+.pagination-a,
 [data-role="main"] h3 {
   @extend %medium;
   @extend %leaguespartan;
@@ -57,6 +58,7 @@ body {
 
 
 [data-role="main"] { @extend %text; }
+
 
 %link-line {
   position: relative;
@@ -160,6 +162,8 @@ p { margin-bottom: .8rem; }
     @extend %clear;
   }
 }
+.clear { @extend %clear; }
+
 
 .-desktop { display: none; }
 
@@ -241,7 +245,7 @@ a { @include hover { cursor: pointer; } }
 
 // Colors
 .-magenta-bg { background-color: $magenta; }
-
+.-mauve-bg { background-color: $mauve; }
 
 
 
@@ -278,7 +282,52 @@ figure.alignright figcaption  { text-align: right; }
   padding-bottom: 3rem;
 
 
-  :not(.menu-item) > [href]:not(.footer-logo-a) {
+
+  .footer-nav {
+    @extend %leaguespartan;
+    padding-bottom: 1.2rem;
+    text-transform: uppercase;
+
+    [role="navigation"] { text-align: right; }
+
+    .pagination-a {
+      background: transparent;
+      color: white;
+      display: block;
+      float: right;
+      padding-top: 1.2rem;
+      padding-left: .5rem;
+      padding-right: 1.5rem;
+      padding-bottom: 1rem;
+      position: relative;
+      text-decoration: none;
+      @include transition-one(background);
+
+      @include hover { background: rgba(255,255,255,.2); }
+
+      &:after {
+        width: .8rem;
+        height: 100%;
+
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='20' overflow='visible'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' fill='%23FFF' d='M0 0l11.924 9.479L0 19.679V0z'/%3E%3C/svg%3E");
+
+        background-position: calc(100% - .2rem) calc(50% - .1rem);
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        content: '';
+        display: block;
+        position: absolute;
+         top: 0;
+         right: 0;
+      }
+    }
+  }
+
+
+
+
+  :not(.menu-item) > [href]:not(.footer-logo-a):not(.pagination-a) {
     @extend %link-line;
 
     color: white;

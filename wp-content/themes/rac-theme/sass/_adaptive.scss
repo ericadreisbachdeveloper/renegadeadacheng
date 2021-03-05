@@ -473,6 +473,8 @@
   // Footer - medium
    .footer-brand-container > .row > [id*="text"] { text-align: right; }
 
+   .site-footer .footer-nav { padding-top: 1.5rem; }
+
 }
 
 
@@ -641,7 +643,7 @@
 
   // Footer - large
   .site-footer .footer-h2 { text-align: left; }
-  .site-footer .menu[id*="social"] { position: relative; left: -1.25rem; }
+  .site-footer .menu[id*="social"] { margin-left: -1.25rem; }
 
   .menu[id*="social"] {
     padding-top: .8em;
@@ -666,7 +668,7 @@
 
 
   .footer-widgets-row { @include flex; }
-  .col-footer[id*="nav"] { padding-right: 1.5rem; }
+  .col-footer[id*="nav"] { padding-right: 1rem; }
   .col-footer[id*="mc4wp"] { @include flex-grow(1); }
 
   .site-footer > .container-fluid > .container { width: calc(100% - 3rem); }

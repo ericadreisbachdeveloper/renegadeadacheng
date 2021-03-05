@@ -121,11 +121,13 @@ ob_start('sanitize_output'); ?>
 <link rel="preload" as="image" href="<?= esc_url(TDIR); ?>/img/logo.svg">
 <?php endif; ?>
 
+<style>.logo-a { background-image: url('<?= esc_url($custom_logo_png); ?>'); }</style>
+
 
 
 <!-- clip-path support -->
 <!-- unminified version in THEME/js/dev -->
-<script defer>var areClipPathShapesSupported=function(){for(var t="clipPath",e=["webkit","moz","ms","o"],a=[t],r=document.createElement("testelement"),p=0,l=e.length;p<l;p++){var o=e[p]+t.charAt(0).toUpperCase()+t.slice(1);a.push(o)}for(p=0,l=a.length;p<l;p++){var n=a[p];if(""===r.style[n]&&(r.style[n]="polygon(50% 0%, 0% 100%, 100% 100%)",""!==r.style[n]))return!0}return!1};areClipPathShapesSupported()||document.body.setAttribute("data-clippath","no-clippath");</script>
+<script>var areClipPathShapesSupported=function(){for(var t="clipPath",e=["webkit","moz","ms","o"],a=[t],r=document.createElement("testelement"),p=0,l=e.length;p<l;p++){var o=e[p]+t.charAt(0).toUpperCase()+t.slice(1);a.push(o)}for(p=0,l=a.length;p<l;p++){var n=a[p];if(""===r.style[n]&&(r.style[n]="polygon(50% 0%, 0% 100%, 100% 100%)",""!==r.style[n]))return!0}return!1};areClipPathShapesSupported()||document.body.setAttribute("data-clippath","no-clippath");</script>
 
 
 
@@ -139,18 +141,11 @@ ob_start('sanitize_output'); ?>
 <body <?php body_class(); ?> data-svg="inlinesvg" data-clippath="clippath">
 
 
-	<!-- <style>[type="search"]::-webkit-search-cancel-button{transform:rotate(0deg) scale(1) skew(1) translateX(0) translateY(-.1666rem); } </style> -->
-
-	<!-- <style> [type="search"]::-webkit-search-cancel-button { transform: skew(0) translateX(0) translateY(-.5rem); } </style> -->
-
-	<!-- @mixin transform($rotate, $scale, $skew, $translatex, $translatey) { -->
-  <!-- @include transform(0, 1, 1, 0, -.1666rem); -->
-
 
 	<!-- 1. detect SVG support and update <body> attribute if needed - unminified version in THEME/js/dev/svg-support.js -->
 	<!-- 2. add .-cssloaded to <body> after style.css loads - unminified vsn in THEME/js/dev/cssloaded.js -->
 	<!-- 3. detect clip-path support and update <body> attribute if needed - unminified in THEME/js/dev/clip-path-support.js -->
-	<script defer>
+	<script>
 	document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||document.body.setAttribute("data-svg","no-inlinesvg");
 	<?php global $style_vsn; ?>
 	jQuery(document).ready(function () {
@@ -158,7 +153,7 @@ ob_start('sanitize_output'); ?>
 	});
 	</script>
 
-	<script defer src="<?= esc_url(TDIR); ?>/js/dev/clip-path-support.js" /></script>
+	<script src="<?= esc_url(TDIR); ?>/js/dev/clip-path-support.js"></script>
 
 
 	<a href="#main" id="skip-link" class="sr-only-focusable">Skip to main content</a>
@@ -167,19 +162,24 @@ ob_start('sanitize_output'); ?>
 	<div class="wrapper">
 
 
-		<header class="site-header clear" >
+		<header class="site-header clear">
+
+
 			<div class="gutenberg-container">
 
-
 				<div class="logo-div">
-					<style scoped>.logo-a { background-image: url('<?= esc_url($custom_logo_png); ?>'); }</style>
 					<a href="<?php echo esc_url(get_home_url()); ?>" class="pngbg logo-a a">
 
 						<?php if($custom_logo_svg) : ?>
-						<img height="80rem" width="160rem" class="logo-img" src="<?= esc_url($custom_logo_svg); ?>" title="<?= get_bloginfo('name'); ?>" alt="logo for <?= get_bloginfo('name'); ?>"/>
+
+							<?php $logo_id = attachment_url_to_postid( $custom_logo_svg);
+							      $logo_w = wp_get_attachment_image_src($logo_id, 'full')[1];
+										$logo_h = wp_get_attachment_image_src($logo_id, 'full')[2]; ?>
+
+						<img height="<?= $logo_h; ?>" width="<?= $logo_w; ?>" class="logo-img" src="<?= esc_url($custom_logo_svg); ?>" title="<?= get_bloginfo('name'); ?>" alt="logo for <?= get_bloginfo('name'); ?>"/>
 
 						<?php else : ?>
-						<img height="80rem" width="160rem" class="logo-img" src="<?= esc_url(TDIR); ?>/img/logo.svg" title="<?= get_bloginfo('name'); ?>" alt="logo for <?= get_bloginfo('name'); ?>" />
+						<img height="80" width="160" class="logo-img" src="<?= esc_url(TDIR); ?>/img/logo.svg" title="<?= get_bloginfo('name'); ?>" alt="logo for <?= get_bloginfo('name'); ?>" />
 
 						<?php endif; ?>
 
@@ -190,7 +190,7 @@ ob_start('sanitize_output'); ?>
 				<nav class="nav">
 
 					<div class="navbar-header">
-						<button class="navbar-toggler navbar-toggle collapsed" type="button" role="button" data-toggle="collapse" data-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation">
+						<button class="navbar-toggler navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="sr-only">Toggle navigation</span>
 							<span class="opennav icon-bar -top"></span>
 							<span class="opennav icon-bar -middle"></span>
@@ -201,6 +201,7 @@ ob_start('sanitize_output'); ?>
 
 					<div id="navmenu" class="navbar-collapse collapse">
 						<div class="container-on-mobile">
+							<!-- edit menu output in functions.php -->
 							<?php dbllc_nav('main-menu'); ?>
 							<?php include(locate_template('searchform.php')); ?>
 						</div>

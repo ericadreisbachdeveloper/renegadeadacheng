@@ -111,23 +111,13 @@ function dbllc_header_scripts() {
 add_action('wp_enqueue_scripts', 'dbllc_header_scripts', 10, 2);
 
 
-// 6b. Defer
+// 6b. Add defer to scripts
 function add_async_attribute($tag, $handle) {
     if ( 'cloudjquery' == $handle )
         return $tag;
     return str_replace( ' src', ' defer src', $tag );
 }
 add_filter('script_loader_tag', 'add_async_attribute', 10, 2);
-
-
-
-// 7. Load jQuery from Google API
-function usecloudjquery() {
- if(!is_admin()) {
-
- }
-}
-//add_action('init', 'usecloudjquery');
 
 
 
@@ -464,7 +454,7 @@ function dbllc_nav() {
 		'fallback_cb'     => 'wp_page_menu',
     'items_wrap'      => '<ul class="nav navbar-nav">%3$s</ul>',
 		'depth'           => 0,   /* 0 means all levels of hierarchy */
-		'after'						=> '<span class="open-submenu-a" href="#"></span>',
+		'after'						=> '<span class="open-submenu-a"></span>',
 	));
 }
 
