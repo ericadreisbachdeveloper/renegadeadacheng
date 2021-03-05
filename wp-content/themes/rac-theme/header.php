@@ -139,6 +139,14 @@ ob_start('sanitize_output'); ?>
 <body <?php body_class(); ?> data-svg="inlinesvg" data-clippath="clippath">
 
 
+	<!-- <style>[type="search"]::-webkit-search-cancel-button{transform:rotate(0deg) scale(1) skew(1) translateX(0) translateY(-.1666rem); } </style> -->
+
+	<!-- <style> [type="search"]::-webkit-search-cancel-button { transform: skew(0) translateX(0) translateY(-.5rem); } </style> -->
+
+	<!-- @mixin transform($rotate, $scale, $skew, $translatex, $translatey) { -->
+  <!-- @include transform(0, 1, 1, 0, -.1666rem); -->
+
+
 	<!-- 1. detect SVG support and update <body> attribute if needed - unminified version in THEME/js/dev/svg-support.js -->
 	<!-- 2. add .-cssloaded to <body> after style.css loads - unminified vsn in THEME/js/dev/cssloaded.js -->
 	<!-- 3. detect clip-path support and update <body> attribute if needed - unminified in THEME/js/dev/clip-path-support.js -->
@@ -146,12 +154,11 @@ ob_start('sanitize_output'); ?>
 	document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||document.body.setAttribute("data-svg","no-inlinesvg");
 	<?php global $style_vsn; ?>
 	jQuery(document).ready(function () {
-	var style_vsn="<?= $style_vsn; ?>",tdir="<?= esc_url(TDIR); ?>",e=document.getElementsByTagName("head")[0],t=document.body,d=document.createElement("link"),n=document.createElement("img"),r=tdir+"/css/style.css?"+style_vsn;d.href=r,d.rel="stylesheet",e.appendChild(d),n.onerror=function(){jQuery("body").addClass("-cssloaded"),t.removeChild(n)},t.appendChild(n),n.src=r;
+	var style_vsn="<?= $style_vsn; ?>",tdir="<?= esc_url(TDIR); ?>",e=document.getElementsByTagName("head")[0],t=document.body,d=document.createElement("link"),n=document.createElement("img"),r=tdir+"/css/style.css?ver="+style_vsn;d.href=r,d.rel="stylesheet",e.appendChild(d),n.onerror=function(){jQuery("body").addClass("-cssloaded"),t.removeChild(n)},t.appendChild(n),n.src=r;
 	});
 	</script>
 
-	<script src="<?= esc_url(TDIR); ?>/js/dev/clip-path-support.js" /></script>
-
+	<script defer src="<?= esc_url(TDIR); ?>/js/dev/clip-path-support.js" /></script>
 
 
 	<a href="#main" id="skip-link" class="sr-only-focusable">Skip to main content</a>

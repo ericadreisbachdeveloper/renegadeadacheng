@@ -45,7 +45,8 @@ body {
 
 [data-role="main"] h1 { @extend %large; @extend %leaguespartan; text-transform: uppercase;  }
 
-[data-role="main"] h2 { @extend %medium; }
+[data-role="main"] h2 { @extend %medium; margin-bottom: .25rem; }
+
 
 // look like h3
 .footer-h2,

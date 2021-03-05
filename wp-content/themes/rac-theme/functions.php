@@ -86,7 +86,7 @@ add_action('wp_enqueue_scripts', 'deregister_css', 100 );
 
 // 5. Style vsn
 global $style_vsn;
-$style_vsn = '1.1.108';
+$style_vsn = '1.1.111';
 
 
 
@@ -94,22 +94,40 @@ $style_vsn = '1.1.108';
 function dbllc_header_scripts() {
   if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
-      wp_register_script('strict', get_stylesheet_directory_uri() . '/js/strict.js', array('cloudjquery'), '1.0.0');
-      wp_enqueue_script('strict'); // Enqueue it!
+			wp_register_script('cloudjquery', 'https://code.jquery.com/jquery-3.3.1.min.js', array(), '3.3.1', false);
+			wp_enqueue_script('cloudjquery');
+
+			wp_register_script('aos', 'https://unpkg.com/aos@2.3.1/dist/aos.js');
+			wp_enqueue_script('aos');
+
+			wp_register_script('aosinit', TDIR . '/js/aos-init.js', array('aos'));
+			wp_enqueue_script('aosinit');
+
+			wp_register_script('strict', TDIR . '/js/strict.js', array('cloudjquery'), '1.0.0');
+			wp_enqueue_script('strict');
+
   }
 }
-add_action('wp_head', 'dbllc_header_scripts');
+add_action('wp_enqueue_scripts', 'dbllc_header_scripts', 10, 2);
+
+
+// 6b. Defer
+function add_async_attribute($tag, $handle) {
+    if ( 'cloudjquery' == $handle )
+        return $tag;
+    return str_replace( ' src', ' defer src', $tag );
+}
+add_filter('script_loader_tag', 'add_async_attribute', 10, 2);
 
 
 
 // 7. Load jQuery from Google API
 function usecloudjquery() {
  if(!is_admin()) {
-	 wp_register_script('cloudjquery', 'https://code.jquery.com/jquery-3.3.1.min.js', array(), '3.3.1', false);
-   wp_enqueue_script('cloudjquery');
+
  }
 }
-add_action('init', 'usecloudjquery');
+//add_action('init', 'usecloudjquery');
 
 
 

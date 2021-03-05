@@ -80,7 +80,6 @@
 
 
   // Nav - medium
-  .gutenberg-container > .nav { float: left; padding-left: 2rem; }
   .navbar-toggler { display: none; }
 
   // undoing mobile stuff
@@ -112,6 +111,7 @@
     background: none;
     overflow: visible;
     position: static;
+    margin-left: .5rem;
   }
 
   #navmenu .navbar-nav {
@@ -242,8 +242,8 @@
     }
   }
 
-  #navmenu .navbar-nav>li:first-of-type { margin-top: 0; }
-  #navmenu .navbar-nav>li:last-of-type { margin-bottom: 0; }
+  #navmenu .navbar-nav > li:first-of-type { margin-top: 0; }
+  #navmenu .navbar-nav > li:last-of-type { margin-bottom: 0; }
 
 
 
@@ -274,7 +274,7 @@
     &.hover, &.show {
       &> .open-submenu-a + .sub-menu {
         max-height: 40rem;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        clip-path: polygon( -.5rem 0, calc(100% + .5rem) 0, calc(100% + .5rem) 100%, -.5rem calc(100% + .5rem));
       }
     }
   }
@@ -339,26 +339,25 @@
 
   // Search - medium
   #navmenu {
-    .container-on-mobile { @include flex; }
 
+    .container-on-mobile { @include flex; @include justify-content(flex-end); }
+
+    $bw: 3.063rem;
+
+    // form.search, sibling to .nav.navbar-nav
     .search {
-      width: 2.3rem;
-      height: 100%;
       background: none; // undoing mobile
       @include flex;
       @include align-items(center);
     }
 
+    // button
     [href="#display-search"] {
       display: block;
-      width: 3.063rem;
-      height: 3.063rem;
+      width: $bw;
+      height: $bw;
       background: transparent;
       color: $nearblack;
-      /*
-      padding-left: .666rem;
-      padding-right: .666rem;
-      */
       position: relative;
 
       @include flex;
@@ -366,17 +365,7 @@
       @include justify-content(center);
       @include transition-one(background-color);
 
-
-      // input bg - medium
-      &:before {
-        height: 3.23rem;
-        content: '';
-        opacity: 0;
-        position: fixed;
-         left: 0;
-      }
-
-      // the glass
+      // the magnifying glass
       &:after {
         content: '';
         width: 1rem;
@@ -390,6 +379,7 @@
         @include transition-one(background-image);
       }
 
+      // button hover state
       @include hover {
         background-color: $nearblack;
         color: white;
@@ -404,66 +394,61 @@
     }
 
 
-    .search-input, .search-submit, [href="#display-search"]:before {
-      position: fixed;
-       top: calc(#{$headerh} + 3.2rem);
-      z-index: 900;
-
-      @include transition-multi(opacity .2s ease-in-out);
-    }
-  }
+    // search form - medium
+    $sw: 30rem;  // width of search bg
 
 
-  // search form - medium
-  #navmenu {
-
-    $iw: 43.563rem;  // input width
-    $bw: 2.3rem;  // button width
-    $lm: 1.5rem;  // left margin
-    $sbgw: calc(100% - 3rem);  // width of search bg
-
-    .search-input { width: calc(#{$iw} + #{$bw}); }
-    .search-submit { left: calc(#{$iw} + #{$lm}); }
-    .show-search [href="#display-search"]:before { width: $sbgw; }
-
-    .search-input {
-      background: none;
+    // search form defaults - medium
+    .search-bg {
+      width: $sw;
+      height: $bw;
       color: white;
-      display: block;
-       left: $lm;
-      text-align: center;
-      z-index: -1;
-      @include placeholder { color: lightgray; }
+      position: absolute;
+       top: calc(#{$bw} + .4rem);
+       right: 0;
+      z-index: 900;
     }
 
-    .search-submit {
-      display: block;
-      width: 2.3rem;
-      height: 3.2495rem;
+    .search-input, .search-submit { height: $bw; position: absolute; top: 0; z-index: 901; }
+
+    .search-input  { width: $sw; display: block; text-align: center; }
+    .search-submit { width: $bw; left: calc(#{$sw} - #{$bw}); }
+
+
+    .search [aria-pressed="false"] + .search-bg { display: none; }
+    .search [aria-pressed="false"] + .search-bg {
+      .search-input, .search-submit {
+        //@include transition-one(opacity);
+        //@include transition-delay(1s);
+        opacity: 0 !important;
+      }
     }
+
+
+    .search [role="button"] + .search-bg {
+      background: transparent;
+      @include transition-one(background);
+
+      .search-input, .search-submit { opacity: 0; }
+    }
+
 
     // show search - medium
-    .show-search {
+    .search [role="button"][aria-pressed="true"] {
+      background: $nearblack;
+      background-position: 50% 50%;
 
-      [href="#display-search"]:before {
-        background: $nearblack;
-        opacity: 1;
-        z-index: -2;
+      // the x
+      &:after {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' overflow='visible'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' fill='%23FFF' d='M15.71 13.584l-2.121 2.121-5.73-5.73-5.738 5.738L0 13.592l5.738-5.738L.006 2.122 2.127 0l5.732 5.731L13.582.007l2.122 2.122L9.98 7.854l5.73 5.73z'/%3E%3C/svg%3E");
       }
 
-      [href="#display-search"] {
+      // the form elements
+      &+ .search-bg {
         background: $nearblack;
-        background-position: 50% 50%;
+        display: block;
 
-        // the x
-        &:after {
-          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' overflow='visible'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' fill='%23FFF' d='M15.71 13.584l-2.121 2.121-5.73-5.73-5.738 5.738L0 13.592l5.738-5.738L.006 2.122 2.127 0l5.732 5.731L13.582.007l2.122 2.122L9.98 7.854l5.73 5.73z'/%3E%3C/svg%3E");
-        }
-      }
-
-      .search-input, .search-submit {
-        opacity: 1;
-        z-index: 10;
+        .search-input, .search-submit { @include animation(fadein, ease-in-out, 1, .2s); opacity: 1; }
       }
     }
   }
@@ -500,17 +485,14 @@
 
 
   $iw: calc(100% - 3rem); // input width (w/o button)
-  $bw: 2.3rem;  // button width
+  $bw: 3.3rem;  // button width
   $lm: 1.5rem;  // left margin
   $sbgw: 100%;  // width of search bg
 
-  #navmenu {
-    .search-input { width: $iw; }
-    .search-submit { left: calc(#{$iw} - .75rem); }
-    .show-search [href="#display-search"]:before { width: $sbgw; }
-  }
-                  .nav { width: 100%; float: unset; }
-  #navmenu .navbar-nav { width: calc(100% - #{$bw}); @include justify-content(space-around); }
+  #navmenu { margin-left: 0; }
+
+              .nav { width: 100%; float: unset; }
+  #navmenu .search { margin-right: 1.5rem; }
 
 
 
@@ -642,13 +624,10 @@
 
 
   // Nav - large
-  // iv. search bar and floats
-  .gutenberg-container > .nav { padding-left: 0; }
-
-  #navmenu { .search-input, .search-submit, [href="#display-search"]:before { top: $headerh; } }
-
-
-
+  // iv. search bar
+  $bw: 3.1rem;  // button width
+  #navmenu .search-bg { top: calc( #{$bw} + .45rem + ( (#{$headerh} - #{$bw}) / 2 ) ); }
+  #navmenu .search { margin-right: 0; }
 
 
 
@@ -661,11 +640,14 @@
 
 
   // Footer - large
-  #menu-social {
+  .site-footer .footer-h2 { text-align: left; }
+  .site-footer .menu[id*="social"] { position: relative; left: -1.25rem; }
+
+  .menu[id*="social"] {
     padding-top: .8em;
     text-align: right;
     position: relative;
-     right: -.6em;
+     right: -.5em;
 
     li a {
       width: 1.8em;
@@ -705,8 +687,6 @@
 
     &:last-of-type { width: 6rem; min-width: 6rem; }
   }
-
-
 }
 
 
@@ -741,22 +721,6 @@
   [data-role="main"] { padding-top: 6rem; }
 
 
-
-  // Nav - wide
-  $navpad_left: 1.44rem;
-  $navpad_nochildren_right: $navpad_left;
-  $navpad_haschildren_right: 1.9rem;
-  $navpad_buttons_right: 1.2rem;
-
-
-  $iw: $container; // input width (w/o button)
-  $bw: 2.3rem;  // button width
-  $lm: 1.5rem;  // left margin
-
-  #navmenu {
-    .search-input { width: $iw; left: calc( 50% - (#{$container} / 2) ); }
-    .search-submit { left: unset; right: calc( 50% - (#{$container} / 2) ); }
-  }
 
 
   // Footer - wide

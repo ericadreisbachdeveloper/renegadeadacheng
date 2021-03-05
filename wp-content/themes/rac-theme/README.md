@@ -48,31 +48,10 @@ Prevents brute force attacks to the site page <br />
   Easy database backups and migration
 
 
-## Social Media / Open Graph
-The default image and text shown when sharing a link to the website on social media is updated from the Wordpress admin section under  **Open Graph**
+## SEO
+*Meta descriptions* (usually used for Google search text snippets) are available as a custom field in each post and page. This field is also the text that will appear when sharing posts or pages on social media. If the field is left blank, search and social media will determine the text. 
 
-1. Images: `social-img`
->Recommended size: 1200px wide x 1200px high with focal point in the center.
->Image may be cropped to 1200px x 430px by social media platforms.
->This image is the default image that will programmatically appear when the site is shared on social media.
->Featured Image for a given post or page will override this image.
-
-3. Text: `social-txt`
->Recommended: no more than 300 characters.
-> This text is the default text that will programmatically appear when the site is shared on social media. Meta description for a given post or page will override this text.
-
-
-
-
-
-## Meta Description
-The **meta description**, i.e. the text snippet that usually appears in search results, is available from the custom field on each page and post under **Meta Description**
-
-Recommended: no more than 160 characters. This text usually appears as the snippet in web search results.
-
-NOTE: this snippet may be overridden by Google.
-
-ALSO NOTE: Google does not use meta description keywords in search ranking <a href="https://webmasters.googleblog.com/2007/12/answering-more-popular-picks-meta-tags.html" target="_blank" rel="noopener">[citation]</a>
+*Sharing image* is the Featured Image field for each post and page. If no image is present, the default image in the Wordpress admin section under *Social Media + Sharing* will be used.
 
 
 

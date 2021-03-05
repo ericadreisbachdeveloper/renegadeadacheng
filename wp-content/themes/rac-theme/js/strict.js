@@ -39,10 +39,6 @@
 
 
 
-		// Add two-part display of search form
-		// so that accessible display can include display:none
-
-
 
 		// Show subnavs on mobile by clicking .open-submenu-a carets
 		$('.open-submenu-a').on('click', function(){
@@ -81,13 +77,13 @@
 
 		// Toggle search form on desktop upon clicking magnifying glass icon in header
 		$('a[href="#display-search"]').on('click', function(){
-			$('form.search').toggleClass('show-search');
-			$('#nav-search').focus();
-
 			if($('a[href="#display-search"]').attr('aria-pressed') == "false") {
 				$('a[href="#display-search"]').attr('aria-pressed', 'true');
+				$('#nav-search').focus();
  			}
-			else { $('a[href="#display-search"]').attr('aria-pressed', 'false'); }
+			else {
+				$('a[href="#display-search"]').attr('aria-pressed', 'false');
+			}
 			return false;
 		});
 

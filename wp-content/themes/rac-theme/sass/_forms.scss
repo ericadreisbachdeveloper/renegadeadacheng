@@ -22,20 +22,28 @@
 
 
 
-[type="text"],
+
+
 //[type="color"],
 //[type="date"],
 //[type="datetime-local"],
-[type="email"],
+
 //[type="file"],
 //[type="image"],
 //[type="month"],
-[type="password"],
+
 //[type="range"],
 //[type="tel"],
 //[type="url"]
-{  @extend %input; }
+[type="search"],
+[type="text"],
+[type="email"],
+[type="password"] { @extend %input; }
 
+
+[type="search"]::-webkit-search-cancel-button {
+  @include transform(0deg, 1, 0deg, 0, -.17rem);
+}
 
 
 // buttons
@@ -102,9 +110,10 @@ label { line-height: 1.8; }
 
 // to avoid a blinking "black bar" when shifting browser width
 #navmenu {
-           .search-input, .search-submit { opacity: 0; }
-  &.show { .search-input, .search-submit { opacity: 1; } }
+                                       .search-input, .search-submit { opacity: 0; }
+  &[aria-expanded="true"] .search-bg { .search-input, .search-submit { opacity: 1; } }
 }
+
 
 
 

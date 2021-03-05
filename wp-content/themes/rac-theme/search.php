@@ -3,7 +3,7 @@
 
 
 
-<main data-role="main">
+<main data-role="main" id="main">
 	<section class="section">
 		<div class="container">
 			<div class="corset">
