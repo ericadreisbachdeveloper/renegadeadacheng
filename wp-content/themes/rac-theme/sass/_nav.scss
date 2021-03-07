@@ -53,7 +53,10 @@ $navh: 6rem;
    left: 0;
   z-index: 900;
 
-  [href] { text-decoration: none; }
+  [href] {
+    display: block;
+    text-decoration: none;
+  }
 }
 
 // using .container-on-mobile allows for a smooth full height dropdown
@@ -94,7 +97,7 @@ $navh: 6rem;
   // on mobile
   li { position: relative; }
 
-  &> li > a {
+  &> li:not(.menu-item-type-custom) > a {
     border-bottom: .05rem solid $mobile-nav-border-color;
   }
 }
@@ -117,7 +120,9 @@ $navh: 6rem;
     }
   }
 
-  a {
+
+  &> li > a,
+  .sub-menu > li:not(.menu-item-type-custom) > a {
     width: 100%;
     color: $nearblack;
     display: inline-block;
@@ -286,9 +291,23 @@ $navh: 6rem;
     text-transform: none;
 
     // 6. submenu item padding
-    a { padding: 1rem 0 1rem 3.5rem; }
+    a:not([href*="#"]) { padding: 1rem 0 1rem 3.5rem; }
   }
+}
 
+// 7. submenu labels [href="#"]
+#navmenu .sub-menu [href*="#"] {
+  color: #696969;
+  font-size: .9rem;
+  font-style: italic;
+  letter-spacing: .08rem;
+  padding: 1rem 0 .5rem 3.5rem;
+
+  @include hover { color: #696969; cursor: default;}
+}
+
+#navmenu .sub-menu > .menu-item-type-post_type + .menu-item-type-custom [href*="#"] {
+  padding-top: 1.5rem;
 }
 
 

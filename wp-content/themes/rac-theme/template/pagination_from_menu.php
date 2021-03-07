@@ -19,6 +19,7 @@
 	}
 
 
+
 	// get current page id
 	$current_post = get_post();
 	$current_post_id = $current_post->ID;
@@ -43,15 +44,31 @@
 	$siblings = array_keys($menu_parent_ids, $current_page_parent_menu_id);
 
 
+
 	// create arrays of sibling titles and urls
 	foreach ($siblings as $sibling) {
 		$sibling_titles[] = $menu_items_titles[$sibling];
 		$sibling_urls[] = $menu_items_urls[$sibling];
 	}
 
+	// get keys of $sibling_urls = "#"  [x]
+	//  1. remove $sibling_urls[x] from $sibling_urls
+	//  2. remove $sibling_titles[x] from $sibling_titles
+	$hash_url_keys = array_keys($sibling_urls, "#");
+
+	foreach($hash_url_keys as $key) {
+   unset($sibling_urls[$key]);
+	 unset($sibling_titles[$key]);
+	}
+
+	// re-index arrays
+	$sibling_urls = array_values($sibling_urls);
+	$sibling_titles = array_values($sibling_titles);
+
 
 	// get key of current page with siblings array
 	$current_sibling_key = array_keys($sibling_titles, $current_title);
+
 
 	// get next sibling
 	$next_sibling_key = $current_sibling_key[0] + 1;
