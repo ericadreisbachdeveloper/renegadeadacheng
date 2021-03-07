@@ -100,22 +100,26 @@ function dbllc_header_scripts() {
 			wp_register_script('aos', 'https://unpkg.com/aos@2.3.1/dist/aos.js');
 			wp_enqueue_script('aos');
 
-			wp_register_script('aosinit', TDIR . '/js/aos-init.js', array('aos'));
-			wp_enqueue_script('aosinit');
-
 			wp_register_script('strict', TDIR . '/js/strict.js', array('cloudjquery'), '1.0.0');
 			wp_enqueue_script('strict');
 
   }
 }
-add_action('wp_enqueue_scripts', 'dbllc_header_scripts', 10, 2);
+add_action('wp_enqueue_scripts', 'dbllc_header_scripts', 10, 0);
 
 
 // 6b. Add defer to scripts
+//function add_async_attribute($tag, $handle) {
 function add_async_attribute($tag, $handle) {
-    if ( 'cloudjquery' == $handle )
-        return $tag;
-    return str_replace( ' src', ' defer src', $tag );
+
+	if ( ! is_admin() ) {
+		if ( 'cloudjquery' == $handle ) {
+			return $tag;
+			return str_replace( ' src', ' defer src', $tag );
+		}
+	}
+
+	return $tag;
 }
 add_filter('script_loader_tag', 'add_async_attribute', 10, 2);
 
@@ -143,12 +147,15 @@ add_action( 'wp_footer', 'deregister_footer' );
 
 
 
-// xxx 11. Add footer scripts
+// 11. Add footer scripts
 function footer_scripts() {
-  wp_register_script('bootstrap', get_stylesheet_directory_uri() . '/js/xx-bootstrap.min.js', 'jquery', '4.1.1');
-  wp_enqueue_script('bootstrap');
+  /*wp_register_script('bootstrap', get_stylesheet_directory_uri() . '/js/xx-bootstrap.min.js', 'jquery', '4.1.1');
+  wp_enqueue_script('bootstrap'); */
+
+	wp_register_script('aosinit', TDIR . '/js/aos-init.js', array('aos'));
+	wp_enqueue_script('aosinit');
 }
-//add_action('wp_footer', 'footer_scripts');
+add_action('wp_footer', 'footer_scripts');
 
 
 
