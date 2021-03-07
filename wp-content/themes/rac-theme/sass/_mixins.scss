@@ -112,6 +112,23 @@
 }
 
 
+@mixin linkgradient($color) {
+  background-image: -webkit-gradient(
+   linear,
+   right top,
+   left top,
+   color-stop(.99, transparent),
+   color-stop(1,$color)
+  );
+
+  background-image: -o-linear-gradient(180deg, transparent calc(100% - .08rem), $color calc(100% - .0799rem));
+  background-image: -moz-linear-gradient(180deg, transparent calc(100% - .08rem), $color calc(100% - .0799rem));
+  background-image: -webkit-linear-gradient(180deg, transparent calc(100% - .08rem), $color calc(100% - .0799rem));
+  background-image: -ms-linear-gradient(180deg, transparent calc(100% - .08rem), $color calc(100% - .0799rem));
+  background-image: linear-gradient(180deg, transparent calc(100% - .08rem), $color calc(100% - .0799rem));
+}
+
+
 
 @mixin clip-path($args...) {
   -ms-clip-path: $args;

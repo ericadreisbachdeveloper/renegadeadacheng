@@ -25,8 +25,10 @@ html * {
    -moz-osx-font-smoothing: grayscale;
 }
 
-%arialrounded { font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif; }
+%arialrounded { font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif; }
 %leaguespartan { font-family: 'League Spartan', 'Impact'; font-weight: 400; }
+%goudy {  font-family: 'Goudy Old Style', Garamond, "Big Caslon", "Times New Roman", serif; }
+
 %fontawesome { font-family: 'Font Awesome 5 Free'; font-weight: 400; }
 %fontawesome-solid { font-family: 'Font Awesome 5 Solid'; font-weight: 900; }
 %fontawesome-brands { font-family: 'Font Awesome Brands'; font-weight: 400; }
@@ -45,7 +47,7 @@ body {
 
 [data-role="main"] h1 { @extend %large; @extend %leaguespartan; text-transform: uppercase;  }
 
-[data-role="main"] h2 { @extend %medium; margin-bottom: .25rem; }
+[data-role="main"] h2 { @extend %large; @extend %goudy; margin-bottom: .25rem; font-weight: 400; font-style: italic; }
 
 
 // look like h3
@@ -63,18 +65,13 @@ body {
 %link-line {
   position: relative;
   text-decoration: none;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  @include linkgradient($magenta);
 
-  &:after {
-    width: 100%;
-    height: .05rem;
-    position: absolute;
-     left: 0;
-     bottom: 0;
-    content: '';
-    @include transition-multi(width .2s ease-in-out, background .2s ease-in-out);
-  }
   @include hover {
-    &:after { width: 0; background: $mauve; }
+    background-size: 0 100%;
+    @include linkgradient($mauve);
   }
 }
 
@@ -82,14 +79,11 @@ body {
 [data-role="main"] [href] {
   color: $magenta;
   text-decoration: none;
-
   @extend %link-line;
-
-  &:after { background: $magenta; }
+  @include transition-multi(background-image .2s ease-in-out, background-size .2s ease-in-out, color .2s ease-in-out);
 
   @include hover {
-                   color: $mauve;
-    &:after { background: $mauve; }
+    color: $mauve;
   }
 }
 
@@ -318,7 +312,7 @@ figure.alignright figcaption  { text-align: right; }
       text-decoration: none;
       @include transition-one(background);
 
-      @include hover { background: rgba(255,255,255,.2); }
+      @include hover { background: rgba(0,0,0,.2); }
 
       // right caret
       &:after {
@@ -366,6 +360,8 @@ figure.alignright figcaption  { text-align: right; }
 
   .footer-h2 { margin-top: 0; text-align: center; }
 
+
+
   // Social Nav
   .menu[id*="social"] {
     list-style-type: none;
@@ -411,7 +407,7 @@ figure.alignright figcaption  { text-align: right; }
         &[href*="youtube"]:before { content: '\f167'; }
 
         @include hover {
-          &:before { background: rgba(255,255,255,.3); left: 0;  }
+          &:before { background: rgba(0,0,0,.2); left: 0;  }
         }
       }
     }

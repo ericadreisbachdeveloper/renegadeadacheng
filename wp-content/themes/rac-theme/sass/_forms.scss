@@ -182,8 +182,8 @@ label { line-height: 1.8; }
 
     background: $nearblack;
     margin-bottom: .8rem;
-    padding-top: .885rem;
-    padding-bottom: .885rem;
+    padding-top: 1rem;
+    padding-bottom: 0.693rem;
     @include hover { background: $mauve; }
   }
 

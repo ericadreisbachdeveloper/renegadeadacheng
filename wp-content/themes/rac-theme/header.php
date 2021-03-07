@@ -159,7 +159,7 @@ ob_start('sanitize_output'); ?>
 	<a href="#main" id="skip-link" class="sr-only-focusable">Skip to main content</a>
 
 
-	<div class="wrapper">
+	<div class="wrapper" data-footer="<?php global $data_footer; include(locate_template('template/pagination_variables.php')); _e($data_footer); ?>">
 
 
 		<header class="site-header clear">

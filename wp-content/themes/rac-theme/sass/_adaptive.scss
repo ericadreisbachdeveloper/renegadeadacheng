@@ -634,10 +634,22 @@
 
 
   // Sticky Footer - large
-  $footerh: 33rem;
-  .wrapper { min-height: 100vh; margin-bottom: -$footerh; }
   .wrapper:after { content: ''; display: block; clear: both; }
-  .wrapper:after, .site-footer { height:$footerh; }
+
+  $footerh: 34rem;
+
+  .wrapper[data-footer="has-pagination"] { min-height: 100vh; margin-bottom: -$footerh; }
+
+  .wrapper[data-footer="has-pagination"]:after,
+  .wrapper[data-footer="has-pagination"] + .site-footer { height:$footerh; }
+
+
+  $footerh_nopagination: 23.15rem;
+
+  .wrapper[data-footer="no-pagination"] { min-height: 100vh; margin-bottom: -$footerh_nopagination; }
+
+  .wrapper[data-footer="no-pagination"]:after,
+  .wrapper[data-footer="no-pagination"] + .site-footer { height:$footerh_nopagination; }
 
 
 
@@ -731,6 +743,6 @@
   // Footer - wide
   .site-footer > .container-fluid > .container { width: calc( #{$container} - 3rem); }
   .site-footer .footer-nav:after { left: calc( (100% - #{$container}) / 2); }
-  .col-footer[id*="nav"] { padding-right: 2rem; } 
+  .col-footer[id*="nav"] { padding-right: 2rem; }
 
 }
