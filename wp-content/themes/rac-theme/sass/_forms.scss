@@ -184,6 +184,7 @@ label { line-height: 1.8; }
     margin-bottom: .8rem;
     padding-top: 1rem;
     padding-bottom: 0.693rem;
+
     @include hover { background: $mauve; }
   }
 

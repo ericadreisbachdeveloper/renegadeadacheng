@@ -12,6 +12,8 @@
   // Breakpoint - small
   %breakpoint { background: yellow; content: 'SMALL'; }
 
+  .site-footer .footer-brand-container [id*="text"] { text-align: right; }
+
 
 }
 
@@ -656,7 +658,6 @@
   // Footer - large
   .site-footer .footer-nav:after { left: 1rem; }
 
-
   .site-footer .footer-h2 { text-align: left; }
   .site-footer .menu[id*="social"] { margin-left: -1.25rem; }
 
@@ -686,7 +687,11 @@
   .col-footer[id*="nav"] { padding-right: 1rem; }
   .col-footer[id*="mc4wp"] { @include flex-grow(1); }
 
-  .site-footer > .container-fluid > .container { width: calc(100% - 3rem); }
+  .site-footer > .container-fluid {
+                             &> .container { width: calc(100% - 3rem); padding: 0; }
+    &.footer-social-container > .container { padding-right: 1.5rem; padding-left: 1.5rem; }
+  }
+
 
   .site-footer .footer-widgets-row > .col-footer + .col-footer { padding-top: 0; }
 

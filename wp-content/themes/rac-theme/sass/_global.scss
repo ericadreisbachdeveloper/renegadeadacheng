@@ -68,6 +68,7 @@ body {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   @include linkgradient($magenta);
+  @include transition-multi(background-image .2s ease-in-out, background-size .2s ease-in-out, color .2s ease-in-out);
 
   @include hover {
     background-size: 0 100%;
@@ -80,7 +81,6 @@ body {
   color: $magenta;
   text-decoration: none;
   @extend %link-line;
-  @include transition-multi(background-image .2s ease-in-out, background-size .2s ease-in-out, color .2s ease-in-out);
 
   @include hover {
     color: $mauve;
@@ -337,14 +337,12 @@ figure.alignright figcaption  { text-align: right; }
 
   :not(.menu-item) > [href]:not(.footer-logo-a):not(.pagination-a) {
     @extend %link-line;
-
+    @include linkgradient(white);
     color: white;
 
-    &:after { background: white; }
-
     @include hover {
-                     color: #ddd;
-      &:after { background: #ddd; }
+      @include linkgradient(#ddd);
+      color: #ddd;
     }
   }
 
