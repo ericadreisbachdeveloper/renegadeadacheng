@@ -620,7 +620,7 @@
       width: calc( (100% - ( #{$navpad_left} + #{$navpad_haschildren_right} ) ) / 2);
     }
 
-    &.menu-item-has-children > a:before { left: $navpad_left; }
+    &.menu-item-has-children > a:before { left: calc( #{$navpad_left} + .2rem) ; }
     &.menu-item-has-children > a:after { right: $navpad_haschildren_right; }
 
     // current page has no children
