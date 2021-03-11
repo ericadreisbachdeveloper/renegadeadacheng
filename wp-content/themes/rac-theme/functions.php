@@ -15,8 +15,9 @@ function inspect_scripts() {
         echo $handle . ' | ';
     endforeach;
 }
+
+add_action( 'wp_print_scripts', 'inspect_scripts', 99 );
 */
-//add_action( 'wp_print_scripts', 'inspect_scripts', 99 );
 
 
 // 2. Conditionally remove unnecessary scripts
@@ -31,7 +32,10 @@ function deregister_javascript() {
     wp_deregister_script( 'html5blankscripts' );
 
    		 wp_dequeue_script( 'jquery' );
-	  wp_deregister_script( 'jquery' );
+
+		// for reasons unknown, global deregister of default jquery breaks WPForms
+		// even if jquery is also dequeued
+	  //wp_deregister_script( 'jquery' );
 }
 add_action('wp_enqueue_scripts', 'deregister_javascript', 100 );
 
@@ -50,6 +54,17 @@ function remove_jquery_migrate($scripts)
     }
 }
 add_action('wp_default_scripts', 'remove_jquery_migrate');
+
+
+// 2c. jQuery conditional to Contact
+/*
+function contact_jquery() {
+	if ( is_page ( 'Contact' ) ) {
+		wp_enqueue_script( 'jquery' );
+	}
+}
+*/
+//add_action('wp_enqueue_scripts', 'contact_jquery', 10, 0);
 
 
 
@@ -90,11 +105,11 @@ $style_vsn = '1.1.111';
 
 
 
-// 6a. Header scripts (header.php)
+// 6. Header scripts (header.php)
 function dbllc_header_scripts() {
   if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
-			wp_register_script('cloudjquery', 'https://code.jquery.com/jquery-3.3.1.min.js', array(), '3.3.1', false);
+			wp_register_script('cloudjquery', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), '3.6.0', false);
 			wp_enqueue_script('cloudjquery');
 
 			wp_register_script('aos', 'https://unpkg.com/aos@2.3.1/dist/aos.js');
@@ -108,20 +123,23 @@ function dbllc_header_scripts() {
 add_action('wp_enqueue_scripts', 'dbllc_header_scripts', 10, 0);
 
 
-// 6b. Add defer to scripts
-//function add_async_attribute($tag, $handle) {
+
+// 7. Add defer to scripts
+add_filter('script_loader_tag', 'add_async_attribute', 10, 2);
+
 function add_async_attribute($tag, $handle) {
 
 	if ( ! is_admin() ) {
-		if ( 'cloudjquery' == $handle ) {
-			return $tag;
+		if ( 'cloudjquery' !== $handle ) {
 			return str_replace( ' src', ' defer src', $tag );
+		}
+		elseif( 'cloudjquery' == $handle ) {
+			return str_replace( ' src', 'crossorigin="anonymous" src', $tag );
 		}
 	}
 
 	return $tag;
 }
-add_filter('script_loader_tag', 'add_async_attribute', 10, 2);
 
 
 
@@ -371,9 +389,7 @@ function inline_scripts(){
 
 	global $style_vsn;
 
-
 	echo '<script>jQuery.fn.accessibleDropDown=function(){var e=jQuery(this);jQuery("li",e).mouseover(function(){jQuery(this).addClass("hover")}).mouseout(function(){jQuery(this).removeClass("hover")}),jQuery("a",e).focus(function(){jQuery(this).parents("li").addClass("show")}).blur(function(){jQuery(this).parents("li").removeClass("show")})},jQuery(".nav").accessibleDropDown();</script>';
-
 
 	echo '<script>var spamSpanMainClass="spamspan",spamSpanUserClass="u",spamSpanDomainClass="d",spamSpanAnchorTextClass="t",spamSpanParams=new Array("subject","body");function spamSpan(){for(var a=getElementsByClass(spamSpanMainClass,document,"span"),e=0;e<a.length;e++){for(var n=getSpanValue(spamSpanUserClass,a[e]),s=getSpanValue(spamSpanDomainClass,a[e]),t=getSpanValue(spamSpanAnchorTextClass,a[e]),p=new Array,r=0;r<spamSpanParams.length;r++){var	 l=getSpanValue(spamSpanParams[r],a[e]);l&&p.push(spamSpanParams[r]+"="+encodeURIComponent(l))}var m=String.fromCharCode(64),o=cleanSpan(n)+m+cleanSpan(s),d=document.createTextNode(t||o),c=String.fromCharCode(109,97,105,108,116,111,58)+o;c+=p.length?"?"+p.join("&"):"";var u=document.createElement("a");u.className=spamSpanMainClass,u.setAttribute("href",c),u.appendChild(d),a[e].parentNode.replaceChild(u,a[e])}}function getElementsByClass(a,e,n){var s=new Array;null==e&&(node=document),null==n&&(n="*");for(var t=e.getElementsByTagName(n),p=t.length,r=new RegExp("(^|s)"+a+"(s|$)"),l=0,m=0;l<p;l++)r.test(t[l].className)&&(s[m]=t[l],m++);return s}function getSpanValue(a,e){var n=getElementsByClass(a,e,"span");return!!n[0]&&n[0].firstChild.nodeValue}function cleanSpan(a){return a=(a=a.replace(/[\[\(\{]?[dD][oO0][tT][\}\)\]]?/g,".")).replace(/\s+/g,"")}function addEvent(a,e,n){a.addEventListener?a.addEventListener(e,n,!1):a.attachEvent&&(a["e"+e+n]=n,a[e+n]=function(){a["e"+e+n](window.event)},a.attachEvent("on"+e,a[e+n]))}addEvent(window,"load",spamSpan);</script>';
 
@@ -738,8 +754,8 @@ add_action( 'widgets_init', 'dbllc_remove_widgets', 11 );
 
 
 
-// 31. Default timezone: Chicago
-date_default_timezone_set('America/Chicago');
+// xx 31. Default timezone: Chicago
+// date_default_timezone_set('America/Chicago');
 
 
 

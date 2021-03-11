@@ -16,6 +16,8 @@ $navh: 6rem;
 %nav-menu-position {  top: calc(#{$navh} - .05em); }
 %nav-menu-minheight { min-height: calc(100vh - #{$navh}); }
 
+
+
 .site-header {
   @extend %nav-height;
   @extend %clear;
@@ -87,7 +89,7 @@ $navh: 6rem;
 }
 
 
-#navmenu ul  {
+#navmenu .navbar-nav  {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -95,9 +97,9 @@ $navh: 6rem;
   // position relative on ALL li allows for correct display
   // of current nav dot
   // on mobile
-  li { position: relative; }
+  .menu-item { position: relative; }  // li
 
-  &> li:not(.menu-item-type-custom) > a {
+  &> .menu-item:not(.menu-item-type-custom) > [href] {
     border-bottom: .05rem solid $mobile-nav-border-color;
   }
 }
@@ -108,21 +110,21 @@ $navh: 6rem;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 
-  &> li {
+  &> .menu-item {
     background: transparent;
     font-size: 1rem;
     position: relative;
     text-transform: uppercase;
     @include transition-one(background);
 
-    &> a {
+    &> [href] {
       padding: 1rem 1.5rem 1rem 2rem;
     }
   }
 
 
-  &> li > a,
-  .sub-menu > li:not(.menu-item-type-custom) > a {
+  &> .menu-item > [href],
+  .sub-menu > li:not(.menu-item-type-custom) > [href] {
     width: 100%;
     color: $nearblack;
     display: inline-block;
@@ -287,6 +289,8 @@ $navh: 6rem;
     max-height: 0;
     background: rgba(0,0,0,.03);
     display: block;
+    list-style-type: none;
+    padding: 0;
     overflow: hidden;
     text-transform: none;
 
@@ -339,14 +343,14 @@ $navh: 6rem;
 
 
 
-// 2. Parents or Top-Level pages
+// xx 2. Parents or Top-Level pages
 %current-page-or-current-parent-li {
   // shading
-  background: $lavender1;
+  //background: $lavender1;
 }
 
-#navmenu .navbar-nav > li.current-menu-item,
-#navmenu .navbar-nav > li.current-menu-parent {
+#navmenu .navbar-nav > .current-menu-item,
+#navmenu .navbar-nav > .current-menu-parent {
   // applying shading to current parents
   // or top-level current pages
   @extend %current-page-or-current-parent-li;
@@ -361,7 +365,7 @@ $navh: 6rem;
 
 
 // VI. Special Buttons - Events and Contact
-#navmenu .navbar-nav > li > [href*="events"] {
+#navmenu .navbar-nav > .menu-item > [href*="events"] {
   background: $magenta;
 
   &:after {
@@ -372,7 +376,7 @@ $navh: 6rem;
 }
 
 
-#navmenu .navbar-nav > li > [href*="contact"] {
+#navmenu .navbar-nav > .menu-item > [href*="contact"] {
   background: $mauve;
 
   &:after {
@@ -383,9 +387,11 @@ $navh: 6rem;
 }
 
 
-#navmenu .navbar-nav > li {
+#navmenu .navbar-nav > .menu-item {
   &> [href*="events"], &> [href*="contact"] {
     color: white;
+
+    @include hover { color: white; }
 
     &:after {
       width: 1rem;

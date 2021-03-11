@@ -5,10 +5,9 @@ rscss.io/components.html
 ------------------------ */
 
 
-@import '_fontawesome.scss';          // Font Awesome v. 5.3.1
+//@import '_fontawesome.scss';          // Font Awesome v. 5.3.1
 
 @import '_bootstrap.scss';            // heavily modified Bootstrap v. 3.3.6
-//@import '_wpblocks.scss';             // Wordpress v. 5.3.2
 @import '_mixins.scss';               // animations and other CSS3 mixins
 
 //@import '_fonts.scss';              // fonts
@@ -17,7 +16,7 @@ rscss.io/components.html
 @import '_blocks.scss';               // tweaks to regular blocks
 
 @import '_nav.scss';                  // nav + header
-@import '_home.scss';                 // home
+//@import '_home.scss';                 // home
 @import '_blog.scss';                 // blog, posts
 @import '_forms.scss';                // forms
 @import '_hero.scss';                 // hero

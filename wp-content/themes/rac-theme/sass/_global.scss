@@ -45,9 +45,21 @@ body {
 %small     { font-size: .9rem; line-height: 1.666; }
 
 
-[data-role="main"] h1 { @extend %large; @extend %leaguespartan; text-transform: uppercase;  }
+[data-role="main"] h1 {
+  @extend %large;
+  @extend %leaguespartan;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
 
-[data-role="main"] h2 { @extend %large; @extend %goudy; margin-bottom: .25rem; font-weight: 400; font-style: italic; }
+[data-role="main"] h2 {
+  @extend %large;
+  @extend %goudy;
+  margin-top: 0;
+  margin-bottom: .25rem;
+  font-style: italic;
+  font-weight: 400;
+}
 
 
 // look like h3
