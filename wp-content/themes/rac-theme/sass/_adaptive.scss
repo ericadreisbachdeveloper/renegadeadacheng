@@ -167,11 +167,11 @@
     }
   }
 
-  #navmenu .navbar-nav > .menu-item > :not([href*=events]):not([href*=contact]) {
+  #navmenu .navbar-nav > .menu-item > [href]:not([href*=events]):not([href*=contact]) {
     @include hover { color: $nearblack; }
   }
 
-  #navmenu .navbar-nav > .menu-item > :not([href="#"]) {
+  #navmenu .navbar-nav > .menu-item > [href]:not([href="#"]) {
     @include transition(background, .3s, ease-in-out);
     @include hover { background: rgba(0,0,0,0.1); }
   }
@@ -312,7 +312,7 @@
     // ... on mobile bg is gray
     background: none;
 
-    &:not(.menu-item-has-children) > :not([href*=events]):not([href*=contact]) {
+    &:not(.menu-item-has-children) > [href]:not([href*=events]):not([href*=contact]) {
       &:after, &:before {
         // set width of underlines on childless top level nav items
         width: calc( (100% - (2 * #{$navpad_left}) ) / 2 );
@@ -333,7 +333,7 @@
     // set position of al right underlines
     // fudging these values just a smidge
     &> [href]:not([href*="events"]):not([href*="contact"]) {
-      &:after { right: calc( #{$navpad_nochildren_right} + .15rem); }
+      &:after { right: calc( #{$navpad_nochildren_right} + .2rem); }
     }
 
 
@@ -751,6 +751,10 @@
 
   [data-role="main"] { padding-top: 6rem; }
 
+
+  // Nav - wide
+  #navmenu .navbar-nav > .menu-item > [href*="events"],
+  #navmenu .navbar-nav > .menu-item > [href*="contact"] { padding-right: .9rem; }
 
 
 
