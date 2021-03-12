@@ -94,16 +94,24 @@ ob_start('sanitize_output'); ?>
 
 
 
-<!-- pre-load assets -->
+<!-- pre-load + load assets -->
 <?php global $style_vsn; ?>
+
+<!-- Wordpress blocks -->
 <link rel="preload" href="<?php esc_url(get_site_url()); ; ?>/wp-includes/css/dist/block-library/style.min.css" as="style">
 
 <link rel="stylesheet" href="<?php esc_url(get_site_url()); ; ?>/wp-includes/css/dist/block-library/style.min.css" media="print" onload="this.media='all'">
 
 
+
 <link rel="preload" href="<?= esc_url(TDIR); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" as="style">
 
 <link rel="stylesheet" href="<?= esc_url(TDIR); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" />
+
+
+
+<link rel="stylesheet" href="<?= esc_url(TDIR); ?>/css/later.css?ver=<?php _e($style_vsn); ?>" />
+
 
 
 <link rel="preload" href="<?= esc_url(TDIR); ?>/webfonts/leaguespartan-bold.otf" as="font" type="font/otf" crossOrigin="anonymous">
@@ -124,12 +132,6 @@ ob_start('sanitize_output'); ?>
 
 
 
-<!-- clip-path support -->
-<!-- unminified version in THEME/js/dev -->
-<script>var areClipPathShapesSupported=function(){for(var t="clipPath",e=["webkit","moz","ms","o"],a=[t],r=document.createElement("testelement"),p=0,l=e.length;p<l;p++){var o=e[p]+t.charAt(0).toUpperCase()+t.slice(1);a.push(o)}for(p=0,l=a.length;p<l;p++){var n=a[p];if(""===r.style[n]&&(r.style[n]="polygon(50% 0%, 0% 100%, 100% 100%)",""!==r.style[n]))return!0}return!1};areClipPathShapesSupported()||document.body.setAttribute("data-clippath","no-clippath");</script>
-
-
-
 <?php wp_head(); ?>
 
 
@@ -140,17 +142,6 @@ ob_start('sanitize_output'); ?>
 <body <?php body_class(); ?> data-svg="inlinesvg" data-clippath="clippath">
 
 
-
-	<!-- 1. detect SVG support and update <body> attribute if needed - unminified version in THEME/js/dev/svg-support.js -->
-	<!-- 2. add .-cssloaded to <body> after style.css loads - unminified vsn in THEME/js/dev/cssloaded.js -->
-	<!-- 3. detect clip-path support and update <body> attribute if needed - unminified in THEME/js/dev/clip-path-support.js -->
-	<script>
-	document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||document.body.setAttribute("data-svg","no-inlinesvg");
-	<?php global $style_vsn; ?>
-	jQuery(document).ready(function () {
-	var style_vsn="<?= $style_vsn; ?>",tdir="<?= esc_url(TDIR); ?>",e=document.getElementsByTagName("head")[0],t=document.body,d=document.createElement("link"),n=document.createElement("img"),r=tdir+"/css/style.css?ver="+style_vsn;d.href=r,d.rel="stylesheet",e.appendChild(d),n.onerror=function(){jQuery("body").addClass("-cssloaded"),t.removeChild(n)},t.appendChild(n),n.src=r;
-	});
-	</script>
 
 	<script src="<?= esc_url(TDIR); ?>/js/dev/clip-path-support.js"></script>
 

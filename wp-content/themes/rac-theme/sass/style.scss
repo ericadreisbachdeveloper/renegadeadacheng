@@ -10,13 +10,11 @@ rscss.io/components.html
 @import '_bootstrap.scss';            // heavily modified Bootstrap v. 3.3.6
 @import '_mixins.scss';               // animations and other CSS3 mixins
 
-//@import '_fonts.scss';              // fonts
 @import '_colors.scss';               // colors
 @import '_global.scss';               // typography, global styles, header, footer
 @import '_blocks.scss';               // tweaks to regular blocks
 
 @import '_nav.scss';                  // nav + header
-//@import '_home.scss';                 // home
 @import '_blog.scss';                 // blog, posts
 @import '_forms.scss';                // forms
 @import '_hero.scss';                 // hero

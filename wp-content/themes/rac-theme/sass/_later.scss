@@ -1,0 +1,392 @@
+// CSS that can load below fold
+// $ sass --watch sass/_later.scss:css/later.css --style compressed
+
+
+@import '_mixins.scss';
+@import '_colors.scss';
+
+
+%leaguespartan { font-family: 'League Spartan', 'Impact'; font-weight: 400; }
+
+
+
+%fontawesome { font-family: 'Font Awesome 5 Free'; font-weight: 400; }
+%fontawesome-solid { font-family: 'Font Awesome 5 Solid'; font-weight: 900; }
+%fontawesome-brands { font-family: 'Font Awesome Brands'; font-weight: 400; }
+
+
+%link-line {
+  position: relative;
+  text-decoration: none;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  @include linkgradient($magenta);
+  @include transition-multi(background-image .2s ease-in-out, background-size .2s ease-in-out, color .2s ease-in-out);
+
+  @include hover {
+    background-size: 0 100%;
+    @include linkgradient($mauve);
+  }
+}
+
+
+
+.-img-button {
+
+  @include hover {
+    [href] { border: .25rem solid $mauve; }
+                            // rotate(deg), scale, skew(deg), translatex, translatey
+    [src] { @include transform(0deg, 1.1, 0deg, 0, 0); }
+    figcaption { background: $mauve; }
+  }
+
+  [href], [src] {
+    display: block;
+    overflow: hidden;
+    @include border-radius(50%);
+  }
+
+  [href] {
+    border: .25rem solid $lavender2;
+    @include transition-one(border);
+  }
+
+  [src] {
+    @include transition-multi(transform .2s ease-in-out, -webkit-transform .2s ease-in-out, -moz-transform .2s ease-in-out, -o-transform .2s ease-in-out, -ms-transform .2s ease-in-out);
+  }
+
+  figcaption {
+    @extend %leaguespartan;
+    width: 80%;
+    background: $lavender2;
+    color: white;
+    position: relative;
+     top: -1rem;
+     left: 10%;
+    padding: 1.1rem .5rem 1rem;
+    text-transform: uppercase;
+
+    @include transition-one(background);
+    @include hover { cursor: pointer; }
+  }
+}
+
+
+
+
+
+
+
+
+// Footer
+.site-footer {
+  width: 100%;
+  background: $nearblack;
+  clear: left;
+  color: white;
+  float: left;
+  padding-bottom: 3rem;
+
+  .footer-nav {
+    @extend %leaguespartan;
+    padding-bottom: 1.2rem;
+    position: relative;
+    text-transform: uppercase;
+
+    // bottom mauve caret
+    &:after {
+      @include transform(0deg, (1.25,1), 0deg, 0, 0);
+      width: 10rem;
+      height: 4rem;
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' overflow='visible'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' fill='%2368043c' d='M19.679 0L10.2 11.924 0 0h19.679z'/%3E%3C/svg%3E");
+      background-position: 50% 0;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: '';
+      display: block;
+      position: absolute;
+       left: calc(50% - 5rem);
+       bottom: -4rem;
+    }
+
+    [role="navigation"] { text-align: right; }
+
+    .pagination-a {
+      background: transparent;
+      color: white;
+      display: block;
+      float: right;
+      padding-top: 1.2rem;
+      padding-left: .5rem;
+      padding-right: 1.5rem;
+      padding-bottom: 1rem;
+      position: relative;
+      text-decoration: none;
+      @include transition-one(background);
+
+      @include hover { background: rgba(0,0,0,.2); }
+
+      // right caret
+      &:after {
+        width: .8rem;
+        height: 100%;
+
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='20' overflow='visible'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' fill='%23FFF' d='M0 0l11.924 9.479L0 19.679V0z'/%3E%3C/svg%3E");
+
+        background-position: calc(100% - .2rem) calc(50% - .1rem);
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        content: '';
+        display: block;
+        position: absolute;
+         top: 0;
+         right: 0;
+      }
+    }
+  }
+
+
+  :not(.menu-item) > [href]:not(.footer-logo-a):not(.pagination-a) {
+    @extend %link-line;
+    @include linkgradient(white);
+    color: white;
+
+    @include hover {
+      @include linkgradient(#ddd);
+      color: #ddd;
+    }
+  }
+
+  .footer-widgets-row > .col-footer + .col-footer { padding-top: 3rem; }
+
+  .footer-nav + .footer-social-container { padding-top: 6.5rem; }
+
+  .footer-social-container {
+    background: $magenta;
+    border-bottom: .3rem solid $mauve;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .footer-h2 { margin-top: 0; text-align: center; }
+
+
+
+  // Social Nav
+  .menu[id*="social"] {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    @include flex;
+    @include justify-content(center);
+
+    &> li {
+      font-size: 1.4rem;
+
+      &> a {
+        width: 3rem;
+        height: 3rem;
+        color: transparent;
+        display: inline-block;
+        margin-right: .6rem;
+        position: relative;
+        overflow: hidden;
+
+        &:before {
+          @extend %fontawesome-brands;
+          width: 3rem;
+          height: 3rem;
+          color: white;
+          font-size: 2rem;
+          position: absolute;
+           top: 0;
+           left: 0;
+          text-align: center;
+
+          @include transition-one(background);
+
+          @include flex;
+          @include align-items(center);
+          @include justify-content(center);
+        }
+
+        &[href*="facebook"]:before { content: '\f39e'; }
+        &[href*="linkedin"]:before { content: '\f08c'; }
+        &[href*="instagram"]:before { content: '\f16d'; }
+        &[href*="youtube"]:before { content: '\f167'; }
+
+        @include hover {
+          &:before { background: rgba(0,0,0,.2); left: 0;  }
+        }
+      }
+    }
+  }
+
+
+
+  .footer-brand-container { padding-top: 2rem; padding-bottom: 2rem; }
+
+  .footer-logo-a {
+    width: 12rem;
+    height: 5.5rem;
+
+    display: block;
+
+    background-repeat: no-repeat;
+    background-position: 0 0;
+
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='183' height='80' overflow='visible'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' fill='%23FFF' d='M24.006 10.314c0-5.608-3.804-9.091-9.928-9.091H3.24V31.11h7.628V20.739l8.017 10.371h9.741L18.464 18.909c3.534-1.412 5.542-4.505 5.542-8.595zm-12.899 3.698h-.239V7.523h.239c2.693 0 4.922.244 4.922 3.245s-2.229 3.244-4.922 3.244zm49.229-2.41c-1.922 0-3.515.871-4.677 1.813v-1.289h-7.244V31.11h7.244V20.448c0-1.47 1.584-2.965 3.139-2.965 1.744 0 2.686 1.527 2.686 2.965V31.11h7.243V18.769c.001-5.658-5.274-7.167-8.391-7.167zm-23.828 0c-5.726 0-10.383 4.5-10.383 10.034 0 5.513 4.657 9.999 10.383 9.999 4.509 0 7.79-1.662 9.75-4.941l.292-.489-5.337-2.668-.27.289c-1.386 1.483-2.13 1.824-3.981 1.824-1.072 0-3.029-.568-3.314-2.645h12.883l.073-.444c.039-.232.042-.57.042-.924 0-6.097-3.979-10.035-10.138-10.035zm-2.633 6.919c.305-1.165 1.316-1.842 2.808-1.842 1.394 0 2.342.648 2.727 1.842h-5.535zm72.19-5.293c-1.486-1.081-3.277-1.626-5.341-1.626-5.381 0-9.44 4.313-9.44 10.034 0 5.7 4.059 9.999 9.44 9.999 1.814 0 3.808-.16 5.341-1.194v.175c0 2.892-2.412 3.664-3.838 3.664-2.842 0-4.027-1.436-4.406-2.054l-.252-.41-5.952 2.915.2.463c1.606 3.719 5.011 5.526 10.411 5.526 6.834 0 11.081-3.697 11.081-9.649V12.125h-7.243v1.103zm-3.488 12.071c-2.192 0-3.665-1.473-3.665-3.664 0-2.143 1.54-3.699 3.665-3.699 2.068 0 3.628 1.59 3.628 3.699 0 2.157-1.492 3.664-3.628 3.664zm51.213-12.07c-1.473-1.069-3.295-1.628-5.34-1.628-5.382 0-9.44 4.313-9.44 10.034 0 5.7 4.059 9.999 9.44 9.999 2.006 0 3.921-.687 5.41-1.913v1.389h7.174V0h-7.244v13.229zm-3.489 12.07c-2.192 0-3.664-1.473-3.664-3.664 0-2.143 1.541-3.699 3.664-3.699 2.069 0 3.63 1.59 3.63 3.699 0 2.157-1.493 3.664-3.63 3.664zm33.05-2.737c.04-.234.043-.572.043-.927 0-6.096-3.979-10.034-10.139-10.034-5.727 0-10.384 4.5-10.384 10.034 0 5.513 4.657 9.999 10.384 9.999 4.509 0 7.789-1.662 9.749-4.941l.293-.489-5.337-2.668-.27.289c-1.385 1.483-2.13 1.824-3.982 1.824-1.071 0-3.028-.568-3.312-2.645h12.882l.073-.442zm-12.727-4.041c.303-1.165 1.315-1.842 2.807-1.842 1.395 0 2.344.648 2.727 1.842h-5.534zM80.6 11.602c-5.726 0-10.383 4.5-10.383 10.034 0 5.513 4.657 9.999 10.383 9.999 4.509 0 7.79-1.662 9.75-4.941l.292-.489-5.337-2.668-.27.289c-1.386 1.483-2.131 1.824-3.981 1.824-1.072 0-3.029-.568-3.314-2.645h12.884l.073-.444c.039-.232.042-.57.042-.924-.001-6.097-3.98-10.035-10.139-10.035zm-2.633 6.919c.305-1.165 1.316-1.842 2.808-1.842 1.394 0 2.343.648 2.727 1.842h-5.535zm51.96-5.292c-1.474-1.069-3.297-1.628-5.34-1.628-5.383 0-9.44 4.313-9.44 10.034 0 5.7 4.058 9.999 9.44 9.999 2.006 0 3.92-.687 5.41-1.913v1.389h7.173V12.125h-7.243v1.104zm-3.488 12.07c-2.192 0-3.665-1.473-3.665-3.664 0-2.143 1.541-3.699 3.665-3.699 2.068 0 3.628 1.59 3.628 3.699 0 2.157-1.491 3.664-3.628 3.664zM175.956 53.951v.954c-1.341-.95-2.951-1.43-4.798-1.43-4.912 0-8.616 3.937-8.616 9.156 0 5.199 3.704 9.123 8.616 9.123 1.625 0 3.407-.141 4.798-1.042v.068c0 2.586-2.158 3.275-3.435 3.275-2.553 0-3.617-1.287-3.956-1.84l-.253-.41-5.483 2.687.2.462C164.496 78.351 167.6 80 172.521 80c6.233 0 10.106-3.375 10.106-8.807V53.951h-6.671zm-3.119 11.957c-1.959 0-3.275-1.317-3.275-3.276 0-1.917 1.378-3.309 3.275-3.309 1.85 0 3.244 1.422 3.244 3.309.001 1.929-1.332 3.276-3.244 3.276zM10.988 44.057L0 71.279h7.56l1.935-5.232h9.221l1.934 5.232h7.559L17.221 44.057h-6.233zm.937 15.698l2.18-5.686 2.18 5.686h-4.36zm28.221-4.849c-1.332-.938-2.968-1.431-4.798-1.431-4.912 0-8.616 3.937-8.616 9.156 0 5.199 3.704 9.123 8.616 9.123a7.782 7.782 0 004.861-1.683v1.207h6.608V42.947h-6.672v11.959zm-3.117 11.002c-1.959 0-3.276-1.317-3.276-3.276 0-1.917 1.378-3.309 3.276-3.309 1.85 0 3.245 1.422 3.245 3.309 0 1.929-1.335 3.276-3.245 3.276zm94.968-12.432c-5.223 0-9.472 4.106-9.472 9.156 0 5.03 4.249 9.123 9.472 9.123 4.111 0 7.103-1.518 8.89-4.508l.294-.489-4.923-2.462-.271.288c-1.26 1.349-1.895 1.641-3.577 1.641-1.017 0-2.681-.501-2.953-2.304h11.677l.075-.44c.036-.217.039-.525.039-.849 0-5.563-3.631-9.156-9.251-9.156zm-2.326 6.279c.29-.996 1.183-1.573 2.483-1.573 1.215 0 2.052.553 2.407 1.573h-4.89zm-36.357-9.247c2.814 0 4.795 1.491 4.813 1.508l.511.389 3.012-6.023-.325-.269c-.125-.103-3.131-2.531-8.931-2.531-7.971 0-14.705 6.474-14.705 14.135 0 7.61 6.733 14.039 14.705 14.039 5.8 0 8.806-2.428 8.931-2.531l.325-.269-3.013-6.025-.511.394c-.019.014-1.982 1.507-4.812 1.507-5.315 0-8.097-3.611-8.097-7.178 0-2.875 2.157-7.146 8.097-7.146zm60.309 2.968c-1.716 0-3.143.757-4.196 1.593v-1.117h-6.671V71.28h6.671v-9.727c0-1.309 1.414-2.642 2.801-2.642 1.552 0 2.39 1.36 2.39 2.642v9.727h6.671V60.031c-.001-5.175-4.819-6.555-7.666-6.555zm-40.017 0c-1.716 0-3.143.757-4.196 1.593V42.947h-6.671v28.332h6.671v-9.727c0-1.309 1.414-2.642 2.802-2.642 1.55 0 2.388 1.36 2.388 2.642v9.727h6.672V60.031c-.001-5.175-4.819-6.555-7.666-6.555zm-50.743 1.43c-1.332-.938-2.968-1.431-4.798-1.431-4.912 0-8.616 3.937-8.616 9.156 0 5.2 3.704 9.123 8.616 9.123a7.782 7.782 0 004.861-1.683v1.207h6.608V53.951h-6.672v.955zm-3.117 11.002c-1.959 0-3.276-1.317-3.276-3.276 0-1.917 1.377-3.309 3.276-3.309 1.85 0 3.245 1.422 3.245 3.309-.001 1.929-1.335 3.276-3.245 3.276z'/%3E%3C/svg%3E");
+  }
+
+}
+
+
+
+
+
+// Edit link
+[data-role="main"] .post-edit-link {
+  width: 7.5em;
+  clear: left;
+  float: left;
+  font-family: sans-serif;
+}
+
+.post-admin-link {
+  float: left;
+  clear: left;
+}
+
+[data-role="main"] .post-admin-link,
+[data-role="main"] .post-edit-link {
+  background: red;
+  border: 2px solid red;
+  color: white;
+  display: block;
+  font-size: .9rem;
+  margin: .5em .5em .5em 0;
+  padding: .5em 1em;
+  text-decoration: none;
+  @include border-radius(.4em);
+  @include transition(all,.2s,ease-in-out);
+  @include hover { background: white; color: red; text-decoration: none; @include transition(all,.2s,ease-in-out); }
+
+  &:before {
+    @extend %fontawesome-solid;
+    content: '\f013';
+    display: inline-block;
+    margin-right: .3em;
+  }
+
+  &:after { display: none; }
+}
+
+
+
+
+
+
+// Medium devices (tablets, 48rem and up)
+@media (min-width: 48rem) {
+
+  // Footer - medium
+   .footer-brand-container > .row > [id*="text"] { text-align: right; }
+
+   .site-footer .footer-nav { padding-top: 1.5rem; }
+}
+
+
+
+
+// Large devices (desktops, 62rem and up)
+@media (min-width: 62rem) {
+
+  // Sticky Footer - large
+  .wrapper:after { content: ''; display: block; clear: both; }
+
+  $footerh: 34rem;
+
+  .wrapper[data-footer="has-pagination"] { min-height: 100vh; margin-bottom: -$footerh; }
+
+  .wrapper[data-footer="has-pagination"]:after,
+  .wrapper[data-footer="has-pagination"] + .site-footer { height:$footerh; }
+
+
+  $footerh_nopagination: 23.15rem;
+
+  .wrapper[data-footer="no-pagination"] { min-height: 100vh; margin-bottom: -$footerh_nopagination; }
+
+  .wrapper[data-footer="no-pagination"]:after,
+  .wrapper[data-footer="no-pagination"] + .site-footer { height:$footerh_nopagination; }
+
+
+
+  // Footer - large
+  .site-footer .footer-nav:after { left: 1rem; }
+
+  .site-footer .footer-h2 { text-align: left; }
+  .site-footer .menu[id*="social"] { margin-left: -1.25rem; }
+
+  .menu[id*="social"] {
+    padding-top: .8em;
+    text-align: right;
+    position: relative;
+     right: -.5em;
+
+    li a {
+      width: 1.8em;
+      height: 1.8em;
+
+      &:before { font-size: 1.1rem; }
+    }
+  }
+
+  #menu-footer {
+    position: relative;
+    left: -1.1em;
+    text-align: left;
+    li { font-size: .85rem; }
+  }
+
+
+  .footer-widgets-row { @include flex; }
+  .col-footer[id*="nav"] { padding-right: 1rem; }
+  .col-footer[id*="mc4wp"] { @include flex-grow(1); }
+
+  .site-footer > .container-fluid {
+                             &> .container { width: calc(100% - 3rem); padding: 0; }
+    &.footer-social-container > .container { padding-right: 1.5rem; padding-left: 1.5rem; }
+  }
+
+
+  .site-footer .footer-widgets-row > .col-footer + .col-footer { padding-top: 0; }
+
+  .site-footer .mc4wp-form-fields {
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+    @include justify-content(space-between);
+  }
+
+  .site-footer [type="submit"] { width: 6rem; }
+
+  .site-footer .mc4wp-form-fields p {
+    width: calc( (100% - 9rem) / 3 );
+    min-width: 12rem;
+
+    &:last-of-type { width: 6rem; min-width: 6rem; }
+  }
+}
+
+
+
+
+// Extra large devices (large desktops, 75rem and up)
+@media (min-width: 75rem) {
+  // Footer - wide
+  $container: 73rem;
+  .site-footer > .container-fluid > .container { width: calc( #{$container} - 3rem); }
+  .site-footer .footer-nav:after { left: calc( (100% - #{$container}) / 2); }
+  .col-footer[id*="nav"] { padding-right: 2rem; }
+}
