@@ -305,7 +305,8 @@ function my_login_logo_url_title() {
 //add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 
 
-// 15j. Exclude login page from native search results
+// 15j. Exclude login page template from native search results
+//      also exclude Kitchen Sink
 //      src: https://stackoverflow.com/a/7880760
 function exclude_page_templates_from_search($query) {
 
@@ -313,11 +314,18 @@ function exclude_page_templates_from_search($query) {
 
 		if ( ($wp_the_query === $query) && (is_search()) && ( ! is_admin()) ) {
 
+			print_r($wp_the_query->query);
+
 			$args = array_merge($wp_the_query->query, array(
 				'meta_query' => array(
 					array(
 						'key' => '_wp_page_template',
 						'value' => 'page-login.php',
+						'compare' => '!='
+					),
+					array(
+						'key' => 'post_title',
+						'value' => 'Kitchen Sink',
 						'compare' => '!='
 					)
 				)

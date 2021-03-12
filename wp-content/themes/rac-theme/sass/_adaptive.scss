@@ -41,6 +41,7 @@
 
   // Typography - medium
   %monster { font-size: 4rem;  }
+  %huger   { font-size: 3.4rem; }
   %huge    { font-size: 3rem; }
   %large   { font-size: 2.5rem;  }
   %medium  { font-size: 1.5rem; }
@@ -134,8 +135,8 @@
   #navmenu .navbar-nav > .menu-item > [href*="events"]:after,
   #navmenu .navbar-nav > .menu-item > [href*="contact"]:after { display: none; }
 
-  #navmenu .navbar-nav > .menu-item > [href*="events"]:not([href="#"]) { @include hover { background: $lavender2; } }
-  #navmenu .navbar-nav > .menu-item > [href*="contact"]:not([href="#"]) { @include hover { background: $lavender2; } }
+  #navmenu .navbar-nav > .menu-item > [href*="events"],
+  #navmenu .navbar-nav > .menu-item > [href*="contact"] { @include hover { background: $lavender2; } }
 
   #navmenu .navbar-nav > .menu-item {
     display: inline-block;
@@ -171,7 +172,7 @@
     @include hover { color: $nearblack; }
   }
 
-  #navmenu .navbar-nav > .menu-item > [href]:not([href="#"]) {
+  #navmenu .navbar-nav > .menu-item > [href]:not([href="#"]):not([href*=events]):not([href*=contact]) {
     @include transition(background, .3s, ease-in-out);
     @include hover { background: rgba(0,0,0,0.1); }
   }

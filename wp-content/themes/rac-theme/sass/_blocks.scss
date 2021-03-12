@@ -6,3 +6,28 @@
 .wp-block-media-text > .wp-block-media-text__content + figure {
   padding-top: 2rem;
 }
+
+
+.wp-block-group__inner-container {
+  @extend %container;
+}
+
+.wp-block-media-text .wp-block-media-text__content {
+  padding: 0;
+}
+
+
+[data-role="main"]  [href].wp-block-button__link {
+  @extend %button;
+}
+
+[data-role="main"] .-magenta-bg [href].wp-block-button__link {
+  @extend %button-dark;
+}
+
+.wp-block-separator {
+  height: .75rem;
+  background: $lavender2;
+  border: none;
+  margin: 0;
+}
