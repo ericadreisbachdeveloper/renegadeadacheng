@@ -58,6 +58,8 @@
     @include flex-wrap(wrap);
   }
 
+  [data-role="main"] { padding-top: 1rem; }
+
 
   $headerh: 6rem;
   $logoh: 5rem;
@@ -357,13 +359,18 @@
   // Search - medium
   #navmenu {
 
-    .container-on-mobile { @include flex; @include justify-content(flex-end); }
+    .container-on-mobile {
+      @include flex;
+      //@include justify-content(flex-end);
+      @include justify-content(center);
+    }
 
     $bw: 3.063rem;
 
     // form.search, sibling to .nav.navbar-nav
     .search {
       background: none; // undoing mobile
+      margin-bottom: 0;
       @include flex;
       @include align-items(center);
     }
@@ -509,7 +516,7 @@
   #navmenu { margin-left: 0; }
 
               .nav { width: 100%; float: unset; }
-  #navmenu .search { margin-right: 1.5rem; }
+  //#navmenu .search { margin-right: 1.5rem; }
 
 
   #navmenu .navbar-nav > .menu-item > [href*="events"],
@@ -545,6 +552,8 @@
 
   // Header - large
   // full-width header container on large
+  [data-role="main"] { padding-top: 0; }
+
   .site-header > .gutenberg-container {
     width: 100%;
     padding-right: 1.5rem;

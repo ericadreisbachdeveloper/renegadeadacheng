@@ -260,7 +260,6 @@ function darkblack_login_fail( $username ) {
 }
 
 
-
 // 15g. Redirect to login page with blank username or password
 add_filter( 'authenticate', 'darkblank_blank_username_password', 1, 3);
 
@@ -308,26 +307,32 @@ function my_login_logo_url_title() {
 // 15j. Exclude login page template from native search results
 //      also exclude Kitchen Sink
 //      src: https://stackoverflow.com/a/7880760
+
 function exclude_page_templates_from_search($query) {
 
     global $wp_the_query;
 
 		if ( ($wp_the_query === $query) && (is_search()) && ( ! is_admin()) ) {
 
-			print_r($wp_the_query->query);
-
 			$args = array_merge($wp_the_query->query, array(
+
 				'meta_query' => array(
+
+					// exclude login page
 					array(
 						'key' => '_wp_page_template',
 						'value' => 'page-login.php',
-						'compare' => '!='
+						'compare' => '!=',
 					),
+
+					// exclude kitchen sink
 					array(
-						'key' => 'post_title',
-						'value' => 'Kitchen Sink',
-						'compare' => '!='
-					)
+						'key' => '_wp_page_template',
+						'value' => 'page-kitchensink.php',
+						'compare' => '!=',
+					),
+
+
 				)
 			));
 			query_posts( $args );
