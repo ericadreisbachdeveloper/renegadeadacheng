@@ -266,6 +266,8 @@ a { @include hover { cursor: pointer; } }
   @include hover { background-color: $mauve; }
 }
 
+.wp-block-button.-black-bg > .wp-block-button__link[href] { @extend %button-dark; }
+
 
 %button-lavender {
   @extend %button;
