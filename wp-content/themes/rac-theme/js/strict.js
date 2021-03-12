@@ -6,6 +6,13 @@
 		'use strict';
 
 
+		// lavender image buttons
+		$('.-img-button figure figcaption').on('click', function(){
+			window.location = jQuery(this).parent('figure').find('a').attr('href');
+		});
+
+
+
 
 		// Wordpress login form
 		if ( $('form[id^="loginform"]').length > 0 )  {

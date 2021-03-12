@@ -1,0 +1,50 @@
+{
+    "key": "group_604bafeadbeb7",
+    "title": "Meta Description",
+    "fields": [
+        {
+            "key": "field_604bb01b811d7",
+            "label": "Meta Description",
+            "name": "meta-description",
+            "type": "textarea",
+            "instructions": "Recommended: no more than 160 characters. This text usually appears as the snippet in web search results. <br \/> <br \/> NOTE: this snippet may be overridden by Google <br \/> <br \/> ALSO NOTE: Google does not use meta description keywords in search ranking <a href=\"https:\/\/webmasters.googleblog.com\/2007\/12\/answering-more-popular-picks-meta-tags.html\" target=\"_blank\" rel=\"noopener\">[citation]<\/a>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "side",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1615573115
+}

@@ -96,6 +96,7 @@
       -ms-transform: rotate($rotate) scale($scale) skew($skew) translateX($translatex) translateY($translatey);
 }
 
+// transform .2s ease-in-out, -webkit-transform .2s ease-in-out, -moz-transform .2s ease-in-out, -o-transform .2s ease-in-out, -ms-transform .2s ease-in-out
 
 @mixin border-radius ($rad) {
   border-radius: ($rad);

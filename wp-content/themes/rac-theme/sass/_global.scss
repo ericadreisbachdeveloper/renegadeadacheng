@@ -57,6 +57,15 @@ body {
   text-transform: uppercase;
 }
 
+// when h2 is not preceded by h1, make it look like h1
+[data-role="main"] .gutenberg-section:not(.core-heading) + .gutenberg-section.core-heading h2 {
+  @extend %large;
+  @extend %leaguespartan;
+  margin-bottom: 0;
+  font-style: unset;
+  text-transform: uppercase;
+}
+
 [data-role="main"] h2 {
   @extend %large;
   @extend %goudy;
@@ -235,7 +244,7 @@ a { @include hover { cursor: pointer; } }
 
   @include border-radius(0);
   @include transition-one(background-color);
-  
+
   @include hover { background-color: $mauve; }
 
   &:after {
@@ -253,14 +262,58 @@ a { @include hover { cursor: pointer; } }
 
 %button-dark {
   @extend %button;
-
   background-color: $nearblack;
+  @include hover { background-color: $mauve; }
+}
 
-  @include hover { background: $mauve; }
+
+%button-lavender {
+  @extend %button;
+  background-color: $lavender2;
+  @include hover { background-color: $mauve; }
 }
 
 
 
+.-img-button {
+
+  @include hover {
+    [href] { border: .25rem solid $mauve; }
+                            // rotate(deg), scale, skew(deg), translatex, translatey
+    [src] { @include transform(0deg, 1.1, 0deg, 0, 0); }
+    figcaption { background: $mauve; }
+  }
+
+  [href], [src] {
+    display: block;
+    overflow: hidden;
+    @include border-radius(50%);
+  }
+
+  [href] {
+    border: .25rem solid $lavender2;
+    @include transition-one(border);
+  }
+
+  [src] {
+    @include transition-multi(transform .2s ease-in-out, -webkit-transform .2s ease-in-out, -moz-transform .2s ease-in-out, -o-transform .2s ease-in-out, -ms-transform .2s ease-in-out);
+  }
+
+  figcaption {
+    @extend %leaguespartan;
+    width: 80%;
+    background: $lavender2;
+    color: white;
+    position: relative;
+     top: -1rem;
+     left: 10%;
+    padding: 1.1rem .5rem 1rem;
+    text-transform: uppercase;
+
+    @include transition-one(background);
+    @include hover { cursor: pointer; }
+  }
+}
 
 
 %clear {
@@ -298,6 +351,7 @@ a { @include hover { cursor: pointer; } }
 .-magenta-bg { background-color: $magenta; }
 .-mauve-bg { background-color: $mauve; }
 
+.-lavender-bg { background-color: $lavender2; }
 
 
 

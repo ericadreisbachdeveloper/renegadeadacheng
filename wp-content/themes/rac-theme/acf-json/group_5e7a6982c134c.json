@@ -25,25 +25,6 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
-        },
-        {
-            "key": "field_5e7a6a188561a",
-            "label": "Social sharing text",
-            "name": "social-txt",
-            "type": "textarea",
-            "instructions": "Recommended: no more than 300 characters. This text is the default text that will programmatically appear when the site is shared on social media. Meta description for a given post or page will override this text.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
         }
     ],
     "location": [
@@ -61,7 +42,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1585080909
+    "modified": 1615572941
 }

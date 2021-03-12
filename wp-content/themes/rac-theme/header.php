@@ -65,10 +65,6 @@ ob_start('sanitize_output'); ?>
 <meta name="description" property="description" content="<?php the_field('meta-description'); ?>">
 <meta property="og:description" content="<?php if(isset($metadescription)) { echo $metadescription; } ?>" />
 <meta name="twitter:description" content="<?php the_field('meta-description'); ?>">
-
-<?php elseif(class_exists('acf') && get_field('social-txt', 'option')) : ?>
-<meta name="description" property="description" content="<?php the_field('social-txt', 'option'); ?>">
-<meta name="twitter:description" content="<?php the_field('social-txt','option'); ?>">
 <?php endif; ?>
 
 
@@ -100,11 +96,17 @@ ob_start('sanitize_output'); ?>
 
 <!-- pre-load assets -->
 <?php global $style_vsn; ?>
+
+<link rel="preload" href="<?php esc_url(get_site_url()); ; ?>/wp-includes/css/dist/block-library/style.min.css" as="style">
+
+<link rel="stylesheet" href="<?php esc_url(get_site_url()); ; ?>/wp-includes/css/dist/block-library/style.min.css" media="print" onload="this.media='all'">
+
+
+
 <link rel="preload" href="<?= esc_url(TDIR); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" as="style">
 
 <link rel="stylesheet" href="<?= esc_url(TDIR); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" />
 
-<link rel="stylesheet" href="<?php esc_url(get_site_url()); ; ?>/wp-includes/css/dist/block-library/style.min.css" media="print" onload="this.media='all'">
 
 <link rel="preload" href="<?= esc_url(TDIR); ?>/webfonts/leaguespartan-bold.otf" as="font" type="font/otf" crossOrigin="anonymous">
 
