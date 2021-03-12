@@ -96,11 +96,9 @@ ob_start('sanitize_output'); ?>
 
 <!-- pre-load assets -->
 <?php global $style_vsn; ?>
-
 <link rel="preload" href="<?php esc_url(get_site_url()); ; ?>/wp-includes/css/dist/block-library/style.min.css" as="style">
 
 <link rel="stylesheet" href="<?php esc_url(get_site_url()); ; ?>/wp-includes/css/dist/block-library/style.min.css" media="print" onload="this.media='all'">
-
 
 
 <link rel="preload" href="<?= esc_url(TDIR); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" as="style">
