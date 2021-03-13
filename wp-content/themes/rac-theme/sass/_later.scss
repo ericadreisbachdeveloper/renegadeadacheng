@@ -384,6 +384,23 @@
 
 // Extra large devices (large desktops, 75rem and up)
 @media (min-width: 75rem) {
+
+
+
+  // Viewport
+  .viewport-height {
+    width: 10rem;
+    height: .1rem;
+    background: orange;
+    position: absolute;
+     top: calc(100vh + 2rem);
+     left: 0;
+  }
+
+
+
+
+
   // Footer - wide
   $container: 73rem;
   .site-footer > .container-fluid > .container { width: calc( #{$container} - 3rem); }
