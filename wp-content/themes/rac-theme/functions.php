@@ -69,7 +69,7 @@ function contact_jquery() {
 
 
 // 3. For debugging - output all styles
-
+/*
 function inspect_styles() {
     global $wp_styles;
     foreach( $wp_styles->queue as $handle ) :
@@ -77,7 +77,7 @@ function inspect_styles() {
     endforeach;
 }
 add_action( 'wp_print_scripts', 'inspect_styles', 99 );
-
+*/
 
 
 
@@ -101,7 +101,7 @@ add_action('wp_enqueue_scripts', 'deregister_css', 100 );
 
 // 5. Style vsn
 global $style_vsn;
-$style_vsn = '1.1.112';
+$style_vsn = '1.1.113';
 
 
 

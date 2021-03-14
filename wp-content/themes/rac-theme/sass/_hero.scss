@@ -1,8 +1,25 @@
 /* ------------------------
-  Hero
+  Hero (text animation)
 ------------------------ */
 
-.wp-block-cover {
-  min-height: 15rem;
-  color: white;
+$fade_time: .6s;
+
+[class*="fade"] {
+  display: inline-block;
+  opacity: 0;
+  // rotate(deg), scale, skew(deg), translatex, translatey
+  @include transform(0deg, 1, 0deg, -2.2rem, 0);
+
+  @include transition-multi(opacity $fade_time linear, transform $fade_time linear, -webkit-transform $fade_time linear, -moz-transform $fade_time linear, -o-transform $fade_time linear, -ms-transform $fade_time linear);
+
+
+  &.aos-animate {
+    opacity: 1;
+    @include transform(0deg, 1, 0deg, 0, 0);
+  }
+
+
+  &.-fade2 { @include transition-delay( .4s ); }
+  &.-fade3 { @include transition-delay( .8s ); }
+  &.-fade4 { @include transition-delay( 1.2s ); }
 }

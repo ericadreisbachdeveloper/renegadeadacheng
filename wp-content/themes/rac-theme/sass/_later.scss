@@ -89,6 +89,7 @@
 
   .footer-nav {
     @extend %leaguespartan;
+    padding-top: 1.2rem;
     padding-bottom: 1.2rem;
     position: relative;
     text-transform: uppercase;
@@ -389,11 +390,8 @@
 
   // Viewport
   .viewport-height {
-    width: 10rem;
-    height: .1rem;
-    background: orange;
     position: absolute;
-     top: calc(100vh + 2rem);
+     top: calc(100vh - 5rem);
      left: 0;
   }
 

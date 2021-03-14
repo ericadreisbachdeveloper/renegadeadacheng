@@ -55,10 +55,11 @@ body {
   text-transform: uppercase;
 }
 
-// when h2 is not preceded by h1, make it look like h1
-[data-role="main"] .gutenberg-section:not(.core-heading) + .gutenberg-section.core-heading h2 {
+// on homepage when h2 is not preceded by h1, make it look like h1
+.page-template-page-home [data-role="main"] > .gutenberg-section:not(.core-heading) + .gutenberg-section.core-heading h2 {
   @extend %large;
   @extend %leaguespartan;
+  margin-top: 0; 
   margin-bottom: 0;
   font-style: unset;
   text-transform: uppercase;
@@ -72,6 +73,8 @@ body {
   font-style: italic;
   font-weight: 400;
 }
+
+[data-role="main"] > .gutenberg-section.core-heading h2 { margin-top: 1.5rem; }
 
 
 // look like h3

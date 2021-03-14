@@ -17,9 +17,13 @@
 
   // Structure - small
   .-corseted {
-    max-width: 34.5rem;
     margin-right: auto;
     margin-left: auto;
+
+    &.-left {
+      margin-right: 0;
+      margin-left: 0;
+    }
   }
 
   // Home - small
@@ -45,16 +49,14 @@
   %container-corset { margin-top: 0; margin-bottom: 0; }
   %container { margin-right: auto; margin-left: auto; }
 
-  // Structure - small
-  .-corseted {
-    max-width: 38rem;
-    margin-right: auto;
-    margin-left: auto;
-  }
 
 
   .-mobile { display: none; }
   .-desktop { display: block; }
+
+
+  // Structure - medium
+  .-corseted { max-width: 38rem; }
 
 
 
@@ -66,6 +68,9 @@
   %medium  { font-size: 1.5rem; }
   %text    { font-size: 1rem; }
   %small   { font-size: .9rem; }
+
+  [data-role="main"] > .gutenberg-section.core-heading h2 { margin-top: 2.5rem; }
+
 
 
 
@@ -546,13 +551,6 @@
 
 
 
-  // Home - medium large
-  // Home - medium
-  [data-role="main"] > .gutenberg-section .wp-block-media-text {
-    min-height: 29.911rem;
-  }
-
-
 }
 
 
@@ -588,11 +586,6 @@
 
   .site-header .logo-a { width: 11.5rem; padding-right: 0; padding-left: 0; }
 
-
-  // Home - large
-  .page-template-page-home [data-role="main"] > .core-media-text .wp-block-media-text__media {
-    //min-height: 31.364rem;
-  }
 
 
   // Nav - large
@@ -682,10 +675,13 @@
   #navmenu .search { margin-right: 0; }
 
 
+
+
   // Home - large
   [data-role="main"] > .gutenberg-section .wp-block-media-text {
-    min-height: 31.364rem;
+    min-height: 31.944rem;
   }
+
 
 }
 
@@ -707,6 +703,8 @@
 
   %container-gutter { width: calc( #{$container} - 30px); }
 
+  .-corseted { max-width: 52rem; }
+
 
   // Home - wide
   // Viewport height - wide
@@ -719,7 +717,7 @@
   }
 
   [data-role="main"] > .gutenberg-section .wp-block-media-text {
-    min-height: 32.5rem;
+    min-height: 33.938rem;
   }
 
 
@@ -735,6 +733,15 @@
   }
 
   [data-role="main"] { padding-top: 6rem; }
+
+
+  .viewport-height + .site-header {
+    @include transition-multi(box-shadow .1s ease-in-out, -webkit-box-shadow .1s ease-in-out);
+  }
+
+  .viewport-height.aos-animate + .site-header {
+    @include simple-box-shadow(0, .1rem, .2rem, rgba(0,0,0,.3));
+  }
 
 
 

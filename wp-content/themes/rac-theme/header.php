@@ -152,6 +152,13 @@ ob_start('sanitize_output'); ?>
 	<div class="wrapper" data-footer="<?php global $data_footer; include(locate_template('template/pagination_variables.php')); _e($data_footer); ?>">
 
 
+		<!-- when this div is in frame -->
+		<!-- AOS adds .aos-animate -->
+		<!-- and CSS rules on .aos-animate + .site-header in _adaptive.scss add shadow -->
+		<div class="viewport-height" data-aos="aos"></div>
+
+
+
 		<header class="site-header clear">
 
 
@@ -202,7 +209,3 @@ ob_start('sanitize_output'); ?>
 
 			</div><!-- /.gutenberg-container -->
 		</header>
-
-
-
-		<div class="viewport-height"></div>

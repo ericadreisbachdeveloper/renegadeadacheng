@@ -235,3 +235,15 @@ $toggle_bottom: 2rem;
      0% { opacity: 1; }
   100% { opacity: 0; }
 }
+
+@mixin align-self($args...) {
+  -webkit-align-self: $args;
+  -moz-align-self: $args;
+  -ms-align-self: $args;
+  align-self: $args;
+}
+
+@mixin transition-delay ($time) {
+  transition-delay: $time;
+   -webkit-transition-delay: $time;
+}

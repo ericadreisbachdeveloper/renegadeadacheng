@@ -3,6 +3,14 @@
 ------------------------ */
 
 
+// Hero / Cover
+.wp-block-cover {
+  min-height: 15rem;
+  color: white;
+}
+
+
+
 // Media
 .wp-block-media-text > figure + .wp-block-media-text__content,
 .wp-block-media-text > .wp-block-media-text__content + figure {
@@ -14,7 +22,13 @@
 }
 
 
-//
+// Home - Text/Media
+.page-template-page-home [data-role="main"] > .gutenberg-section:first-of-type  {
+  &.core-media-text .wp-block-media-text__media {
+    @include align-self(flex-end);
+  }
+}
+
 
 
 // Group

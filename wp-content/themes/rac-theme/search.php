@@ -6,7 +6,7 @@
 <main data-role="main" id="main">
 	<section class="section">
 		<div class="container">
-			<div class="corset">
+			<div class="-corseted -left">
 
 
 			<?php $s = sprintf( __('%s', 'dbllc'), $wp_query->found_posts);

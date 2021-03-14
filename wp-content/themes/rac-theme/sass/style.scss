@@ -5,8 +5,6 @@ rscss.io/components.html
 ------------------------ */
 
 
-//@import '_fontawesome.scss';          // Font Awesome v. 5.3.1
-
 @import '_bootstrap.scss';            // heavily modified Bootstrap v. 3.3.6
 @import '_mixins.scss';               // animations and other CSS3 mixins
 
@@ -15,9 +13,9 @@ rscss.io/components.html
 @import '_blocks.scss';               // tweaks to regular blocks
 
 @import '_nav.scss';                  // nav + header
+@import '_hero.scss';                 // hero text fade
 @import '_blog.scss';                 // blog, posts
 @import '_forms.scss';                // forms
-@import '_hero.scss';                 // hero
 
 @import '_adaptive.scss';             // large viewports
 
