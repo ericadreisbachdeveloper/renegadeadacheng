@@ -210,6 +210,37 @@ $toggle_bottom: 2rem;
 
 
 
+@include keyframes(fade_out) {
+  0%   { opacity: 1; }
+  25%  { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@include keyframes(fade_in_out_2) {
+  0%   { opacity: 0; }
+  25%  { opacity: 0; }
+  50%  { opacity: 1; }
+  75%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@include keyframes(fade_in_out_3) {
+  0%   { opacity: 0; }
+  50%  { opacity: 0; }
+  75%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+@include keyframes(fade_in) {
+  0%   { opacity: 0; }
+  75%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+
 // Forms
 @mixin flex-direction($args...) {
   -webkit-flex-direction: $args;

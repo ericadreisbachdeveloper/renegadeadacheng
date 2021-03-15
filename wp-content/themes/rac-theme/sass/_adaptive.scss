@@ -26,10 +26,40 @@
     }
   }
 
-  // Home - small
-  [data-role="main"] > .gutenberg-section .wp-block-media-text {
-    min-height: 22.688rem;
+
+
+
+  $fade_time: .6s;
+
+  [class*="fade"] {
+
+    /* undo mobile */
+    width: unset;
+    position: unset;
+    display: inline-block;
+    text-align: left;
+
+    // rotate(deg), scale, skew(deg), translatex, translatey
+    @include transform(0deg, 1, 0deg, -2.2rem, 0);
+
+    @include transition-multi(opacity $fade_time linear, transform $fade_time linear, -webkit-transform $fade_time linear, -moz-transform $fade_time linear, -o-transform $fade_time linear, -ms-transform $fade_time linear);
+
+
+    &.aos-animate {
+      opacity: 1;
+      @include transform(0deg, 1, 0deg, 0, 0);
+    }
+
+
+    &.-fade2 { @include transition-delay( .4s ); }
+    &.-fade3 { @include transition-delay( .8s ); }
+    &.-fade4 { @include transition-delay( 1.2s ); }
   }
+
+  .-animate-text .core-heading br { display: block; }
+
+
+
 
 }
 
@@ -104,7 +134,7 @@
     [class*="core"]{ max-width: 50%; }
   }
 
-  .home { .wp-block-cover, .wp-block-cover-image { min-height: 32em; } }
+  //.home { .wp-block-cover, .wp-block-cover-image { min-height: 32em; } }
 
 
 
@@ -385,7 +415,6 @@
 
     .container-on-mobile {
       @include flex;
-      //@include justify-content(flex-end);
       @include justify-content(center);
     }
 
@@ -501,9 +530,11 @@
 
 
   // Home - medium
+  /*
   [data-role="main"] > .gutenberg-section .wp-block-media-text {
     min-height: 26.607rem;
   }
+  */
 
 
 
@@ -676,10 +707,9 @@
 
 
 
-
   // Home - large
-  [data-role="main"] > .gutenberg-section .wp-block-media-text {
-    min-height: 31.944rem;
+  .is-content-justification-center.-desktop-align-left {
+    @include justify-content(flex-start);
   }
 
 
@@ -711,14 +741,6 @@
   // -viewport-height - wide
   $headerh: 6rem;
 
-  .wp-block-media-text.-viewport-height .wp-block-media-text__media [src] {
-    max-height: calc(100vh - #{$headerh} - 8rem);
-    width: auto;
-  }
-
-  [data-role="main"] > .gutenberg-section .wp-block-media-text {
-    min-height: 33.938rem;
-  }
 
 
 

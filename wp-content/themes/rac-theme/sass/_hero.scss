@@ -2,24 +2,49 @@
   Hero (text animation)
 ------------------------ */
 
-$fade_time: .6s;
+$timing: 6s;
+
+
+.-animate-text .core-heading {
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.-animate-text .core-heading br { display: none; }
+
 
 [class*="fade"] {
-  display: inline-block;
+  width: 100%;
+  display: block;
   opacity: 0;
+  position: absolute;
+   top: 0;
+  text-align: center;
+
+
+
+  //@include transition(opacity, $fade_time, linear);
+
   // rotate(deg), scale, skew(deg), translatex, translatey
-  @include transform(0deg, 1, 0deg, -2.2rem, 0);
+  /* @include transform(0deg, 1, 0deg, -2.2rem, 0);
 
   @include transition-multi(opacity $fade_time linear, transform $fade_time linear, -webkit-transform $fade_time linear, -moz-transform $fade_time linear, -o-transform $fade_time linear, -ms-transform $fade_time linear);
+  */
+
+  &.-aos-animate { &.-fade1, &.-fade2, &.-fade3 { opacity: 0; } }
+
+  &.aos-animate.-fade1 { @include animation(fade_out, ease-in-out, 1, $timing);  }
+
+  &.aos-animate.-fade2 { @include animation(fade_in_out_2, ease-in-out, 1, $timing); }
+
+  &.aos-animate.-fade3 { @include animation(fade_in_out_3, ease-in-out, 1, $timing); }
+
+  &.aos-animate.-fade4 { @include animation(fade_in, ease-in-out, 1, $timing); opacity: 1; }
 
 
-  &.aos-animate {
-    opacity: 1;
-    @include transform(0deg, 1, 0deg, 0, 0);
-  }
-
-
-  &.-fade2 { @include transition-delay( .4s ); }
-  &.-fade3 { @include transition-delay( .8s ); }
-  &.-fade4 { @include transition-delay( 1.2s ); }
+  /*
+  &.-fade2 { @include transition-delay( .6s ); }
+  &.-fade3 { @include transition-delay( 1.2s ); }
+  &.-fade4 { @include transition-delay( 1.8s ); }
+  */
 }
