@@ -22,15 +22,6 @@ $timing: 6s;
   text-align: center;
 
 
-
-  //@include transition(opacity, $fade_time, linear);
-
-  // rotate(deg), scale, skew(deg), translatex, translatey
-  /* @include transform(0deg, 1, 0deg, -2.2rem, 0);
-
-  @include transition-multi(opacity $fade_time linear, transform $fade_time linear, -webkit-transform $fade_time linear, -moz-transform $fade_time linear, -o-transform $fade_time linear, -ms-transform $fade_time linear);
-  */
-
   &.-aos-animate { &.-fade1, &.-fade2, &.-fade3 { opacity: 0; } }
 
   &.aos-animate.-fade1 { @include animation(fade_out, ease-in-out, 1, $timing);  }
@@ -41,10 +32,17 @@ $timing: 6s;
 
   &.aos-animate.-fade4 { @include animation(fade_in, ease-in-out, 1, $timing); opacity: 1; }
 
+}
 
-  /*
-  &.-fade2 { @include transition-delay( .6s ); }
-  &.-fade3 { @include transition-delay( 1.2s ); }
-  &.-fade4 { @include transition-delay( 1.8s ); }
-  */
+
+.page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media,
+.page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
+  height: calc(100vh - 18rem);
+  max-height: 30rem;
+}
+
+.page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
+  width: auto;
+  margin-right: auto;
+  margin-left: auto;
 }

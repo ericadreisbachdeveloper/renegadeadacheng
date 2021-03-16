@@ -26,7 +26,11 @@ html * {
 }
 
 %arialrounded { font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif; }
+
 %leaguespartan { font-family: 'League Spartan', 'Impact'; font-weight: 400; }
+// rotate(deg), scale, skew(deg), translatex, translatey
+%leaguespartan em { display: inline-block; font-style: normal; @include transform(0deg, 1, -5deg, 0, 0); }
+
 %goudy {  font-family: 'Goudy Old Style', Garamond, "Big Caslon", "Times New Roman", serif; }
 
 
@@ -59,7 +63,7 @@ body {
 .page-template-page-home [data-role="main"] > .gutenberg-section:not(.core-heading) + .gutenberg-section.core-heading h2 {
   @extend %large;
   @extend %leaguespartan;
-  margin-top: 0; 
+  margin-top: 0;
   margin-bottom: 0;
   font-style: unset;
   text-transform: uppercase;

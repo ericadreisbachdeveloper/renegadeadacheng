@@ -29,7 +29,15 @@
 
 
 
-  $fade_time: .6s;
+  // Home - small
+  .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media,
+  .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
+    height: auto;
+    max-height: 30rem;
+  }
+
+
+  $fade_time: .7s;
 
   [class*="fade"] {
 
@@ -40,9 +48,30 @@
     text-align: left;
 
     // rotate(deg), scale, skew(deg), translatex, translatey
-    @include transform(0deg, 1, 0deg, -2.2rem, 0);
+    @include transform(0deg, 1, 0deg, -1rem, 0);
 
-    @include transition-multi(opacity $fade_time linear, transform $fade_time linear, -webkit-transform $fade_time linear, -moz-transform $fade_time linear, -o-transform $fade_time linear, -ms-transform $fade_time linear);
+    @include transition-multi(
+      opacity $fade_time linear,
+      transform $fade_time linear,
+      -webkit-transform $fade_time linear,
+      -moz-transform $fade_time linear,
+      -o-transform $fade_time linear,
+      -ms-transform $fade_time linear
+    );
+
+
+    &.aos-animate {
+      &.-fade1, &.-fade2, &.-fade3, &.-fade4 {
+        -webkit-animation-name: unset;
+        -webkit-animation-timing-function: unset;
+        -webkit-animation-iteration-count: 0;
+        -webkit-animation-duration: 0s;
+        animation-name: unset;
+        animation-timing-function: unset;
+        animation-iteration-count: 0;
+        animation-duration: 0s;
+      }
+    }
 
 
     &.aos-animate {
@@ -50,10 +79,9 @@
       @include transform(0deg, 1, 0deg, 0, 0);
     }
 
-
-    &.-fade2 { @include transition-delay( .4s ); }
-    &.-fade3 { @include transition-delay( .8s ); }
-    &.-fade4 { @include transition-delay( 1.2s ); }
+    &.-fade2 { transition-delay: $fade_time * 1;  }
+    &.-fade3 { transition-delay: $fade_time * 2; }
+    &.-fade4 { transition-delay: $fade_time * 3; }
   }
 
   .-animate-text .core-heading br { display: block; }
@@ -92,7 +120,7 @@
 
   // Typography - medium
   %monster { font-size: 4rem;  }
-  %huger   { font-size: 3.4rem; }
+  %huger   { font-size: 4rem; }
   %huge    { font-size: 3rem; }
   %large   { font-size: 2.5rem;  }
   %medium  { font-size: 1.5rem; }
@@ -100,6 +128,7 @@
   %small   { font-size: .9rem; }
 
   [data-role="main"] > .gutenberg-section.core-heading h2 { margin-top: 2.5rem; }
+
 
 
 
@@ -708,9 +737,11 @@
 
 
   // Home - large
+  // button
   .is-content-justification-center.-desktop-align-left {
     @include justify-content(flex-start);
   }
+
 
 
 }
@@ -770,6 +801,19 @@
   // Nav - wide
   #navmenu .navbar-nav > .menu-item > [href*="events"],
   #navmenu .navbar-nav > .menu-item > [href*="contact"] { padding-right: .9rem; }
+
+
+  /// Home - wide
+  // home hero img
+  .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media,
+  .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
+    height: calc(100vh - 14rem);
+    max-height: 35rem;
+  }
+
+  .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
+    width: auto;
+  }
 
 
 }
