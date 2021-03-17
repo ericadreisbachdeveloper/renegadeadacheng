@@ -42,7 +42,7 @@ body {
 
 %huger     { font-size: 2.2rem; line-height: 1.2; }
 %huge      { font-size: 2rem; line-height: 1.2;  }
-%large     { font-size: 1.5rem; line-height: 1.44; }
+%large     { font-size: 1.8rem; line-height: 1.2; }
 %medium    { font-size: 1.125rem; line-height: 1.666; }
 %text      { font-size: 1rem; line-height: 1.666; }
 %small     { font-size: .9rem; line-height: 1.666; }
@@ -59,8 +59,8 @@ body {
   text-transform: uppercase;
 }
 
-// on homepage when h2 is not preceded by h1, make it look like h1
-.page-template-page-home [data-role="main"] > .gutenberg-section:not(.core-heading) + .gutenberg-section.core-heading h2 {
+// on homepage when h2 looks like h1
+.page-template-page-home [data-role="main"] .gutenberg-section.core-heading h2 {
   @extend %large;
   @extend %leaguespartan;
   margin-top: 0;

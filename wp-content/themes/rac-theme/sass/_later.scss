@@ -7,14 +7,26 @@
 
 
 %leaguespartan { font-family: 'League Spartan', 'Impact'; font-weight: 400; }
+%medium    { font-size: 1.125rem; line-height: 1.666; }
+%text      { font-size: 1rem; line-height: 1.666; }
 
 
+
+// Structure
+// so that there's no space between gradient sections
+[class*="wp-block"][class*="-gradient"] .wp-block-columns { margin-bottom: 0; }
+
+
+
+// Typoography
+%leaguespartan { font-family: 'League Spartan', 'Impact'; font-weight: 400; }
 
 %fontawesome { font-family: 'Font Awesome 5 Free'; font-weight: 400; }
 %fontawesome-solid { font-family: 'Font Awesome 5 Solid'; font-weight: 900; }
 %fontawesome-brands { font-family: 'Font Awesome Brands'; font-weight: 400; }
 
 
+// Classes
 %link-line {
   position: relative;
   text-decoration: none;
@@ -29,8 +41,7 @@
   }
 }
 
-
-
+// lavender buttons
 .-img-button {
 
   @include hover {
@@ -72,8 +83,51 @@
 }
 
 
+.-circle-image [src] { @include border-radius(50%); border: .35rem solid $cream3; }
 
 
+.-gradient-1 { @include linear-gradient($lavender1, $lavender3); }
+.-gradient-2 { @include linear-gradient-three($lavender3, $cream1, white); }
+
+
+
+.wp-block-quote { margin: 0; position: relative; padding: 0 5rem 0 6rem; }
+
+.wp-block-quote:before,
+.wp-block-quote:after {
+  content: '';
+  display: block;
+  position: absolute;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  z-index: 1;
+}
+
+
+// quote marks
+.wp-block-quote:after {
+  width: 6rem;
+  height: 6rem;
+   top: 0;
+   left: -1rem;
+
+  background-position: 0 0;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='112' height='88' overflow='visible'%3E%3Cpath fill='%23E6C9AD' d='M25.422 88.13c13.801 0 24.938-11.38 24.938-25.422 0-11.38-8.232-20.096-18.885-22.76 3.39-18.4 16.706-30.99 16.706-30.99L36.801 0C19.127 14.769 0 36.317 0 62.708 0 76.75 11.379 88.13 25.422 88.13zm61.255 0c13.801 0 25.181-11.38 25.181-25.422 0-11.38-8.231-20.096-19.128-22.76 3.633-18.4 16.949-30.99 16.949-30.99L98.299 0c-17.917 14.769-36.56 36.317-36.56 62.708 0 14.042 10.896 25.422 24.938 25.422z'/%3E%3C/svg%3E");
+}
+
+.wp-block-quote p {
+  @extend %medium;
+  position: relative;
+  z-index: 10;
+}
+
+.wp-block-quote p cite {
+  @extend %leaguespartan;
+  @extend %text;
+  font-style: normal;
+}
 
 
 
@@ -288,6 +342,28 @@
 
 
 
+// Small devices (landscape phones, 37.5rem and up)
+// using max-width bc Wordpress is nasty
+// don't do this nasty stuff to the hero
+@media (max-width: 51.99999rem) {
+
+  [data-role="main"] > .gutenberg-section + .gutenberg-section,
+  [data-role="main"] > .gutenberg-section + .wp-block-group,
+  [data-role="main"] > .wp-block-group + .wp-block-group,
+  [data-role="main"] > .wp-block-group + .gutenberg-section {
+    .wp-block-media-text { grid-template-columns: 100% !important; }
+
+    .wp-block-media-text .wp-block-media-text__content {
+      -ms-grid-column: 1;
+      grid-column: 1;
+      -ms-grid-row: 2;
+      grid-row: 2;
+    }
+  }
+
+}
+
+
 
 // Medium devices (tablets, 48rem and up)
 @media (min-width: 48rem) {
@@ -322,6 +398,11 @@
   .wrapper[data-footer="no-pagination"]:after,
   .wrapper[data-footer="no-pagination"] + .site-footer { height:$footerh_nopagination; }
 
+
+
+  // Talk bubble - large
+  .wp-block-quote { padding: 7rem 1rem 8rem 6rem; }
+  .wp-block-quote:after { top: 7rem; }
 
 
   // Footer - large
@@ -388,11 +469,29 @@
 
 
 
-  // Viewport
+  // Viewport - wide
   .viewport-height {
     position: absolute;
      top: calc(100vh - 5rem);
      left: 0;
+  }
+
+
+  // Home - wide
+  .-home-image-quote [src] { position: relative; top: -5rem; left: 3rem; }
+
+
+  // talk bubble - wide
+  .wp-block-quote { padding: 7rem 5rem 8rem 6rem; }
+
+  .wp-block-quote:before {
+    width: 100%;
+    height: 100%;
+     top: 0;
+     left: 0;
+
+    background-position: 50% calc(50% + 2rem);
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='755' height='647' viewBox='585.619 223.915 755 647' overflow='visible'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' fill='%23FBEFD5' d='M1336.987 509.749c0-155.654-167.308-281.834-373.676-281.834-206.385 0-373.692 126.18-373.692 281.834 0 133.182 122.545 244.709 287.22 274.151 4.36 22.22-.667 58.253-29.954 82.739 83.562.157 122.78-53.735 139.074-75.632 195.82-8.839 351.028-131.364 351.028-281.258z'/%3E%3Cpath fill='%23FFF' d='M847.263 870.64h-.014l-11.36-.021 8.43-7.048c25.184-21.056 32.658-52.907 29.062-76.234-80.119-14.816-152.701-49.806-204.646-98.697-26.34-24.791-46.866-52.479-61.008-82.295-14.669-30.924-22.107-63.424-22.107-96.596 0-38.741 10.052-76.309 29.878-111.66 19.094-34.046 46.402-64.603 81.166-90.821 71.271-53.751 165.968-83.353 266.649-83.353 100.674 0 195.366 29.602 266.635 83.353 34.763 26.218 62.07 56.775 81.163 90.821 19.826 35.351 29.878 72.919 29.878 111.66 0 73.532-36.788 143.371-103.587 196.651-65.774 52.463-154.264 83.862-249.362 88.514-17.377 23.348-57.327 75.726-140.777 75.726zm116.049-638.725c-98.954 0-191.94 29.029-261.832 81.74-69.555 52.457-107.86 122.098-107.86 196.094 0 129.209 116.754 240.325 283.924 270.214l2.694.481.527 2.686c4.575 23.313-1.269 55.559-23.535 79.241 73.667-4.015 109.375-52.042 125.007-73.061l1.646-2.213 1.896-.086c194.697-8.789 347.209-130.577 347.209-277.263 0-73.995-38.305-143.636-107.858-196.094-69.891-52.71-162.872-81.739-261.818-81.739z'/%3E%3C/svg%3E");
   }
 
 
