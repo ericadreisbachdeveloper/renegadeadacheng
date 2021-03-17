@@ -29,6 +29,9 @@
 
 
 
+
+
+
   // Home - small
   .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media,
   .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
@@ -125,10 +128,6 @@
   %large   { font-size: 2.5rem;  }
   %medium  { font-size: 1.5rem; }
   %text    { font-size: 1rem; }
-  %small   { font-size: .9rem; }
-
-  [data-role="main"] > .gutenberg-section.core-heading h2 { margin-top: 2.5rem; }
-
 
 
 
@@ -163,7 +162,6 @@
     [class*="core"]{ max-width: 50%; }
   }
 
-  //.home { .wp-block-cover, .wp-block-cover-image { min-height: 32em; } }
 
 
 
@@ -558,15 +556,6 @@
   }
 
 
-  // Home - medium
-  /*
-  [data-role="main"] > .gutenberg-section .wp-block-media-text {
-    min-height: 26.607rem;
-  }
-  */
-
-
-
 
   // Blog - medium
   .meta-div {
@@ -610,6 +599,34 @@
   #navmenu .navbar-nav > .menu-item > [href*="contact"] { padding-right: .3rem; }
 
 
+  // Columns - medium-large
+  .wp-block-columns.-columns-small { @include flex-wrap(nowrap); }
+  .-columns-small > .wp-block-column { flex-basis: calc(50% - 1.5rem); }
+
+
+  // Forms - medium-large
+  .wpforms-container {
+    padding-top: .5rem;
+
+    [type="search"], [type="text"], [type="email"],  textarea {
+      min-width: unset;
+    }
+
+    .wpforms-one-half, .wpforms-field-email, .wpforms-field-text {
+      margin-bottom: .5rem;
+    }
+
+    .wpforms-field-row > .wpforms-one-half {
+      width: calc(50% - .75rem);
+      float: left;
+
+      &.wpforms-first { margin-right: 1.5rem; }
+    }
+
+    .wpforms-field-textarea { padding-top: 1rem; }
+
+    .wpforms-field-textarea textarea { height: 10rem; }
+  }
 
 }
 
@@ -631,6 +648,11 @@
 
   %container-gutter { width: calc( #{$container} - 3rem); margin-right: auto; margin-left: auto; }
 
+
+  // no hero h1s get top padding
+  [data-role="main"] .gutenberg-section.-no-hero h1 {
+    padding-top: 3rem;
+  }
 
   // Header - large
   // full-width header container on large
@@ -744,6 +766,10 @@
 
 
 
+  // Columns - large
+  .-columns-small > .wp-block-column { flex-basis: calc(50% - 1.5rem) !important; }
+
+
 }
 
 
@@ -815,5 +841,18 @@
     width: auto;
   }
 
+
+  // Form - wide
+  // Contact - wide
+
+  .wpforms-container {
+    /*
+    .wpforms-field-email, .wpforms-field-email + .wpforms-field-text {
+      width: calc(50% - .75rem);
+      float: left;
+    }
+    .wpforms-field-email { margin-right: 1.5rem; }
+    */
+  }
 
 }

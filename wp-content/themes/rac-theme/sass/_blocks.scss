@@ -41,6 +41,13 @@
 
 
 
+
+// Columns
+.wp-block-columns { margin-bottom: 0; }
+
+
+
+
 // Group
 .wp-block-group__inner-container {
   @extend %container;
@@ -78,4 +85,18 @@
   background: $lavender2;
   border: none;
   margin: 0;
+}
+
+
+
+// overriding Wordpress block default
+// between 601 px wide and 782 px wide
+@media (min-width: 37.5rem) and (max-width: 48.75rem) {
+  // Columns - small
+  .-columns-small > .wp-block-column { flex-basis: 100% !important; }
+}
+
+@media (min-width: 48.75rem) {
+  .wp-block-columns.-columns-small { @include flex-wrap(wrap); }
+  .-columns-small > .wp-block-column { flex-basis: 100%; }
 }

@@ -5,6 +5,8 @@
 
 %input {
   @extend %arialrounded;
+  min-width: 20rem;
+  max-width: 100%;
   border-top: none;
   border-right: none;
   border-bottom: .3rem solid lightgray;
@@ -13,12 +15,13 @@
   padding: .666rem .1rem;
   @include transition-one(border-bottom);
 
-  @include placeholder { font-size: 1rem; }
+  @include placeholder { color: $nearblack; font-size: 1rem; }
 
   @include hover {
     border-bottom: .3rem solid $magenta;
   }
 }
+
 
 
 
@@ -72,8 +75,68 @@
 
 
 
+%textarea {
+  @extend %input;
+  border: .3rem solid lightgray;
+  @include transition-one(border);
+
+  @include hover {
+    border: .3rem solid $magenta;
+  }
+}
+
+textarea {  @extend %textarea; }
+
+
 
 label { line-height: 1.8; }
+
+
+
+
+// Contact
+// WP Forms
+
+// hide text labels
+.wpforms-field-name [for],
+.wpforms-field-text [for],
+.wpforms-field-email [for],
+.wpforms-field-textarea [for] {
+  @extend %hidden;
+}
+
+.wpforms-field-limit-text {
+  @extend %leaguespartan;
+  @extend %small;
+  color: #bbb;
+  font-style: italic;
+  padding-top: .25rem;
+  text-transform: uppercase;
+}
+
+.wpforms-container  {
+  padding-top: 1rem;
+
+  .wpforms-one-half, .wpforms-field-email, .wpforms-field-text {
+    margin-bottom: 1.5rem;
+  }
+
+  // message
+  .wpforms-field-textarea textarea {
+    height: 20rem;
+  }
+
+
+  [type="search"], [type="text"], [type="email"], textarea { width: 100%; }
+
+  .wpforms-field-checkbox > [id*="wpforms"] {
+    list-style-type: none;
+    margin: 0;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    padding-left: 0;
+  }
+}
 
 
 
@@ -168,6 +231,7 @@ label { line-height: 1.8; }
 
   [type="text"], [type="email"] {
     width: 100%;
+    min-width: unset;
     padding-left: 1rem;
     padding-right: 1rem;
     @include placeholder { color: $nearblack; }

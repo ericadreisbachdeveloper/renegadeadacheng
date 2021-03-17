@@ -45,7 +45,7 @@ body {
 %large     { font-size: 1.8rem; line-height: 1.2; }
 %medium    { font-size: 1.125rem; line-height: 1.666; }
 %text      { font-size: 1rem; line-height: 1.666; }
-%small     { font-size: .9rem; line-height: 1.666; }
+%small     { font-size: .85rem; line-height: 1.666; }
 
 
 .-huger { @extend %huger; }
@@ -59,26 +59,36 @@ body {
   text-transform: uppercase;
 }
 
-// on homepage when h2 looks like h1
+[data-role="main"] {
+  h1, h2, h3, h4, h5, h6 { margin-top: 0; padding-top: .2rem; }
+}
+
+
+// no hero h1s get top padding
+[data-role="main"] .gutenberg-section.-no-hero h1 {
+  padding-top: 2rem;
+}
+
+
+// on homepage, h2 looks like h1
 .page-template-page-home [data-role="main"] .gutenberg-section.core-heading h2 {
   @extend %large;
   @extend %leaguespartan;
-  margin-top: 0;
   margin-bottom: 0;
   font-style: unset;
   text-transform: uppercase;
 }
 
+
 [data-role="main"] h2 {
   @extend %large;
   @extend %goudy;
-  margin-top: 0;
   margin-bottom: .25rem;
   font-style: italic;
   font-weight: 400;
 }
 
-[data-role="main"] > .gutenberg-section.core-heading h2 { margin-top: 1.5rem; }
+
 
 
 // look like h3
@@ -213,8 +223,9 @@ a { @include hover { cursor: pointer; } }
    left: -99999px;
 }
 
-.sr-only { @extend %hidden;  }
+.sr-only { @extend %hidden; }
 
+%sr-only-focusable,
 .sr-only-focusable {
   @extend %hidden;
 
