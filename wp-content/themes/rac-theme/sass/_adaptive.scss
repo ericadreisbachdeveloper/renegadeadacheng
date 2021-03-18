@@ -122,12 +122,13 @@
 
 
   // Typography - medium
-  %monster { font-size: 4rem;  }
-  %huger   { font-size: 4rem; }
-  %huge    { font-size: 3rem; }
-  %large   { font-size: 2.5rem;  }
-  %medium  { font-size: 1.5rem; }
-  %text    { font-size: 1rem; }
+  %monster   { font-size: 4rem;  }
+  %huger     { font-size: 4rem; }
+  %huge      { font-size: 3.5rem; }
+  %large-h2  { font-size: 3rem; }
+  %large     { font-size: 1.8rem;  }
+  %medium    { font-size: 1.2rem; }
+  %text      { font-size: 1rem; }
 
 
 
@@ -628,6 +629,13 @@
     .wpforms-field-textarea textarea { height: 10rem; }
   }
 
+
+
+  .wp-block-media-text.has-media-on-the-right .wp-block-media-text__media {
+    -ms-grid-column: 2;
+    grid-column: 2;
+  }
+
 }
 
 
@@ -765,6 +773,10 @@
   }
 
 
+  // Text Media - large
+  .has-media-on-the-right .wp-block-media-text__content { padding-right: 2rem; padding-left: 0; }
+  .wp-block-media-text__content { padding-left: 2rem; }
+
 
   // Columns - large
   .-columns-small > .wp-block-column { flex-basis: calc(50% - 1.5rem) !important; }
@@ -834,6 +846,7 @@
   .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media,
   .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
     height: calc(100vh - 14rem);
+    min-height: 25rem;
     max-height: 35rem;
   }
 

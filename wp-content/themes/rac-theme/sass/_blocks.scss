@@ -17,11 +17,33 @@
   padding-top: 2rem;
 }
 
-
-
-.wp-block-media-text .wp-block-media-text__content {
-  padding: 0;
+.wp-block-media-text.has-media-on-the-right .wp-block-media-text__media {
+  -ms-grid-column: 1;
+  grid-column: 1;
 }
+
+.wp-block-media-text__media {
+  -webkit-justify-self: center;
+   -moz-justify-self: center;
+    -ms-justify-self: center;
+     justify-self: center;
+}
+
+.wp-block-media-text.-home-image-quote .wp-block-media-text__content {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+
+.wp-block-quote {
+  //min-height: 33.4rem;
+  @include flex;
+  @include flex-direction(column);
+  @include justify-content(center);
+}
+
+
+
 
 
 // Home - Text/Media
@@ -55,26 +77,6 @@
 
 
 
-// Buttons
-[data-role="main"]  [href].wp-block-button__link {
-  @extend %button;
-  white-space: nowrap;
-}
-
-[data-role="main"] .-magenta-bg [href].wp-block-button__link {
-  @extend %button-dark;
-}
-
-[data-role="main"] .-lavender-bg [href].wp-block-button__link {
-  @extend %button-lavender;
-}
-
-
-[class*="is-content-justification"] { @include flex; }
-.is-content-justification-left { @include justify-content(flex-start); }
-.is-content-justification-center { @include justify-content(center); }
-.is-content-justification-right { @include justify-content(flex-end); }
-
 
 
 
@@ -94,9 +96,16 @@
 @media (min-width: 37.5rem) and (max-width: 48.75rem) {
   // Columns - small
   .-columns-small > .wp-block-column { flex-basis: 100% !important; }
+
+  .wp-block-column:nth-child(2n),
+  .wp-block-column:not(:first-child) { margin-left: 0; }
+
 }
 
 @media (min-width: 48.75rem) {
   .wp-block-columns.-columns-small { @include flex-wrap(wrap); }
   .-columns-small > .wp-block-column { flex-basis: 100%; }
+
+  .wp-block-column:nth-child(2n),
+  .wp-block-column:not(:first-child) { margin-left: 0; }
 }

@@ -31,8 +31,9 @@ html * {
 %leaguespartan { font-family: 'League Spartan', 'Impact'; font-weight: 400; }
 // rotate(deg), scale, skew(deg), translatex, translatey
 %leaguespartan em { display: inline-block; font-style: normal; @include transform(0deg, 1, -5deg, 0, 0); }
+.-leaguespartan { @extend %leaguespartan; }
 
-%goudy {  font-family: 'Goudy Old Style', Garamond, "Big Caslon", "Times New Roman", serif; }
+%goudy { font-family: 'Goudy Old Style', Garamond, "Big Caslon", "Times New Roman", serif; }
 
 
 
@@ -43,37 +44,43 @@ body {
 
 %huger     { font-size: 2.2rem; line-height: 1.2; }
 %huge      { font-size: 2rem; line-height: 1.2;  }
-%large     { font-size: 1.8rem; line-height: 1.2; }
+%large-h2  { font-size: 1.8rem; line-height: 1.2; }
+%large     { font-size: 1.8rem; line-height: 1.44; }
 %medium    { font-size: 1.125rem; line-height: 1.666; }
 %text      { font-size: 1rem; line-height: 1.666; }
 %small     { font-size: .85rem; line-height: 1.666; }
 
 
-.-huger { @extend %huger; }
 
-.home [data-role="main"] h1 { @extend %huge; }
+.has-small-font-size  { @extend %small;  }
+.has-normal-font-size { @extend %text;   }
+.has-medium-font-size { @extend %medium; }
+.has-large-font-size  { @extend %large;  }
+
+.has-huge-font-size { @extend %huge; }
+.-huger             { @extend %huger; }
 
 [data-role="main"] h1 {
-  @extend %large;
+  @extend %huge;
   @extend %leaguespartan;
   margin-bottom: 0;
   text-transform: uppercase;
 }
 
 [data-role="main"] {
-  h1, h2, h3, h4, h5, h6 { margin-top: 0; padding-top: .2rem; }
+  h2, h3, h4, h5, h6 { margin-top: 0; padding-top: .2rem; }
 }
 
 
 // no hero h1s get top padding
-[data-role="main"] .gutenberg-section.-no-hero h1 {
+[data-role="main"] .gutenberg-section h1 {
   padding-top: 2rem;
 }
 
 
 // on homepage, h2 looks like h1
 .page-template-page-home [data-role="main"] .gutenberg-section.core-heading h2 {
-  @extend %large;
+  @extend %large-h2;
   @extend %leaguespartan;
   margin-bottom: 0;
   font-style: unset;
@@ -82,7 +89,7 @@ body {
 
 
 [data-role="main"] h2 {
-  @extend %large;
+  @extend %large-h2;
   @extend %goudy;
   margin-bottom: .25rem;
   font-style: italic;
@@ -96,9 +103,11 @@ body {
 .footer-h2,
 .pagination-a,
 [data-role="main"] h3 {
-  @extend %medium;
   @extend %leaguespartan;
 }
+
+.footer-h2                           { @extend %medium; }
+.pagination-a, [data-role="main"] h3 { @extend %large; }
 
 
 [data-role="main"] { @extend %text; }
@@ -240,50 +249,6 @@ a { @include hover { cursor: pointer; } }
   }
 }
 
-%button {
-  @extend %leaguespartan;
-  @extend %small;
-
-  background-color: $magenta;
-  background-image: none;
-  background-size: unset;
-  color: white;
-  padding: .8rem .9rem .7rem 1.3rem;
-  text-transform: uppercase;
-
-  @include border-radius(0);
-  @include transition-one(background-color);
-
-  @include hover { background-color: $mauve; }
-
-  &:after {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    content: '';
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='8' overflow='visible'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' fill='%23FFF' d='M12.598 0L6.529 5.859 0 0h12.598z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: 50% 50%;
-    @include rotate(270deg);
-  }
-}
-
-%button-dark {
-  @extend %button;
-  background-color: $nearblack;
-  @include hover { background-color: $mauve; }
-}
-
-.wp-block-button.-black-bg > .wp-block-button__link[href] { @extend %button-dark; }
-
-
-%button-lavender {
-  @extend %button;
-  background-color: $lavender2;
-  @include hover { background-color: $mauve; }
-}
-
 
 
 %link-line {
@@ -333,10 +298,6 @@ a { @include hover { cursor: pointer; } }
 
 // Colors
 .-magenta { color: $magenta; }
-.-magenta-bg { background-color: $magenta; }
-.-mauve-bg { background-color: $mauve; }
-
-.-lavender-bg { background-color: $lavender2; }
 
 
 

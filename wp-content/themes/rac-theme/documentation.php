@@ -134,7 +134,13 @@
     <strong class="-small">Change settings in: MC4WP</strong>
   </li>
 
-  <li><a class="-large -strong" href="https://wordpress.org/plugins/quick-pagepost-redirect-plugin/" target="_blank" rel="noopener">Quick Page/Post Redirect Plugin</a><br />
+  <li><a class="-large -strong" href="https://wordpress.org/plugins/google-calendar-events/" target="_blank" rel="noopener">Simple Calendar</a> <br />
+    <em>Allows beautiful display of events edited in Google Calendar. </em> <br />
+    <a class="-small" href="https://wpscan.com/search?text=%22simple%20calendar%22" target="_blank" rel="noopener">Check Simple Calendar in Wordpress Vulnerability Database&bsp;></a> <br />
+    <strong class="-small">Change settings in: Calendars </strong>
+  </li>
+
+  <li><a class="-large -strong" href="https://wordpress.org/plugins/quick-pagepost-redirect-plugin/" target="_blank" rel="noopener">Quick Page/Post Redirect Plugin</a ><br />
     <em>Allows easy 301 redirects from previous generation of the site to the current&nbsp;site. </em> <br />
     <a class="-small" href="https://wpscan.com/search?text=%22quick%20page%2Fpost%20redirect%22" target="_blank" rel="noopener">Check Quick Page/Post Redirect in the Wordpress Vulnerability Database&nbsp;></a> <br />
     <strong class="-small">Change settings in: Quick Redirects </strong>
