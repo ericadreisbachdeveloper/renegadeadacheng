@@ -6,21 +6,10 @@
 <!-- output all blocks except the first block -->
 
 
-<?php if ( $blocks[0]['blockName'] === 'core/cover' ) : ?>
-
-<!-- set variable $isFirst to skip rendering the hero -->
 <?php
-  $isFirst = true;
-  foreach($blocks as $block) {
-    if($isFirst) { $isFirst = false; continue; }
-    echo _e(apply_filters( 'the_content', render_block( $block ) ) );
-  }
-?>
 
+  global $blocks;
 
-<?php else : ?>
-
-<?php
   if($blocks) {
     foreach($blocks as $block) {
 
@@ -30,7 +19,6 @@
 ?>
 
 
-<?php endif; ?>
 
 
 <?php if(is_user_logged_in()) : ?>

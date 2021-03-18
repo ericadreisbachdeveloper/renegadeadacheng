@@ -36,8 +36,12 @@
 
 #doc ul li + li ,
 #doc ol li + li {
-  padding-top: .2em;
+  padding-top: .5rem;
 }
+
+#doc .-large { font-size: 1.2rem; }
+#doc .-small { font-size: .95rem; }
+#doc .-strong { font-weight: 700; }
 </style>
 
 <div id="doc">
@@ -80,12 +84,13 @@
 <p>This theme relies on the following plugin(s):</p>
 
 <ul>
-  <li><a href="https://www.advancedcustomfields.com/pro/" target="_blank" rel="noopener">Advanced Custom Fields PRO</a><br />
+  <li><a class="-large -strong" href="https://www.advancedcustomfields.com/pro/" target="_blank" rel="noopener">Advanced Custom Fields PRO</a><br />
     <em>Powers most custom templates</em><br />
-    <strong>Custom Fields </strong>
+    <a class="-small" href="https://wpscan.com/search?text=%22advanced%20custom%20fields%22" target="_blank" rel="noopener">Check Advanced Custom Fields in the Wordpress Vulnerability Database&nbsp;></a> <br />
+    <strong class="-small">Change settings in: Custom Fields </strong>
   </li>
 
-  <li><strong>Gutenberg Blocks </strong><br />
+  <li><strong class="-large">Gutenberg Blocks </strong><br />
     <em>Custom plugin that creates wrapper divs around Wordpress-generated content blocks to allow <span class="nowrap">full-width</span> and <span class="nowrap">within-container</span> Gutenberg block&nbsp;elements. </em>
   </li>
 </ul>
@@ -94,58 +99,69 @@
 <p>Additional plugin(s) installed for security and ease of development: </p>
 <ul>
 
-  <li><a href="https://wordpress.org/plugins/acf-better-search/" target="_blank" rel="noopener">ACF Better Search</a><br />
+  <li><a class="-large -strong" href="https://wordpress.org/plugins/acf-better-search/" target="_blank" rel="noopener">ACF Better Search</a><br />
     <em>Allows custom field content to appear in native Wordpress search&nbsp;results </em><br />
-    <strong>Settings > ACF Better Search</strong></li>
+    <a class="-small" href="https://wpscan.com/search?text=%22acf%20better%20search%22" target="_blank" rel="noopener">Check ACF Better Search in the Wordpress Vulnerability Database&nbsp;></a> <br />
+    <strong class="-small">Change settings in: Settings > ACF Better Search</strong></li>
 
-  <li><a href="https://wordpress.org/plugins/async-javascript/" target="_blank" rel="noopener">Async JavaScript</a><br />
-    <em>Adds the <span style="font-family: monospace; font-style: normal; font-weight: bold;">async</span> and/or <span style="font-family: monospace; font-style: normal; font-weight: bold;">defer</span> tags to Javascript files, improving page&nbsp;speed and Google search&nbsp;rank </em><br />
-    <strong>Settings > Async Javascript</strong></li>
-
-  <li><a href="https://wordpress.org/plugins/google-sitemap-generator/" target="_blank" rel="noopener">Google XML Sitemaps</a><br />
+  <li><a class="-large -strong" href="https://wordpress.org/plugins/google-sitemap-generator/" target="_blank" rel="noopener">Google XML Sitemaps</a><br />
     <em>Excellent tool for dynamically-generated sitemaps to improve search appearance </em> <br />
-    <strong>Settings > XML Sitemap </strong>
+    <a class="-small" href="https://wpscan.com/search?text=%22Google%20XML%20Sitemaps%22" target="_blank" rel="noopener">Check Google XML Sitemaps in the Wordpress Vulnerability Database&nbsp;></a> <br />
+    <strong class="-small">Change settings in: Settings > XML Sitemap </strong>
   </li>
 
-  <li><a href="https://wordpress.org/plugins/hide-my-site/" target="_blank" rel="noopener">Hide My Site</a><br />
-    Hides and secures page during <span class="white-space: nowrap;">non-public</span> phase of&nbsp;development.<br />
-    <strong>Settings > Hide My Site </strong>
+  <li><a class="-large -strong" href="https://wordpress.org/plugins/hide-my-site/" target="_blank" rel="noopener">Hide My Site</a><br />
+    <em>Hides and secures page during <span class="white-space: nowrap;">non-public</span> phase of&nbsp;development. </em><br />
+    <a class="-small" href="https://wpscan.com/search?text=%22hide%20my%20site%22" target="_blank" rel="noopener">Check Hide My Site in the Wordpress Vulnerability Database&nbsp;></a> <br />
+    <strong class="-small">Change settings in: Settings > Hide My Site </strong>
   </li>
 
-  <li><a href="https://wordpress.org/plugins/lazysizes/" target="_blank" rel="noopener">lazysizes</a> <br />
-    Defers loading offscreen images, improving mobile page load time.
+  <li><a class="-large -strong" href="https://wordpress.org/plugins/lazysizes/" target="_blank" rel="noopener">Lazysizes</a> <br />
+    <em>Defers loading offscreen images, improving mobile page load time. </em><br />
+    <a class="-small" href="https://wpscan.com/search?text=lazysizes" target="_blank" rel="noopener">Check Lazysizes in the Wordpress Vulnerability Database&nbsp;></a> <br />
+    <strong class="-small">Change settings in: Settings > Lazysizes </strong>
   </li>
 
-  <li><a href="https://wordpress.org/plugins/limit-login-attempts-reloaded/" target="_blank" rel="noopener">Limit Login Attempts Reloaded</a> <br />
-  <em>Prevents brute force attacks to the site page</em><br />
-  <strong>Settings > Limit Login Attempts </strong></li>
+  <li><a class="-large -strong" href="https://wordpress.org/plugins/limit-login-attempts-reloaded/" target="_blank" rel="noopener">Limit Login Attempts Reloaded</a> <br />
+  <em>Prevents brute force attacks to the site. </em><br />
+  <a class="-small" href="https://wpscan.com/search?text=%22limit%20login%20attempts%20reloaded%22" target="_blank" rel="noopener">Check Limit Login Attempts Reloaded in the Wordpress Vulnerability Database&nbsp;></a> <br />
+  <strong class="-small">Change settings in: Settings > Limit Login Attempts </strong></li>
 
-  <li><a href="" target="_blank" rel="noopener">Mailchimp for Wordpress</a> <br />
-    <em>Powers enewsletter signup</em> <br />
-    <strong>MC4WP</strong>
+
+  <li><a class="-large -strong" href="https://wordpress.org/plugins/mailchimp-for-wp/" target="_blank" rel="noopener">Mailchimp for Wordpress</a> <br />
+    <em>Powers enewsletter signup.</em> <br />
+    <a class="-small" href="https://wpscan.com/search?text=%22mailchimp%20for%20wordpress%22" target="_blank" rel="noopener">Check Mailchimp for Wordpress in the Wordpress Vulnerability Database&nbsp;></a> <br />
+    <strong class="-small">Change settings in: MC4WP</strong>
   </li>
 
-  <li><a href="https://wordpress.org/plugins/quick-pagepost-redirect-plugin/" target="_blank" rel="noopener">Quick Page/Post Redirect Plugin</a><br />
-    <em>Allows easy 301 redirects from previous generation of the site to the current site </em> <br />
-    <strong>Quick Redirects </strong>
+  <li><a class="-large -strong" href="https://wordpress.org/plugins/quick-pagepost-redirect-plugin/" target="_blank" rel="noopener">Quick Page/Post Redirect Plugin</a><br />
+    <em>Allows easy 301 redirects from previous generation of the site to the current&nbsp;site. </em> <br />
+    <a class="-small" href="https://wpscan.com/search?text=%22quick%20page%2Fpost%20redirect%22" target="_blank" rel="noopener">Check Quick Page/Post Redirect in the Wordpress Vulnerability Database&nbsp;></a> <br />
+    <strong class="-small">Change settings in: Quick Redirects </strong>
   </li>
 
-  <li><a href="https://wordpress.org/plugins/svg-support/" target="_blank" rel="noopener">SVG Support</a><br />
-    <em>Allows vector SVG files uploaded to the Wordpress media library, allowing crystal clear retina display</em><br />
-    <strong>Settings > SVG Support </strong>
+  <li><a class="-large -strong" href="https://wordpress.org/plugins/svg-support/" target="_blank" rel="noopener">SVG Support</a><br />
+    <em>Allows vector SVG files uploaded to the Wordpress media library, allowing crystal clear retina&nbsp;display. </em><br />
+    <a class="-small" href="https://wpscan.com/search?text=%22svg%20support%22" target="_blank" rel="noopener">Check SVG Support in the Wordpress Vulnerability Database&nbsp;></a> <br />
+    <strong class="-small">Change settings in: Settings > SVG Support </strong>
   </li>
 
-  <li><a href="https://wordpress.org/plugins/wpforms-lite/" target="_blank" rel="noopener">WPForms</a><br />
+  <li><a class="-large -strong"href="https://wordpress.org/plugins/wpforms-lite/" target="_blank" rel="noopener">WPForms</a><br />
     <em>Powers Contact form. </em><br />
-    <strong>WPForms</strong>
+    <a class="-small" href="https://wpscan.com/search?text=%22wpforms%22" target="blank" rel="noopener">Check WPForms in the Wordpress Vulnerability Database&nbsp;></a> <br />
+    <strong class="-small">Change settings in: WPForms</strong>
   </li>
 
-  <li><a href="https://wordpress.org/plugins/webp-express/" target="_blank" rel="noopener">WebP Express</a> <br />
-    <em>Allows images to be served in the <span style="white-space: nowrap">next-gen</span> .webp format, improving page&nbsp;speed. </em> </li>
+  <li><a class="-large -strong" href="https://wordpress.org/plugins/webp-express/" target="_blank" rel="noopener">WebP Express</a> <br />
+    <em>Allows images to be served in the <span style="white-space: nowrap">next-gen</span> .webp format, improving page&nbsp;speed. </em> <br />
+    <a class="-small" href="https://wpscan.com/search?text=%22webp%20express%22" target="_blank" rel="noopener">Check WebP Express in the Wordpress Vulnerability Database&nbsp;></a> <br />
+    <strong class="-small">Change settings in: Settings > WebP Express </strong>
+  </li>
 
-  <li><a href="https://deliciousbrains.com/wp-migrate-db-pro/" target="_blank" rel="noopener">WP Migrate DB Pro</a> <br />
-  <em>Easy database backups and migration</em><br />
-  <strong>Tools > Migrage DB Pro </strong></li>
+  <li><a class="-large -strong" href="https://deliciousbrains.com/wp-migrate-db-pro/" target="_blank" rel="noopener">WP Migrate DB Pro</a> <br />
+  <em>Easy database backups and migration. </em><br />
+  <a class="-small" href="https://wpscan.com/search?text=%22wp%20migrate%20db%22" target="_blank" rel="noopener">Check WP Migrate DB in the Wordpress Vulnerability Database&nbsp;></a> <br />
+  <strong class="-small">Change settings in: Tools > Migrage DB Pro </strong></li>
 </ul>
 
 
