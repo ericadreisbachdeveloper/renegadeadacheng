@@ -85,8 +85,8 @@
     <strong>Custom Fields </strong>
   </li>
 
-  <li>Gutenberg Blocks <br />
-    <em>Custom plugin that creates wrapper divs around Wordpress-generated content blocks</em>
+  <li><strong>Gutenberg Blocks </strong><br />
+    <em>Custom plugin that creates wrapper divs around Wordpress-generated content blocks to allow <span class="nowrap">full-width</span> and <span class="nowrap">within-container</span> Gutenberg block&nbsp;elements. </em>
   </li>
 </ul>
 
@@ -133,6 +133,11 @@
   <li><a href="https://wordpress.org/plugins/svg-support/" target="_blank" rel="noopener">SVG Support</a><br />
     <em>Allows vector SVG files uploaded to the Wordpress media library, allowing crystal clear retina display</em><br />
     <strong>Settings > SVG Support </strong>
+  </li>
+
+  <li><a href="https://wordpress.org/plugins/wpforms-lite/" target="_blank" rel="noopener">WPForms</a><br />
+    <em>Powers Contact form. </em><br />
+    <strong>WPForms</strong>
   </li>
 
   <li><a href="https://wordpress.org/plugins/webp-express/" target="_blank" rel="noopener">WebP Express</a> <br />

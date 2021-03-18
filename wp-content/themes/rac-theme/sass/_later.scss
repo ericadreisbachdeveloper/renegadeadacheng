@@ -46,36 +46,31 @@
   }
 }
 
+
+
 // lavender buttons
 .-img-button {
 
   @include hover {
     [href] { border: .25rem solid $mauve; }
-                            // rotate(deg), scale, skew(deg), translatex, translatey
-    [src] { @include transform(0deg, 1.1, 0deg, 0, 0); }
     figcaption { background: $mauve; }
-  }
-
-  [href], [src] {
-    display: block;
-    overflow: hidden;
-    @include border-radius(50%);
   }
 
   [href] {
     border: .25rem solid $lavender2;
+    display: block;
+    overflow: hidden;
     @include transition-one(border);
+    @include border-radius(50%);
   }
 
-  [src] {
-    @include transition-multi(transform .2s ease-in-out, -webkit-transform .2s ease-in-out, -moz-transform .2s ease-in-out, -o-transform .2s ease-in-out, -ms-transform .2s ease-in-out);
-  }
 
   figcaption {
     @extend %leaguespartan;
     width: 80%;
     background: $lavender2;
     color: white;
+    display: block;
     position: relative;
      top: -1rem;
      left: 10%;
@@ -84,6 +79,15 @@
 
     @include transition-one(background);
     @include hover { cursor: pointer; }
+  }
+}
+
+.-img-button.wp-block-image {
+   .aligncenter>figcaption,
+   .alignleft>figcaption,
+   .alignright>figcaption,
+  &.is-resized>figcaption {
+    display: block;
   }
 }
 

@@ -93,6 +93,48 @@ label { line-height: 1.8; }
 
 
 
+// checkmark
+[type="checkbox"] {
+  position: relative;
+  margin-right: .75rem;
+
+  @include hover { cursor: pointer; }
+
+  &:before {
+    width: .95rem;
+    height: .95rem;
+    background: $gray1;
+    content: '';
+    display: block;
+    position: absolute;
+     top: -.1rem  ;
+     left: -.05rem;
+  }
+
+  &:after {
+    width: 1.5rem;
+    height: 1.5rem;
+    content: '';
+
+    position: absolute;
+     top: -.25rem;
+     left: -.25rem;
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+
+  }
+}
+
+
+.wpforms-field-checkbox .wpforms-selected [type="checkbox"]:after {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='534' height='498' overflow='visible'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M527 0h2c.833 3.167 2.917 5.083 5 7v2C384.214 141.872 266.867 307.213 175 498h-5C113.416 432.253 57.273 366.057 0 301v-1c4.274-1.06 3.447-7.22 9-7 44.714 26.953 90.984 52.349 137 78C251.142 225.48 370.326 93.99 527 0z'/%3E%3C/svg%3E");
+}
+
+
+
+
 
 // Contact
 // WP Forms

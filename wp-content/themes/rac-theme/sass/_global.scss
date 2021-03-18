@@ -26,6 +26,7 @@ html * {
 }
 
 %arialrounded { font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif; }
+%arialrounded { strong, b { background-color: $cream4; } }
 
 %leaguespartan { font-family: 'League Spartan', 'Impact'; font-weight: 400; }
 // rotate(deg), scale, skew(deg), translatex, translatey
