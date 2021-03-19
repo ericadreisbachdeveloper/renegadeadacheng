@@ -40,7 +40,7 @@ ob_start('sanitize_output'); ?>
 	elseif(is_search()) { $title = 'Search Results for &ldquo;' . get_search_query() . '&rdquo; | ' . get_bloginfo('name'); }
 
 	// 3. Blog
-	elseif(is_home()) { $title = 'Blog' . ' | ' . get_bloginfo('description'); }
+	elseif(is_home()) { $title = 'Storytelling Videos' . ' | ' . get_bloginfo('name'); }
 
 	// 4. Author
 	elseif(is_author()) { $author = get_the_author_meta('display_name');

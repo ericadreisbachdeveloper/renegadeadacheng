@@ -41,6 +41,8 @@
 
 
 
+.col-sidebar { padding-bottom: 2rem; }
+
 .col-sidebar > [id] {
   padding-right: 2rem;
   margin-top: 4rem;
@@ -76,5 +78,16 @@
     @include transition-one(color);
 
     @include hover { color: $nearblack; }
+  }
+}
+
+
+.-archive {
+  [id*="post"] { // articles
+    width: 100%;
+    margin-top: 2rem;
+    @include flex;
+
+    .text { padding-left: 1.5rem; }
   }
 }

@@ -2,8 +2,6 @@
 <?php get_header(); ?>
 
 
-
-
 <main data-role="main" class="-archive">
 	<div class="container">
 
@@ -13,7 +11,7 @@
 
 			<div class="col-content col-lg-8">
 
-				<h1><?php single_cat_title(); ?> </h1>
+				<h1><?php global $title; _e($title); ?></h1>
 
 				<?php get_template_part('loop'); ?>
 
@@ -31,7 +29,6 @@
 		</div>
 	</div>
 </main>
-
 
 
 

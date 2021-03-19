@@ -89,11 +89,19 @@ body {
 
 
 [data-role="main"] h2 {
-  @extend %large-h2;
+  @extend %medium;
   @extend %goudy;
   margin-bottom: .25rem;
   font-style: italic;
   font-weight: 400;
+}
+
+[data-role="main"] h2.looks-like-h1 {
+  @extend %leaguespartan;
+  @extend %medium;
+  font-style: normal;
+  margin-bottom: 0;
+  text-transform: uppercase;
 }
 
 
@@ -112,6 +120,13 @@ body {
 .col-sidebar .-title                 { @extend %small; }
 .footer-h2                           { @extend %medium; }
 .pagination-a, [data-role="main"] h3 { @extend %large; }
+
+
+[data-role="main"] h3.looks-like-h2 {
+  @extend %goudy;
+  @extend %medium;
+  font-style: italic;
+}
 
 
 [data-role="main"] { @extend %text; }
@@ -142,6 +157,9 @@ body {
   }
 }
 
+[data-role="main"] [href].-no-line {
+  background: none;
+}
 
 
 

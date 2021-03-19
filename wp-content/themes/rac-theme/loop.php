@@ -6,24 +6,13 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 
-	<?php if ( has_post_thumbnail()) : ?>
+	<a class="-no-line" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
 
-		<?php $img_id = get_post_thumbnail_id(); $img_array = wp_get_attachment_image_src($img_id, "medium"); $img = $img_array[0]; ?>
-
-	<?php endif; ?>
-
-
-	<h2><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-
-
-	<?php echo _e(get_template_part('meta')); ?>
-
-
-	<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail', ['class' => 'alignleft']); ?></a>
-
-	<?php the_excerpt(); ?>
-
-	<div class="tags"><?php the_tags('<i class="fa fa-tag"></i>&nbsp;', ' ', ''); ?></div>
+	<div class="text">
+		<h2 class="looks-like-h1"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+		<h3 class="looks-like-h2"><?php the_time('F j, Y'); ?></h3>
+		<?php the_excerpt(); ?>
+	</div>
 
 
 </article>

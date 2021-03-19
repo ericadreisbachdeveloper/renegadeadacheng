@@ -829,10 +829,6 @@ add_filter( 'get_the_archive_title', function ( $title ) {
 			$title = single_tag_title( 'Tagged: ', false);
 		}
 
-		elseif ( is_author() ) {
-			$title = single_author_title( ': ', false);
-		}
-
 		elseif( is_date() ) {
 			$title = get_the_date('F Y') . ' ';
 		}

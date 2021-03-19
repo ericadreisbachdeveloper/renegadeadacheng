@@ -3,22 +3,32 @@
 
 
 
-<main data-role="main">
-	<section class="section">
+<main data-role="main" class="-archive">
+	<div class="container">
 
-		<div class="container">
-			<div class="corset">
 
-				<h1 class="sr-only"><?php _e( 'Latest Blog Posts'); ?></h1>
+		<div class="row">
+
+
+			<div class="col-content col-lg-8">
+
+				<h1><?php _e( 'Storytelling Videos' ); ?></h1>
 
 				<?php get_template_part('loop'); ?>
 
 				<?php get_template_part('pagination'); ?>
 
-			</div>
-		</div>
+			</div><!-- /.col-content -->
 
-	</section>
+
+			<div class="col-sidebar col-lg-4">
+				<?php if(is_active_sidebar('sidebar')) { dynamic_sidebar( 'sidebar' ); } ?>
+
+			</div><!-- /.col-sidebar -->
+
+
+		</div>
+	</div>
 </main>
 
 
