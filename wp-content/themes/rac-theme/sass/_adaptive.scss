@@ -802,8 +802,6 @@
   $headerh: 6rem;
 
 
-
-
   // Header - wide
   .site-header {
     width: 100%;
@@ -814,7 +812,7 @@
    &> .gutenberg-container { width: $container; margin-right: auto; margin-left: auto; }
   }
 
-  [data-role="main"] { padding-top: 6rem; }
+  [data-role="main"] { padding-top: 8rem; }
 
 
   .viewport-height + .site-header {
@@ -832,11 +830,12 @@
   #navmenu .navbar-nav > .menu-item > [href*="contact"] { padding-right: .9rem; }
 
 
+
   /// Home - wide
   // home hero img
   .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media,
   .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
-    height: calc(100vh - 14rem);
+    height: calc(100vh - 16rem);
     min-height: 25rem;
     max-height: 35rem;
   }

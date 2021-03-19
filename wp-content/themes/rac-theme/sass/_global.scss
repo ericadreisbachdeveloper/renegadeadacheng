@@ -89,7 +89,7 @@ body {
 
 
 [data-role="main"] h2 {
-  @extend %medium;
+  @extend %large-h2;
   @extend %goudy;
   margin-bottom: .25rem;
   font-style: italic;

@@ -4,15 +4,19 @@
 
 
 <main data-role="main" id="main">
-	<section class="section">
+	<?php $s = sprintf( __('%s', 'dbllc'), $wp_query->found_posts);
+	if($s == '1') { $sp = ''; } else { $sp = 's'; } ?>
+
+
+
 		<div class="container">
 			<div class="-corseted -left">
 
+					<h1><?php echo sprintf( __( '%s Search Result' . $sp . ' for &ldquo;', 'html5blank' ), $wp_query->found_posts ); echo get_search_query(); echo '&rdquo;'; ?></h1>
+					
+				<section class="section">
 
-			<?php $s = sprintf( __('%s', 'dbllc'), $wp_query->found_posts);
-			if($s == '1') { $sp = ''; } else { $sp = 's'; } ?>
 
-			<h1><?php echo sprintf( __( '%s Search Result' . $sp . ' for &ldquo;', 'html5blank' ), $wp_query->found_posts ); echo get_search_query(); echo '&rdquo;'; ?></h1>
 
 
 			<?php if (have_posts()): while (have_posts()) : the_post(); ?>
@@ -61,10 +65,10 @@
 
 			<?php get_template_part('pagination'); ?>
 
+			</section>
 
-			</div>
 		</div>
-	</section>
+	</div>
 </main>
 
 

@@ -17,7 +17,7 @@
 // so that there's no space between gradient sections
 [class*="wp-block"][class*="-gradient"] .wp-block-columns { margin-bottom: 0; }
 
-.-columns-small > .wp-block-column + .wp-block-column { margin-top: 3rem; }
+.-columns-small > .wp-block-column + .wp-block-column { margin-top: 1rem; }
 
 
 
@@ -113,11 +113,12 @@
 
 .wp-block-button.-black-bg > .wp-block-button__link[href] { @extend %button-dark; }
 
+
 %button-mauve-bg {
   @extend %button;
   @include hover { background-color: $nearblack; }
 }
-.wp-block-button.-black-bg > .wp-block-button__link[href] { @extend %button-mauve-bg; }
+.wp-block-button.-mauve-bg > .wp-block-button__link[href] { @extend %button-mauve-bg; }
 
 
 %button-lavender {
@@ -145,6 +146,11 @@
 [data-role="main"] .-lavender-bg [href].wp-block-button__link {
   @extend %button-lavender;
 }
+
+
+
+
+.search-results [data-role="main"] { padding-bottom: 2rem; }
 
 
 
@@ -510,7 +516,8 @@
   .wp-block-quote { min-height: 33.4rem; padding: 7rem 1rem 8rem 6rem;  }
   .wp-block-quote:after { top: 7rem; }
 
-  .-columns-small > .wp-block-column + .wp-block-column { margin-top: 0; }
+  .-columns-small > .wp-block-column + .wp-block-column { margin-top: 0; margin-left: 1rem; }
+
 }
 
 
@@ -538,11 +545,6 @@
 
   .wrapper[data-footer="no-pagination"]:after,
   .wrapper[data-footer="no-pagination"] + .site-footer { height:$footerh_nopagination; }
-
-
-
-
-
 
 
 
@@ -601,6 +603,8 @@
     &:last-of-type { width: 6rem; min-width: 6rem; }
   }
 }
+
+
 
 
 
