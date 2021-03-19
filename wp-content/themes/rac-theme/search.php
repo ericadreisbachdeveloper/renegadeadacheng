@@ -35,8 +35,15 @@
 
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail', ['class' => 'alignleft']); ?></a>
 
-				<?php//html5wp_excerpt('html5wp_index'); ?>
-				<?php dbllc_excerpt(); ?>
+
+				<!-- if there's a meta, post meta -->
+				<?php if(class_exists('acf') && get_field('meta-description')) : ?>
+					<?php the_field('meta-description'); ?>&nbsp;<a href="<?php the_permalink(); ?>">Read&nbsp;More</a>
+
+				<!-- otherwise, Wordpress-generated excerpt -->
+				<?php else : ?>
+					<?php dbllc_excerpt(); ?>
+				<?php endif; ?>
 
 
 

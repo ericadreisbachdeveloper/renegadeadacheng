@@ -529,7 +529,7 @@ function hide_editor() {
 // 24. Sidebars / Widgets
 if (function_exists('register_sidebar')) {
 
-    // Define Footer Menus
+    // Define Widget areas
 
     register_sidebar(array(
         'name' => __('Footer Widgets', 'dbllc'),
@@ -548,6 +548,17 @@ if (function_exists('register_sidebar')) {
 				'before_widget' => '<div id="%1$s" class="col-sm-6">',
 				'after_widget' => '</div>',
 				'before_title' => '<h2 class="sr-only">',
+				'after_title' => '</h2>'
+		));
+
+
+		register_sidebar(array(
+				'name' => __('Post Sidebar', 'dbllc'),
+				'description' => __('Add widgets to appear in the sidebar of storytelling posts.', 'dbllc'),
+				'id' => 'sidebar',
+				'before_widget' => '<div id="%1$s">',
+				'after_widget' => '</div>',
+				'before_title' => '<h2 class="-title">',
 				'after_title' => '</h2>'
 		));
 }
@@ -803,3 +814,33 @@ function dbllc_customize_register( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'dbllc_customize_register');
+
+
+
+// 33. modifications to get_the_archive_title
+//    src: https://wordpress.stackexchange.com/posts/175903/revisions
+add_filter( 'get_the_archive_title', function ( $title ) {
+
+    if( is_category() ) {
+			$title = single_cat_title( 'Category: ', false );
+    }
+
+		elseif ( is_tag() ) {
+			$title = single_tag_title( 'Tagged: ', false);
+		}
+
+		elseif ( is_author() ) {
+			$title = single_author_title( ': ', false);
+		}
+
+		elseif( is_date() ) {
+			$title = get_the_date('F Y') . ' ';
+		}
+
+		else {
+			$title = ('Archive ');
+		}
+
+    return $title;
+
+});

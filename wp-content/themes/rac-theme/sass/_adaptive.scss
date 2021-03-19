@@ -27,6 +27,11 @@
   }
 
 
+  // Home - small
+  .page-template-page-home .wp-block-media-text.has-media-on-the-right .wp-block-media-text__media {
+    -ms-grid-column: 2;
+    grid-column: 2;
+  }
 
 
 
@@ -42,7 +47,7 @@
 
   $fade_time: .7s;
 
-  [class*="fade"] {
+  .-animate-text [class*="fade"] {
 
     /* undo mobile */
     width: unset;
@@ -61,36 +66,32 @@
       -o-transform $fade_time linear,
       -ms-transform $fade_time linear
     );
-
-
-    &.aos-animate {
-      &.-fade1, &.-fade2, &.-fade3, &.-fade4 {
-        -webkit-animation-name: unset;
-        -webkit-animation-timing-function: unset;
-        -webkit-animation-iteration-count: 0;
-        -webkit-animation-duration: 0s;
-        animation-name: unset;
-        animation-timing-function: unset;
-        animation-iteration-count: 0;
-        animation-duration: 0s;
-      }
-    }
-
-
-    &.aos-animate {
-      opacity: 1;
-      @include transform(0deg, 1, 0deg, 0, 0);
-    }
-
-    &.-fade2 { transition-delay: $fade_time * 1;  }
-    &.-fade3 { transition-delay: $fade_time * 2; }
-    &.-fade4 { transition-delay: $fade_time * 3; }
   }
 
-  .-animate-text .core-heading br { display: block; }
 
+  .aos-animate {
+    &> .-fade1, &> .-fade2, &> .-fade3, &> .-fade4 {
+      -webkit-animation-name: unset;
+      -webkit-animation-timing-function: unset;
+      -webkit-animation-iteration-count: 0;
+      -webkit-animation-duration: 0s;
+      animation-name: unset;
+      animation-timing-function: unset;
+      animation-iteration-count: 0;
+      animation-duration: 0s;
+    }
+  }
 
+  .aos-animate {
+    [class*="fade"] { opacity: 1; }
+    @include transform(0deg, 1, 0deg, 0, 0);
 
+    &> .-fade2 { transition-delay: $fade_time * 1;  }
+    &> .-fade3 { transition-delay: $fade_time * 2; }
+    &> .-fade4 { transition-delay: $fade_time * 3; }
+  }
+
+  .-animate-text br { display: block; }
 
 }
 
@@ -123,9 +124,9 @@
 
   // Typography - medium
   %monster   { font-size: 4rem;  }
-  %huger     { font-size: 4rem; }
-  %huge      { font-size: 3.5rem; }
-  %large-h2  { font-size: 3rem; }
+  %huger     { font-size: 3rem; }
+  %huge      { font-size: 2.5rem; }
+  %large-h2  { font-size: 2.5rem; }
   %large     { font-size: 1.8rem;  }
   %medium    { font-size: 1.2rem; }
   %text      { font-size: 1rem; }
@@ -556,19 +557,6 @@
     }
   }
 
-
-
-  // Blog - medium
-  .meta-div {
-    min-height: 2em;
-
-    .meta-time { width: 25%; }
-    .meta-author { width: 25%; }
-    .meta-categories { width: 50%; }
-
-    .meta-author, .meta-categories { border-top: 1px solid gray; }
-  }
-
 }
 
 
@@ -657,10 +645,13 @@
   %container-gutter { width: calc( #{$container} - 3rem); margin-right: auto; margin-left: auto; }
 
 
-  // no hero h1s get top padding
-  [data-role="main"] .gutenberg-section.-no-hero h1 {
-    padding-top: 3rem;
-  }
+
+  // Typography - large
+  %huger     { font-size: 3.5rem; }
+  %huge      { font-size: 3rem; }
+  %large-h2  { font-size: 2.8rem; }
+  %large     { font-size: 2.2rem; }
+
 
   // Header - large
   // full-width header container on large
@@ -857,6 +848,6 @@
 
   // Form - wide
   // Contact - wide
-  #wpforms-145-field_0-container { padding-top: 2rem; }
+  .wpforms-field-container > [class*="wp"]:first-of-type { padding-top: 2rem; }
 
 }

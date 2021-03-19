@@ -6,6 +6,10 @@
 <footer class="site-footer">
 
 
+	<!-- if is single, show navigation -->
+	<?php if(is_single()) { include(locate_template('template/pagination_single.php')); } ?>
+
+
 	<!-- if is a child page, show navigation-->
 	<?php include(locate_template('template/pagination_from_menu.php')); ?>
 

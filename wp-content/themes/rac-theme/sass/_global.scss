@@ -26,7 +26,7 @@ html * {
 }
 
 %arialrounded { font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif; }
-%arialrounded { strong, b { background-color: $cream4; } }
+%arialrounded blockquote { strong, b { background-color: $cream4; } }
 
 %leaguespartan { font-family: 'League Spartan', 'Impact'; font-weight: 400; }
 // rotate(deg), scale, skew(deg), translatex, translatey
@@ -73,9 +73,9 @@ body {
 
 
 // no hero h1s get top padding
-[data-role="main"] .gutenberg-section h1 {
-  padding-top: 2rem;
-}
+//[data-role="main"] .gutenberg-section h1 {
+//  padding-top: 2rem;
+//}
 
 
 // on homepage, h2 looks like h1
@@ -102,10 +102,14 @@ body {
 // look like h3
 .footer-h2,
 .pagination-a,
-[data-role="main"] h3 {
+[data-role="main"] h3,
+.col-sidebar .-title {
   @extend %leaguespartan;
 }
 
+.col-sidebar .-title { @extend %leaguespartan; text-transform: uppercase; }
+
+.col-sidebar .-title                 { @extend %small; }
 .footer-h2                           { @extend %medium; }
 .pagination-a, [data-role="main"] h3 { @extend %large; }
 

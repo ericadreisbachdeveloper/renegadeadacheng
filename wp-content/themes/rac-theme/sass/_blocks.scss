@@ -22,6 +22,7 @@
   grid-column: 1;
 }
 
+
 .wp-block-media-text__media {
   -webkit-justify-self: center;
    -moz-justify-self: center;
@@ -35,13 +36,16 @@
 }
 
 
-.wp-block-quote {
-  //min-height: 33.4rem;
-  @include flex;
-  @include flex-direction(column);
-  @include justify-content(center);
-}
 
+
+.wp-block-embed  {
+  margin-right: 0;
+  margin-left: 0;
+
+  iframe {
+    max-width: 100%;
+  }
+}
 
 
 
@@ -87,6 +91,14 @@
   background: $lavender2;
   border: none;
   margin: 0;
+}
+
+
+
+.wp-block-quote {
+  @include flex;
+  @include flex-direction(column);
+  @include justify-content(center);
 }
 
 
