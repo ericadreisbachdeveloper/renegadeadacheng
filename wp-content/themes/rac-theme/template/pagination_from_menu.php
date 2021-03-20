@@ -113,4 +113,19 @@
 
 	 </div>
 </div>
+
+
+<!-- pagination for parents -->
+<?php /* elseif($current_page_parent_menu_id == '0') : */ ?>
+<!--
+<div class="container-fluid -mauve-bg footer-nav">
+	<div class="container" role="navigation">
+
+		 <a class="pagination-a" href="<?php /* echo esc_url($first_kid_url);*/ ?>">NEXT: <?php /* _e($first_kid_title);*/ ?></a>
+		 <div class="clear"> </div>
+
+	 </div>
+</div>
+-->
+
 <?php endif; ?>
