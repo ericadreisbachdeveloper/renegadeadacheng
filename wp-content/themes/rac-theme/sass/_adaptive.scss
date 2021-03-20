@@ -56,15 +56,15 @@
     text-align: left;
 
     // rotate(deg), scale, skew(deg), translatex, translatey
-    @include transform(0deg, 1, 0deg, -1rem, 0);
+    //@include transform(0deg, 1, 0deg, -1rem, 0);
 
     @include transition-multi(
-      opacity $fade_time linear,
+      opacity $fade_time linear/*,
       transform $fade_time linear,
       -webkit-transform $fade_time linear,
       -moz-transform $fade_time linear,
       -o-transform $fade_time linear,
-      -ms-transform $fade_time linear
+      -ms-transform $fade_time linear*/
     );
   }
 
@@ -647,6 +647,7 @@
 
 
   // Typography - large
+  %monster   { font-size: 3.9rem; }
   %huger     { font-size: 3.5rem; }
   %huge      { font-size: 3rem; }
   %large-h2  { font-size: 2.8rem; }
