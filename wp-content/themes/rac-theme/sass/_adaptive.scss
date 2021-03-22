@@ -33,11 +33,6 @@
     grid-column: 2;
   }
 
-
-
-
-
-  // Home - small
   .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media,
   .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
     height: auto;
@@ -92,6 +87,16 @@
   }
 
   .-animate-text br { display: block; }
+
+
+
+  // Blog - small
+  .-archive [id*="post"] {
+    @include flex;
+    @include flex-direction(row);
+
+    .text { padding-top: 0; padding-left: 1.5rem; }
+  }
 
 }
 

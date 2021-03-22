@@ -86,8 +86,8 @@
   [id*="post"] { // articles
     width: 100%;
     margin-top: 2rem;
-    @include flex;
 
-    .text { padding-left: 1.5rem; }
+    .text { padding-top: .5rem; }
+
   }
 }

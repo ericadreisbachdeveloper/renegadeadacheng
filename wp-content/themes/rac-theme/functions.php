@@ -101,7 +101,7 @@ add_action('wp_enqueue_scripts', 'deregister_css', 100 );
 
 // 5. Style vsn
 global $style_vsn;
-$style_vsn = '1.1.122';
+$style_vsn = '1.1.123';
 
 
 
@@ -208,7 +208,7 @@ add_filter( 'login_errors', 'remove_error_msg' );
 // 15b. Add reCAPTCHA to login
 function load_custom_scripts() {
 
-		if ( is_page_template ( 'page-login.php' ) ) {
+		if ( is_page_template ( 'page-login.php' ) || is_single() || is_page('Contact') || is_page('Events') ) {
 			wp_register_script('recaptcha', 'https://www.google.com/recaptcha/api.js', 'jquery', '3.0.0', 'all');
 			wp_enqueue_script('recaptcha');
 

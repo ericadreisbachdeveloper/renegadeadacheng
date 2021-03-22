@@ -150,7 +150,11 @@
 
 
 
-.search-results [data-role="main"] { padding-bottom: 2rem; }
+// automatically add bottom padding
+.page-template-page-login,
+.search-results {
+  [data-role="main"] { padding-bottom: 2rem; }
+}
 
 
 
