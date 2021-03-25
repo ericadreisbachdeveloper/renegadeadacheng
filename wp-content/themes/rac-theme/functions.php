@@ -137,7 +137,6 @@ function add_async_attribute($tag, $handle) {
 			return str_replace( ' src', 'crossorigin="anonymous" src', $tag );
 		}
 	}
-
 	return $tag;
 }
 

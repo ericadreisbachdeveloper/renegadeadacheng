@@ -93,6 +93,29 @@ ob_start('sanitize_output'); ?>
 <link href="//www.google-analytics.com" rel="dns-prefetch">
 
 
+<!-- Schema -->
+<script defer type='application/ld+json'>
+{
+  "@context": "http://www.schema.org",
+  "@type": "person",
+  "name": "Ada Cheng",
+  "jobTitle": "Storyteller",
+  "gender": "female",
+  "url": "https://renegadeadacheng.com",
+  "sameAs": [
+     "https://www.facebook.com/dr.adacheng/",
+     ""
+  ],
+  "image": "https://adac1.sg-host.com/images/renegade-ada-cheng-190526.jpg",
+  "address": {
+     "@type": "PostalAddress",
+     "addressLocality": "Chicago",
+     "addressRegion": "Illinois"
+  }
+}
+</script>
+
+
 
 <!-- pre-load + load assets -->
 <?php global $style_vsn; ?>
