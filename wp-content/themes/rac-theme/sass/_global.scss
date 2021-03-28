@@ -14,7 +14,7 @@
   z-index: 999;
 }
 
-[data-role="main"]:before { @extend %breakpoint; }
+head + .logged-in [data-role="main"]:before { @extend %breakpoint; }
 
 
 
