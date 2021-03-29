@@ -36,6 +36,24 @@ function deregister_javascript() {
 		// for reasons unknown, global deregister of default jquery breaks WPForms
 		// even if jquery is also dequeued
 	  //wp_deregister_script( 'jquery' );
+
+		// if is not page Events, deregister Event scripts
+		if(!is_page('Events')) {
+       wp_dequeue_script( 'simcal-qtip' );
+    wp_deregister_script( 'simcal-qtip' );
+
+       wp_dequeue_script( 'simcal-fullcal-moment' );
+    wp_deregister_script( 'simcal-fullcal-moment' );
+
+       wp_dequeue_script( 'simcal-moment-timezone' );
+    wp_deregister_script( 'simcal-moment-timezone' );
+
+       wp_dequeue_script( 'simcal-default-calendar' );
+    wp_deregister_script( 'simcal-default-calendar' );
+
+       wp_dequeue_script( 'simplecalendar-imagesloaded ' );
+    wp_deregister_script( 'simplecalendar-imagesloaded ' );
+	}
 }
 add_action('wp_enqueue_scripts', 'deregister_javascript', 100 );
 
@@ -101,7 +119,7 @@ add_action('wp_enqueue_scripts', 'deregister_css', 100 );
 
 // 5. Style vsn
 global $style_vsn;
-$style_vsn = '1.1.123';
+$style_vsn = '1.1.124';
 
 
 
