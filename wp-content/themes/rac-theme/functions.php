@@ -237,9 +237,15 @@ function load_custom_scripts() {
 		}
 
 		// attach Google sitekey to Contact form submit
-		if( is_single() || is_archive() || is_home() || is_page('Contact') || is_page('Events') ) {
+		if( is_page('Contact') || is_page('Events') ) {
 			wp_register_script('recaptcha-sitekey-contact', get_stylesheet_directory_uri() . '/js/recaptcha-sitekey-contact.js', 'jquery', '3.0.0', 'all');
 			wp_enqueue_script('recaptcha-sitekey-contact');
+		}
+
+		// attach Google sitekey to sidebar Contact form submit
+		if( is_single() || is_archive() || is_home() ) {
+			wp_register_script('recaptcha-sitekey-sidebar', get_stylesheet_directory_uri() . '/js/recaptcha-sitekey-sidebar.js', 'jquery', '3.0.0', 'all');
+			wp_enqueue_script('recaptcha-sitekey-sidebar');
 		}
 }
 

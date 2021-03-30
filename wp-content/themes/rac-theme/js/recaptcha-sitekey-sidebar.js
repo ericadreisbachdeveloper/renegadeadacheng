@@ -5,7 +5,7 @@
 
 // with form id
 function onSubmit(token) {
-	document.getElementById("wpforms-form-145").submit();
+	document.getElementById("wpforms-form-379").submit();
 	//document.getElementsByClassName("wpforms-form").submit();
 }
 
