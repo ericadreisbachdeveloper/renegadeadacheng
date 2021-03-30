@@ -225,12 +225,21 @@ add_filter( 'login_errors', 'remove_error_msg' );
 // 15b. Add reCAPTCHA to login
 function load_custom_scripts() {
 
-		if ( is_page_template ( 'page-login.php' ) || is_single() || is_page('Contact') || is_page('Events') ) {
+		if ( is_page_template ( 'page-login.php' ) || is_single() || is_archive() || is_home() || is_page('Contact') || is_page('Events') ) {
 			wp_register_script('recaptcha', 'https://www.google.com/recaptcha/api.js', 'jquery', '3.0.0', 'all');
 			wp_enqueue_script('recaptcha');
+		}
 
+		// attach Google sitekey to login form submit
+		if( is_page_template( 'page-login.php' )) {
 			wp_register_script('recaptcha-sitekey', get_stylesheet_directory_uri() . '/js/recaptcha-sitekey.js', 'jquery', '3.0.0', 'all');
 			wp_enqueue_script('recaptcha-sitekey');
+		}
+
+		// attach Google sitekey to Contact form submit
+		if( is_single() || is_archive() || is_home() || is_page('Contact') || is_page('Events') ) {
+			wp_register_script('recaptcha-sitekey-contact', get_stylesheet_directory_uri() . '/js/recaptcha-sitekey-contact.js', 'jquery', '3.0.0', 'all');
+			wp_enqueue_script('recaptcha-sitekey-contact');
 		}
 }
 

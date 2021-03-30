@@ -11,3 +11,4 @@ function onSubmit(token) {
 jQuery(document).ready(function(){
 	jQuery('#wp-submit').addClass('g-recaptcha').attr('data-sitekey', '6LdyE14aAAAAAAsiHd0-dYzpQ3G2vrz81wvROiSt').attr('data-callback', 'onSubmit').attr('data-action', 'submit');
 });
+	
