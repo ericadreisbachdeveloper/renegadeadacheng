@@ -148,7 +148,7 @@ add_filter('script_loader_tag', 'add_async_attribute', 10, 2);
 function add_async_attribute($tag, $handle) {
 
 	if ( ! is_admin() ) {
-		if ( 'cloudjquery' !== $handle ) {
+		if ( 'cloudjquery' !== $handle && 'recaptcha' !== $handle && 'recaptcha-sitekey' !== $handle && 'recaptcha-sitekey-contact' !== $handle && 'recaptcha-sitekey-sidebar' !== $handle ) {
 			return str_replace( ' src', ' defer src', $tag );
 		}
 		elseif( 'cloudjquery' == $handle ) {
