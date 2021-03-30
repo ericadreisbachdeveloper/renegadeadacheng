@@ -224,6 +224,7 @@ add_filter( 'login_errors', 'remove_error_msg' );
 
 // 15b. Add reCAPTCHA to login
 function load_custom_scripts() {
+	/*
 
 		if ( is_page_template ( 'page-login.php' ) || is_single() || is_archive() || is_home() || is_page('Contact') || is_page('Events') ) {
 			wp_register_script('recaptcha', 'https://www.google.com/recaptcha/api.js', 'jquery', '3.0.0', 'all');
@@ -247,6 +248,7 @@ function load_custom_scripts() {
 			wp_register_script('recaptcha-sitekey-sidebar', get_stylesheet_directory_uri() . '/js/recaptcha-sitekey-sidebar.js', 'jquery', '3.0.0', 'all');
 			wp_enqueue_script('recaptcha-sitekey-sidebar');
 		}
+		*/ 
 }
 
 if(!is_admin()) {
