@@ -11,7 +11,7 @@
 	<div class="text">
 		<h2 class="looks-like-h1"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 		<h3 class="looks-like-h2"><?php the_time('F j, Y'); ?></h3>
-		<?php the_excerpt(); ?>
+		<?php _e(dbllc_excerpt()); ?>
 	</div>
 
 

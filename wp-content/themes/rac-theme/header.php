@@ -22,64 +22,78 @@ ob_start('sanitize_output'); ?>
 
 
 
-<!-- <link href="//www.google-analytics.com" rel="dns-prefetch"> -->
-
-
 <!-- Social / Open Graph -->
 <meta name="og:url" property="og:url" content="<?php echo _e(get_permalink(), 'dbllc'); ?>">
 <meta name="og:type" property="og:type" content="website">
 <meta name="og:site_name" property="og:site_name" content="<?php echo get_bloginfo('name'); echo _e(' | '); _e(get_bloginfo('description')); ?>">
 
 
-<?php $title = '';
 
-	// 1. Home
-	if(is_front_page()) { $title = get_bloginfo('name') . ' | ' . get_bloginfo('description'); }
+<!-- Title -->
+<?php $title = ""; $posttype_lower = ""; $posttype = "";
 
-	// 2. Search results
-	elseif(is_search()) { $title = 'Search Results for &ldquo;' . get_search_query() . '&rdquo; | ' . get_bloginfo('name'); }
+			if (get_post_type() == 'post') { $posttype = 'Blog'; }
+	  else { $posttype_lower = get_post_type(); $posttype = strtoupper($posttype_lower); }
 
-	// 3. Blog
-	elseif(is_home()) { $title = 'Storytelling Videos' . ' | ' . get_bloginfo('name'); }
+		$cat_obj = ""; $cat = "";
+		$cat_obj = get_queried_object(); $cat = $cat_obj->name;
 
-	// 4. Author
-	elseif(is_author()) { $author = get_the_author_meta('display_name');
-		                 $title = "Author: " . $author . ' | ' . get_bloginfo('name'); }
-
-	// 5. Archives
-	elseif(is_archive()) { $title = get_the_archive_title()  . ' | ' . get_bloginfo('name'); }
-
-	// 6. 404
-	elseif(is_404()) { $title = 'Not Found | ' . get_bloginfo('name'); }
-
-	// ... everything else
-	else                { $title = get_the_title() . ' | ' . get_bloginfo('name'); }
+      if(is_front_page())   { $title = get_bloginfo('name') . ' | ' . get_bloginfo('description'); }
+			elseif(is_404())      { $title = 'Page not found | ' . get_bloginfo('name'); }
+			elseif(is_search())   { $title = 'Search Results | ' . get_bloginfo('name'); }
+			elseif(is_category()) { $title = $posttype . ': ' . $cat . ' | ' . get_bloginfo('name'); }
+			elseif(is_tag())      { $title = 'Tagged: ' . $cat . ' | ' . get_bloginfo('name'); }
+			elseif(is_archive())  { $title =  $posttype . ' | ' . get_bloginfo('name'); }
+			else                  { $title = get_the_title() . ' | ' . get_bloginfo('name'); }
 ?>
 
 <title><?php _e($title); ?></title>
-<meta name="og:title" property="og:title" content="<?php _e($title); ?>">
-<meta name="twitter:title" content="<?php bloginfo('name'); _e(' | ' . get_bloginfo('description'), 'dbllc'); ?>">
+<meta property="og:title" content="<?php _e($title); ?>" />
+<meta name="twitter:title" content="<?php _e($title); ?>" />
 
 
-<?php if(class_exists('acf') && get_field('meta-description')) : ?>
-<meta name="description" property="description" content="<?php the_field('meta-description'); ?>">
-<meta property="og:description" content="<?php if(isset($metadescription)) { echo $metadescription; } ?>" />
-<meta name="twitter:description" content="<?php the_field('meta-description'); ?>">
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@healthyschools" />
+
+
+
+<!-- Meta Description -->
+<?php $metadescription = "";  ?>
+
+<!-- 1st choice - post meta desription field -->
+<!-- archives don't have descriptions -->
+<?php if(!is_archive() && class_exists('acf') && get_field('meta-description', $post->ID)) : ?>
+<?php $metadescription = get_field('meta-description'); ?>
+
+<!-- 2nd choice - Wordpress-generated excerpt -->
+<!-- default 404 doesn't have a description -->
+<!-- archives don't have descriptions -->
+<?php elseif(!is_404() && !is_archive()) : ?>
+<?php $metadescription = dbllc_excerpt($post->ID);  ?>
+
 <?php endif; ?>
 
+<meta name="description" property="description" content="<?php _e($metadescription); ?>">
+<meta property="og:description" content="<?php _e($metadescription); ?>" />
+<meta name="twitter:description" content="<?php _e($metadescription); ?>">
 
-<?php if(has_post_thumbnail()) : ?>
+
+
+<!-- Image -->
+<?php $socialimg = ""; ?>
+
+<!-- 1st choice - not archive, not 404, has featured image -->
+<?php if(!is_404() && !is_archive() && has_post_thumbnail($post->ID)) : ?>
 <?php $socialimg = get_the_post_thumbnail_url($post->ID,'hero'); ?>
+
+<!-- 2nd choice - global default -->
+<?php elseif(class_exists('acf') && get_field('social-img','option')) : ?>
+<?php $socialimg = get_field('social-img', 'option', $post->ID); $socialimg = $socialimg['url']; ?>
+<?php endif; ?>
+
 <meta name="og:image" property="og:image" content="<?php echo esc_url($socialimg); ?>">
 <meta name="twitter:image" content="<?php echo esc_url($socialimg); ?>">
-
-<?php elseif(class_exists('acf') && get_field('social-img','option')) : ?>
-<?php $socialimg = get_field('social-img', 'option'); ?>
-<meta name="og:image" property="og:image" content="<?php echo esc_url($socialimg['url']); ?>">
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="<?php echo esc_url($socialimg['url']); ?>">
-
-<?php endif; ?>
 
 
 

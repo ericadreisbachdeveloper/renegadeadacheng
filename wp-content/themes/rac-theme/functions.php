@@ -148,7 +148,7 @@ add_filter('script_loader_tag', 'add_async_attribute', 10, 2);
 function add_async_attribute($tag, $handle) {
 
 	if ( ! is_admin() ) {
-		if ( 'cloudjquery' !== $handle && 'recaptcha' !== $handle && 'recaptcha-sitekey' !== $handle && 'recaptcha-sitekey-contact' !== $handle && 'recaptcha-sitekey-sidebar' !== $handle ) {
+		if ( 'cloudjquery' !== $handle ) {
 			return str_replace( ' src', ' defer src', $tag );
 		}
 		elseif( 'cloudjquery' == $handle ) {
@@ -225,7 +225,7 @@ add_filter( 'login_errors', 'remove_error_msg' );
 // 15b. Add reCAPTCHA to login
 function load_custom_scripts() {
 
-		if ( is_page_template ( 'page-login.php' ) || is_single() || is_archive() || is_home() || is_page('Contact') || is_page('Events') ) {
+		if ( is_page_template ( 'page-login.php' ) ) {
 			wp_register_script('recaptcha', 'https://www.google.com/recaptcha/api.js', 'jquery', '3.0.0', 'all');
 			wp_enqueue_script('recaptcha');
 		}
@@ -236,23 +236,11 @@ function load_custom_scripts() {
 			wp_enqueue_script('recaptcha-sitekey');
 		}
 
-		// attach Google sitekey to Contact form submit
-		if( is_page('Contact') || is_page('Events') ) {
-			wp_register_script('recaptcha-sitekey-contact', get_stylesheet_directory_uri() . '/js/recaptcha-sitekey-contact.js', 'jquery', '3.0.0', 'all');
-			wp_enqueue_script('recaptcha-sitekey-contact');
-		}
-
-		// attach Google sitekey to sidebar Contact form submit
-		if( is_single() || is_archive() || is_home() ) {
-			wp_register_script('recaptcha-sitekey-sidebar', get_stylesheet_directory_uri() . '/js/recaptcha-sitekey-sidebar.js', 'jquery', '3.0.0', 'all');
-			wp_enqueue_script('recaptcha-sitekey-sidebar');
-		}
-
+		// for forms enter directly on WPForms > Settings > CAPTCHA
+		// https://ericadreisbach.com/adacheng/wp-admin/admin.php?page=wpforms-settings&view=captcha
 }
 
-if(!is_admin()) {
-    add_action('wp_enqueue_scripts', 'load_custom_scripts', 99);
-}
+if(!is_admin()) { add_action('wp_enqueue_scripts', 'load_custom_scripts', 99); }
 
 
 // 15c. Remove login message that confirms username in functions.php
@@ -642,29 +630,48 @@ $wp_query = new WP_Query( $args ); ?>
 
 
 // 27a. Remove <p> tags from Excerpt altogether
-remove_filter('the_excerpt', 'wpautop'); //
+remove_filter('the_excerpt', 'wpautop');
+
 
 // 27b. Custom excerpts
 function dbllc_excerpt() {
-	global $post;
+	global $post, $output, $output_arr;
+
+	$output =  get_the_content($post->ID);
+
+
+	// turn closing tags into spaces
+	$output = str_replace("</h1>", "&nbsp;|&nbsp;", $output);
+	$output = str_replace("</h2>", "&nbsp;", $output);
+	$output = str_replace("</h3>", "&nbsp;", $output);
+	$output = str_replace("</p>", "&nbsp;", $output);
+
+
+	// strip out HTML tags and yield text
+	// less robust
+	$output = wp_strip_all_tags( $output );
+
+	// slower
+	// $output = wp_filter_nohtml_kses($output);
+	// src: https://wordpress.stackexchange.com/a/163597
+
+
+	// https://developer.wordpress.org/reference/functions/wptexturize/
+	// turns " and ' into curly versions
 	$output = apply_filters('wptexturize', $output);
+
+	// https://developer.wordpress.org/reference/functions/convert_chars/
+	// turns ampersands into &amp;
 	$output = apply_filters('convert_chars', $output);
-	$output = get_the_excerpt();
-	echo $output;
-}
 
-// 27c. Read more text
-function dbllc_excerpt_more() {
-	return '&hellip;&nbsp;<a href="' . get_permalink() . '"><strong>Read&nbsp;More</a></strong>';
-	//return '&hellip;';
-};
-add_filter('excerpt_more', 'dbllc_excerpt_more', 99);
+	// get the first 25 words
+	$output = implode(' ', array_slice(explode(' ', $output), 0, 25));
 
-// 27d. length
-function dbllc_excerpt_length() {
-	return '30';
+	// add an ellipsis
+	$output = $output . '&nbsp;&hellip;';
+
+	return $output;
 }
-add_filter('excerpt_length', 'dbllc_excerpt_length', 99);
 
 
 

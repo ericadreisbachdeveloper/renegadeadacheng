@@ -1,7 +1,7 @@
-// reCAPTCHA v3
+// reCAPTCHA v2 inivisible
 // get sitekey at https://www.google.com/recaptcha/admin
-// src https://developers.google.com/recaptcha/docs/v3
 // from sj.ada.cheng@gmail.com account
+// src https://developers.google.com/recaptcha/docs/invisible#auto_render
 
 
 // with form id
