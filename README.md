@@ -5,6 +5,7 @@
 
 ## Underlying Tech
 PHP vsn 7.4.15
+
 MySQL vsn 5.7.32-35
 
 
@@ -20,12 +21,15 @@ Version control is maintained over a limited scope to avoid discrepancies and ov
 
 Connect to the Git repository by first confirming you can connection to the server via SSH without requiring a password. This process varies from host to host. Instructions for sites hosted on SiteGround here: https://www.siteground.com/kb/how_to_log_in_to_my_shared_account_via_ssh_in_linux/
 
-The remote Git hook is located in `/home/u299-bgsbpjxst6zm/www/adac1.sg-host.com/dev.git/hooks/post-receive`
+The remote Git hook is located in <br />
+`/home/u299-bgsbpjxst6zm/www/adac1.sg-host.com/dev.git/hooks/post-receive`
 
 Detailed instructions: https://toroid.org/git-website-howto
 
 
-**NOTE: the /wp-content/ directory is renamed /files/ &mdash; local site clones must match this directory structure for successful version control**
+**NOTE: the /wp-content/ directory is renamed /files/** <br />
+Local site clones must match this directory structure for successful version control. <br />
+See below on the **Wordpress /wp-content/ Directory** for details.
 
 
 
@@ -33,9 +37,15 @@ Detailed instructions: https://toroid.org/git-website-howto
 Wordpress is a notoriously vulnerable web platform. This site uses many of the following security techniques for a hardened Wordpress build. More here: https://wordpress.org/support/article/hardening-wordpress/
 
 
+## Security Through Obscurity - Wordpress Install Directory
+The Wordpress installation directory is `jrdkfgjs` and not the root directory. This allows for a cleaner root installation and a simpler site migration process down the line. It also masks the location of Wordpress core files and prevents some automated attacks.
 
-## Security Through Obscurity - Wordpress wp-content Directory
-The `/wp-content/` directory is renamed `/files/` to prevent some automated attacks. The lines below in `wp-config.php` point plugin, media, theme, and other content to  `/files/`
+Lines in `public_html/.htaccess` point the site's root domain to `jrdkfgjs` which is a randomly-generated 8-character string. 
+
+
+
+## Wordpress /wp-content/ Directory - Security Through Obscurity
+The `/wp-content/` directory is renamed `/files/` to limit automated attacks. The lines below in `wp-config.php` point plugin, media, theme, and other content to  `/files/`
 
 `if ( ! defined( 'ABSPATH' ) ) { define( 'ABSPATH', __DIR__ . '/' ); }`<br />
 `define ('WP_CONTENT_FOLDERNAME', 'files');` <br />
@@ -47,7 +57,7 @@ More information here: https://wordpress.org/support/article/editing-wp-config-p
 
 
 
-## Configuration File
+## wp-config.php - Security Through Obscurity
 The `wp-config.php` file, which includes the database password in plaintext (!), is one directory higher than the root Wordpress installation folder.
 
 
@@ -71,8 +81,10 @@ The following line in `wp-config.php` disables default editing theme files direc
 
 
 
-## Adding Plugins from Back End Interface Disabled
-Every plugin adds security vulnerabilities. Most also include large and unnecessary scripts and style files that slow down sites. Many add significant database bloat, even when uninstalled. For this reason, plugin installation from the GUI back end is disabled, thus gatekeeping plugin installation to users with command line or direct server access.
+## Add Plugins Disabled
+Every plugin adds security vulnerabilities. Most plugins also include large and unnecessary scripts and style files that slow down page speed. Many add significant database bloat, even when uninstalled.
+
+For these reasons, plugin installation from the GUI back end is disabled, thus gatekeeping plugin installation to users with command line or direct server access.
 
 The following line in `wp-config.php` disables back end **Add New Plugins** functionality:
 
@@ -80,7 +92,7 @@ The following line in `wp-config.php` disables back end **Add New Plugins** func
 
 
 
-## Plugins Auto-Update
+## Plugin Auto-Updates Enabled
 The following line in `wp-config.php` keeps most plugins updated as soon as new versions are available:
 
 `add_filter( 'auto_update_plugin', '__return_true' );`
@@ -111,8 +123,10 @@ The following line in `wp-config.php` keeps most plugins updated as soon as new 
 
 
 ## ImageMagick
-Imagick enabled in `public_html/php.ini`
+Imagick enabled in `public_html/php.ini`<br />
+with the line <br />
 `extension=imagick.so`
 
-and called from `public_html/.htaccess`
+and called from `public_html/.htaccess` <br />
+with the line <br />
 `SetEnv PHPRC /home/customer/www/domain.com/public_html/php.ini`

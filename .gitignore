@@ -1,9 +1,10 @@
-# as of 1 oct 2020 -emd
+# as of 4 apr 2021 - erica dreisbach - erica@ericadreisbach.com
 
 
 # ignore everything in the root except /wp-content and /icons
 /*
 !files/
+!wp-content/
 !icons/
 
 
@@ -15,7 +16,25 @@
 
 
 # ignore any theme files that start with zz-
-wp-content/themes/**/zz-*
+files/themes/**/zz-*
+
+
+# DON'T track most of wp-content/
+# the intent is to track just files/themes/ and files/mu-plugins/
+files/index.php
+files/infinitewp/
+files/plugins/
+files/uploads/
+files/upgrade/
+files/webp-express/
+
+
+# DON'T track Wordpress themes
+files/themes/twenty*/
+
+
+# ignore any theme files that start with zz-
+files/themes/**/zz-*
 
 
 # DON'T track most of wp-content/
@@ -110,14 +129,6 @@ _wpeprivate*
 # output tracked files on master
 #
 # $ git ls-tree -r master --name-only
-
-
-
-# example remote add
-#
-# $ git remote add dev git@git.wpengine.com:production/dev.git
-#
-# repo is named "dev"
 
 
 
