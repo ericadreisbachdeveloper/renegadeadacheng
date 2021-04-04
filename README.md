@@ -20,13 +20,18 @@ Version control is maintained over a limited scope to avoid discrepancies and ov
 
 Connect to the Git repository by first confirming you can connection to the server via SSH without requiring a password. This process varies from host to host. Instructions for sites hosted on SiteGround here: https://www.siteground.com/kb/how_to_log_in_to_my_shared_account_via_ssh_in_linux/
 
-The remote Git hook is in `/home/u299-bgsbpjxst6zm/www/adac1.sg-host.com/dev.git`
+The remote Git hook is located in `/home/u299-bgsbpjxst6zm/www/adac1.sg-host.com/dev.git/hooks/post-receive`
 
 Detailed instructions: https://toroid.org/git-website-howto
 
 
+**NOTE: the /wp-content/ directory is renamed /files/ &mdash; local site clones must match this directory structure for successful version control**
+
+
+
 # Hardened Wordpress
 Wordpress is a notoriously vulnerable web platform. This site uses many of the following security techniques for a hardened Wordpress build. More here: https://wordpress.org/support/article/hardening-wordpress/
+
 
 
 ## Security Through Obscurity - Wordpress wp-content Directory

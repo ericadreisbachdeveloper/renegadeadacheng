@@ -3,7 +3,7 @@
 
 # ignore everything in the root except /wp-content and /icons
 /*
-!wp-content/
+!files/
 !icons/
 
 
