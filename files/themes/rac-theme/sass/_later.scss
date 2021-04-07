@@ -771,6 +771,12 @@
 // Large devices (desktops, 62rem and up)
 @media (min-width: 62rem) {
 
+
+  // Blog - large
+  // Archive - large
+  .col-content { padding-bottom: 2rem; }
+
+
   // Sticky Footer - large
   .wrapper:after { content: ''; display: block; clear: both; }
 

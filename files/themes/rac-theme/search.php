@@ -10,10 +10,11 @@
 
 
 		<div class="container">
-			<div class="-corseted -left">
 
-					<h1><?php echo sprintf( __( '%s Search Result' . $sp . ' for &ldquo;', 'html5blank' ), $wp_query->found_posts ); echo get_search_query(); echo '&rdquo;'; ?></h1>
-					
+			<h1><?php echo sprintf( __( '%s Search Result' . $sp . ' for &ldquo;', 'html5blank' ), $wp_query->found_posts ); echo get_search_query(); echo '&rdquo;'; ?></h1>
+
+
+			<div class="-corseted -left">
 				<section class="section">
 
 
@@ -46,7 +47,9 @@
 
 				<!-- otherwise, Wordpress-generated excerpt -->
 				<?php else : ?>
-					<?php dbllc_excerpt(); ?>
+
+					<?php _e(dbllc_excerpt()); ?>&nbsp;<a href="<?php the_permalink(); ?>">Read&nbsp;More</a>
+
 				<?php endif; ?>
 
 
@@ -57,7 +60,7 @@
 
 
 			<?php else: ?>
-			<article>
+			<article class="hentry">
 				<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
 			</article>
 			<?php endif; ?>

@@ -14,6 +14,7 @@
 	<?php include(locate_template('template/pagination_from_menu.php')); ?>
 
 
+
 	<div class="container-fluid footer-social-container">
 		<div class="container">
 			<div class="row footer-widgets-row">

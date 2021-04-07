@@ -104,7 +104,7 @@
 
 
 <!-- if this page has a parent, then show next sibling here -->
-<?php if($current_page_parent_menu_id !== '0') : ?>
+<?php if($current_page_parent_menu_id !== '0' && !is_search()) : ?>
 <div class="container-fluid -mauve-bg footer-nav">
 	<div class="container" role="navigation">
 
