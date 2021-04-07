@@ -73,6 +73,10 @@ body {
   h2, h3, h4, h5, h6 { margin-top: 0; padding-top: .2rem; }
 }
 
+:-webkit-any(article, aside, nav, section) :-webkit-any(article, aside, nav, section) h1 {
+  margin-block-start: .67em;
+}
+
 
 // no hero h1s get top padding
 //[data-role="main"] .gutenberg-section h1 {
