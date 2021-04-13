@@ -1,13 +1,13 @@
 {
-    "key": "group_5e7a6982c134c",
-    "title": "Open Graph",
+    "key": "group_607317953c85a",
+    "title": "Category Image",
     "fields": [
         {
-            "key": "field_5e7a699e85619",
-            "label": "Social sharing image",
-            "name": "social-img",
+            "key": "field_607317ba1c204",
+            "label": "Category Image",
+            "name": "cat_img",
             "type": "image",
-            "instructions": "Recommended size: 1048px wide x 548px high with focal point in the center. Image may be cropped by social media platforms. This image is the default image that will programmatically appear when the site is shared on social media. Featured Image for a given post or page will override this image.",
+            "instructions": "Recommended size: 1048px wide x 548px high with focal point in the center. This image is associated with Google search results for the category page.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -30,19 +30,19 @@
     "location": [
         [
             {
-                "param": "options_page",
+                "param": "taxonomy",
                 "operator": "==",
-                "value": "acf-options"
+                "value": "category"
             }
         ]
     ],
-    "menu_order": 1,
-    "position": "normal",
+    "menu_order": 3,
+    "position": "acf_after_title",
     "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1617824559
+    "modified": 1618168045
 }

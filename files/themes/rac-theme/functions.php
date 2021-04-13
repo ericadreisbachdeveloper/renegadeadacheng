@@ -135,10 +135,10 @@ function dbllc_header_scripts() {
 
 			wp_register_script('strict', TDIR . '/js/strict.js', array('cloudjquery'), '1.0.0');
 			wp_enqueue_script('strict');
-
   }
 }
 add_action('wp_enqueue_scripts', 'dbllc_header_scripts', 10, 0);
+
 
 
 
@@ -244,7 +244,7 @@ if(!is_admin()) { add_action('wp_enqueue_scripts', 'load_custom_scripts', 99); }
 
 
 // 15c. Remove login message that confirms username in functions.php
-add_filter('login_errors',create_function('$a', "return null;"));
+//add_filter('login_errors',create_function('$a', "return null;"));
 
 
 // 15d. Hide default login screen
@@ -519,30 +519,34 @@ function dbllc_nav() {
 add_action( 'admin_init', 'hide_editor' );
 function hide_editor() {
 
-	// get id
-	global $post;
-	$post_id = $post->ID;
+	$screen = get_current_screen();
+
+	if ( is_object($screen) && $screen->parent_base == 'edit' ) {
+
+		// get id
+		global $post;
+		$post_id = $post->ID;
 
 
-  // for specific page ids
-	/*
-  if($post_id == '###' ) {
-    remove_post_type_support('page', 'editor');
-  }
-  */
+	  // for specific page ids
+		/*
+	  if($post_id == '###' ) {
+	    remove_post_type_support('page', 'editor');
+	  }
+	  */
 
 
-	// for specific custom post types
-	//remove_post_type_support( 'resource', 'editor' );
+		// for specific custom post types
+		//remove_post_type_support( 'resource', 'editor' );
 
 
-	// for specific templates
-  $template_file = get_post_meta($post_id, '_wp_page_template', true);
+		// for specific templates
+	  $template_file = get_post_meta($post_id, '_wp_page_template', true);
 
-  if($template_file == 'page-login.php'){
-    remove_post_type_support('page', 'editor');
-  }
-
+	  if($template_file == 'page-login.php'){
+	    remove_post_type_support('page', 'editor');
+	  }
+	}
 }
 
 

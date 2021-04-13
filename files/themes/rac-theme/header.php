@@ -23,24 +23,43 @@ ob_start('sanitize_output'); ?>
 
 
 <!-- Social / Open Graph -->
-<meta name="og:url" property="og:url" content="<?php echo _e(get_permalink(), 'dbllc'); ?>">
+<?php global $page_url; $page_url = "";
+	if(is_search()) {
+		$page_url = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; }
+	elseif(is_home()) {
+		$page_url = esc_url(get_permalink(get_option('page_for_posts')));
+	}
+	else {
+		$page_url = esc_url(get_permalink()); }
+?>
+<meta name="og:url" property="og:url" content="<?php _e($page_url); ?>">
 <meta name="og:type" property="og:type" content="website">
 <meta name="og:site_name" property="og:site_name" content="<?php echo get_bloginfo('name'); echo _e(' | '); _e(get_bloginfo('description')); ?>">
 
 
 
 <!-- Title -->
-<?php $title = ""; $posttype_lower = ""; $posttype = "";
+<?php global $title, $page_title; $title = ""; $pagetitle = ""; $posttype_lower = ""; $posttype = "";
 
-			if (get_post_type() == 'post') { $posttype = 'Blog'; }
+			// $title is more verbose, better for search results title and browser titles
+			// $page_title is more bare, better for breadcrumbs
+		  $page_title = get_the_title();
+
+			if(is_search()) { $page_title = 'Search Results for &ldquo;' . $GLOBALS['wp_query']->query['s'] . '&rdquo;'; }
+	 elseif(is_home())  { $page_title = 'Storytelling Videos'; }
+
+			if (get_post_type() == 'post') { $posttype = 'Storytelling Videos'; }
 	  else { $posttype_lower = get_post_type(); $posttype = strtoupper($posttype_lower); }
 
-		$cat_obj = ""; $cat = "";
-		$cat_obj = get_queried_object(); $cat = $cat_obj->name;
+ 		  $cat_obj = ""; $cat = "";
+		  if(is_category()) {
+	 	  	$cat_obj = get_queried_object(); $cat = $cat_obj->name;
+  		}
 
       if(is_front_page())   { $title = get_bloginfo('name') . ' | ' . get_bloginfo('description'); }
 			elseif(is_404())      { $title = 'Page not found | ' . get_bloginfo('name'); }
 			elseif(is_search())   { $title = 'Search Results | ' . get_bloginfo('name'); }
+			elseif(is_home())     { $title = 'Storytelling Videos | ' . get_bloginfo('name'); }
 			elseif(is_category()) { $title = $posttype . ': ' . $cat . ' | ' . get_bloginfo('name'); }
 			elseif(is_tag())      { $title = 'Tagged: ' . $cat . ' | ' . get_bloginfo('name'); }
 			elseif(is_archive())  { $title =  $posttype . ' | ' . get_bloginfo('name'); }
@@ -54,22 +73,21 @@ ob_start('sanitize_output'); ?>
 
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@healthyschools" />
 
 
 
 <!-- Meta Description -->
-<?php $metadescription = "";  ?>
+<?php global $metadescription; $metadescription = ""; ?>
 
-<!-- 1st choice - post meta desription field -->
+<!-- 1st choice - post meta description field -->
 <!-- archives don't have descriptions -->
-<?php if(!is_archive() && class_exists('acf') && get_field('meta-description', $post->ID)) : ?>
+<?php if(!is_archive() && !is_search() && class_exists('acf') && get_field('meta-description', $post->ID)) : ?>
 <?php $metadescription = get_field('meta-description'); ?>
 
 <!-- 2nd choice - Wordpress-generated excerpt -->
 <!-- default 404 doesn't have a description -->
 <!-- archives don't have descriptions -->
-<?php elseif(!is_404() && !is_archive()) : ?>
+<?php elseif(!is_404() && !is_archive() && !is_search()) : ?>
 <?php $metadescription = dbllc_excerpt($post->ID);  ?>
 
 <?php endif; ?>
@@ -81,19 +99,47 @@ ob_start('sanitize_output'); ?>
 
 
 <!-- Image -->
-<?php $socialimg = ""; ?>
+<?php global $socialimg, $socialimg_id, $socialimg_h, $socialimg_w, $socialimg_alt,
+      $global_socialimg, $global_socialimg_h, $global_socialimg_w, $global_socialimg_alt;
 
-<!-- 1st choice - not archive, not 404, has featured image -->
-<?php if(!is_404() && !is_archive() && has_post_thumbnail($post->ID)) : ?>
-<?php $socialimg = get_the_post_thumbnail_url($post->ID,'hero'); ?>
+			// reset variables likely to change from page to page
+			// in Schema these are used for #primaryimage
+			$socialimg = ""; $socialimg_id = ""; $socialimg_h = ""; $socialimg_w = ""; $socialimg_alt = "";
+
+			// set global
+			$global_socialimg     = get_field('social-img', 'option');
+
+			$global_socialimg_w   = $global_socialimg['width'];
+			$global_socialimg_h   = $global_socialimg['height'];
+			$global_socialimg_alt = esc_attr($global_socialimg['alt']);
+
+			$global_socialimg = esc_url($global_socialimg['url']); ?>
+
+
+<!-- 1st choice - not 404, not search, not archive, has featured image -->
+<?php if(!is_404() && !is_search() && !is_archive() && has_post_thumbnail($post->ID)) : ?>
+<?php
+  $socialimg_id = get_post_thumbnail_id($post->ID);
+	$socialimg = wp_get_attachment_image_src($socialimg_id, 'hero')[0];
+	$socialimg = esc_url($socialimg);
+	$socialimg_w = wp_get_attachment_image_src($socialimg_id, 'hero')[1];
+	$socialimg_h = wp_get_attachment_image_src($socialimg_id, 'hero')[2];
+	$socialimg_alt = esc_attr(get_post_meta($socialimg_id  , '_wp_attachment_image_alt', true));
+?>
+
 
 <!-- 2nd choice - global default -->
 <?php elseif(class_exists('acf') && get_field('social-img','option')) : ?>
-<?php $socialimg = get_field('social-img', 'option', $post->ID); $socialimg = $socialimg['url']; ?>
+<?php
+		$socialimg     = $global_socialimg;
+		$socialimg_h   = $global_socialimg_h;
+		$socialimg_w   = $global_socialimg_w;
+		$socialimg_alt = $global_socialimg_alt; ?>
 <?php endif; ?>
 
-<meta name="og:image" property="og:image" content="<?php echo esc_url($socialimg); ?>">
-<meta name="twitter:image" content="<?php echo esc_url($socialimg); ?>">
+
+<meta name="og:image" property="og:image" content="<?php _e($socialimg); ?>">
+<meta name="twitter:image" content="<?php _e($socialimg); ?>">
 
 
 
@@ -107,36 +153,13 @@ ob_start('sanitize_output'); ?>
 <link href="//www.google-analytics.com" rel="dns-prefetch">
 
 
-<!-- Schema -->
-<script defer type='application/ld+json'>
-{
-  "@context": "http://www.schema.org",
-  "@type": "person",
-  "name": "Ada Cheng",
-  "jobTitle": "Storyteller",
-  "gender": "female",
-  "url": "https://renegadeadacheng.com",
-  "sameAs": [
-     "https://www.facebook.com/dr.adacheng/",
-     ""
-  ],
-  "image": "https://adac1.sg-host.com/images/renegade-ada-cheng-190526.jpg",
-  "address": {
-     "@type": "PostalAddress",
-     "addressLocality": "Chicago",
-     "addressRegion": "Illinois"
-  }
-}
-</script>
-
-
-
 <!-- pre-load + load assets -->
 
 <!-- Wordpress blocks -->
-<link rel="preload" href="<?php esc_url(get_site_url()); ; ?>/wp-includes/css/dist/block-library/style.min.css" as="style">
+<?php global $site_url; $site_url = esc_url(get_site_url()); ?>
+<link rel="preload" href="<?php _e($site_url); ?>/wp-includes/css/dist/block-library/style.min.css" as="style">
 
-<link rel="stylesheet" href="<?php esc_url(get_site_url()); ; ?>/wp-includes/css/dist/block-library/style.min.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="<?php _e($site_url); ?>/wp-includes/css/dist/block-library/style.min.css" media="print" onload="this.media='all'">
 
 
 <!-- theme above-the-fold styles -->
@@ -169,6 +192,49 @@ ob_start('sanitize_output'); ?>
 
 
 
+<!-- Schema erica -->
+<?php if(isset($post)) {
+	global $gmt_published, $gmt_modified;
+ 	$gmt_published =          get_the_time('c', $post->ID);
+ 	$gmt_modified  = get_the_modified_date('c', $post->ID);
+	}
+
+
+	global $cat_url, $cat_title; $cat = $cat_id = $cat_id = $cat_url = $cat_title = '';
+
+	if(is_single() || is_archive()) {
+		$cat = get_the_category();
+		// use first category
+		$cat_id = $cat[0]->term_id;
+		$cat_title = $cat[0]->name;
+		$cat_url = get_category_link( $cat_id);
+	}
+
+ include(locate_template('template/pagination_variables.php'));
+
+ global $menu_items_menu_ids, $current_page_menu_object, $current_page_parent_menu_id, $menu_items_ids, $menu_items_titles, $menu_items_urls, $parent_title, $parent_url;
+
+ // define parents for menu children
+ if ($current_page_parent_menu_id !== '0') {
+ 	$key = array_search( $current_page_parent_menu_id, $menu_items_menu_ids);
+	$parent_title = $menu_items_titles[$key];
+	$parent_url = esc_url($menu_items_urls[$key]);
+ }
+
+ // define parents for single and archive posts
+ elseif(is_single() || is_archive()) {
+	 $parent_title = get_the_title(get_option('page_for_posts'));
+	 $parent_url = esc_url(get_permalink(get_option('page_for_posts')));
+ }
+
+
+ include(locate_template('js/dev/schema.php'));
+
+
+?>
+
+
+
 <?php wp_head(); ?>
 
 
@@ -186,7 +252,7 @@ ob_start('sanitize_output'); ?>
 	<a href="#main" id="skip-link" class="sr-only-focusable">Skip to main content</a>
 
 
-	<div class="wrapper" data-footer="<?php global $data_footer; include(locate_template('template/pagination_variables.php')); _e($data_footer); ?>">
+	<div class="wrapper" data-footer="<?php global $data_footer; _e($data_footer); ?>">
 
 
 		<!-- when this div is in frame -->

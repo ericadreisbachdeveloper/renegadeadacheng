@@ -71,7 +71,13 @@
 
 
 	// get next sibling
-	$next_sibling_key = $current_sibling_key[0] + 1;
+	if(isset($current_sibling_key[0])) {
+		$next_sibling_key = $current_sibling_key[0] + 1;
+	}
+	else {
+		$next_sibling_key = '';
+	}
+
 
 	// if next sibling exists then print it
 	if( array_key_exists($next_sibling_key, $sibling_titles) ) {
