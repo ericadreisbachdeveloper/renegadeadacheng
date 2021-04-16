@@ -677,9 +677,9 @@
 
   .gutenberg-container > .nav { width: auto; }
 
-  $navpad_left: .8rem;
+  $navpad_left: 1rem;
   $navpad_nochildren_right: $navpad_left;
-  $navpad_haschildren_right: 1rem;
+  $navpad_haschildren_right: 1.2rem;
   $navpad_buttons_right: .4rem;
 
 

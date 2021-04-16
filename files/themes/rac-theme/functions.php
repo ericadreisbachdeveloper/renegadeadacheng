@@ -649,8 +649,8 @@ remove_filter('the_excerpt', 'wpautop');
 function dbllc_excerpt() {
 	global $post, $output, $output_arr;
 
-	$output =  get_the_content($post->ID);
-
+	if(get_the_excerpt() != '') { $output = get_the_excerpt(); }
+	else { $output =  get_the_content($post->ID); }
 
 	// turn closing tags into spaces
 	$output = str_replace("</h1>", "&nbsp;|&nbsp;", $output);
@@ -680,7 +680,7 @@ function dbllc_excerpt() {
 	$output = implode(' ', array_slice(explode(' ', $output), 0, 25));
 
 	// add an ellipsis
-	$output = $output . '&nbsp;&hellip;';
+	$output = $output . '&nbsp;&hellip;&nbsp;<a class="watch-video" href="' . get_permalink($post->ID) . '">Watch&nbsp;Video</a>';
 
 	return $output;
 }
