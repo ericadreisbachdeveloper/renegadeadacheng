@@ -647,7 +647,7 @@ remove_filter('the_excerpt', 'wpautop');
 
 // 27b. Custom excerpts
 function dbllc_excerpt() {
-	global $post, $output, $output_arr;
+	global $post, $output;
 
 	if(get_the_excerpt() != '') { $output = get_the_excerpt(); }
 	else { $output =  get_the_content($post->ID); }
@@ -679,8 +679,14 @@ function dbllc_excerpt() {
 	// get the first 25 words
 	$output = implode(' ', array_slice(explode(' ', $output), 0, 25));
 
+
 	// add an ellipsis
-	$output = $output . '&nbsp;&hellip;&nbsp;<a class="watch-video" href="' . get_permalink($post->ID) . '">Watch&nbsp;Video</a>';
+	$output = $output . '&nbsp;&hellip;';
+
+	// if it's a post, add Watch Video
+	if($post->type == "post") {
+		$output = $output . '&nbsp;<a class=&quot;watch-video&quot; href=&quot;' . get_permalink($post->ID) . '&quot;>Watch&nbsp;Video</a>';
+	}
 
 	return $output;
 }
