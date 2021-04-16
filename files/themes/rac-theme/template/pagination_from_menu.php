@@ -25,7 +25,7 @@
 	// get current page id
 	$current_post = get_post();
 	$current_post_id = $current_post->ID;
-	$current_title = $current_post->post_title;
+
 
 
 	// get the array key for the current page
@@ -68,9 +68,10 @@
 	$sibling_titles = array_values($sibling_titles);
 
 
-	// get key of current page with siblings array
-	$current_sibling_key = array_keys($sibling_titles, $current_title);
-
+	// get key of current page within siblings array
+	//$current_sibling_key = array_keys($sibling_titles, $current_title);
+	$current_url = get_permalink();
+	$current_sibling_key = array_keys($sibling_urls, $current_url);
 
 	// get next sibling
 	if(isset($current_sibling_key[0])) {
@@ -98,13 +99,13 @@
 	// II. Current Page is a Parent
 
 	// get current page id
-	$current_page_is_parent_menu_id = $current_page_menu_object->ID;
+	//$current_page_is_parent_menu_id = $current_page_menu_object->ID;
 
 	// get first kid title
-	$first_kid_title = $menu_items_titles[$current_page_array_key + 1];
+	//$first_kid_title = $menu_items_titles[$current_page_array_key + 1];
 
 	// get first kid url
-	$first_kid_url = $menu_items_urls[$current_page_array_key + 1];
+	//$first_kid_url = $menu_items_urls[$current_page_array_key + 1];
 
 
 ?>

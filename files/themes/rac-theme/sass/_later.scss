@@ -78,8 +78,8 @@
 .-magenta { color: $magenta; }
 
 .-highlight {
-  color: #230a32;
-
+  color: #3b0e56;
+  /*
   background-image: -webkit-gradient(
    linear,
    right top,
@@ -87,13 +87,13 @@
    color-stop(.99, transparent),
    color-stop(1,magenta)
   );
-  */
 
   background-image: -o-linear-gradient(180deg, transparent calc(100% - 1rem), $magenta-highlight calc(100% - 1.00001rem));
   background-image: -moz-linear-gradient(180deg, transparent calc(100% - 1rem), $magenta-highlight calc(100% - 1.00001rem));
-  background-image: -webkit-linear-gradient(180deg, transparent calc(100% - 1rem), $magenta-highlight calc(100% - 1.00001rem)); .800001rem));
+  background-image: -webkit-linear-gradient(180deg, transparent calc(100% - 1rem), $magenta-highlight calc(100% - 1.00001rem));
   background-image: -ms-linear-gradient(180deg, transparent calc(100% - 1rem), $magenta-highlight calc(100% - 1.00001rem));
   background-image: linear-gradient(180deg, transparent calc(100% - 1rem), $magenta-highlight calc(100% - 1.00001rem));
+  */
 }
 
 .-magenta-bg { background-color: $magenta; color: white; }
