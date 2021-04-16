@@ -119,12 +119,12 @@ add_action('wp_enqueue_scripts', 'deregister_css', 100 );
 
 // 5. Style vsn
 global $style_vsn;
-$style_vsn = '1.2.007';
+$style_vsn = '1.2.008';
 
 
 
 // 6. Header scripts (header.php)
-function dbllc_header_scripts() {
+function dbllc_header_scripts() {#68043c
   if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
 			wp_register_script('cloudjquery', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), '3.6.0', false);
