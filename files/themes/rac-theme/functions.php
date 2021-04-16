@@ -119,7 +119,7 @@ add_action('wp_enqueue_scripts', 'deregister_css', 100 );
 
 // 5. Style vsn
 global $style_vsn;
-$style_vsn = '1.2.002';
+$style_vsn = '1.2.003';
 
 
 
@@ -325,39 +325,47 @@ function my_login_logo_url_title() {
 
 // 15j. Exclude login page template from native search results
 //      also exclude Kitchen Sink
-//      src: https://stackoverflow.com/a/7880760
-
+//      src: https://stackoverflow.com/a/28983318
 function exclude_page_templates_from_search($query) {
 
     global $wp_the_query;
 
-		if ( ($wp_the_query === $query) && (is_search()) && ( ! is_admin()) ) {
+		$excluded = array(
+				'key' => '_wp_page_template',
+				'value' => array('page-kitchensink.php', 'page-login.php'),
+				'compare' => 'NOT IN',
+		);
 
-			$args = array_merge($wp_the_query->query, array(
-
-				'meta_query' => array(
-
-					// exclude login page
-					array(
-						'key' => '_wp_page_template',
-						'value' => 'page-login.php',
-						'compare' => '!=',
-					),
-
-					// exclude kitchen sink
-					array(
-						'key' => '_wp_page_template',
-						'value' => 'page-kitchensink.php',
-						'compare' => '!=',
-					),
+		$no_template = array(
+			'key' => '_wp_page_template',
+			'compare' => 'NOT EXISTS',
+		);
 
 
-				)
-			));
-			query_posts( $args );
-		}
+    if ( ($wp_the_query === $query) && (is_search()) && ( ! is_admin()) ) {
+
+        $meta_query =
+            array(
+
+                // set OR
+                'relation' => 'OR',
+
+                // remove pages with excluded templates from results
+                $excluded,
+
+                // show entries without a '_wp_page_template' key (posts)
+                $no_template,
+            );
+
+        $query->set('meta_query', $meta_query);
+    }
 }
 add_filter('pre_get_posts','exclude_page_templates_from_search');
+
+
+
+
+
 
 
 

@@ -6,6 +6,31 @@
 		'use strict';
 
 
+
+		// YouTube
+		if ( $('.wp-block-embed-youtube') ) {
+			$('.wp-block-embed-youtube').each(function(){
+
+				// get rendered width
+				var iframe_w = $(this).width();
+
+				// get assigned width
+				var iframew = $(this).find('iframe').attr('width');
+
+				// get assigned height
+				var iframeh = $(this).find('iframe').attr('height');
+
+				// re-render height
+				//var iframe_h = iframeh * iframe_w / iframew;
+				$(this).find('iframe').height(iframeh * iframe_w / iframew);
+
+
+
+			});
+		}
+
+
+
 		// lavender image buttons
 		$('.-img-button figure figcaption').on('click', function(){
 			window.location = jQuery(this).parent('figure').find('a').attr('href');

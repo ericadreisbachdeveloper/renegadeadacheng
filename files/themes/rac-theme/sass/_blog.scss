@@ -4,6 +4,11 @@
 
 
 
+.-archive [id*="post"][data-first] .looks-like-h1 {
+  padding-top: 2rem;
+}
+
+
 .single-h1 [href] {
   background: none;
 }

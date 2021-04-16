@@ -90,15 +90,6 @@
   .-animate-text br { display: block; }
 
 
-
-  // Blog - small
-  .-archive [id*="post"] {
-    @include flex;
-    @include flex-direction(row);
-
-    .text { padding-top: 0; padding-left: 1.5rem; }
-  }
-
 }
 
 
@@ -134,8 +125,8 @@
   %huge      { font-size: 2.5rem; }
   %large-h2  { font-size: 2.5rem; }
   %large     { font-size: 1.8rem;  }
-  %medium    { font-size: 1.2rem; }
-  %text      { font-size: 1rem; }
+  %medium    { font-size: 1.25rem; }
+  %text      { font-size: 1.1rem; }
 
 
 
@@ -805,6 +796,12 @@
   %container-gutter { width: calc( #{$container} - 30px); }
 
   .-corseted { max-width: 52rem; }
+
+
+
+  // Typography - wide
+  %huger     { font-size: 3.5rem; }
+  %monster   { font-size: 4rem; }
 
 
   // Home - wide

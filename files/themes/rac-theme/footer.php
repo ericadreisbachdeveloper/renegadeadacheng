@@ -10,7 +10,7 @@
 	<?php if(is_single()) { include(locate_template('template/pagination_single.php')); } ?>
 
 
-	<!-- if is a child page, show navigation-->
+	<!-- show page-to-page navigation -->
 	<?php include(locate_template('template/pagination_from_menu.php')); ?>
 
 

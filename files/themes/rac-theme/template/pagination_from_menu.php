@@ -1,7 +1,9 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {  exit; } ?>
 
 
-<?php
+<?php $current_page_parent_menu_id = ''; if(!is_search()) : ?>
+
+	<?php
 
 	global $main, $menu_items, $current_post, $current_post_id, $menu_items_ids, $current_page_array_key, $current_page_menu_object, $current_page_parent_menu_id;
 
@@ -106,7 +108,7 @@
 
 
 ?>
-
+<?php endif; ?>
 
 
 <!-- if this page has a parent, then show next sibling here -->
@@ -133,5 +135,6 @@
 	 </div>
 </div>
 -->
+
 
 <?php endif; ?>

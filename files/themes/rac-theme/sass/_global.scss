@@ -137,13 +137,13 @@ body {
 
 [data-role="main"] { @extend %text; }
 
-
+/*
 %link-line {
   position: relative;
   text-decoration: none;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  @include linkgradient($magenta);
+  @include linkgradient($mauve);
   @include transition-multi(background-image .2s ease-in-out, background-size .2s ease-in-out, color .2s ease-in-out);
 
   @include hover {
@@ -154,7 +154,7 @@ body {
 
 
 [data-role="main"] [href] {
-  color: $magenta;
+  color: $mauve;
   text-decoration: none;
   @extend %link-line;
 
@@ -162,7 +162,7 @@ body {
     color: $mauve;
   }
 }
-
+*/
 [data-role="main"] [href].-no-line {
   background: none;
 }
@@ -284,14 +284,26 @@ a { @include hover { cursor: pointer; } }
   text-decoration: none;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  @include linkgradient($magenta);
+  @include linkgradient($mauve);
   @include transition-multi(background-image .2s ease-in-out, background-size .2s ease-in-out, color .2s ease-in-out);
 
   @include hover {
     background-size: 0 100%;
-    @include linkgradient($mauve);
+    @include linkgradient($magenta);
   }
 }
+
+
+[data-role="main"] [href] {
+  color: $mauve;
+  text-decoration: none;
+  @extend %link-line;
+
+  @include hover {
+    color: $magenta;
+  }
+}
+
 
 
 %clear {
@@ -323,9 +335,27 @@ a { @include hover { cursor: pointer; } }
 .nowrap { white-space: nowrap; }
 
 
+.gutenberg-section.core-list li + li { padding-top: .5rem; }
+
+
 
 // Colors
 .-magenta { color: $magenta; }
+
+.-highlight {
+  background-image: -webkit-gradient(
+   linear,
+   right top,
+   left top,
+   color-stop(.99, transparent),
+   color-stop(1,magenta)
+  );
+  background-image: -o-linear-gradient(180deg, transparent calc(100% - .8rem), $magenta-highlight calc(100% - .800001rem));
+  background-image: -moz-linear-gradient(180deg, transparent calc(100% - .8rem), $magenta-highlight calc(100% - .800001rem));
+  background-image: -webkit-linear-gradient(180deg, transparent calc(100% - .8rem), $magenta-highlight calc(100% - .800001rem));
+  background-image: -ms-linear-gradient(180deg, transparent calc(100% - .8rem), $magenta-highlight calc(100% - .800001rem));
+  background-image: linear-gradient(180deg, transparent calc(100% - .8rem), $magenta-highlight calc(100% - .800001rem));
+}
 
 
 
