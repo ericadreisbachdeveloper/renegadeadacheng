@@ -83,7 +83,10 @@
 .-magenta { color: $magenta; }
 
 .-highlight {
-  color: #3b0e56;
+  color: white;
+  background: $nearblack;
+  padding: 0 .1rem; 
+  //color: #3b0e56;
   /*
   background-image: -webkit-gradient(
    linear,
