@@ -251,6 +251,7 @@
 
   figcaption {
     @extend %leaguespartan;
+    @extend %text;
     width: 80%;
     background: $lavender2;
     color: white;
