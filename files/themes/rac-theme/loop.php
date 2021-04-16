@@ -7,10 +7,8 @@
 
 	<?php if($k == 0) : ?>
 
-	<h2>Latest</h2>
-
-	<h2 class="looks-like-h1"><?php the_title(); ?></h2>
-	<h3 class="looks-like-h2"><?php the_time('F j, Y'); ?></h3>
+	<h2>The Latest: <?php the_title(); ?></h2>
+	<h3 class="-latest-h3"><?php the_time('F j, Y'); ?></h3>
 
 	<?php the_content(); ?>
 

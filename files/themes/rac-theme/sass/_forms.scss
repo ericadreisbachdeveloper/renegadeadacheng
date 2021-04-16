@@ -305,7 +305,7 @@ label { line-height: 1.8; }
 
 
 // Sidebar
-.col-sidebar {
+[data-role="main"] .col-sidebar {
 
   [type], textarea {
     background: $cream2;
@@ -325,7 +325,7 @@ label { line-height: 1.8; }
 
   .wpforms-container .wpforms-field-textarea { padding-top: 0; }
 
-
+  [href].wp-block-button__link,
   [type="submit"] {
     background: $cream4;
     color: $nearblack;
@@ -333,4 +333,6 @@ label { line-height: 1.8; }
 
     @include hover { background: $cream6; }
   }
+
+  [href].wp-block-button__link { @extend %small; padding-top: .6rem; }
 }

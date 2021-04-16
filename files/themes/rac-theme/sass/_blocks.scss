@@ -21,7 +21,7 @@
   &.has-media-on-the-right {
     &> figure + .wp-block-media-text__content,
     &> .wp-block-media-text__content + figure {
-      padding-top: 0;
+      padding-top: 2rem;
     }
   }
 }
@@ -106,7 +106,7 @@ figure { margin-left: 0; }
   margin-bottom: 0;
 
   .wp-block-column + .wp-block-column {
-    margin-left: 1rem; 
+    margin-left: 1rem;
   }
 }
 

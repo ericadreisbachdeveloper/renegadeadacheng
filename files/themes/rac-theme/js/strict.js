@@ -7,9 +7,9 @@
 
 
 
-		// YouTube
-		if ( $('.wp-block-embed-youtube') ) {
-			$('.wp-block-embed-youtube').each(function(){
+		// YouTube + Vimeo embeds
+		if ( $('.wp-block-embed') ) {
+			$('.wp-block-embed').each(function(){
 
 				// get rendered width
 				var iframe_w = $(this).width();
@@ -23,9 +23,6 @@
 				// re-render height
 				//var iframe_h = iframeh * iframe_w / iframew;
 				$(this).find('iframe').height(iframeh * iframe_w / iframew);
-
-
-
 			});
 		}
 

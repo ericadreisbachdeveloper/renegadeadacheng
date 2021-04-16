@@ -78,11 +78,6 @@ body {
 }
 
 
-// no hero h1s get top padding
-//[data-role="main"] .gutenberg-section h1 {
-//  padding-top: 2rem;
-//}
-
 
 // on homepage, h2 looks like h1
 .page-template-page-home [data-role="main"] .gutenberg-section.core-heading h2 {
@@ -135,6 +130,8 @@ body {
 }
 
 
+[data-role="main"] .-latest-h3 { @extend %text; color: $gray5; text-transform: uppercase; }
+
 [data-role="main"] { @extend %text; }
 
 /*
@@ -167,6 +164,8 @@ body {
   background: none;
 }
 
+
+figcaption { @extend %small; color: $gray5; }
 
 
 
@@ -244,6 +243,8 @@ p { margin-bottom: .8rem; }
 .-txt-left { text-align: left; }
 .-txt-right { text-align: right; }
 .-txt-center { text-align: center; }
+
+
 
 
 // link behavior
@@ -332,30 +333,14 @@ a { @include hover { cursor: pointer; } }
   }
 }
 
-.nowrap { white-space: nowrap; }
+.-nowrap, .nowrap { white-space: nowrap; }
 
 
 .gutenberg-section.core-list li + li { padding-top: .5rem; }
 
 
 
-// Colors
-.-magenta { color: $magenta; }
 
-.-highlight {
-  background-image: -webkit-gradient(
-   linear,
-   right top,
-   left top,
-   color-stop(.99, transparent),
-   color-stop(1,magenta)
-  );
-  background-image: -o-linear-gradient(180deg, transparent calc(100% - .8rem), $magenta-highlight calc(100% - .800001rem));
-  background-image: -moz-linear-gradient(180deg, transparent calc(100% - .8rem), $magenta-highlight calc(100% - .800001rem));
-  background-image: -webkit-linear-gradient(180deg, transparent calc(100% - .8rem), $magenta-highlight calc(100% - .800001rem));
-  background-image: -ms-linear-gradient(180deg, transparent calc(100% - .8rem), $magenta-highlight calc(100% - .800001rem));
-  background-image: linear-gradient(180deg, transparent calc(100% - .8rem), $magenta-highlight calc(100% - .800001rem));
-}
 
 
 
