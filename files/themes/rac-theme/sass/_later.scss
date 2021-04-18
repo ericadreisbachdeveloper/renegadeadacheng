@@ -32,6 +32,9 @@
 
 .-columns-small > .wp-block-column + .wp-block-column { margin-top: 1rem; }
 
+.page-template-page-hide-default-title .-no-hero { margin-top: 2.01rem; }
+
+
 
 // 404
 .error404 .gutenberg-section { padding-bottom: 2rem; }
@@ -84,7 +87,7 @@
 
 .-highlight {
   color: $nearblack;
-  background: yellow;
+  background: bisque;
   padding: 0 .15rem;
 
   //color: #3b0e56;
@@ -236,6 +239,11 @@
   [data-role="main"] { padding-bottom: 2rem; }
 }
 
+
+
+// Search
+.search-results .hentry { float: left; clear: left; }
+[data-role="main"] .search-h2 { margin-bottom: 1.5rem; }
 
 
 

@@ -81,6 +81,7 @@ ob_start('sanitize_output'); ?>
 
 <!-- 1st choice - post meta description field -->
 <!-- archives don't have descriptions -->
+<?php global $post_id; $post_id = ''; $post_id = $post->ID; ?>
 <?php if(!is_archive() && !is_search() && class_exists('acf') && get_field('meta-description', $post->ID)) : ?>
 <?php $metadescription = get_field('meta-description'); ?>
 
@@ -241,8 +242,10 @@ ob_start('sanitize_output'); ?>
 
 </head>
 
+
+
 <!-- default assumption - browser supports inline svgs - a reasonable assumption: https://caniuse.com/?search=svg -->
-<body <?php body_class(); ?> data-svg="inlinesvg" data-clippath="clippath">
+<body <?php body_class(); ?> data-svg="inlinesvg" data-clippath="clippath" id="body">
 
 
 

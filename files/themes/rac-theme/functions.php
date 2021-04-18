@@ -35,7 +35,7 @@ function deregister_javascript() {
 
 		// for reasons unknown, global deregister of default jquery breaks WPForms
 		// even if jquery is also dequeued
-	  //wp_deregister_script( 'jquery' );
+	  // wp_deregister_script( 'jquery' );
 
 		// if is not page Events, deregister Event scripts
 		if(!is_page('Events')) {
@@ -119,12 +119,12 @@ add_action('wp_enqueue_scripts', 'deregister_css', 100 );
 
 // 5. Style vsn
 global $style_vsn;
-$style_vsn = '1.2.010';
+$style_vsn = '1.2.011';
 
 
 
 // 6. Header scripts (header.php)
-function dbllc_header_scripts() {#68043c
+function dbllc_header_scripts() {
   if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
 			wp_register_script('cloudjquery', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), '3.6.0', false);
@@ -236,7 +236,7 @@ function load_custom_scripts() {
 			wp_enqueue_script('recaptcha-sitekey');
 		}
 
-		// for forms enter directly on WPForms > Settings > CAPTCHA
+		// for WP Forms, enter reCAPTCHA keys directly on WPForms > Settings > CAPTCHA
 		// https://ericadreisbach.com/adacheng/wp-admin/admin.php?page=wpforms-settings&view=captcha
 }
 
