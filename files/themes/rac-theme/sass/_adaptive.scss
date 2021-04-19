@@ -594,30 +594,6 @@
   .-columns-small > .wp-block-column { flex-basis: calc(50% - 1.5rem); }
 
 
-  // Forms - medium-large
-  .wpforms-container {
-    padding-top: .5rem;
-
-    [type="search"], [type="text"], [type="email"],  textarea {
-      min-width: unset;
-    }
-
-    .wpforms-one-half, .wpforms-field-email, .wpforms-field-text {
-      margin-bottom: .5rem;
-    }
-
-    .wpforms-field-row > .wpforms-one-half {
-      width: calc(50% - .75rem);
-      float: left;
-
-      &.wpforms-first { margin-right: 1.5rem; }
-    }
-
-    .wpforms-field-textarea { padding-top: 1rem; }
-
-    .wpforms-field-textarea textarea { height: 10rem; }
-  }
-
 
 
   .wp-block-media-text.has-media-on-the-right .wp-block-media-text__media {
