@@ -153,6 +153,13 @@
 .is-content-justification-right { @include justify-content(flex-end); }
 
 
+.wp-block-buttons[class*="is-content-justification"] {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  .core-button { padding-bottom: 2rem; }
+}
+
 
 
 %button-dark {
@@ -842,6 +849,14 @@
 
 
 
+@media (min-width: 600px) and (max-width: 781px) {
+  .wp-block-column:not(:only-child) {
+      flex-basis: unset !important;
+      flex-grow: unset;
+    }
+}
+
+
 
 
 // Small devices (landscape phones, 37.5rem and up)
@@ -881,6 +896,15 @@
   .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content { padding-left: 0; }
 
 
+
+  // Buttons - medium
+  .core-button + .core-button { margin-left: 2rem; }
+
+
+  // Columns - medium
+  .wp-block-columns { @include justify-content(unset); }
+  .wp-block-column + .wp-block-column { margin-left: 1rem; }
+  .wp-block-columns .wp-block-column { max-width: unset; }
 
 
 

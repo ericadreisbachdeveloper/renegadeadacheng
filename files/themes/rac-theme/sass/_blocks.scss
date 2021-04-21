@@ -77,8 +77,6 @@ figure { margin-left: 0; }
 
 
 
-// Buttons
-.core-button + .core-button { margin-left: 2rem; }
 
 
 
@@ -104,12 +102,10 @@ figure { margin-left: 0; }
 // Columns
 .wp-block-columns {
   margin-bottom: 0;
+  @include justify-content(center);
 
-  .wp-block-column + .wp-block-column {
-    margin-left: 1rem;
-  }
+  .wp-block-column { max-width: 32rem; }
 }
-
 
 
 
