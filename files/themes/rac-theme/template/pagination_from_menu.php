@@ -117,11 +117,41 @@
 <div class="container-fluid -mauve-bg footer-nav">
 	<div class="container" role="navigation">
 
-		 <a class="pagination-a" href="<?php echo esc_url($next_sibling_url); ?>">NEXT: <?php _e($next_sibling_title); ?></a>
+		 <a class="pagination-a" href="<?php _e(esc_url($next_sibling_url)); ?>">NEXT: <?php _e($next_sibling_title); ?></a>
 		 <div class="clear"> </div>
 
 	 </div>
 </div>
+
+
+<!-- Workshops -->
+<?php elseif(is_page('27')) : ?>
+<div class="container-fluid -mauve-bg footer-nav">
+	<div class="container" role="navigation">
+		<?php $first_child_key = array_search($current_page_menu_object->ID, $menu_parent_ids); $first_child_url =  $menu_items_urls[$first_child_key]; $first_child_title = $menu_items_titles[$first_child_key]; ?>
+
+
+		 <a class="pagination-a" href="<?php _e(esc_url($first_child_url)); ?>">NEXT: <?php _e($first_child_title); ?></a>
+		 <div class="clear"> </div>
+
+	 </div>
+</div>
+
+
+<!-- Storytelling -->
+<?php elseif(is_page('35')) : ?>
+<div class="container-fluid -mauve-bg footer-nav">
+	<div class="container" role="navigation">
+		<?php $first_child_key = array_search($current_page_menu_object->ID, $menu_parent_ids); $first_child_key; $first_child_url =  $menu_items_urls[$first_child_key]; $first_child_title = $menu_items_titles[$first_child_key]; ?>
+
+
+		 <a class="pagination-a" href="<?php _e(esc_url($first_child_url)); ?>">NEXT: <?php _e($first_child_title); ?></a>
+		 <div class="clear"> </div>
+
+	 </div>
+</div>
+
+
 
 
 <!-- pagination for parents -->

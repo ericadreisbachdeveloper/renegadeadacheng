@@ -193,7 +193,7 @@ ob_start('sanitize_output'); ?>
 
 
 
-<!-- Schema erica -->
+<!-- Custom Schema -->
 <?php if(isset($post)) {
 	global $gmt_published, $gmt_modified;
  	$gmt_published =          get_the_time('c', $post->ID);
@@ -248,8 +248,7 @@ ob_start('sanitize_output'); ?>
 <body <?php body_class(); ?> data-svg="inlinesvg" data-clippath="clippath" id="body">
 
 
-
-	<script src="<?= esc_url(TDIR); ?>/js/dev/clip-path-support.js"></script>
+	<script defer src="<?= esc_url(TDIR); ?>/js/dev/clip-path-support.js"></script>
 
 
 	<a href="#main" id="skip-link" class="sr-only-focusable">Skip to main content</a>

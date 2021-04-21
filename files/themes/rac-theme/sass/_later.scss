@@ -947,7 +947,8 @@
   // Sticky Footer - large
   .wrapper:after { content: ''; display: block; clear: both; }
 
-  $footerh: 34rem;
+  // footer pagination of set high - Child pages - Workshops ladnding - Storytelling landing
+  $footerh: 34.5rem;
 
   .wrapper[data-footer="has-pagination"] { min-height: 100vh; margin-bottom: -$footerh; }
 
@@ -955,12 +956,20 @@
   .wrapper[data-footer="has-pagination"] + .site-footer { height:$footerh; }
 
 
+  // no pagination - most parent pages
   $footerh_nopagination: 23.15rem;
 
   .wrapper[data-footer="no-pagination"] { min-height: 100vh; margin-bottom: -$footerh_nopagination; }
 
   .wrapper[data-footer="no-pagination"]:after,
   .wrapper[data-footer="no-pagination"] + .site-footer { height:$footerh_nopagination; }
+
+
+  // no sticky - single posts
+  .wrapper[data-footer="no-sticky"] { min-height: unset; margin-bottom: 0; }
+
+  .wrapper[data-footer="no-sticky"]:after,
+  .wrapper[data-footer="no-sticky"] + .site-footer { height: auto; }
 
 
 

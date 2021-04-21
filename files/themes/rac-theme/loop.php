@@ -26,7 +26,7 @@
 	<div class="text">
 		<h2 class="looks-like-h1"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 		<h3 class="looks-like-h2"><?php the_time('F j, Y'); ?></h3>
-		<?php  $excerpt = dbllc_excerpt(); _e($excerpt); ?>
+		<?php $excerpt = dbllc_excerpt(); _e($excerpt . '<a href="' . get_the_permalink() . '">Watch&nbsp;Video</a>'); ?>
 	</div>
 	<?php endif; ?>
 

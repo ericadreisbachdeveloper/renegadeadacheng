@@ -31,6 +31,6 @@
   $current_page_parent_menu_id = $current_page_menu_object->menu_item_parent;
 
 
-  if($current_page_parent_menu_id !== '0' ) { $data_footer = "has-pagination"; } elseif(is_single()) { $data_footer = "no-sticky"; } else { $data_footer = "no-pagination"; }
+  if(!is_single() && !is_front_page() && (($current_page_parent_menu_id !== '0') || ($current_post_id = '27') || ($current_post_id = '35'))) { $data_footer = "has-pagination"; } elseif(is_single()) { $data_footer = "no-sticky"; } else { $data_footer = "no-pagination"; }
 
 ?>

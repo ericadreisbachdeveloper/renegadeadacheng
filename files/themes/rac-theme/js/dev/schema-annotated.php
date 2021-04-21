@@ -28,6 +28,7 @@
       "@id": "<?php _e($site_url); ?>#webpage",
       "url": "<?php _e($page_url); ?>",
       "name": "<?php _e($title); ?>",
+      "description": "<?php _e($metadescription); ?>",
       "isPartOf": {
         "@id": "<?php _e($site_url); ?>/#website"
       },
@@ -173,11 +174,10 @@
 
 
     {
-      <?php $number_of_schemae =  count(get_field('schema-fields')); $count = "1"; while(have_rows('schema-fields', $post_id)) : the_row(); ?><?php if(get_sub_field('is-parent') && get_sub_field('is-parent') == 'yes') : ?>
-      "<?php _e(get_sub_field('parent-field')); ?>": {
-      <?php $number_of_children = count(get_sub_field('children')); if(have_rows('children')) : $children = "1"; while(have_rows('children')) : the_row(); ?>"<?php _e(get_sub_field('child-name') . ''); ?>": "<?php _e(get_sub_field('child-value')); ?>"<?php if($children < $number_of_children) { _e(', '); } ?><?php $children++; endwhile; endif; ?>
-    }<?php if($count < $number_of_schemae) { _e(', '); }?>
-    <?php elseif(get_sub_field('is-parent') && get_sub_field('is-parent') == 'no'): ?>"<?php _e(get_sub_field('field')); ?>": "<?php _e(get_sub_field('value')); ?>"<?php if($count < $number_of_schemae) { _e(', '); }?>
+      <?php $number_of_schemae =  count(get_field('schema-fields')); $count = "1"; while(have_rows('schema-fields', $post_id)) : the_row(); ?><?php if(get_sub_field('is-parent') && get_sub_field('is-parent') == 'yes') : ?>"<?php _e(get_sub_field('parent-field')); ?>": {
+      <?php $number_of_children = count(get_sub_field('children')); if(have_rows('children')) : $children = "1"; while(have_rows('children')) : the_row(); ?>"<?php _e(get_sub_field('child-name')); ?>": "<?php _e(get_sub_field('child-value')); ?>"<?php if($children < $number_of_children) { _e(','); } ?><?php $children++; endwhile; endif; ?>
+    }<?php if($count < $number_of_schemae) { _e(','); }?>
+    <?php elseif(get_sub_field('is-parent') && get_sub_field('is-parent') == 'no'): ?>"<?php _e(get_sub_field('field')); ?>": "<?php _e(get_sub_field('value')); ?>"<?php if($count < $number_of_schemae) { _e(','); }?>
     <?php endif; $count++; endwhile; ?>
     }<?php endif; ?>
   ]

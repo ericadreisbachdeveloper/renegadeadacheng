@@ -680,8 +680,8 @@ function dbllc_excerpt() {
 	$output = implode(' ', array_slice(explode(' ', $output), 0, 25));
 
 
-	// add an ellipsis
-	$output = $output . '&nbsp;&hellip;';
+	// add a space
+	$output = $output . ' ';
 
 	// if it's a post, add Watch Video
 	if($post->type == "post") {

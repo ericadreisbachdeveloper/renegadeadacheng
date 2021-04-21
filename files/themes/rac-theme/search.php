@@ -38,17 +38,16 @@
 				<?php //echo _e(get_template_part('meta')); ?>
 
 
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail', ['class' => 'alignleft']); ?></a>
+				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium', ['class' => 'alignleft']); ?></a>
 
 
 				<!-- if there's a meta, post meta -->
 				<?php if(class_exists('acf') && get_field('meta-description')) : ?>
-					<?php the_field('meta-description'); ?>&nbsp;<a href="<?php the_permalink(); ?>">Read&nbsp;More</a>
+					<?php the_field('meta-description'); ?>&nbsp;<a href="<?php _e(esc_url(get_the_permalink())); ?>">More</a>
 
 				<!-- otherwise, Wordpress-generated excerpt -->
 				<?php else : ?>
-
-					<?php _e(dbllc_excerpt()); ?>&nbsp;<a href="<?php the_permalink(); ?>">Read&nbsp;More</a>
+					<?php _e(dbllc_excerpt()); ?>&nbsp;<a href="<?php _e(esc_url(get_the_permalink())); ?>">More</a>
 
 				<?php endif; ?>
 
