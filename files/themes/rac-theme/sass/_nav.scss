@@ -92,10 +92,10 @@ $navh: 6rem;
 
 
 // clip-path support with aimation
-/*
+
 @supports(-ms-clip-path: polygon(0 0, 100% 0) ) or (-o-clip-path: polygon(0 0, 100% 0) ) or (-moz-clip-path: polygon(0 0, 100% 0) ) or (-webkit-clip-path: polygon(0 0, 100% 0) ) or (clip-path: polygon(0 0, 100% 0) ) {
 
-  .logo-div { background: beige; }
+  .logo-div { background: none; }
 
   .navbar-collapse {
     overflow-x: hidden;
@@ -113,7 +113,6 @@ $navh: 6rem;
     }
   }
 }
-*/
 
 
 
