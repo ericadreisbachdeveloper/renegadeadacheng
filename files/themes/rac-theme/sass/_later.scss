@@ -5,7 +5,7 @@
 @import '_mixins.scss';
 @import '_colors.scss';
 @import '_tip.scss';
-
+@import '_forms.scss';
 
 %leaguespartan { font-family: 'League Spartan', 'Impact'; font-weight: 400; }
 %medium    { font-size: 1.125rem; line-height: 1.666; }
@@ -332,7 +332,7 @@ figcaption { @extend %small; color: $gray5; }
 .wp-block-quote p cite {
   @extend %leaguespartan;
   @extend %small;
-  display: inline-block; 
+  display: inline-block;
   //@extend %text;
   font-style: normal;
 }

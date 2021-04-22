@@ -3,6 +3,9 @@
 ------------------------ */
 
 
+%arialrounded { font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif; }
+
+
 %input {
   @extend %arialrounded;
   min-width: 20rem;
@@ -13,6 +16,10 @@
   border-left: none;
   font-size: 1rem;
   padding: .666rem .1rem;
+
+  -webkit-appearance: none;
+  @include border-radius(0);
+
   @include transition-one(border-bottom);
 
   @include placeholder { color: $nearblack; font-size: 1rem; }
@@ -282,12 +289,14 @@ label { line-height: 1.8; }
 
   [type="submit"] {
 
+    background: $nearblack;
     display: block;
+    font-size: .9rem;
+
     margin-right: auto;
+    margin-bottom: .8rem;
     margin-left: auto;
 
-    background: $nearblack;
-    margin-bottom: .8rem;
     padding-top: 1rem;
     padding-bottom: 0.693rem;
 
