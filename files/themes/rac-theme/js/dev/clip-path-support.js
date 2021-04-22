@@ -32,4 +32,9 @@ var areClipPathShapesSupported = function () {
 
 if ( !areClipPathShapesSupported() ) {
   document.body.setAttribute('data-clippath', 'no-clippath');
+	console.log('no, no clippath support')
+}
+
+else {
+	console.log('yes, clippath support')
 }
