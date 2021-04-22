@@ -71,22 +71,51 @@ $navh: 6rem;
 }
 
 
-// clip-path used to animate mobile menus
+
+// no clip-path support? no animation!
+.logo-div { background: yellow; }
+
 .navbar-collapse {
   overflow-x: hidden;
 
   &.collapse {
-    height: auto;
-    @include clip-path( polygon(0 0, 100% 0, 100% 0, 0 0) );
-    @include transition-multi(clip-path .4s ease, -webkit-clip-path .4s ease);
+    height: 0;
+    overflow: hidden;
   }
 
   &.collapse.show {
-    @include clip-path( polygon(0 0, 100vw 0, 100vw 100%, 0 100%) );
-    overflow-y: scroll;
+    height: auto;
     position: relative;
   }
 }
+
+
+
+// clip-path support with aimation
+@supports(-ms-clip-path: polygon(0 0, 100% 0) ) or (-o-clip-path: polygon(0 0, 100% 0) ) or (-moz-clip-path: polygon(0 0, 100% 0) ) or (-webkit-clip-path: polygon(0 0, 100% 0) ) or (clip-path: polygon(0 0, 100% 0) ) {
+
+  .logo-div { background: beige; }
+
+  .navbar-collapse {
+    background: red;
+    overflow-x: hidden;
+
+    &.collapse {
+      height: auto;
+      @include clip-path( polygon(0 0, 100% 0, 100% 0, 0 0) );
+      @include transition-multi(clip-path .4s ease, -webkit-clip-path .4s ease);
+    }
+
+    &.collapse.show {
+      @include clip-path( polygon(0 0, 100vw 0, 100vw 100%, 0 100%) );
+      overflow-y: scroll;
+      position: relative;
+    }
+  }
+}
+
+
+
 
 
 #navmenu .navbar-nav  {

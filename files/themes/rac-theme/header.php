@@ -246,11 +246,10 @@ ob_start('sanitize_output'); ?>
 
 
 
-<!-- default assumption - browser supports inline svgs - a reasonable assumption: https://caniuse.com/?search=svg -->
-<body <?php body_class(); ?> data-svg="inlinesvg" data-clippath="clippath" id="body">
+<body <?php body_class(); ?> data-svg="inlinesvg" id="body">
 
 
-	<script defer src="<?= esc_url(TDIR); ?>/js/dev/clip-path-support.js"></script>
+	<!-- <script defer src="/js/dev/clip-path-support.js"></script> -->
 
 
 	<a href="#main" id="skip-link" class="sr-only-focusable">Skip to main content</a>
