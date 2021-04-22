@@ -92,7 +92,6 @@ $navh: 6rem;
 
 
 // clip-path support with aimation
-
 @supports(-ms-clip-path: polygon(0 0, 100% 0) ) or (-o-clip-path: polygon(0 0, 100% 0) ) or (-moz-clip-path: polygon(0 0, 100% 0) ) or (-webkit-clip-path: polygon(0 0, 100% 0) ) or (clip-path: polygon(0 0, 100% 0) ) {
 
   .logo-div { background: none; }
@@ -101,9 +100,9 @@ $navh: 6rem;
     overflow-x: hidden;
 
     &.collapse {
-      height: auto;
+      //height: auto;
       @include clip-path( polygon(0 0, 100% 0, 100% 0, 0 0) );
-      @include transition-multi(clip-path .4s ease, -webkit-clip-path .4s ease);
+      @include transition-multi(clip-path .4s ease, -webkit-clip-path .4s ease, -ms-clip-path .4s ease, -o-clip-path .4s ease, -moz-clip-path .4s ease);
     }
 
     &.collapse.show {
