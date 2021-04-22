@@ -160,12 +160,14 @@ ob_start('sanitize_output'); ?>
 <?php global $site_url; $site_url = esc_url(get_site_url()); ?>
 <link rel="preload" href="<?php _e($site_url); ?>/wp-includes/css/dist/block-library/style.min.css" as="style">
 
-<link rel="stylesheet" href="<?php _e($site_url); ?>/wp-includes/css/dist/block-library/style.min.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="<?php _e($site_url); ?>/wp-includes/css/dist/block-library/style.min.css" media="screen" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="<?php _e($site_url); ?>/wp-includes/css/dist/block-library/style.min.css"></noscript>
+<!-- noscript per https://web.dev/defer-non-critical-css/ -->
 
 
 <!-- theme above-the-fold styles -->
 <?php global $style_vsn; ?>
-<link rel="preload" href="<?= esc_url(TDIR); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" as="style">
+<link rel="preload" href="<?= esc_url(TDIR); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="<?= esc_url(TDIR); ?>/css/style.css?ver=<?php _e($style_vsn); ?>"></noscript>
+<!-- noscript per https://web.dev/defer-non-critical-css/ -->
 
 <link rel="stylesheet" href="<?= esc_url(TDIR); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" />
 

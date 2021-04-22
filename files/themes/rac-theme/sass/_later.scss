@@ -68,6 +68,8 @@
   }
 }
 
+[data-role="main"] [href].-no-line { background: none; }
+
 .-paper-bg {
   background-color: $cream1;
   background-image: url('../img/paper-bg-v2.jpg');
@@ -80,6 +82,7 @@
 
 .wp-block-image.-circle-image:not(.is-style-rounded) img[src] { border-radius: 50%; }
 
+figcaption { @extend %small; color: $gray5; }
 
 
 // Colors
@@ -89,23 +92,6 @@
   color: $nearblack;
   background: bisque;
   padding: 0 .15rem;
-
-  //color: #3b0e56;
-  /*
-  background-image: -webkit-gradient(
-   linear,
-   right top,
-   left top,
-   color-stop(.99, transparent),
-   color-stop(1,magenta)
-  );
-
-  background-image: -o-linear-gradient(180deg, transparent calc(100% - 1rem), $magenta-highlight calc(100% - 1.00001rem));
-  background-image: -moz-linear-gradient(180deg, transparent calc(100% - 1rem), $magenta-highlight calc(100% - 1.00001rem));
-  background-image: -webkit-linear-gradient(180deg, transparent calc(100% - 1rem), $magenta-highlight calc(100% - 1.00001rem));
-  background-image: -ms-linear-gradient(180deg, transparent calc(100% - 1rem), $magenta-highlight calc(100% - 1.00001rem));
-  background-image: linear-gradient(180deg, transparent calc(100% - 1rem), $magenta-highlight calc(100% - 1.00001rem));
-  */
 }
 
 .-magenta-bg { background-color: $magenta; color: white; }
@@ -113,6 +99,8 @@
 .-mauve-bg { background-color: $mauve; color: white; }
 
 .-lavender-bg { background-color: $lavender2; }
+
+
 
 
 // Buttons
@@ -343,7 +331,9 @@
 
 .wp-block-quote p cite {
   @extend %leaguespartan;
-  @extend %text;
+  @extend %small;
+  display: inline-block; 
+  //@extend %text;
   font-style: normal;
 }
 
