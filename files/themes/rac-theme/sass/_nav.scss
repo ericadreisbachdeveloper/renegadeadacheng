@@ -309,7 +309,7 @@ $navh: 6rem;
   //    - current page is a child page of a menu item and strict.js adds .mobile-show-submemu to submenu
   &.mobile-show-submenu + .sub-menu {
     height: 100%;
-    max-height: unset;
+    max-height: none;
   }
 
 
