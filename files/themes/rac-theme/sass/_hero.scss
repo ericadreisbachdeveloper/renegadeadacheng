@@ -12,12 +12,21 @@ $timing: 6s;
 
 .-animate-text br { display: none; }
 
+
+/*
 .aos-animate {
   &> .-fade1 { @include animation(fade_out, ease-in-out, 1, $timing);  }
   &> .-fade2 { @include animation(fade_in_out_2, ease-in-out, 1, $timing); }
   &> .-fade3 { @include animation(fade_in_out_3, ease-in-out, 1, $timing); }
   &> .-fade4 { @include animation(fade_in, ease-in-out, 1, $timing);  }
 }
+*/
+
+
+ .-fade1 { @include animation(fade_out, ease-in-out, 1, $timing);  }
+ .-fade2 { @include animation(fade_in_out_2, ease-in-out, 1, $timing); }
+ .-fade3 { @include animation(fade_in_out_3, ease-in-out, 1, $timing); }
+ .-fade4 { @include animation(fade_in, ease-in-out, 1, $timing);  }
 
 .-animate-text [data-aos] { position: relative; min-height: 3rem; }
 
@@ -38,11 +47,11 @@ $timing: 6s;
 
 
 
+.page-template-page-home [data-role="main"] > .gutenberg-section:first-of-type { overflow: hidden; }
 
 .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media,
 .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
-  height: calc(100vh - 18rem);
-  max-height: 30rem;
+  height: 30rem;
 }
 
 .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
