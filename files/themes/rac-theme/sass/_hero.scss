@@ -31,7 +31,8 @@ $timing: 6s;
 .-animate-text [data-aos] { position: relative; min-height: 3rem; }
 
 
-.-animate-text [class*="fade"] {
+
+.-animate-text [class*="-fade"] {
   @extend %huger;
   width: 100%;
   display: block;
