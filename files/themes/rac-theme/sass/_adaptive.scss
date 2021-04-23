@@ -7,6 +7,11 @@
 // Just for small
 @media (min-width: 37.55rem) and (max-width: 47.999rem) {
     .page-template-page-home [data-role="main"] > .core-media-text:first-child .wp-block-media-text { -ms-grid-columns: auto 40% !important; grid-template-columns: auto 40% !important;  }
+
+
+    .page-template-page-home [data-role="main"] > .gutenberg-section:first-of-type .wp-block-media-text.is-vertically-aligned-center .wp-block-media-text__content {
+      @include align-self(flex-start);
+    }
 }
 
 
@@ -133,7 +138,7 @@
 
 
   // Typography - medium
-  %monster   { font-size: 3rem;  }
+  //%monster   { font-size: 3rem;  }
   %huger     { font-size: 2.5rem; }
   %huge      { font-size: 2.5rem; }
   %large-h2  { font-size: 2.5rem; }
@@ -519,7 +524,7 @@
 
 
   // Typography - large
-  %monster   { font-size: 3.9rem; }
+  //%monster   { font-size: 3.9rem; }
   %huger     { font-size: 3.5rem; }
   %huge      { font-size: 3rem; }
   %large-h2  { font-size: 2.8rem; }
@@ -666,7 +671,7 @@
 
   // Typography - wide
   %huger     { font-size: 3.5rem; }
-  %monster   { font-size: 4rem; }
+  //%monster   { font-size: 4rem; }
 
 
   // Home - wide

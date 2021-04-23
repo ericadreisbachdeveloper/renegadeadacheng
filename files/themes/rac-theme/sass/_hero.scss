@@ -13,15 +13,6 @@ $timing: 6s;
 .-animate-text br { display: none; }
 
 
-/*
-.aos-animate {
-  &> .-fade1 { @include animation(fade_out, ease-in-out, 1, $timing);  }
-  &> .-fade2 { @include animation(fade_in_out_2, ease-in-out, 1, $timing); }
-  &> .-fade3 { @include animation(fade_in_out_3, ease-in-out, 1, $timing); }
-  &> .-fade4 { @include animation(fade_in, ease-in-out, 1, $timing);  }
-}
-*/
-
 
  .-fade1 { @include animation(fade_out, ease-in-out, 1, $timing);  }
  .-fade2 { @include animation(fade_in_out_2, ease-in-out, 1, $timing); }
@@ -41,7 +32,7 @@ $timing: 6s;
    top: 0;
   text-align: center;
 
-  &.-fade4 { @extend %monster; }
+  //&.-fade4 { @extend %monster; }
 }
 
 .-animate-text .aos-animate [class*="fade"].-fade4 { opacity: 1; }
