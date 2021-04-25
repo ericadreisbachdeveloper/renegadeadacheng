@@ -698,8 +698,8 @@
    &> .gutenberg-container { width: $container; margin-right: auto; margin-left: auto; }
   }
 
-  [data-role="main"] { padding-top: $headerh; }
-
+  [data-role="main"] { padding-top: calc( #{$headerh} + 2rem); }
+  .page-template-page-home [data-role="main"] { padding-top: $headerh; }
 
   .viewport-height + .site-header {
     @include transition-multi(box-shadow .1s ease-in-out, -webkit-box-shadow .1s ease-in-out);
