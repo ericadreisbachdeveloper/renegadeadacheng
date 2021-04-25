@@ -31,8 +31,6 @@ $timing: 6s;
   position: absolute;
    top: 0;
   text-align: center;
-
-  //&.-fade4 { @extend %monster; }
 }
 
 .-animate-text .aos-animate [class*="fade"].-fade4 { opacity: 1; }
@@ -41,13 +39,16 @@ $timing: 6s;
 
 .page-template-page-home [data-role="main"] > .gutenberg-section:first-of-type { overflow: hidden; }
 
-.page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media,
-.page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
-  height: 30rem;
+.page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height {
+  .wp-block-media-text__media,
+  .wp-block-media-text__media [src] {
+    height: 30rem;
+  }
 }
 
 .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
   width: auto;
+  height: auto;
   margin-right: auto;
   margin-left: auto;
 

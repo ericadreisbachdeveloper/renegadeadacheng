@@ -160,3 +160,9 @@ Imagick runs via the line
 `extension=imagick.so`
 in
 `public_html/php.ini`
+
+
+## Flush Cache
+Flush object cache from within the CLI by SSH'ing into the Wordpress install directory `www/adac1.sghost.com/public_html/jrdkfjgs/` and running
+
+`$ wp cache flush`
