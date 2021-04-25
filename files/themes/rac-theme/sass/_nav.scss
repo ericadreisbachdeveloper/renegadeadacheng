@@ -64,9 +64,7 @@ $navh: 6rem;
 // using .container-on-mobile allows for a smooth full height dropdown
 // applying height to #navmenu looks choppy and bad
 #navmenu > .container-on-mobile {
-  //@extend %nav-menu-minheight;
   width: 100%;
-  //height: 100%;
   margin: 0;
 }
 
@@ -92,7 +90,7 @@ $navh: 6rem;
 
 
 // clip-path support with aimation
-@supports(-ms-clip-path: polygon(0 0, 100% 0) ) or (-o-clip-path: polygon(0 0, 100% 0) ) or (-moz-clip-path: polygon(0 0, 100% 0) ) or (-webkit-clip-path: polygon(0 0, 100% 0) ) or (clip-path: polygon(0 0, 100% 0) ) {
+@supports(-ms-clip-path: polygon(0 0, 100vw 0, 100vw 100%, 0 100%) ) or (-o-clip-path: polygon(0 0, 100vw 0, 100vw 100%, 0 100%) ) or (-moz-clip-path: polygon(0 0, 100vw 0, 100vw 100%, 0 100%) ) or (-webkit-clip-path: polygon(0 0, 100vw 0, 100vw 100%, 0 100%) ) or (clip-path: polygon(0 0, 100vw 0, 100vw 100%, 0 100%) ) {
 
   .logo-div { background: none; }
 
@@ -100,7 +98,6 @@ $navh: 6rem;
     overflow-x: hidden;
 
     &.collapse {
-      //height: auto;
       @include clip-path( polygon(0 0, 100% 0, 100% 0, 0 0) );
       @include transition-multi(clip-path .4s ease, -webkit-clip-path .4s ease, -ms-clip-path .4s ease, -o-clip-path .4s ease, -moz-clip-path .4s ease);
     }
