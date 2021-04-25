@@ -6,13 +6,10 @@
 
 // Just for small
 @media (min-width: 37.55rem) and (max-width: 47.999rem) {
-    .page-template-page-home [data-role="main"] > .core-media-text:first-child .wp-block-media-text { -ms-grid-columns: auto 40% !important; grid-template-columns: auto 40% !important;  }
 
-
-    .page-template-page-home [data-role="main"] > .gutenberg-section:first-of-type .wp-block-media-text.is-vertically-aligned-center .wp-block-media-text__content {
-      @include align-self(flex-start);
-    }
 }
+
+
 
 
 
@@ -44,6 +41,7 @@
   .page-template-page-home [data-role="main"] > .core-media-text:first-child { overflow: hidden; }
 
 
+  /*
   .page-template-page-home .wp-block-media-text.has-media-on-the-right .wp-block-media-text__media {
     -ms-grid-column: 2;
     grid-column: 2;
@@ -57,11 +55,21 @@
     -ms-grid-row: 1;
     grid-row: 1;
   }
+  */
 
-  .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media,
-  .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
-    height: auto;
-    max-height: 30rem;
+
+  .page-template-page-home [data-role="main"] > .gutenberg-section:first-of-type .wp-block-media-text {
+    @include flex-direction(row-reverse);
+
+    .wp-block-media-text__content {
+      display: block;
+      width: 100%;
+    }
+  }
+
+
+  .page-template-page-home [data-role="main"] > .gutenberg-section:first-of-type .wp-block-media-text .wp-block-media-text__content {
+    padding: 0 2rem 0 0;
   }
 
 
@@ -690,7 +698,7 @@
    &> .gutenberg-container { width: $container; margin-right: auto; margin-left: auto; }
   }
 
-  [data-role="main"] { padding-top: 8rem; }
+  [data-role="main"] { padding-top: $headerh; }
 
 
   .viewport-height + .site-header {
@@ -713,7 +721,7 @@
   // home hero img
   .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media,
   .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
-    height: calc(100vh - 16rem);
+    height: calc(100vh - 14rem);
     min-height: 25rem;
     max-height: 35rem;
   }

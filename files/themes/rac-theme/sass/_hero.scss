@@ -36,6 +36,9 @@ $timing: 6s;
 .-animate-text .aos-animate [class*="fade"].-fade4 { opacity: 1; }
 
 
+
+
+
 .page-template-page-home [data-role="main"] > .gutenberg-section:first-of-type {
   .wp-block-media-text > figure + .wp-block-media-text__content,
   .wp-block-media-text > .wp-block-media-text__content + figure {
@@ -49,18 +52,25 @@ $timing: 6s;
 
 .page-template-page-home [data-role="main"] > .gutenberg-section:first-of-type { overflow: hidden; }
 
-.page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height {
+.page-template-page-home [data-role="main"] > .gutenberg-section .wp-block-media-text {
+  @include flex;
+  @include flex-direction(column-reverse);
+
 
   .wp-block-media-text__media {
     margin-right: auto;
     margin-left: auto;
   }
 
+  .wp-block-media-text__content {
+    display: block;
+    width: 100%;
+  }
+
   .wp-block-media-text__media,
   .wp-block-media-text__media [src] {
     width: 100%;
     height: auto;
-
 
     &[class*="wp-image"] {
       max-width: none;
