@@ -2428,6 +2428,12 @@ figcaption {
     .-archive [id*="post"]:not([data-first]) [href] + .text {
       padding-left: 1.5rem; } }
 @media (min-width: 48rem) {
+  .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
+    padding-right: 2rem;
+    padding-left: 0; }
+  .wp-block-media-text .wp-block-media-text__content {
+    padding-left: 2rem; }
+
   #navmenu .search {
     background: none; }
 
@@ -2595,9 +2601,6 @@ figcaption {
 
   .wp-block-media-text.has-media-on-the-right > figure + .wp-block-media-text__content, .wp-block-media-text.has-media-on-the-right > .wp-block-media-text__content + figure {
     padding-top: 0; }
-
-  .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
-    padding-left: 0; }
 
   .core-button + .core-button {
     margin-left: 2rem; }

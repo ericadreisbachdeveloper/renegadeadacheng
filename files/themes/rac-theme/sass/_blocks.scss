@@ -26,6 +26,11 @@
   }
 }
 
+.wp-block-media-text .wp-block-media-text__content {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 
 .gutenberg-section.-no-hero + .gutenberg-section {
   .gutenberg-section.core-paragraph:first-of-type p {
