@@ -36,23 +36,34 @@ $timing: 6s;
 .-animate-text .aos-animate [class*="fade"].-fade4 { opacity: 1; }
 
 
+.page-template-page-home [data-role="main"] > .gutenberg-section:first-of-type {
+  .wp-block-media-text > figure + .wp-block-media-text__content,
+  .wp-block-media-text > .wp-block-media-text__content + figure {
+    padding-top: 0;
+  }
+}
+
+
+
+
 
 .page-template-page-home [data-role="main"] > .gutenberg-section:first-of-type { overflow: hidden; }
 
 .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height {
+
+  .wp-block-media-text__media {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
   .wp-block-media-text__media,
   .wp-block-media-text__media [src] {
-    height: 30rem;
-  }
-}
+    width: 100%;
+    height: auto;
 
-.page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
-  width: auto;
-  height: auto;
-  margin-right: auto;
-  margin-left: auto;
 
-  &[class*="wp-image"] {
-    max-width: unset;
+    &[class*="wp-image"] {
+      max-width: none;
+    }
   }
 }
