@@ -230,9 +230,7 @@
 	 $parent_url = esc_url(get_permalink(get_option('page_for_posts')));
  }
 
-
  include(locate_template('js/dev/schema.php'));
-
 
 ?>
 
