@@ -166,3 +166,11 @@ in
 Flush object cache from within the CLI by SSH'ing into the Wordpress install directory `www/adac1.sghost.com/public_html/jrdkfjgs/` and running
 
 `$ wp cache flush`
+
+
+## WebP Express
+The plugin **WebP Express** — which does a superb job converting images to <span class="nowrap">Google-preferred</span> `.webp` files — creates `.htaccess` rules in: 
+
+* `/files/themes/.htaccess` (themes)
+* `files/uploads/.htaccess` (uploads)
+* `/files/webp-express/webp-images/.htaccess` (cache)

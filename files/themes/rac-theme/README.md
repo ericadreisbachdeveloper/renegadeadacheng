@@ -19,17 +19,27 @@ The plugins below have been carefully seleted for optimal page speed and securit
 - **Advanced Custom Fields PRO** https://www.advancedcustomfields.com/pro/ <br />
    Powers most custom templates
 
-- **Google Sitemap Generator** https://wordpress.org/plugins/google-sitemap-generator <br />
+- **Google XML Sitemaps** https://wordpress.org/plugins/google-sitemap-generator <br />
 Excellent tool for dynamically-generated sitemaps to improve search appearance
 
 - **Gutenberg Blocks** <br />
   Custom plugin that creates wrapper divs around Wordpress-generated content blocks
 
+- **lazysizes** http://wordpress.org/plugins/lazysizes/ <br />
+  Defers pageload of offscreen images, an important ranking signal for search.
+
 - **Limit Login Attempts Reloaded** https://wordpress.org/plugins/limit-login-attempts-reloaded/ <br />
-Prevents brute force attacks to the site page <br />
+Prevents brute force attacks to the site page
+
+- **MC4WP: Mailchimp for WordPress** https://wordpress.org/plugins/mailchimp-for-wp/ <br />
+  Allows easy implementation of secure forms linked directly to user's MailChimp account
 
 - **Quick Page/Post Redirect Plugin** https://wordpress.org/plugins/quick-pagepost-redirect-plugin/ <br />
   Allows easy 301 redirects from previous generation of the site to the current site
+
+- **Simple Calendar** https://simplecalendar.io/ <br />
+and **Simple Calendar - Google Calendar Pro Add-on** <br />
+ Creates a gorgeous mobile-supported calendar easily managed from Google Calendar
 
 - **SVG Support** https://wordpress.org/plugins/svg-support/ <br />
   Allows vector SVG files uploaded to the Wordpress media library, allowing crystal clear retina display
@@ -39,6 +49,9 @@ Prevents brute force attacks to the site page <br />
 
 - **WP Migrate DB Pro** https://deliciousbrains.com/wp-migrate-db-pro/ <br />
   Easy database backups and migration
+
+- **WPForms Lite** https://wordpress.org/plugins/wpforms-lite/ <br />
+ Simple, secure, free contact forms; lacks the power of Gravity Forms, but also lacks Gravity Forms's <span class="nowrap">page-slowing</span> overhead 
 
 
 ## SEO
