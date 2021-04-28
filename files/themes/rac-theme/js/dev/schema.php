@@ -159,9 +159,9 @@
           "position": 3,
           "item": {
             "@type": "WebPage",
-            "@id": "<?php _e($page_url); ?>",
-            "url": "<?php _e($page_url); ?>",
-            "name": "<?php _e($page_title); ?>"
+            "@id": "<?php _e($site_url); ?>#webpage",
+            //"url": "<?php _e($page_url); ?>",
+            //"name": "<?php _e($page_title); ?>"
           }
         }<?php endif; ?>
       ]
