@@ -2,6 +2,17 @@
 <!--
       $title is more verbose, better for search results title and browser titles
       $page_title is more bare, better for breadcrumbs
+
+      potentialAction - Google as of April 2021 seems to only recognize
+      SEARCH — allows user search of this site from within a Google page
+
+      Breadcrumb types:
+      1. Home
+      2. Home > Storytelling Videos > Category > Single
+      3. Home > Storytelling Vidoes > Category
+      4. Home > Top-level page  -OR-  Search
+      5. Home > Parent > Child
+
 -->
 
 
@@ -12,34 +23,12 @@
 
 
     {
-      "@type": "Person",
-      "@id": "<?php _e($site_url); ?>#adacheng",
-      "name": "Ada Cheng",
-      "jobTitle": "Speaker",
-      "gender": "female",
-      "url": "<?php _e($site_url); ?>",
-      "sameAs": [
-        "https://www.facebook.com/dr.adacheng/",
-        "https://www.instagram.com/sjadacheng/",
-        "https://www.youtube.com/user/renegadeadacheng/",
-        "https://www.linkedin.com/in/ada-cheng-ph-d-622b4216/"
-      ],
-      "image": "<?php _e($global_socialimg); ?>",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Chicago",
-        "addressRegion": "Illinois"
-      }
-    },
-
-    {
       "@type": "WebSite",
       "@id": "<?php _e($site_url); ?>#website",
       "name": "<?php _e(get_bloginfo('name')); ?> | Official Site",
       "url": "<?php _e($site_url); ?>",
       "description": "<?php _e(get_bloginfo('description')); ?>",
       "potentialAction": [
-        // allows user search of this site from within a Google page
         {
           "@type": "SearchAction",
           "@id": "<?php _e($site_url); ?>#search",
@@ -48,7 +37,8 @@
           "query-input": "required name=search_term_string"
         }
       ],
-      "inLanguage": "en-US"
+      "inLanguage": "en-US",
+      "creator"
     },
 
 
@@ -64,7 +54,27 @@
             "@type": "WebPage",
             "@id": "<?php _e($site_url); ?>",
             "url": "<?php _e($site_url); ?>",
-            "name": "<?php _e(get_bloginfo('name')); ?> | Home"
+            "name": "<?php _e(get_bloginfo('name')); ?> | Home",
+            "creator": {
+              "@type": "Person",
+              "@id": "<?php _e($site_url); ?>#adacheng",
+              "name": "Ada Cheng",
+              "jobTitle": "Speaker",
+              "gender": "female",
+              "url": "<?php _e($site_url); ?>",
+              "sameAs": [
+                "https://www.facebook.com/dr.adacheng/",
+                "https://www.instagram.com/sjadacheng/",
+                "https://www.youtube.com/user/renegadeadacheng/",
+                "https://www.linkedin.com/in/ada-cheng-ph-d-622b4216/"
+              ],
+              "image": "<?php _e($global_socialimg); ?>",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Chicago",
+                "addressRegion": "Illinois"
+              }
+            }
           }
         }<?php if( is_single()) : ?>,
         {
@@ -112,9 +122,24 @@
           "position": 3,
           "item": {
             "@type": "WebPage",
-            "@id": "<?php _e($cat_url); ?>",
-            "url": "<?php _e($cat_url); ?>",
-            "name": "<?php _e($cat_title); ?>"
+            "@id": "<?php _e($page_url); ?>",
+            "url": "<?php _e($page_url); ?>",
+            "name": "<?php _e($page_title); ?>",
+            "description": "<?php _e($metadescription); ?>",
+            "isPartOf": {
+              "@id": "<?php _e($site_url); ?>/#website"
+            },
+            "primaryImageOfPage": {
+              "@type": "ImageObject",
+              "@id": "<?php _e($page_url); ?>#featuredimage",
+              "contentUrl": "<?php _e($socialimg); ?>",
+              "description": "<?php _e($socialimg_alt); ?>",
+              "width": "<?php _e($socialimg_w); ?>",
+              "height": "<?php _e($socialimg_h); ?>"
+            },
+            "datePublished": "<?php _e($gmt_published); ?>",
+            "dateModified": "<?php _e($gmt_modified); ?>",
+            "inLanguage": "en-US"
           }
         }<?php elseif( !is_front_page() && (is_search() || $current_page_parent_menu_id == '0' || $current_page_parent_menu_id == '79') ) : ?>,
         {
@@ -157,21 +182,34 @@
           "position": 3,
           "item": {
             "@type": "WebPage",
-            "@id": "<?php _e($page_url); ?>"
-            "url": "<?php _e($page_url);  ?>",
-            "name": "<?php _e($page_title); ?>"
+            "@id": "<?php _e($page_url); ?>",
+            "url": "<?php _e($page_url); ?>",
+            "name": "<?php _e($page_title); ?>",
+            "description": "<?php _e($metadescription); ?>",
+            "isPartOf": {
+              "@id": "<?php _e($site_url); ?>/#website"
+            },
+            "primaryImageOfPage": {
+              "@type": "ImageObject",
+              "@id": "<?php _e($page_url); ?>#featuredimage",
+              "contentUrl": "<?php _e($socialimg); ?>",
+              "description": "<?php _e($socialimg_alt); ?>",
+              "width": "<?php _e($socialimg_w); ?>",
+              "height": "<?php _e($socialimg_h); ?>"
+            },
+            "datePublished": "<?php _e($gmt_published); ?>",
+            "dateModified": "<?php _e($gmt_modified); ?>",
+            "inLanguage": "en-US"<?php if(have_rows('schema-fields', $post_id)) : ?>,
+            {
+              <?php $number_of_schemae =  count(get_field('schema-fields')); $count = "1"; while(have_rows('schema-fields', $post_id)) : the_row(); ?><?php if(get_sub_field('is-parent') && get_sub_field('is-parent') == 'yes') : ?>"<?php _e(get_sub_field('parent-field')); ?>": {
+              <?php $number_of_children = count(get_sub_field('children')); if(have_rows('children')) : $children = "1"; while(have_rows('children')) : the_row(); ?>"<?php _e(get_sub_field('child-name')); ?>": "<?php _e(get_sub_field('child-value')); ?>"<?php if($children < $number_of_children) { _e(','); } ?><?php $children++; endwhile; endif; ?>
+            }<?php if($count < $number_of_schemae) { _e(','); }?>
+            <?php elseif(get_sub_field('is-parent') && get_sub_field('is-parent') == 'no'): ?>"<?php _e(get_sub_field('field')); ?>": "<?php _e(get_sub_field('value')); ?>"<?php if($count < $number_of_schemae) { _e(','); }?>
+            <?php endif; $count++; endwhile; ?>
+            }<?php endif; ?>
           }
         }<?php endif; ?>
       ]
-    }<?php if(have_rows('schema-fields', $post_id)) : ?>,
-
-
-    {
-      <?php $number_of_schemae =  count(get_field('schema-fields')); $count = "1"; while(have_rows('schema-fields', $post_id)) : the_row(); ?><?php if(get_sub_field('is-parent') && get_sub_field('is-parent') == 'yes') : ?>"<?php _e(get_sub_field('parent-field')); ?>": {
-      <?php $number_of_children = count(get_sub_field('children')); if(have_rows('children')) : $children = "1"; while(have_rows('children')) : the_row(); ?>"<?php _e(get_sub_field('child-name')); ?>": "<?php _e(get_sub_field('child-value')); ?>"<?php if($children < $number_of_children) { _e(','); } ?><?php $children++; endwhile; endif; ?>
-    }<?php if($count < $number_of_schemae) { _e(','); }?>
-    <?php elseif(get_sub_field('is-parent') && get_sub_field('is-parent') == 'no'): ?>"<?php _e(get_sub_field('field')); ?>": "<?php _e(get_sub_field('value')); ?>"<?php if($count < $number_of_schemae) { _e(','); }?>
-    <?php endif; $count++; endwhile; ?>
-    }<?php endif; ?>
+    }
   ]
 }</script>
