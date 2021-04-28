@@ -1577,6 +1577,9 @@ label {
 .-no-top-margin, .-no-top-margin p {
   margin-top: 0; }
 
+.-no-left-padding {
+  padding-left: 0; }
+
 .wp-block-image.-circle-image:not(.is-style-rounded) img[src] {
   border-radius: 50%; }
 
