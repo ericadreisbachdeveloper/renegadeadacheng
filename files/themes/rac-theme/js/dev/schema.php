@@ -44,8 +44,13 @@
         {
           "@type": "CommunicateAction",
           "@id": "<?php _e($site_url); ?>#search",
+          "target": "",
+          "query-input": "",
           "name": "Contact Renegade Ada Cheng",
-          "recipient": "<?php _e($site_url); ?>#adacheng"
+          "recipient": {
+            "@type": "Person",
+            "@id": "<?php _e($page_url); ?>#adacheng"
+          }
         }
       ],
       "inLanguage": "en-US"
@@ -63,6 +68,7 @@
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
+        "@id": "<?php _e($page_url); ?>#featuredimage"
         "contentUrl": "<?php _e($socialimg); ?>",
         "description": "<?php _e($socialimg_alt); ?>",
         "width": "<?php _e($socialimg_w); ?>",
