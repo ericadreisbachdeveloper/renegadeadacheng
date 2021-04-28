@@ -139,9 +139,7 @@
           "position": 2,
           "item": {
             "@type": "WebPage",
-            "@id": "<?php _e($page_url); ?>",
-            "url": "<?php _e($page_url); ?>",
-            "name": "<?php _e($page_title); ?>"
+            "@id": "<?php _e($page_url); ?>#webpage"
           }
         }<?php elseif($current_page_parent_menu_id !== '0') : ?>,
         {
@@ -159,9 +157,9 @@
           "position": 3,
           "item": {
             "@type": "WebPage",
-            "@id": "<?php _e($site_url); ?>#webpage",
-            //"url": "<?php _e($page_url); ?>",
-            //"name": "<?php _e($page_title); ?>"
+            "@id": "<?php _e($site_url); ?>#webpage"
+            //"url": "<?php /* _e($page_url);*/  ?>",
+            //"name": "<?php /* _e($page_title); */ ?>"
           }
         }<?php endif; ?>
       ]
