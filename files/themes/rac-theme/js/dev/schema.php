@@ -30,15 +30,15 @@
     {
       "@type": "WebSite",
       "@id": "<?php _e($site_url); ?>#website",
+      "name": "<?php _e(get_bloginfo('name')); ?> | Official Site",
       "url": "<?php _e($site_url); ?>",
-      "name": "<?php _e(get_bloginfo('name')); ?>",
       "description": "<?php _e(get_bloginfo('description')); ?>",
       "potentialAction": [
         // allows user search of this site from within a Google page
         {
           "@type": "SearchAction",
           "@id": "<?php _e($site_url); ?>#search",
-          "name": "Search Renegade Ada Cheng",
+          "name": "Renegade Ada Cheng | Search",
           "target": "<?php _e($site_url); ?>/?s={search_term_string}",
           "query-input": "required name=search_term_string"
         }
