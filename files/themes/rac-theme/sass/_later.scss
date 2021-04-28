@@ -884,11 +884,12 @@ figcaption { @extend %small; color: $gray5; }
 
 
   // Structure - medium
+  .-desktop-break { display: block; }
+
   .wp-block-media-text {
     &.has-media-on-the-right .wp-block-media-text__content { padding-right: 2rem; padding-left: 0; }
                              .wp-block-media-text__content { padding-left: 2rem; }
   }
-
 
 
 
@@ -1038,7 +1039,8 @@ figcaption { @extend %small; color: $gray5; }
 
 
   // Columns - medium
-  .wp-block-columns { @include justify-content(unset); }
+  //.wp-block-columns { @include justify-content(unset); }
+  .wp-block-columns { @include justify-content(center); }
   .wp-block-column + .wp-block-column { margin-left: 1rem; }
   .wp-block-columns .wp-block-column { max-width: unset; }
 
