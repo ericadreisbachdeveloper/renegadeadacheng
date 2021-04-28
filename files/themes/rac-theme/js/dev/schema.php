@@ -34,13 +34,13 @@
       "name": "<?php _e(get_bloginfo('name')); ?>",
       "description": "<?php _e(get_bloginfo('description')); ?>",
       "potentialAction": [
-        {
+        /*{
           "@type": "SearchAction",
-          "@id": "<?php _e($site_url); ?>#search",
+          "@id": "<?php   ?>#search",
           "name": "Search Renegade Ada Cheng",
-          "target": "<?php _e($site_url); ?>/?s={search_term_string}",
+          "target": "<?php  ?>/?s={search_term_string}",
           "query-input": "required name=search_term_string"
-        },
+        },*/
         {
           "@type": "CommunicateAction",
           "@id": "<?php _e($site_url); ?>#search",
