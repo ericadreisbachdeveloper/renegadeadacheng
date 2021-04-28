@@ -7,6 +7,27 @@
 
 
     {
+      "@type": "Person",
+      "@id": "<?php _e($site_url); ?>#adacheng",
+      "name": "Ada Cheng",
+      "jobTitle": "Speaker",
+      "gender": "female",
+      "url": "<?php _e($site_url); ?>",
+      "sameAs": [
+        "https://www.facebook.com/dr.adacheng/",
+        "https://www.instagram.com/sjadacheng/",
+        "https://www.youtube.com/user/renegadeadacheng/",
+        "https://www.linkedin.com/in/ada-cheng-ph-d-622b4216/"
+      ],
+      "image": "<?php _e($global_socialimg); ?>",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Chicago",
+        "addressRegion": "Illinois"
+      }
+    },
+
+    {
       "@type": "WebSite",
       "@id": "<?php _e($site_url); ?>#website",
       "url": "<?php _e($site_url); ?>",
@@ -15,8 +36,16 @@
       "potentialAction": [
         {
           "@type": "SearchAction",
+          "@id": "<?php _e($site_url); ?>#search",
+          "name": "Search Renegade Ada Cheng",
           "target": "<?php _e($site_url); ?>/?s={search_term_string}",
           "query-input": "required name=search_term_string"
+        },
+        {
+          "@type": "CommunicateAction",
+          "@id": "<?php _e($site_url); ?>#search",
+          "name": "Contact Renegade Ada Cheng",
+          "recipient": "<?php _e($site_url); ?>#adacheng"
         }
       ],
       "inLanguage": "en-US"
@@ -52,32 +81,10 @@
       ]
     },
 
-
-    {
-      "@type": "Person",
-      "@id": "<?php _e($site_url); ?>#person",
-      "name": "Ada Cheng",
-      "jobTitle": "Speaker",
-      "gender": "female",
-      "url": "<?php _e($site_url); ?>",
-      "sameAs": [
-        "https://www.facebook.com/dr.adacheng/",
-        "https://www.instagram.com/sjadacheng/",
-        "https://www.youtube.com/user/renegadeadacheng/",
-        "https://www.linkedin.com/in/ada-cheng-ph-d-622b4216/"
-      ],
-      "image": "<?php _e($global_socialimg); ?>",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Chicago",
-        "addressRegion": "Illinois"
-      }
-    },
-
-
     {
       "@type": "BreadcrumbList",
       "@id": "<?php _e($site_url); ?>#breadcrumb",
+      "name": "<?php _e(get_bloginfo('name')); ?> breadcrumbs",
       "itemListElement": [
         {
           "@type": "ListItem",
