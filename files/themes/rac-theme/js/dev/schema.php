@@ -38,8 +38,8 @@
         {
           "@type": "CommunicateAction",
           "@id": "<?php _e($site_url); ?>#search",
-          "target": "",
-          "query-input": "",
+          "target": "<?php _e($site_url); ?>/contact/#wpforms-form-145",
+          "query-input": "First Name, Last Name, Email, Phone Number, Message",
           "name": "Contact Renegade Ada Cheng",
           "recipient": {
             "@type": "Person",
