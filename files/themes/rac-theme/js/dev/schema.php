@@ -1,6 +1,11 @@
 <!--  https://www.textfixer.com/tools/remove-line-breaks.php  -->
+<!--
+      $title is more verbose, better for search results title and browser titles
+      $page_title is more bare, better for breadcrumbs
+-->
 
-<?php if ( ! defined( 'ABSPATH' ) ) {  exit; } global $metadescription, $title, $page_url, $page_title, $site_url, $socialimg, $socialimg_id, $gmt_published, $gmt_modified, $global_socialimg, $socialimg, $socialimg_h, $socialimg_w, $socialimg_alt, $current_page_parent_menu_id, $parent_title, $parent_url, $cat_title, $cat_url; ?>
+
+<?php if ( ! defined( 'ABSPATH' ) ) {  exit; } global $metadescription, $page_url, $page_title, $site_url, $socialimg, $socialimg_id, $gmt_published, $gmt_modified, $global_socialimg, $socialimg, $socialimg_h, $socialimg_w, $socialimg_alt, $current_page_parent_menu_id, $parent_title, $parent_url, $cat_title, $cat_url; ?>
 <script type='application/ld+json'>{
   "@context": "https://www.schema.org",
   "@graph": [
@@ -46,28 +51,6 @@
       "inLanguage": "en-US"
     },
 
-
-    {
-      "@type": "WebPage",
-      "@id": "<?php _e($site_url); ?>#webpage",
-      "url": "<?php _e($page_url); ?>",
-      "name": "<?php _e($title); ?>",
-      "description": "<?php _e($metadescription); ?>",
-      "isPartOf": {
-        "@id": "<?php _e($site_url); ?>/#website"
-      },
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "@id": "<?php _e($page_url); ?>#featuredimage",
-        "contentUrl": "<?php _e($socialimg); ?>",
-        "description": "<?php _e($socialimg_alt); ?>",
-        "width": "<?php _e($socialimg_w); ?>",
-        "height": "<?php _e($socialimg_h); ?>"
-      },
-      "datePublished": "<?php _e($gmt_published); ?>",
-      "dateModified": "<?php _e($gmt_modified); ?>",
-      "inLanguage": "en-US"
-    },
 
     {
       "@type": "BreadcrumbList",
@@ -139,7 +122,24 @@
           "position": 2,
           "item": {
             "@type": "WebPage",
-            "@id": "<?php _e($page_url); ?>#webpage"
+            "@id": "<?php _e($page_url); ?>",
+            "url": "<?php _e($page_url); ?>",
+            "name": "<?php _e($page_title); ?>",
+            "description": "<?php _e($metadescription); ?>",
+            "isPartOf": {
+              "@id": "<?php _e($site_url); ?>/#website"
+            },
+            "primaryImageOfPage": {
+              "@type": "ImageObject",
+              "@id": "<?php _e($page_url); ?>#featuredimage",
+              "contentUrl": "<?php _e($socialimg); ?>",
+              "description": "<?php _e($socialimg_alt); ?>",
+              "width": "<?php _e($socialimg_w); ?>",
+              "height": "<?php _e($socialimg_h); ?>"
+            },
+            "datePublished": "<?php _e($gmt_published); ?>",
+            "dateModified": "<?php _e($gmt_modified); ?>",
+            "inLanguage": "en-US"
           }
         }<?php elseif($current_page_parent_menu_id !== '0') : ?>,
         {
@@ -157,9 +157,9 @@
           "position": 3,
           "item": {
             "@type": "WebPage",
-            "@id": "<?php _e($site_url); ?>#webpage"
-            //"url": "<?php /* _e($page_url);*/  ?>",
-            //"name": "<?php /* _e($page_title); */ ?>"
+            "@id": "<?php _e($page_url); ?>"
+            "url": "<?php _e($page_url);  ?>",
+            "name": "<?php _e($page_title); ?>"
           }
         }<?php endif; ?>
       ]
