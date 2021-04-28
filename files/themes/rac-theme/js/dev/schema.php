@@ -33,7 +33,20 @@
       "url": "<?php _e($site_url); ?>",
       "name": "<?php _e(get_bloginfo('name')); ?>",
       "description": "<?php _e(get_bloginfo('description')); ?>",
-  
+      "potentialAction": [
+
+        {
+          "@type": "CommunicateAction",
+          "@id": "<?php _e($site_url); ?>#search",
+          "target": "",
+          "query-input": "",
+          "name": "Contact Renegade Ada Cheng",
+          "recipient": {
+            "@type": "Person",
+            "@id": "<?php _e($page_url); ?>#adacheng"
+          }
+        }
+      ],
       "inLanguage": "en-US"
     },
 
@@ -57,15 +70,7 @@
       },
       "datePublished": "<?php _e($gmt_published); ?>",
       "dateModified": "<?php _e($gmt_modified); ?>",
-      "inLanguage": "en-US",
-      "potentialAction": [
-        {
-          "@type": "ReadAction",
-          "target": [
-            "<?php _e($page_url); ?>"
-          ]
-        }
-      ]
+      "inLanguage": "en-US"
     },
 
     {
