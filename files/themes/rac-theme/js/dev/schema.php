@@ -33,26 +33,7 @@
       "url": "<?php _e($site_url); ?>",
       "name": "<?php _e(get_bloginfo('name')); ?>",
       "description": "<?php _e(get_bloginfo('description')); ?>",
-      "potentialAction": [
-        /*{
-          "@type": "SearchAction",
-          "@id": "<?php   ?>#search",
-          "name": "Search Renegade Ada Cheng",
-          "target": "<?php  ?>/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
-        },*/
-        {
-          "@type": "CommunicateAction",
-          "@id": "<?php _e($site_url); ?>#search",
-          "target": "",
-          "query-input": "",
-          "name": "Contact Renegade Ada Cheng",
-          "recipient": {
-            "@type": "Person",
-            "@id": "<?php _e($page_url); ?>#adacheng"
-          }
-        }
-      ],
+  
       "inLanguage": "en-US"
     },
 
