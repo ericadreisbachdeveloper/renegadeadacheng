@@ -54,6 +54,11 @@
             "@id": "<?php _e($site_url); ?>",
             "url": "<?php _e($site_url); ?>",
             "name": "<?php _e(get_bloginfo('name')); ?> | Home",
+            "primaryImageOfPage": {
+              "@type": "ImageObject",
+              "@id": "<?php _e($site_url); ?>#featuredimage",
+              "contentUrl": "<?php _e($global_socialimg); ?>"
+            },
             "creator": {
               "@type": "Person",
               "@id": "<?php _e($site_url); ?>#adacheng",
@@ -75,7 +80,9 @@
               }
             }
           }
-        }<?php if( is_single()) : ?>,
+        }
+
+        <?php if( is_single()) : ?>,
         {
           "@type": "ListItem",
           "position": 2,
@@ -105,7 +112,9 @@
             "url": "<?php _e($page_url); ?>",
             "name": "<?php _e($page_title); ?>"
           }
-        }<?php elseif( is_archive()) : ?>,
+        }
+
+        <?php elseif( is_archive()) : ?>,
         {
           "@type": "ListItem",
           "position": 2,
@@ -140,7 +149,9 @@
             "dateModified": "<?php _e($gmt_modified); ?>",
             "inLanguage": "en-US"
           }
-        }<?php elseif( !is_front_page() && (is_search() || $current_page_parent_menu_id == '0' || $current_page_parent_menu_id == '79') ) : ?>,
+        }
+
+        <?php elseif( !is_front_page() && (is_search() || $current_page_parent_menu_id == '0' || $current_page_parent_menu_id == '79') ) : ?>,
         {
           "@type": "ListItem",
           "position": 2,
@@ -165,7 +176,9 @@
             "dateModified": "<?php _e($gmt_modified); ?>",
             "inLanguage": "en-US"
           }
-        }<?php elseif($current_page_parent_menu_id !== '0') : ?>,
+        }
+
+        <?php elseif($current_page_parent_menu_id !== '0') : ?>,
         {
           "@type": "ListItem",
           "position": 2,
