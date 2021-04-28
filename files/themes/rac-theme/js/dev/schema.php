@@ -34,17 +34,13 @@
       "name": "<?php _e(get_bloginfo('name')); ?>",
       "description": "<?php _e(get_bloginfo('description')); ?>",
       "potentialAction": [
-
+        // allows search of this site from within a Google page
         {
-          "@type": "CommunicateAction",
+          "@type": "SearchAction"
           "@id": "<?php _e($site_url); ?>#search",
-          "target": "<?php _e($site_url); ?>/contact/#wpforms-form-145",
-          "query-input": "First Name, Last Name, Email, Phone Number, Message",
-          "name": "Contact Renegade Ada Cheng",
-          "recipient": {
-            "@type": "Person",
-            "@id": "<?php _e($page_url); ?>#adacheng"
-          }
+          "name": "Search Renegade Ada Cheng",
+          "target": "<?php _e($site_url); ?>/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
         }
       ],
       "inLanguage": "en-US"
