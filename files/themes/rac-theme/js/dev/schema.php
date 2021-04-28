@@ -10,13 +10,15 @@
       1. Home
       2. Home > Storytelling Videos > Category > Single
       3. Home > Storytelling Vidoes > Category
-      4. Home > Top-level page  -OR-  Search
+      4. Home > Top-level page  -OR-  Search  -OR-  child of About
       5. Home > Parent > Child
 
 -->
 
 
-<?php if ( ! defined( 'ABSPATH' ) ) {  exit; } global $metadescription, $page_url, $page_title, $site_url, $socialimg, $socialimg_id, $gmt_published, $gmt_modified, $global_socialimg, $socialimg, $socialimg_h, $socialimg_w, $socialimg_alt, $current_page_parent_menu_id, $parent_title, $parent_url, $cat_title, $cat_url; ?>
+<?php if ( ! defined( 'ABSPATH' ) ) {  exit; }
+      global $post_id, $metadescription, $page_url, $page_title, $site_url, $socialimg, $socialimg_id, $gmt_published, $gmt_modified, $global_socialimg, $socialimg, $socialimg_h, $socialimg_w, $socialimg_alt, $current_page_parent_menu_id, $parent_title, $parent_url, $cat_title, $cat_url; ?>
+
 <script type='application/ld+json'>{
   "@context": "https://www.schema.org",
   "@graph": [
@@ -174,7 +176,14 @@
             },
             "datePublished": "<?php _e($gmt_published); ?>",
             "dateModified": "<?php _e($gmt_modified); ?>",
-            "inLanguage": "en-US"
+            "inLanguage": "en-US"<?php if(have_rows('schema-fields', $post_id)) : ?>,
+            {
+              <?php $number_of_schemae =  count(get_field('schema-fields')); $count = "1"; while(have_rows('schema-fields', $post_id)) : the_row(); ?><?php if(get_sub_field('is-parent') && get_sub_field('is-parent') == 'yes') : ?>"<?php _e(get_sub_field('parent-field')); ?>": {
+              <?php $number_of_children = count(get_sub_field('children')); if(have_rows('children')) : $children = "1"; while(have_rows('children')) : the_row(); ?>"<?php _e(get_sub_field('child-name')); ?>": "<?php _e(get_sub_field('child-value')); ?>"<?php if($children < $number_of_children) { _e(','); } ?><?php $children++; endwhile; endif; ?>
+            }<?php if($count < $number_of_schemae) { _e(','); }?>
+            <?php elseif(get_sub_field('is-parent') && get_sub_field('is-parent') == 'no'): ?>"<?php _e(get_sub_field('field')); ?>": "<?php _e(get_sub_field('value')); ?>"<?php if($count < $number_of_schemae) { _e(','); }?>
+            <?php endif; $count++; endwhile; ?>
+            }<?php endif; ?>
           }
         }
 
