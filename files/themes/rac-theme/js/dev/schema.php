@@ -37,8 +37,7 @@
           "query-input": "required name=search_term_string"
         }
       ],
-      "inLanguage": "en-US",
-      "creator"
+      "inLanguage": "en-US"
     },
 
 
