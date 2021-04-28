@@ -62,7 +62,7 @@
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "@id": "<?php _e($page_url); ?>#featuredimage"
+        "@id": "<?php _e($page_url); ?>#featuredimage",
         "contentUrl": "<?php _e($socialimg); ?>",
         "description": "<?php _e($socialimg_alt); ?>",
         "width": "<?php _e($socialimg_w); ?>",
