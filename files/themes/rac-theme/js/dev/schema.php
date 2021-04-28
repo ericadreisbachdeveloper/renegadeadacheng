@@ -34,9 +34,9 @@
       "name": "<?php _e(get_bloginfo('name')); ?>",
       "description": "<?php _e(get_bloginfo('description')); ?>",
       "potentialAction": [
-        // allows search of this site from within a Google page
+        // allows user search of this site from within a Google page
         {
-          "@type": "SearchAction"
+          "@type": "SearchAction",
           "@id": "<?php _e($site_url); ?>#search",
           "name": "Search Renegade Ada Cheng",
           "target": "<?php _e($site_url); ?>/?s={search_term_string}",
