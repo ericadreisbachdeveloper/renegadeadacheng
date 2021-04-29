@@ -101,7 +101,7 @@
             },
             "creator": {
               "@type": "Person",
-              "@id": "<?php _e($site_url); ?>#adacheng",
+              "@id": "<?php _e($site_url); ?>#ada-cheng",
               "name": "Ada Cheng",
               "jobTitle": "Speaker",
               "gender": "female",
