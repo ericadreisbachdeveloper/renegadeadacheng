@@ -36,7 +36,7 @@
   				if(have_rows('children')) : $children = 1;
   				while(have_rows('children')) : the_row();
 
-          if(get_sub_field('parent-of-grandchild') && get_sub_field('parent-of-grandchild') == 'yes') { $extra_schemae .= '"' . get_sub_field('child-name') . '" : { ' . get_sub_field('child-value') . ' } '; }
+          if(get_sub_field('parent-of-grandchild') && get_sub_field('parent-of-grandchild') == 'yes') { $extra_schemae .= '"' . get_sub_field('child-name') . '" : { ' . get_sub_field('child-value') . ' }'; if($number_of_children > $children) { $extra_schemae .= ", "; }
 
           else {
   				  $extra_schemae .= '"' . get_sub_field('child-name') . '": "' . get_sub_field('child-value') . '"'; if($number_of_children > $children) { $extra_schemae .= ", "; }
