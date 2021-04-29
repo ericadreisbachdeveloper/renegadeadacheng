@@ -61,19 +61,20 @@
     {
       "@type": "WebSite",
       "@id": "<?php _e($site_url); ?>#website",
-      "name": "<?php _e(get_bloginfo('name')); ?> | Official Site",
+      "name": "<?php _e(get_bloginfo('name')); ?> | <?php _e(get_bloginfo('description')); ?>",
+      "description": "<?php _e(get_field('meta-description'), '2'); ?>",
+      "inLanguage": "en-US",
       "url": "<?php _e($site_url); ?>",
-      "description": "<?php _e(get_bloginfo('description')); ?>",
+
       "potentialAction": [
         {
           "@type": "SearchAction",
           "@id": "<?php _e($site_url); ?>#search",
           "name": "Renegade Ada Cheng | Search",
-          "target": "<?php _e($site_url); ?>/?s={search_term_string}",
+          "target": "<?php _e($site_url); ?>?s={search_term_string}",
           "query-input": "required name=search_term_string"
         }
-      ],
-      "inLanguage": "en-US"
+      ]
     },
 
 
@@ -87,9 +88,7 @@
           "position": 1,
           "item": {
             "@type": "WebPage",
-            "@id": "<?php _e($site_url); ?>",
-            "url": "<?php _e($site_url); ?>",
-            "name": "<?php _e(get_bloginfo('name')); ?> | Home",
+            "@id": "<?php _e($site_url); ?>#website",
             "primaryImageOfPage": {
               "@type": "ImageObject",
               "@id": "<?php _e($site_url); ?>#featuredimage",
