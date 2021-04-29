@@ -7,7 +7,7 @@
             "label": "Specialized Schema Fields",
             "name": "schema-fields",
             "type": "repeater",
-            "instructions": "Examples of parent fields include <span style=\"font-family: monospace;\">review<\/span> or <span style=\"font-family: monospace;\">copyrightHolder<\/span> <br \/><br \/>\r\nMore at <a href=\"https:\/\/schema.org\/CreativeWork\" target=\"_blank\" rel=\"noopener\">schema.org\/CreativeWork<\/a>. <br \/><br \/>\r\nThese fields are unescaped, to avoid slowing performance by running PHP sanitization. <strong>Do not use quote marks; use <span style=\"font-family: monospace;\">&amp;quot;<\/span><\/strong>",
+            "instructions": "Examples of parent fields include <span style=\"font-family: monospace;\">review<\/span> or <span style=\"font-family: monospace;\">copyrightHolder<\/span> <br \/><br \/>\r\nMore at <a href=\"https:\/\/schema.org\/CreativeWork\" target=\"_blank\" rel=\"noopener\">schema.org\/CreativeWork<\/a>. <br \/><br \/>\r\nThese fields are unescaped, to avoid slowing performance by running PHP sanitization.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -18,7 +18,7 @@
             "collapsed": "",
             "min": 0,
             "max": 0,
-            "layout": "table",
+            "layout": "row",
             "button_label": "Add Schema Field",
             "sub_fields": [
                 {
@@ -150,7 +150,7 @@
                     "collapsed": "",
                     "min": 0,
                     "max": 0,
-                    "layout": "row",
+                    "layout": "table",
                     "button_label": "Add Child Field",
                     "sub_fields": [
                         {
@@ -190,6 +190,30 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_608ae64edcab9",
+                            "label": "parent of grandchild?",
+                            "name": "parent-of-grandchild",
+                            "type": "radio",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "yes": "yes",
+                                "no": "no"
+                            },
+                            "allow_null": 0,
+                            "other_choice": 0,
+                            "default_value": "no",
+                            "layout": "horizontal",
+                            "return_format": "value",
+                            "save_other_choice": 0
                         }
                     ]
                 }
@@ -213,5 +237,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1618750701
+    "modified": 1619717159
 }

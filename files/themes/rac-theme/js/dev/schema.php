@@ -21,7 +21,6 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {  exit; }
       global $post_id, $metadescription, $page_url, $page_title, $site_url, $socialimg, $socialimg_id, $gmt_published, $gmt_modified, $global_socialimg, $socialimg, $socialimg_h, $socialimg_w, $socialimg_alt, $current_page_parent_menu_id, $parent_title, $parent_url, $cat_title, $cat_url; ?>
 
-
       <?php $extra_schemae = '';
   		if(have_rows('schema-fields', $post_id)) : ?>
   			<?php $extra_schemae .= ","; $count = '1'; ?>
@@ -37,13 +36,16 @@
   				if(have_rows('children')) : $children = 1;
   				while(have_rows('children')) : the_row();
 
-  				$extra_schemae .= '"' . get_sub_field('child-name') . '": "' . get_sub_field('child-value') . '"'; if($number_of_children > $children) { $extra_schemae .= ", "; }
+          if(get_sub_field('parent-of-grandchild') && get_sub_field('parent-of-grandchild') == 'yes') { $extra_schemae .= '"' . get_sub_field('child-name') . '" : { ' . get_sub_field('child-value') . ' } '; }
+
+          else {
+  				  $extra_schemae .= '"' . get_sub_field('child-name') . '": "' . get_sub_field('child-value') . '"'; if($number_of_children > $children) { $extra_schemae .= ", "; }
+          }
 
   				$children++; endwhile; $extra_schemae .= "}"; if($number_of_schemae > $count) { $extra_schemae .= ", "; }
           endif;
-  				// end parents
-  				?>
-  			<?php elseif(get_sub_field('is-parent') && get_sub_field('is-parent') == 'no') : ?>
+
+        elseif(get_sub_field('is-parent') && get_sub_field('is-parent') == 'no') : ?>
   				<?php $extra_schemae .= '"' . get_sub_field('field') . '": "' . get_sub_field('value') . '"'; if($number_of_schemae > $count) { $extra_schemae .= ","; } ?>
 
   			<?php endif; ?>
