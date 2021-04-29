@@ -37,7 +37,7 @@
   				while(have_rows('children')) : the_row();
 
           if(get_field('parent-of-grandchild') && get_field('parent-of-grandchild') == 'yes') {
-             $extra_schemae .= '"' . get_sub_field('child-name') . '" : {' . get_sub_field('child-value') . '"';
+             $extra_schemae .= '"' . get_sub_field('child-name') . '" : {' . get_sub_field('child-value');
              if($number_of_children > $children) { $extra_schemae .= "}, "; } else { $extra_schemae .= "}"; }
           }
 
