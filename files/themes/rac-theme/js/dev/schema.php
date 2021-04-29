@@ -21,6 +21,37 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {  exit; }
       global $post_id, $metadescription, $page_url, $page_title, $site_url, $socialimg, $socialimg_id, $gmt_published, $gmt_modified, $global_socialimg, $socialimg, $socialimg_h, $socialimg_w, $socialimg_alt, $current_page_parent_menu_id, $parent_title, $parent_url, $cat_title, $cat_url; ?>
 
+
+      <?php $extra_schemae = '';
+  		if(have_rows('schema-fields', $post_id)) : ?>
+  			<?php $extra_schemae .= ","; $count = '1'; ?>
+
+  			<?php $number_of_schemae = count(get_field('schema-fields')); $count = "1"; while(have_rows('schema-fields', $post_id)) : the_row(); ?>
+
+  			<?php if(get_sub_field('is-parent') && get_sub_field('is-parent') == 'yes') : ?>
+
+  			<?php $extra_schemae .= '"' . get_sub_field('parent-field') . '": {';
+
+  				$number_of_children = "";
+  				$number_of_children = count(get_sub_field('children'));
+  				if(have_rows('children')) : $children = 1;
+  				while(have_rows('children')) : the_row();
+
+  				$extra_schemae .= '"' . get_sub_field('child-name') . '": "' . get_sub_field('child-value') . '"'; if($number_of_children > $children) { $extra_schemae .= ", "; }
+
+  				$children++; endwhile; $extra_schemae .= "} "; endif;
+  				// end parents
+  				?>
+  			<?php elseif(get_sub_field('is-parent') && get_sub_field('is-parent') == 'no') : ?>
+  				<?php $extra_schemae .= '"' . get_sub_field('field') . '": "' . get_sub_field('value') . '"'; if($number_of_schemae > $count) { $extra_schemae .= ","; } ?>
+
+  			<?php endif; ?>
+
+  		<?php $count++; endwhile; endif; ?>
+
+
+
+
 <script type='application/ld+json'>{
   "@context": "https://www.schema.org",
   "@graph": [
@@ -81,13 +112,7 @@
                 "@type": "PostalAddress",
                 "addressLocality": "Chicago",
                 "addressRegion": "Illinois"
-              }<?php if(have_rows('schema-fields', $post_id)) : ?>,
-              <?php $number_of_schemae =  count(get_field('schema-fields')); $count = "1"; while(have_rows('schema-fields', $post_id)) : the_row(); ?><?php if(get_sub_field('is-parent') && get_sub_field('is-parent') == 'yes') : ?>"<?php _e(get_sub_field('parent-field')); ?>": {
-                <?php $number_of_children = count(get_sub_field('children')); if(have_rows('children')) : $children = "1"; while(have_rows('children')) : the_row(); ?>"<?php _e(get_sub_field('child-name')); ?>": "<?php _e(get_sub_field('child-value')); ?>"<?php if($children < $number_of_children) { _e(','); } ?><?php $children++; endwhile; endif; ?>
-              }<?php if($count < $number_of_schemae) { _e(','); }?>
-              <?php elseif(get_sub_field('is-parent') && get_sub_field('is-parent') == 'no'): ?>"<?php _e(get_sub_field('field')); ?>": "<?php _e(get_sub_field('value')); ?>"<?php if($count < $number_of_schemae) { _e(','); }?>
-              <?php endif; $count++; endwhile; ?>
-            <?php endif; ?>
+              }<?php _e($extra_schemae); ?>
             }
           }
         }
@@ -120,13 +145,7 @@
             "@type": "WebPage",
             "@id": "<?php _e($page_url); ?>",
             "url": "<?php _e($page_url); ?>",
-            "name": "<?php _e($page_title); ?>"<?php if(have_rows('schema-fields', $post_id)) : ?>,
-            <?php $number_of_schemae =  count(get_field('schema-fields')); $count = "1"; while(have_rows('schema-fields', $post_id)) : the_row(); ?><?php if(get_sub_field('is-parent') && get_sub_field('is-parent') == 'yes') : ?>"<?php _e(get_sub_field('parent-field')); ?>": {
-              <?php $number_of_children = count(get_sub_field('children')); if(have_rows('children')) : $children = "1"; while(have_rows('children')) : the_row(); ?>"<?php _e(get_sub_field('child-name')); ?>": "<?php _e(get_sub_field('child-value')); ?>"<?php if($children < $number_of_children) { _e(','); } ?><?php $children++; endwhile; endif; ?>
-            }<?php if($count < $number_of_schemae) { _e(','); }?>
-            <?php elseif(get_sub_field('is-parent') && get_sub_field('is-parent') == 'no'): ?>"<?php _e(get_sub_field('field')); ?>": "<?php _e(get_sub_field('value')); ?>"<?php if($count < $number_of_schemae) { _e(','); }?>
-            <?php endif; $count++; endwhile; ?>
-          <?php endif; ?>
+            "name": "<?php _e($page_title); ?>"<?php _e($extra_schemae); ?>
           }
         }
 
@@ -190,13 +209,7 @@
             },
             "datePublished": "<?php _e($gmt_published); ?>",
             "dateModified": "<?php _e($gmt_modified); ?>",
-            "inLanguage": "en-US"<?php if(have_rows('schema-fields', $post_id)) : ?>,
-            <?php $number_of_schemae =  count(get_field('schema-fields')); $count = "1"; while(have_rows('schema-fields', $post_id)) : the_row(); ?><?php if(get_sub_field('is-parent') && get_sub_field('is-parent') == 'yes') : ?>"<?php _e(get_sub_field('parent-field')); ?>": {
-              <?php $number_of_children = count(get_sub_field('children')); if(have_rows('children')) : $children = "1"; while(have_rows('children')) : the_row(); ?>"<?php _e(get_sub_field('child-name')); ?>": "<?php _e(get_sub_field('child-value')); ?>"<?php if($children < $number_of_children) { _e(','); } ?><?php $children++; endwhile; endif; ?>
-            }<?php if($count < $number_of_schemae) { _e(','); }?>
-            <?php elseif(get_sub_field('is-parent') && get_sub_field('is-parent') == 'no'): ?>"<?php _e(get_sub_field('field')); ?>": "<?php _e(get_sub_field('value')); ?>"<?php if($count < $number_of_schemae) { _e(','); }?>
-            <?php endif; $count++; endwhile; ?>
-          <?php endif; ?>
+            "inLanguage": "en-US"<?php _e($extra_schemae); ?>
           }
         }
 
@@ -233,13 +246,7 @@
             },
             "datePublished": "<?php _e($gmt_published); ?>",
             "dateModified": "<?php _e($gmt_modified); ?>",
-            "inLanguage": "en-US"<?php if(have_rows('schema-fields', $post_id)) : ?>,
-            <?php $number_of_schemae =  count(get_field('schema-fields')); $count = "1"; while(have_rows('schema-fields', $post_id)) : the_row(); ?><?php if(get_sub_field('is-parent') && get_sub_field('is-parent') == 'yes') : ?>"<?php _e(get_sub_field('parent-field')); ?>": {
-              <?php $number_of_children = count(get_sub_field('children')); if(have_rows('children')) : $children = "1"; while(have_rows('children')) : the_row(); ?>"<?php _e(get_sub_field('child-name')); ?>": "<?php _e(get_sub_field('child-value')); ?>"<?php if($children < $number_of_children) { _e(','); } ?><?php $children++; endwhile; endif; ?>
-            }<?php if($count < $number_of_schemae) { _e(','); }?>
-            <?php elseif(get_sub_field('is-parent') && get_sub_field('is-parent') == 'no'): ?>"<?php _e(get_sub_field('field')); ?>": "<?php _e(get_sub_field('value')); ?>"<?php if($count < $number_of_schemae) { _e(','); }?>
-            <?php endif; $count++; endwhile; ?>
-          <?php endif; ?>
+            "inLanguage": "en-US"<?php _e($extra_schemae); ?>
           }
         }<?php endif; ?>
       ]

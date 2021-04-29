@@ -3,12 +3,11 @@
 <html <?php language_attributes(); ?> class="no-js">
 <head>
 <?php function sanitize_output($buffer) {
-	// minify html
 	require_once('minify/html.php');
   $buffer = Minify_HTML::minify($buffer);
   return $buffer;
 }
-/*ob_start('sanitize_output'); */ ?>
+ob_start('sanitize_output'); ?>
 
 
 <meta charset="<?php bloginfo('charset'); ?>">
