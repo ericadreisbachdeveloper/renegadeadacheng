@@ -39,7 +39,8 @@
 
   				$extra_schemae .= '"' . get_sub_field('child-name') . '": "' . get_sub_field('child-value') . '"'; if($number_of_children > $children) { $extra_schemae .= ", "; }
 
-  				$children++; endwhile; $extra_schemae .= "} "; endif;
+  				$children++; endwhile; $extra_schemae .= "}"; if($number_of_schemae > $count) { $extra_schemae .= ", "; }
+          endif;
   				// end parents
   				?>
   			<?php elseif(get_sub_field('is-parent') && get_sub_field('is-parent') == 'no') : ?>
