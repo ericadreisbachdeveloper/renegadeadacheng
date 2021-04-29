@@ -112,7 +112,7 @@
                 "@type": "PostalAddress",
                 "addressLocality": "Chicago",
                 "addressRegion": "Illinois"
-              }<?php _e($extra_schemae); ?>
+              }<?php if(is_front_page()) { _e($extra_schemae); } ?>
             }
           }
         }
