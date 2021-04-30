@@ -67,7 +67,7 @@
       "@type": "WebSite",
       "@id": "<?php _e($site_url); ?>#website",
       "name": "<?php _e(get_bloginfo('name')); ?> | <?php _e(get_bloginfo('description')); ?>",
-      "description": "<?php _e(get_field('meta-description'), '2'); ?>",
+      "description": "<?php _e(get_field('meta-description', "2")) ; ?>",
       "inLanguage": "en-US",
       "url": "<?php _e($site_url); ?>",
 
