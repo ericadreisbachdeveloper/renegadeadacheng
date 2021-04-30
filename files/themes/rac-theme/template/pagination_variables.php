@@ -32,12 +32,12 @@
 
 
   // has parent OR is WORKHOPS landing or STORYTELLING landing
-  if( ($current_page_parent_menu_id !== '0')  &&  (($current_post_id = '27') || ($current_post_id = '35')) )
+  if( ($current_page_parent_menu_id !== '0')  ||  ($current_post_id == '27') || ($current_post_id == '35') )
   { $data_footer = "has-pagination"; }
 
   // if single, might have verbose pagination - no set height
   elseif(is_single()) { $data_footer = "no-sticky"; }
-  
+
   // everyone else
   else { $data_footer = "no-pagination"; }
 
