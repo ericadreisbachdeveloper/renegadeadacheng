@@ -18,16 +18,14 @@
   <!-- if no cover / hero block, then output the title -->
   <?php else : ?>
 
-
   <h1 class="sr-only"><?php the_title(); ?> </h1>
-
 
   <?php endif; ?>
 
 
+
 <?php else : ?>
 <!-- if no blocks at all, still output a title -->
-
 
   <div class="gutenberg-section -no-hero">
     <div class="gutenberg-container container">

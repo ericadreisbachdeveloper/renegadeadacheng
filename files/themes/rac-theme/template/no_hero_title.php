@@ -19,9 +19,11 @@
   <?php else : ?>
 
 
-
-  <h1><?php the_title(); ?></h1>
-
+  <div class="gutenberg-section -no-hero">
+    <div class="gutenberg-container container">
+      <h1><?php the_title(); ?></h1>
+    </div>
+  </div>
 
 
   <?php endif; ?>
