@@ -82,7 +82,7 @@ ob_start('sanitize_output'); ?>
 <!-- archives don't have descriptions -->
 <?php global $post_id; $post_id = ''; $post_id = $post->ID; ?>
 <?php if(!is_archive() && !is_search() && class_exists('acf') && get_field('meta-description', $post->ID)) : ?>
-<?php $metadescription = get_field('meta-description'); $metadescription = str_replace('"', '', $metadescription); $metadescription = "erica"; ?>
+<?php $metadescription = get_field('meta-description'); $metadescription = str_replace('"', '', $metadescription); ?>
 
 <!-- 2nd choice - Wordpress-generated excerpt -->
 <!-- default 404 doesn't have a description -->
