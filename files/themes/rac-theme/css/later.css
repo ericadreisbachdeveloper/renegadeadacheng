@@ -1590,8 +1590,8 @@ figcaption {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 0 50%;
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 1rem;
   display: inline-block; }
 
 .-span-users {
