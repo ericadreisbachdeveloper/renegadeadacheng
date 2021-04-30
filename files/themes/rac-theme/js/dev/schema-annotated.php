@@ -109,7 +109,7 @@
               "sameAs": [
                 "https://www.facebook.com/dr.adacheng/",
                 "https://www.instagram.com/sjadacheng/",
-                "https://www.youtube.com/user/renegadeadacheng/",
+                "https://www.youtube.com/channel/UCVN9wCuaDw5xkStcd_pIjMg/videos",
                 "https://www.linkedin.com/in/ada-cheng-ph-d-622b4216/"
               ],
               "image": "<?php _e($global_socialimg); ?>",
