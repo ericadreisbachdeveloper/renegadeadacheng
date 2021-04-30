@@ -11,7 +11,7 @@
 		<?php global $post; $post = get_post(); include(locate_template('template/hero.php')); ?>
 
 
-		<?php include(locate_template('template/no_hero_title.php')); ?>
+		<?php //include(locate_template('template/no_hero_title.php')); ?>
 
 
 		<?php include(locate_template('template/page_content.php')); ?>
