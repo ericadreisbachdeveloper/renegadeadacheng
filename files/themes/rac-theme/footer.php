@@ -50,6 +50,7 @@
 
 
 <!-- theme "later" styles -->
+<?php global $style_vsn; ?>
 <link rel="stylesheet" href="<?= esc_url(TDIR); ?>/css/later.css?ver=<?php _e($style_vsn); ?>" />
 
 
