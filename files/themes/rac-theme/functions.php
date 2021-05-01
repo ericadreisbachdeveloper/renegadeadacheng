@@ -8,7 +8,7 @@ define('TDIR', get_bloginfo('stylesheet_directory'));
 
 
 // 1. For debugging - output all scripts
-/*
+
 function inspect_scripts() {
     global $wp_scripts;
     foreach( $wp_scripts->queue as $handle ) :
@@ -17,7 +17,7 @@ function inspect_scripts() {
 }
 
 add_action( 'wp_print_scripts', 'inspect_scripts', 99 );
-*/
+
 
 
 // 2. Conditionally remove unnecessary scripts
@@ -32,10 +32,13 @@ function deregister_javascript() {
     wp_deregister_script( 'html5blankscripts' );
 
    		 wp_dequeue_script( 'jquery' );
-
-		// for reasons unknown, global deregister of default jquery breaks WPForms
-		// even if jquery is also dequeued
+		// for reasons unknown, deREGISTER of default jquery breaks WPForms
+		// even if jquery is deQUEUED
 	  // wp_deregister_script( 'jquery' );
+
+    // add minified lazysizes with defer
+		   wp_dequeue_script( 'lazysizes' );
+	  wp_deregister_script( 'lazysizes' );
 
 		// if is not page Events, deregister Event scripts
 		if(!is_page('Events')) {
@@ -129,6 +132,9 @@ function dbllc_header_scripts() {
 
 			wp_register_script('cloudjquery', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), '3.6.0', false);
 			wp_enqueue_script('cloudjquery');
+
+			wp_register_script('lazysizes-min', TDIR . '/js/lazysizes.5.2.2.min.js', array(), '5.2.2', false);
+			wp_enqueue_script('lazysizes-min');
 
 			wp_register_script('aos', 'https://unpkg.com/aos@2.3.1/dist/aos.js');
 			//wp_register_script('aos', TDIR . '/js/aos.min.js', array(), '2.3.1');
@@ -430,9 +436,9 @@ function inline_scripts(){
 
 	global $style_vsn;
 
-	echo '<script>jQuery.fn.accessibleDropDown=function(){var e=jQuery(this);jQuery("li",e).mouseover(function(){jQuery(this).addClass("hover")}).mouseout(function(){jQuery(this).removeClass("hover")}),jQuery("a",e).focus(function(){jQuery(this).parents("li").addClass("show")}).blur(function(){jQuery(this).parents("li").removeClass("show")})},jQuery(".nav").accessibleDropDown();</script>';
+	_e('<script>jQuery.fn.accessibleDropDown=function(){var e=jQuery(this);jQuery("li",e).mouseover(function(){jQuery(this).addClass("hover")}).mouseout(function(){jQuery(this).removeClass("hover")}),jQuery("a",e).focus(function(){jQuery(this).parents("li").addClass("show")}).blur(function(){jQuery(this).parents("li").removeClass("show")})},jQuery(".nav").accessibleDropDown();</script>');
 
-	echo '<script>var spamSpanMainClass="spamspan",spamSpanUserClass="u",spamSpanDomainClass="d",spamSpanAnchorTextClass="t",spamSpanParams=new Array("subject","body");function spamSpan(){for(var a=getElementsByClass(spamSpanMainClass,document,"span"),e=0;e<a.length;e++){for(var n=getSpanValue(spamSpanUserClass,a[e]),s=getSpanValue(spamSpanDomainClass,a[e]),t=getSpanValue(spamSpanAnchorTextClass,a[e]),p=new Array,r=0;r<spamSpanParams.length;r++){var	 l=getSpanValue(spamSpanParams[r],a[e]);l&&p.push(spamSpanParams[r]+"="+encodeURIComponent(l))}var m=String.fromCharCode(64),o=cleanSpan(n)+m+cleanSpan(s),d=document.createTextNode(t||o),c=String.fromCharCode(109,97,105,108,116,111,58)+o;c+=p.length?"?"+p.join("&"):"";var u=document.createElement("a");u.className=spamSpanMainClass,u.setAttribute("href",c),u.appendChild(d),a[e].parentNode.replaceChild(u,a[e])}}function getElementsByClass(a,e,n){var s=new Array;null==e&&(node=document),null==n&&(n="*");for(var t=e.getElementsByTagName(n),p=t.length,r=new RegExp("(^|s)"+a+"(s|$)"),l=0,m=0;l<p;l++)r.test(t[l].className)&&(s[m]=t[l],m++);return s}function getSpanValue(a,e){var n=getElementsByClass(a,e,"span");return!!n[0]&&n[0].firstChild.nodeValue}function cleanSpan(a){return a=(a=a.replace(/[\[\(\{]?[dD][oO0][tT][\}\)\]]?/g,".")).replace(/\s+/g,"")}function addEvent(a,e,n){a.addEventListener?a.addEventListener(e,n,!1):a.attachEvent&&(a["e"+e+n]=n,a[e+n]=function(){a["e"+e+n](window.event)},a.attachEvent("on"+e,a[e+n]))}addEvent(window,"load",spamSpan);</script>';
+	_e('<script>var spamSpanMainClass="spamspan",spamSpanUserClass="u",spamSpanDomainClass="d",spamSpanAnchorTextClass="t",spamSpanParams=new Array("subject","body");function spamSpan(){for(var a=getElementsByClass(spamSpanMainClass,document,"span"),e=0;e<a.length;e++){for(var n=getSpanValue(spamSpanUserClass,a[e]),s=getSpanValue(spamSpanDomainClass,a[e]),t=getSpanValue(spamSpanAnchorTextClass,a[e]),p=new Array,r=0;r<spamSpanParams.length;r++){var	 l=getSpanValue(spamSpanParams[r],a[e]);l&&p.push(spamSpanParams[r]+"="+encodeURIComponent(l))}var m=String.fromCharCode(64),o=cleanSpan(n)+m+cleanSpan(s),d=document.createTextNode(t||o),c=String.fromCharCode(109,97,105,108,116,111,58)+o;c+=p.length?"?"+p.join("&"):"";var u=document.createElement("a");u.className=spamSpanMainClass,u.setAttribute("href",c),u.appendChild(d),a[e].parentNode.replaceChild(u,a[e])}}function getElementsByClass(a,e,n){var s=new Array;null==e&&(node=document),null==n&&(n="*");for(var t=e.getElementsByTagName(n),p=t.length,r=new RegExp("(^|s)"+a+"(s|$)"),l=0,m=0;l<p;l++)r.test(t[l].className)&&(s[m]=t[l],m++);return s}function getSpanValue(a,e){var n=getElementsByClass(a,e,"span");return!!n[0]&&n[0].firstChild.nodeValue}function cleanSpan(a){return a=(a=a.replace(/[\[\(\{]?[dD][oO0][tT][\}\)\]]?/g,".")).replace(/\s+/g,"")}function addEvent(a,e,n){a.addEventListener?a.addEventListener(e,n,!1):a.attachEvent&&(a["e"+e+n]=n,a[e+n]=function(){a["e"+e+n](window.event)},a.attachEvent("on"+e,a[e+n]))}addEvent(window,"load",spamSpan);</script>');
 
 }
 add_action( 'wp_footer', 'inline_scripts' );
