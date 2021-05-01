@@ -234,7 +234,16 @@ ob_start('sanitize_output'); ?>
 
 
 
-
+<!-- Global site tag (gtag.js) - Google Analytics - conditionally hidden from PageSpeed Insights -->
+<?php if (!isset($_SERVER['HTTP_USER_AGENT']) || stripos($_SERVER['HTTP_USER_AGENT'], 'Insights') === false): ?>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QHVPBX71VD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QHVPBX71VD');
+</script>
+<?php endif; ?>
 
 
 
