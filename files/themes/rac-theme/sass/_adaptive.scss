@@ -40,24 +40,6 @@
   // Home - small
   .page-template-page-home [data-role="main"] > .core-media-text:first-child { overflow: hidden; }
 
-
-  /*
-  .page-template-page-home .wp-block-media-text.has-media-on-the-right .wp-block-media-text__media {
-    -ms-grid-column: 2;
-    grid-column: 2;
-    -ms-grid-row: 1;
-    grid-row: 1;
-  }
-
-  .page-template-page-home .wp-block-media-text.is-stacked-on-mobile.has-media-on-the-right .wp-block-media-text__content {
-    -ms-grid-column: 1;
-    grid-column: 1;
-    -ms-grid-row: 1;
-    grid-row: 1;
-  }
-  */
-
-
   .page-template-page-home [data-role="main"] > .gutenberg-section:first-of-type .wp-block-media-text {
     @include flex-direction(row-reverse);
 
@@ -67,12 +49,9 @@
     }
   }
 
-
   .page-template-page-home [data-role="main"] > .gutenberg-section:first-of-type .wp-block-media-text .wp-block-media-text__content {
     padding: 0 2rem 0 0;
   }
-
-
 
 
   $fade_time: .7s;
@@ -716,19 +695,6 @@
   #navmenu .navbar-nav > .menu-item > [href*="contact"] { padding-right: .9rem; }
 
 
-
-  /// Home - wide
-  // home hero img
-  .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media,
-  .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
-    height: calc(100vh - 14rem);
-    min-height: 25rem;
-    max-height: 35rem;
-  }
-
-  .page-template-page-home [data-role="main"] > .gutenberg-section .-viewport-height .wp-block-media-text__media [src] {
-    width: auto;
-  }
 
 
   // Form - wide
