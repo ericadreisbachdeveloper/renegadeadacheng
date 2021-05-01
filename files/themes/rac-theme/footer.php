@@ -57,6 +57,9 @@
 
 
 
+
+
+
 <!-- detect SVG support and update <body> attribute if needed - unminified version in THEME/js/dev/svg-support.js -->
 <script>
 document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||document.body.setAttribute("data-svg","no-inlinesvg");
