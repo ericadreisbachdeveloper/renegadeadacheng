@@ -32,10 +32,7 @@
 				<?php endif; ?>
 
 
-				<h2 class="search-h2"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-
-
-				<?php //echo _e(get_template_part('meta')); ?>
+				<h2 class="search-h2"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php if($post->ID == '2') { _e('Home'); } else { _e(get_the_title()); } ?></a></h2>
 
 
 				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium', ['class' => 'alignleft']); ?></a>

@@ -42,10 +42,10 @@ ob_start('sanitize_output'); ?>
 
 			// $title is more verbose, better for search results title and browser titles
 			// $page_title is more bare, better for breadcrumbs
-		  $page_title = get_the_title();
-
-			if(is_search()) { $page_title = 'Search Results for &ldquo;' . $GLOBALS['wp_query']->query['s'] . '&rdquo;'; }
-	 elseif(is_home())  { $page_title = 'Storytelling Videos'; }
+			if(is_front_page()) { $page_title == 'Home'; }
+			elseif(is_search()) { $page_title = 'Search Results for &ldquo;' . $GLOBALS['wp_query']->query['s'] . '&rdquo;'; }
+	    elseif(is_home())   { $page_title = 'Storytelling Videos'; }
+	    else                { $page_title = get_the_title(); }
 
 			if (get_post_type() == 'post') { $posttype = 'Storytelling Videos'; }
 	  else { $posttype_lower = get_post_type(); $posttype = strtoupper($posttype_lower); }
