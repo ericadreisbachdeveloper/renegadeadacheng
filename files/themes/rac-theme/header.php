@@ -149,8 +149,6 @@ ob_start('sanitize_output'); ?>
 
 
 
-<!-- Google Analytics -->
-<link href="//www.google-analytics.com" rel="dns-prefetch">
 
 
 <!-- pre-load + load assets -->

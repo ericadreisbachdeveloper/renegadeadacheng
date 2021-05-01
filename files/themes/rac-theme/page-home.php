@@ -14,6 +14,14 @@
 		<?php include(locate_template('template/no_hero_title_home.php')); ?>
 
 
+		<style>
+		[data-role="main"] > .gutenberg-section:first-of-type .wp-block-media-text__media,
+		[data-role="main"] > .gutenberg-section:first-of-type .wp-block-media-text__media [class*="wp-image"] {
+			width: 17rem; height: calc(17rem * 646 / 545);
+		}
+		</style>
+
+
 		<?php include(locate_template('template/page_content.php')); ?>
 
 

@@ -52,10 +52,9 @@ $timing: 6s;
 
 .page-template-page-home [data-role="main"] > .gutenberg-section:first-of-type { overflow: hidden; }
 
-.page-template-page-home [data-role="main"] > .gutenberg-section .wp-block-media-text {
+.page-template-page-home [data-role="main"] > .gutenberg-section:first-of-type .wp-block-media-text {
   @include flex;
   @include flex-direction(column-reverse);
-
 
   .wp-block-media-text__media {
     margin-right: auto;
@@ -67,13 +66,14 @@ $timing: 6s;
     width: 100%;
   }
 
-  .wp-block-media-text__media,
-  .wp-block-media-text__media [src] {
-    width: 100%;
-    height: auto;
+//  .wp-block-media-text__media,
+//  .wp-block-media-text__media [src] {
+//    width: 100%;
+//    height: auto;
 
-    &[class*="wp-image"] {
-      max-width: none;
-    }
-  }
+//    &[class*="wp-image"] {
+  //    max-width: none;
+//    }
+//  }
+
 }
