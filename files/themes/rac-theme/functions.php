@@ -130,8 +130,8 @@ function dbllc_header_scripts() {
 			wp_register_script('cloudjquery', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), '3.6.0', false);
 			wp_enqueue_script('cloudjquery');
 
-			//wp_register_script('aos', 'https://unpkg.com/aos@2.3.1/dist/aos.js');
-			wp_register_script('aos', TDIR . '/js/aos.min.js', array(), '2.3.1');
+			wp_register_script('aos', 'https://unpkg.com/aos@2.3.1/dist/aos.js');
+			//wp_register_script('aos', TDIR . '/js/aos.min.js', array(), '2.3.1');
 			wp_enqueue_script('aos');
 
 			wp_register_script('strict', TDIR . '/js/strict.js', array('cloudjquery'), '1.0.0');
