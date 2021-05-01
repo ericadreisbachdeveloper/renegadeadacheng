@@ -48,14 +48,17 @@
 <?php wp_footer(); ?>
 
 
-<!-- 1. detect SVG support and update <body> attribute if needed - unminified version in THEME/js/dev/svg-support.js -->
+
+<!-- theme "later" styles -->
+<link rel="stylesheet" href="<?= esc_url(TDIR); ?>/css/later.css?ver=<?php _e($style_vsn); ?>" />
+
+
+
+<!-- detect SVG support and update <body> attribute if needed - unminified version in THEME/js/dev/svg-support.js -->
 <script>
 document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||document.body.setAttribute("data-svg","no-inlinesvg");
 </script>
 
-<!-- 2. detect clip-path support and update <body> attribute if needed - unminified in THEME/js/dev/clip-path-support.js -->
-<!-- unminified version in THEME/js/dev -->
-<script>var areClipPathShapesSupported=function(){for(var t="clipPath",e=["webkit","moz","ms","o"],a=[t],r=document.createElement("testelement"),p=0,l=e.length;p<l;p++){var o=e[p]+t.charAt(0).toUpperCase()+t.slice(1);a.push(o)}for(p=0,l=a.length;p<l;p++){var n=a[p];if(""===r.style[n]&&(r.style[n]="polygon(50% 0%, 0% 100%, 100% 100%)",""!==r.style[n]))return!0}return!1};areClipPathShapesSupported()||document.body.setAttribute("data-clippath","no-clippath");</script>
 
 
 </body>

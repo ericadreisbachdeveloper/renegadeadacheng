@@ -171,11 +171,6 @@ ob_start('sanitize_output'); ?>
 <link rel="stylesheet" href="<?= esc_url(TDIR); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" />
 
 
-<!-- theme "later" styles -->
-<link rel="stylesheet" href="<?= esc_url(TDIR); ?>/css/later.css?ver=<?php _e($style_vsn); ?>" />
-
-
-
 <link rel="preload" href="<?= esc_url(TDIR); ?>/webfonts/leaguespartan-bold.otf" as="font" type="font/otf" crossOrigin="anonymous">
 
 <!-- unminified vsn in THEME/sass/zz-_fonts.scss -->
@@ -240,9 +235,9 @@ ob_start('sanitize_output'); ?>
 
 
 <!-- Global site tag (gtag.js) - Google Analytics - conditionally hidden from PageSpeed Insights -->
-<?php if($_SERVER['HTTP_USER_AGENT'] && stripos($_SERVER['HTTP_USER_AGENT'], 'Speed Insights') === false) { _e($_SERVER['HTTP_USER_AGENT']); } ?>
+<?php if($_SERVER['HTTP_USER_AGENT'] && stripos($_SERVER['HTTP_USER_AGENT'], 'Insights') === false) { _e($_SERVER['HTTP_USER_AGENT']); } ?>
 
-<?php if (!isset($_SERVER['HTTP_USER_AGENT']) || stripos($_SERVER['HTTP_USER_AGENT'], 'Speed Insights') === false): ?>
+<?php if (!isset($_SERVER['HTTP_USER_AGENT']) || stripos($_SERVER['HTTP_USER_AGENT'], 'Insights') === false): ?>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHVPBX71VD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
