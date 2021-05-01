@@ -871,6 +871,7 @@ figcaption { @extend %small; color: $gray5; }
 }
 
 .pagination { padding-top: 2rem; }
+.pagination.-archive { float: left; clear: left; }
 
 
 
