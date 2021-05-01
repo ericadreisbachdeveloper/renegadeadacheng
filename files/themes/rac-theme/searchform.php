@@ -4,7 +4,7 @@
 
 <form class="search" method="get" action="<?php _e(home_url()); ?>" role="search">
 
-	<a href="#display-search" role="button" aria-pressed="false" aria-label="Show/Hide Search Form"></a>
+	<a href="#" data-display-search role="button" aria-pressed="false" aria-label="Show/Hide Search Form"></a>
 
 	<div class="search-bg">
 		<label for="nav-search" class="sr-only">Type Search </label>

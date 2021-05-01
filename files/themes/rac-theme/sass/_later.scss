@@ -944,7 +944,7 @@ figcaption { @extend %small; color: $gray5; }
     }
 
     // button
-    [href="#display-search"] {
+    [data-display-search] {
       display: block;
       width: $bw;
       height: $bw;

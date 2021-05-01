@@ -105,13 +105,13 @@
 
 
 		// Toggle search form on desktop upon clicking magnifying glass icon in header
-		$('a[href="#display-search"]').on('click', function(){
-			if($('a[href="#display-search"]').attr('aria-pressed') == "false") {
-				$('a[href="#display-search"]').attr('aria-pressed', 'true');
+		$('[data-display-search]').on('click', function(){
+			if($(this).attr('aria-pressed') == "false") {
+				$(this).attr('aria-pressed', 'true');
 				$('#nav-search').focus();
  			}
 			else {
-				$('a[href="#display-search"]').attr('aria-pressed', 'false');
+				$(this).attr('aria-pressed', 'false');
 			}
 			return false;
 		});
@@ -125,7 +125,8 @@
 
 
 		// Clicking links that are strictly hash (href="#") does nothing
-		$('a[href="#"]').on('click', function(){
+		// ... unless it's the display search button
+		$('a[href="#"]').not('[data-display-search]').on('click', function(){
 			return false;
 		});
 
