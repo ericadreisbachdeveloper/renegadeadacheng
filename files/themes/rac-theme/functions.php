@@ -8,7 +8,7 @@ define('TDIR', get_bloginfo('stylesheet_directory'));
 
 
 // 1. For debugging - output all scripts
-
+/*
 function inspect_scripts() {
     global $wp_scripts;
     foreach( $wp_scripts->queue as $handle ) :
@@ -17,7 +17,7 @@ function inspect_scripts() {
 }
 
 add_action( 'wp_print_scripts', 'inspect_scripts', 99 );
-
+*/
 
 
 // 2. Conditionally remove unnecessary scripts
@@ -32,11 +32,12 @@ function deregister_javascript() {
     wp_deregister_script( 'html5blankscripts' );
 
    		 wp_dequeue_script( 'jquery' );
-		// for reasons unknown, deREGISTER of default jquery breaks WPForms
-		// even if jquery is deQUEUED
-	  // wp_deregister_script( 'jquery' );
+		   // for reasons unknown, deREGISTER of default jquery breaks WPForms
+		   // even if jquery is deQUEUED
+	     // wp_deregister_script( 'jquery' );
 
-    // add minified lazysizes with defer
+
+       // add minified lazysizes in header with defer
 		   wp_dequeue_script( 'lazysizes' );
 	  wp_deregister_script( 'lazysizes' );
 
