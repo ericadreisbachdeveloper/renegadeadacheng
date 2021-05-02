@@ -239,7 +239,7 @@ ob_start('sanitize_output'); ?>
 
 
 <!-- Global site tag (gtag.js) - Google Analytics - conditionally hidden from PageSpeed Insights -->
-<?php if (!isset($_SERVER['HTTP_USER_AGENT']) || stripos($_SERVER['HTTP_USER_AGENT'], 'Insights') === false): ?>
+<?php if (!isset($_SERVER['HTTP_USER_AGENT']) || stripos($_SERVER['HTTP_USER_AGENT'], 'Google') === false) : ?>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHVPBX71VD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
