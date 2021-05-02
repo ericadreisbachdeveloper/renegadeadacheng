@@ -153,22 +153,17 @@ ob_start('sanitize_output'); ?>
 
 <!-- pre-load + load assets -->
 
-<!-- hero -->
-<?php if(get_field('hero-img-preload')) : ?><link rel="preload" as="image" href="<?php $hero = get_field('hero-img-preload'); _e(esc_url($hero['url'])); ?>"><?php endif ; ?>
-
-
 <!-- Wordpress blocks -->
 <?php global $site_url; $site_url = esc_url(get_site_url()); ?>
 <link rel="preload" href="<?php _e($site_url); ?>/wp-includes/css/dist/block-library/style.min.css" as="style">
 
 <link rel="stylesheet" href="<?php _e($site_url); ?>/wp-includes/css/dist/block-library/style.min.css" />
-<!-- noscript per https://web.dev/defer-non-critical-css/ -->
+<!-- originally included noscript per https://web.dev/defer-non-critical-css/ but was getting dinged for accessibility -->
 
 
 <!-- theme above-the-fold styles -->
 <?php global $style_vsn; ?>
 <link rel="preload" href="<?= esc_url(TDIR); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" as="style" />
-<!-- noscript per https://web.dev/defer-non-critical-css/ -->
 
 <link rel="stylesheet" href="<?= esc_url(TDIR); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" />
 
