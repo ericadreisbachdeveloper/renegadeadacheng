@@ -24,10 +24,10 @@
 		</style>
 		<div class="container" style="height: 20.24rem;">
 		  <div class="row footer-widgets-row">
-
+				<?php if(is_active_sidebar('Footer Widgets')) { dynamic_sidebar( 'Footer Widgets' ); } ?>
 		  </div>
 		</div>
-	</div>
+	</div><!-- /.footer-social-container -->
 
 
 </footer>
