@@ -17,24 +17,6 @@
 
 
 
-
-	<div class="container-fluid footer-brand-container">
-		<div class="container">
-			<div class="row footer-menus-row">
-
-				<!-- logo -->
-				<div class="col-sm-6">
-					<a href="<?= esc_url(get_home_url()); ?>" class="footer-logo-a" title="Renegade Ada Cheng | Chicago-based Taiwanese Storyteller, Producer, Speaker | Home"></a>
-				</div>
-
-				<!-- copyright -->
-				<?php if(is_active_sidebar('Copyright')) { dynamic_sidebar('Copyright'); } ?>
-
-			</div>
-		</div>
-	</div>
-
-
 </footer>
 
 
