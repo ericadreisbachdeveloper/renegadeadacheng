@@ -18,6 +18,7 @@
 	<div class="container-fluid footer-social-container">
 		<style>
 			.footer-social-container .container { height: 26.086rem; }
+			#nav_menu-3 { height: 6.016rem; }
 			@media (min-width: 62rem) { .footer-social-container .container { height: auto; } }
 		</style>
 		<div class="container">
