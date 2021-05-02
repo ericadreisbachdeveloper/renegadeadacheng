@@ -239,7 +239,7 @@ ob_start('sanitize_output'); ?>
 
 
 <!-- Global site tag (gtag.js) - Google Analytics - conditionally hidden from PageSpeed Insights -->
-<?php if (!isset($_SERVER['HTTP_USER_AGENT']) || stripos($_SERVER['HTTP_USER_AGENT'], 'Google') === false) : ?>
+<?php if (!isset($_SERVER['HTTP_USER_AGENT']) || stripos($_SERVER['HTTP_USER_AGENT'], 'Chrome-Lighthouse') === false) : ?>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHVPBX71VD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -256,9 +256,6 @@ ob_start('sanitize_output'); ?>
 
 
 <body <?php body_class(); ?> data-svg="inlinesvg" id="body">
-
-
-	<!-- <script defer src="/js/dev/clip-path-support.js"></script> -->
 
 
 	<a href="#main" id="skip-link" class="sr-only-focusable">Skip to main content</a>
