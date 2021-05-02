@@ -1,5 +1,5 @@
 // CSS that can load below fold
-// $ sass --watch sass/_later.scss:css/later.css --style compressed
+// $ sass --watch sass/_later.scss:css/later.css --style compressed --sourcemap=none
 
 
 @import '_mixins.scss';
