@@ -153,6 +153,14 @@ ob_start('sanitize_output'); ?>
 
 <!-- pre-load + load assets -->
 
+<!-- pre-load .webp hero, if exists -->
+<?php if(get_field('hero-img-preload')) : ?>
+<?php $hero_preload = get_field('hero-img-preload'); $hero_preload_url = $hero_preload['url']; $hero_preload_url = str_replace('files/uploads', 'files/webp-express/webp-images/uploads', $hero_preload_url); $hero_preload_url = $hero_preload_url . '.webp'; ?>
+
+<link rel="preload" href="<?php _e(esc_url($hero_preload_url)); ?>" as="image" />
+<?php endif; ?>
+
+
 <!-- Wordpress blocks -->
 <?php global $site_url; $site_url = esc_url(get_site_url()); ?>
 <link rel="preload" href="<?php _e($site_url); ?>/wp-includes/css/dist/block-library/style.min.css" as="style">
@@ -168,7 +176,8 @@ ob_start('sanitize_output'); ?>
 <link rel="stylesheet" href="<?= esc_url(TDIR); ?>/css/style.css?ver=<?php _e($style_vsn); ?>" />
 
 
-<link rel="preload" href="<?= esc_url(TDIR); ?>/webfonts/leaguespartan-bold.otf" as="font" type="font/otf" crossOrigin="anonymous">
+<!-- font -->
+<link rel="preload" href="<?= esc_url(TDIR); ?>/webfonts/leaguespartan-bold.otf" as="font" type="font/otf" />
 
 
 
