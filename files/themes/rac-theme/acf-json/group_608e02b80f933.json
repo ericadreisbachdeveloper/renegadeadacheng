@@ -1,0 +1,48 @@
+{
+    "key": "group_608e02b80f933",
+    "title": "Hero Image (preload)",
+    "fields": [
+        {
+            "key": "field_608e02c1c06ca",
+            "label": "Above the Fold image",
+            "name": "hero-img-preload",
+            "type": "image",
+            "instructions": "If this image loads at the top of the screen (&ldquo;above the fold&rdquo;) add image here to be preloaded, boosting page speed.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 5,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1619919992
+}

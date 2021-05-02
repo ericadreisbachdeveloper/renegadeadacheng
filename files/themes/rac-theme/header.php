@@ -153,6 +153,10 @@ ob_start('sanitize_output'); ?>
 
 <!-- pre-load + load assets -->
 
+<!-- hero -->
+<?php if(get_field('hero-img-preload')) : ?><link rel="preload" as="image" href="<?php $hero = get_field('hero-img-preload'); _e(esc_url($hero['url'])); ?>"><?php endif ; ?>
+
+
 <!-- Wordpress blocks -->
 <?php global $site_url; $site_url = esc_url(get_site_url()); ?>
 <link rel="preload" href="<?php _e($site_url); ?>/wp-includes/css/dist/block-library/style.min.css" as="style">
