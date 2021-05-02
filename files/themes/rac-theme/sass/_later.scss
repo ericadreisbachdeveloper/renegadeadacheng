@@ -505,12 +505,17 @@ figcaption { @extend %small; color: $gray5; }
         position: relative;
         overflow: hidden;
 
+
+
         &:before {
           @extend %fontawesome-brands;
           width: 3rem;
           height: 3rem;
+          background-repeat: no-repeat;
+          background-size: inherit;
+          background-position: 50% 50%;
           color: white;
-          font-size: 2rem;
+          content: '';
           position: absolute;
            top: 0;
            left: 0;
@@ -523,13 +528,29 @@ figcaption { @extend %small; color: $gray5; }
           @include justify-content(center);
         }
 
-        &[href*="facebook"]:before { content: '\f39e'; }
-        &[href*="linkedin"]:before { content: '\f08c'; }
-        &[href*="instagram"]:before { content: '\f16d'; }
-        &[href*="youtube"]:before { content: '\f167'; }
+
+        &[href*="youtube"]:before  { background-size: 2rem; }
+        &[href*="linkedin"]:before { background-size: 1.8rem; }
+
+        &[href*="facebook"]:before {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='32' overflow='visible'%3E%3Cpath fill='%23FFF' d='M16.016 18l.889-5.791h-5.557V8.45c0-1.584.776-3.128 3.265-3.128h2.526V.392S14.846 0 12.655 0C8.078 0 5.087 2.773 5.087 7.795v4.414H0V18h5.087v14h6.261V18h4.668z'/%3E%3C/svg%3E");
+        }
+
+        &[href*="instagram"]:before {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='-1.997 -2 32 32' overflow='visible'%3E%3Cpath fill='%23FFF' d='M14.006 6.821c-3.974 0-7.179 3.205-7.179 7.179s3.205 7.179 7.179 7.179 7.179-3.205 7.179-7.179-3.206-7.179-7.179-7.179zm0 11.846c-2.568 0-4.667-2.093-4.667-4.667s2.093-4.667 4.667-4.667 4.667 2.093 4.667 4.667-2.099 4.667-4.667 4.667zm9.146-12.14a1.67 1.67 0 01-1.674 1.675 1.674 1.674 0 111.674-1.675zm4.755 1.7c-.106-2.242-.618-4.229-2.262-5.866C24.008.724 22.021.212 19.779.099c-2.312-.132-9.241-.132-11.553 0C5.99.205 4.003.717 2.359 2.354.717 3.991.211 5.978.098 8.221c-.131 2.312-.131 9.24 0 11.553.106 2.242.619 4.229 2.262 5.866 1.644 1.637 3.624 2.149 5.867 2.262 2.312.132 9.24.132 11.553 0 2.242-.106 4.229-.618 5.866-2.262 1.637-1.637 2.149-3.624 2.262-5.866.131-2.313.131-9.235-.001-11.547zm-2.986 14.027a4.722 4.722 0 01-2.661 2.661c-1.844.731-6.217.562-8.254.562s-6.417.162-8.254-.562a4.722 4.722 0 01-2.661-2.661c-.732-1.844-.563-6.217-.563-8.254s-.162-6.417.563-8.254a4.722 4.722 0 012.661-2.661c1.844-.731 6.217-.562 8.254-.562s6.417-.162 8.254.562a4.722 4.722 0 012.661 2.661c.731 1.844.562 6.217.562 8.254s.169 6.417-.562 8.254z'/%3E%3C/svg%3E");
+        }
+
+        &[href*="linkedin"]:before {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' overflow='visible'%3E%3Cpath fill='%23FFF' d='M7.163 32H.528V10.635h6.635V32zM3.842 7.721C1.721 7.721 0 5.963 0 3.842a3.843 3.843 0 017.685 0c0 2.121-1.722 3.879-3.843 3.879zM31.994 32h-6.62V21.6c0-2.479-.051-5.657-3.45-5.657-3.449 0-3.978 2.692-3.978 5.479V32h-6.628V10.635h6.363v2.914h.093c.886-1.678 3.05-3.449 6.277-3.449C30.766 10.1 32 14.521 32 20.264V32h-.006z'/%3E%3C/svg%3E");
+        }
+
+        &[href*="youtube"]:before {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='28' overflow='visible'%3E%3Cpath fill='%23FFF' d='M39.164 4.4A5.021 5.021 0 0035.627.841C32.508 0 20 0 20 0S7.492 0 4.373.842A5.024 5.024 0 00.836 4.4C0 7.541 0 14.092 0 14.092s0 6.551.836 9.689c.461 1.732 1.814 3.039 3.537 3.502 3.119.842 15.627.842 15.627.842s12.508 0 15.627-.842c1.723-.463 3.078-1.77 3.537-3.502.836-3.138.836-9.689.836-9.689s0-6.551-.836-9.692zM15.908 20.039V8.145l10.455 5.947-10.455 5.947z'/%3E%3C/svg%3E");
+        }
+
 
         @include hover {
-          &:before { background: rgba(0,0,0,.2); left: 0;  }
+          &:before { background-color: rgba(0,0,0,.2); left: 0;  }
         }
       }
     }
@@ -814,14 +835,16 @@ figcaption { @extend %small; color: $gray5; }
   @include transition(all,.2s,ease-in-out);
   @include hover { background: white; color: red; text-decoration: none; @include transition(all,.2s,ease-in-out); }
 
+  /*
   &:before {
     @extend %fontawesome-solid;
     content: '\f013';
     display: inline-block;
     margin-right: .3em;
   }
+  */
 
-  &:after { display: none; }
+  &:before, &:after { display: none; }
 }
 
 
