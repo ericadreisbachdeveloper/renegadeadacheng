@@ -16,7 +16,11 @@
 
 
 	<div class="container-fluid footer-social-container">
-
+		<div class="container" style="height: 20.24rem;">
+		  <div class="row footer-widgets-row">
+		  
+		  </div>
+		</div>
 	</div>
 
 
