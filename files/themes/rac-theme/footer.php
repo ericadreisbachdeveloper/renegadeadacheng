@@ -20,9 +20,9 @@
 			.footer-social-container .container { height: 26.086rem; }
 			#nav_menu-3 { height: 6.016rem; }
 			#mc4wp_form_widget-3 { height: 20.24rem; }
-			@media (min-width: 62rem) { .footer-social-container .container { height: auto; } #mc4wp_form_widget-3 { height: auto; } }
+			@media (min-width: 62rem) { .footer-social-container .container { height: auto !important; } #mc4wp_form_widget-3 { height: auto; } }
 		</style>
-		<div class="container">
+		<div class="container" style="height: 20.24rem;">
 			<div class="row footer-widgets-row">
 				<?php if(is_active_sidebar('Footer Widgets')) { dynamic_sidebar( 'Footer Widgets' ); } ?>
 			</div>
@@ -64,9 +64,6 @@
 <style>
 <?php _e(file_get_contents(TDIR . '/css/later.css')); ?>
 </style>
-
-
-
 
 
 
