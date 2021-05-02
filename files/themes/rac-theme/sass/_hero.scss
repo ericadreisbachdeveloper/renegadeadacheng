@@ -19,7 +19,7 @@ $timing: 6s;
  .-fade3 { @include animation(fade_in_out_3, ease-in-out, 1, $timing); }
  .-fade4 { @include animation(fade_in, ease-in-out, 1, $timing);  }
 
-.-animate-text [data-aos] { position: relative; min-height: 3rem; }
+.-animate-text [data-aos] { position: relative; height: 3rem; }
 
 
 
