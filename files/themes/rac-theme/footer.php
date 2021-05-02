@@ -22,7 +22,7 @@
 		</style>
 		<div class="container">
 			<div class="row footer-widgets-row">
-				<?php if(is_active_sidebar('Footer Widgets')) { dynamic_sidebar( 'Footer Widgets' ); } ?>
+				<?php //if(is_active_sidebar('Footer Widgets')) { dynamic_sidebar( 'Footer Widgets' ); } ?>
 			</div>
 		</div>
 	</div>
