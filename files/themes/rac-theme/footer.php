@@ -30,6 +30,26 @@
 	</div><!-- /.footer-social-container -->
 
 
+	<div class="container-fluid footer-brand-container">
+	<style>
+	  .footer-brand-container .container { height: 8.749rem; }
+	  @media (min-width: 62rem) { .footer-brand-container .container { height: auto; } }
+	</style>
+	<div class="container">
+	  <div class="row footer-menus-row">
+
+	    <!-- logo -->
+	    <div class="col-sm-6">
+	      <a href="<?= esc_url(get_home_url()); ?>" class="footer-logo-a" title="Renegade Ada Cheng | Chicago-based Taiwanese Storyteller, Producer, Speaker | Home"></a>
+	    </div>
+
+	    <!-- copyright -->
+	    <?php if(is_active_sidebar('Copyright')) { dynamic_sidebar('Copyright'); } ?>
+
+	  </div>
+	</div>
+	
+
 </footer>
 
 
