@@ -15,17 +15,7 @@
 
 
 
-	<div class="container-fluid footer-social-container">
-		<style>
-			.footer-social-container .container { height: 26.086rem; }
-			@media (min-width: 62rem) { .footer-social-container .container { height: auto; } }
-		</style>
-		<div class="container">
-			<div class="row footer-widgets-row">
-				<?php if(is_active_sidebar('Footer Widgets')) { dynamic_sidebar( 'Footer Widgets' ); } ?>
-			</div>
-		</div>
-	</div>
+
 
 
 	<div class="container-fluid footer-brand-container">
