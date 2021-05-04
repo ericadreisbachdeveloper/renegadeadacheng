@@ -42,7 +42,7 @@ html * {
 body {
   @extend %arialrounded;
   color: $nearblack;
-  
+
   // min-width: 320px
   min-width: 20rem;
 }
@@ -313,6 +313,12 @@ a { @include hover { cursor: pointer; } }
 .gutenberg-section.core-list li + li { padding-top: .5rem; }
 
 
+.-paper-bg {
+  background-color: $cream1;
+  background-image: url('/files/themes/rac-theme/img/paper-bg-v2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 
 
