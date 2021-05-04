@@ -420,7 +420,7 @@ figcaption { @extend %small; color: $gray5; }
   clear: left;
   color: white;
   float: left;
-  padding-bottom: 3rem;
+  //padding-bottom: 3rem;
 
   .footer-nav {
     @extend %leaguespartan;
@@ -1079,7 +1079,7 @@ figcaption { @extend %small; color: $gray5; }
   // Sticky Footer - large
   .wrapper:after { content: ''; display: block; clear: both; }
 
-  // footer pagination of set high - Child pages - Workshops ladnding - Storytelling landing
+  // footer pagination of set high - Child pages - Workshops landing - Storytelling landing
   $footerh: 34.5rem;
 
   .wrapper[data-footer="has-pagination"] { min-height: 100vh; margin-bottom: -$footerh; }

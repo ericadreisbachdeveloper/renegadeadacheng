@@ -6,6 +6,7 @@
 <footer class="site-footer">
 
 
+
 	<!-- if is single, show navigation -->
 	<?php if(is_single()) { include(locate_template('template/pagination_single.php')); } ?>
 
@@ -14,28 +15,8 @@
 	<?php if(!is_front_page()) { include(locate_template('template/pagination_from_menu.php')); }  ?>
 
 
-	<style>
-		.footer-widgets-row > .col-footer + .col-footer { padding-top: 3rem; }
-		.footer-nav + .footer-social-container { padding-top: 6.5rem; }
-		.footer-social-container { height: 35.8858rem; padding-top: 3rem; padding-bottom: 3rem; }
-		@media (min-width: 48rem) {
-			.footer-social-container { height: auto; }
-			.footer-widgets-row > .col-footer + .col-footer { padding-top: 0; }
-		}
-	</style>
-
 	<div class="container-fluid footer-social-container">
-		<style>
-		  .footer-social-container .container { height: 26.086rem; }
-		  #nav_menu-3 { height: 6.016rem; }
-		  #mc4wp_form_widget-3 { height: 20.24rem; }
-
-		  @media (min-width: 48rem) {
-				.footer-social-container .container { height: auto !important; }
-				#mc4wp_form_widget-3 { height: auto; }
-			}
-		</style>
-		<div class="container" style="height: 26.086rem;">
+		<div class="container">
 		  <div class="row footer-widgets-row">
 				<?php if(is_active_sidebar('Footer Widgets')) { dynamic_sidebar( 'Footer Widgets' ); } ?>
 		  </div>
@@ -44,10 +25,6 @@
 
 
 	<div class="container-fluid footer-brand-container">
-	<style>
-	  .footer-brand-container .container { height: 8.749rem; }
-	  @media (min-width: 48rem) { .footer-brand-container .container { height: auto; } }
-	</style>
 	<div class="container">
 	  <div class="row footer-menus-row">
 
@@ -67,6 +44,34 @@
 
 
 
+<style>
+	.footer-widgets-row > .col-footer + .col-footer { padding-top: 3rem; }
+	.footer-nav + .footer-social-container { padding-top: 6.5rem; }
+	.site-footer > .footer-social-container:first-child { padding-top: 3rem; }
+
+	.footer-social-container { height: 32.386rem; padding-bottom: 3rem; }
+	.footer-social-container .container { height: 26.086rem; }
+
+	#nav_menu-3 { height: 6.016rem; }
+	#mc4wp_form_widget-3 { height: 20.24rem; }
+
+	.footer-brand-container .container { height: 10rem; }
+
+	@media (min-width: 48rem) {
+		.footer-social-container { height: auto; }
+		.footer-social-container .container { height: auto; }
+		#mc4wp_form_widget-3 { height: auto; }
+		.footer-brand-container .container { height: auto; }
+	}
+
+	@media (min-width: 62rem) {
+		.footer-widgets-row > .col-footer + .col-footer { padding-top: 0; }
+	}
+</style>
+
+
+
+
 <?php wp_footer(); ?>
 
 
@@ -76,6 +81,8 @@
 <style>
 <?php _e(file_get_contents(TDIR . '/css/later.css')); ?>
 </style>
+
+
 
 
 
