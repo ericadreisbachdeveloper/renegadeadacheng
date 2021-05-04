@@ -205,7 +205,7 @@ figcaption { @extend %small; color: $gray5; }
 
 [data-role="main"] [href].wp-block-button__link {
   @extend %button;
-  white-space: nowrap;
+  //white-space: nowrap;
 }
 
 
