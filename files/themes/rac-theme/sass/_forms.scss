@@ -102,21 +102,26 @@ label { line-height: 1.8; }
 
 // checkmark
 [type="checkbox"] {
+  width: 3rem;
+  height: 3rem;
   display: inline-block;
+  margin: -2rem 0 0;
   position: relative;
-  margin-right: .75rem;
+   top: 1rem;
+   left: -1rem;
+  vertical-align: bottom;
 
   @include hover { cursor: pointer; }
 
   &:before {
-    width: .95rem;
-    height: .95rem;
+    width: 1.3rem;
+    height: 1.3rem;
     background: $gray1;
     content: '';
     display: block;
     position: absolute;
-     top: -.1rem  ;
-     left: -.05rem;
+     top: calc(50% - .65rem);
+     left: calc(50% - .65rem);
   }
 
   &:after {
@@ -125,8 +130,8 @@ label { line-height: 1.8; }
     content: '';
 
     position: absolute;
-     top: -.25rem;
-     left: -.25rem;
+     top: calc(50% - .75rem);
+     left: calc(50% - .55rem);
     display: block;
     background-size: contain;
     background-repeat: no-repeat;
