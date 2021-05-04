@@ -281,6 +281,8 @@ figcaption { @extend %small; color: $gray5; }
 // lavender buttons
 .-img-button {
 
+  [src] { width: 100%; }
+
   @include hover {
     [href] { border: .25rem solid $mauve; }
     figcaption { background: $mauve; }
@@ -810,7 +812,7 @@ figcaption { @extend %small; color: $gray5; }
 
 // Edit link
 [data-role="main"] .post-edit-link {
-  width: 7.5rem;
+  width: 6rem;
   font-family: sans-serif;
   position: absolute;
   z-index: 9999;
