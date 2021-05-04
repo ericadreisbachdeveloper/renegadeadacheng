@@ -507,15 +507,15 @@ figcaption { @extend %small; color: $gray5; }
     }
   }
 
-  .footer-widgets-row > .col-footer + .col-footer { padding-top: 3rem; }
+  //.footer-widgets-row > .col-footer + .col-footer { padding-top: 3rem; }
 
-  .footer-nav + .footer-social-container { padding-top: 6.5rem; }
+  // .footer-nav + .footer-social-container { padding-top: 6.5rem; }
 
   .footer-social-container {
     background: $magenta;
     border-bottom: .3rem solid $mauve;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    //padding-top: 3rem;
+    //padding-bottom: 3rem;
   }
 
   .footer-h2 { margin-top: 0; text-align: center; }

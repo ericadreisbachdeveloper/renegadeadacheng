@@ -14,13 +14,23 @@
 	<?php if(!is_front_page()) { include(locate_template('template/pagination_from_menu.php')); }  ?>
 
 
+	<style>
+		.footer-widgets-row > .col-footer + .col-footer { padding-top: 3rem; }
+		.footer-nav + .footer-social-container { padding-top: 6.5rem; }
+		.footer-social-container { height: 35.8858rem; padding-top: 3rem; padding-bottom: 3rem; }
+		@media (min-width: 48rem) {
+			.footer-social-container { height: auto; }
+			.footer-widgets-row > .col-footer + .col-footer { padding-top: 0; }
+		}
+	</style>
+
 	<div class="container-fluid footer-social-container">
 		<style>
 		  .footer-social-container .container { height: 26.086rem; }
 		  #nav_menu-3 { height: 6.016rem; }
 		  #mc4wp_form_widget-3 { height: 20.24rem; }
 
-		  @media (min-width: 62rem) {
+		  @media (min-width: 48rem) {
 				.footer-social-container .container { height: auto !important; }
 				#mc4wp_form_widget-3 { height: auto; }
 			}
@@ -36,7 +46,7 @@
 	<div class="container-fluid footer-brand-container">
 	<style>
 	  .footer-brand-container .container { height: 8.749rem; }
-	  @media (min-width: 62rem) { .footer-brand-container .container { height: auto; } }
+	  @media (min-width: 48rem) { .footer-brand-container .container { height: auto; } }
 	</style>
 	<div class="container">
 	  <div class="row footer-menus-row">
