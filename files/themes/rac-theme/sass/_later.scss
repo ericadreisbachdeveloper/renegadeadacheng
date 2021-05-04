@@ -480,11 +480,9 @@ figcaption { @extend %small; color: $gray5; }
       &:after {
         width: .8rem;
         height: 100%;
+        background-color: rgba(255,255,0,.2);
 
-        border-right: 1px solid red;
-
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='20' overflow='visible'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' fill='%23FFF' d='M0 0l11.924 9.479L0 19.679V0z'/%3E%3C/svg%3E");
-
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='20' overflow='hidden'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' fill='%23FFF' d='M0 0l11.924 9.479L0 19.679V0z'/%3E%3C/svg%3E");
 
         background-position: calc(100% - .2rem) calc(50% - .1rem);
         background-repeat: no-repeat;
