@@ -479,7 +479,7 @@ $navh: 6rem;
   @include simple-box-shadow(0,0,0,transparent);
 }
 
-.search-submit {
+.search-submit[type="submit"] {
   height: 100%;
   width: 6rem;
   background-color: transparent;
