@@ -440,3 +440,8 @@ $navh: 6rem;
 #navmenu .navbar-nav > li.current-menu-item {
   &> [href*=events], &> [href*=contact] { @extend %current-nav-a-white; }
 }
+
+
+
+// VII. Search
+#navmenu .search { background: $nearblack; }
