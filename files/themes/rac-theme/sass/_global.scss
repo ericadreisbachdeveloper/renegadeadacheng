@@ -315,7 +315,7 @@ a { @include hover { cursor: pointer; } }
 
 .-paper-bg {
   background-color: $cream1;
-  background-image: url('/files/themes/rac-theme/img/paper-bg-v2.jpg');
+  background-image: url('../img/paper-bg-v2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
