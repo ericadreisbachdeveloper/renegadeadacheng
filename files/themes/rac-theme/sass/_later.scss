@@ -114,6 +114,7 @@ figcaption { @extend %small; color: $gray5; }
 
 
 
+
 // Colors
 .-magenta { color: $magenta; }
 
@@ -966,6 +967,9 @@ figcaption { @extend %small; color: $gray5; }
 
 // Medium devices (tablets, 48rem and up)
 @media (min-width: 48rem) {
+
+
+  .-desktop-hide { display: none; }
 
 
 
