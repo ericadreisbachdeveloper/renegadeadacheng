@@ -178,7 +178,7 @@ ob_start('sanitize_output'); ?>
 
 <!-- font -->
 <link rel="preload" href="<?= esc_url(TDIR); ?>/webfonts/leaguespartan-bold.otf" as="font" type="font/otf" />
-
+<style>@font-face{font-family:"League Spartan";font-style:normal;font-weight:400;font-display:swap;src:url("<?= esc_url(TDIR); ?>/webfonts/leaguespartan-bold.otf") format("opentype")}</style>
 
 
 <?php $custom_logo_svg = get_theme_mod( 'logo_svg' );
