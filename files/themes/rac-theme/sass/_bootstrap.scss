@@ -27,7 +27,7 @@ body { margin: 0; }
 
 [role="button"] { cursor: pointer; }
 
-button {
+button, input {
   -webkit-appearance: none;
       -moz-appearance: none;
 }
