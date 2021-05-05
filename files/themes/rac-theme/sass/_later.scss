@@ -810,6 +810,11 @@ figcaption { @extend %small; color: $gray5; }
 
 .qtip-tip > canvas { display: none; }
 
+.qtip-focus {
+  display: block;
+   top: 40vh;
+   left: 3rem;
+}
 
 .qtip-content {
   min-width: 15rem;
@@ -820,6 +825,8 @@ figcaption { @extend %small; color: $gray5; }
 
   -webkit-box-shadow: 0 0 .2rem rgba(0,0,0,.2);
   box-shadow: 0 0 .2rem rgba(0,0,0,.2);
+
+  .simcal-events { padding-left: 0; }
 
   .simcal-event-title {
     @extend %text;
