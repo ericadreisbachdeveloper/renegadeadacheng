@@ -785,18 +785,11 @@ figcaption { @extend %small; color: $gray5; }
   .simcal-event { // li
     line-height: 1.1;
     padding-top: .5rem;
-
-    &+ .simcal-event {
-      padding-top: 2rem;
-    }
+    padding-bottom: 2rem;
   }
-
-  // today  ... if you want to override!
-  .simcal-today.simcal-present { }
 
   .simcal-event-title {
     @extend %link-line;
-    //@extend %text;
     @extend %small;
     color: $magenta;
     line-height: 1.1;
@@ -815,6 +808,8 @@ figcaption { @extend %small; color: $gray5; }
    top: 40vh;
    left: 1.5rem;
 }
+
+.qtip.simcal-default-calendar { box-shadow: 0 0 .5rem rgba(0,0,0,.5); }
 
 .simcal-today > [style] { border: .01rem solid $magenta !important; }
 .simcal-today .simcal-day-number { background-color: $magenta !important; }
