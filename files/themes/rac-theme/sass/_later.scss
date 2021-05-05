@@ -796,12 +796,15 @@ figcaption { @extend %small; color: $gray5; }
 
   .simcal-event-title {
     @extend %link-line;
-    @extend %text;
+    //@extend %text;
+    @extend %small;
     color: $magenta;
     line-height: 1.1;
     cursor: pointer;
   }
 }
+
+
 
 
 
@@ -817,6 +820,11 @@ figcaption { @extend %small; color: $gray5; }
 
   -webkit-box-shadow: 0 0 .2rem rgba(0,0,0,.2);
   box-shadow: 0 0 .2rem rgba(0,0,0,.2);
+
+  .simcal-event-title {
+    @extend %text;
+    font-weight: normal;
+  }
 
   .simcal-event-details.simcal-tooltip-content {
 
