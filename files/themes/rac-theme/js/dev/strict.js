@@ -1,3 +1,5 @@
+// minified with
+
 (function ($, root, undefined) {
 	$(function () {
 
