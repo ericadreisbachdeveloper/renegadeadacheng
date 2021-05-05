@@ -84,13 +84,36 @@
 
 
 
-
-
 <!-- detect SVG support and update <body> attribute if needed - unminified version in THEME/js/dev/svg-support.js -->
 <script>
 document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||document.body.setAttribute("data-svg","no-inlinesvg");
 </script>
 
+
+<!-- trigger form successful submission as event in Google analytics -->
+<?php if(is_page(array('contact', 'producing', 'speaking'))) : ?>
+<script type='text/javascript'>
+window.onload = (e) => {
+
+  var $submit_succuess = $('#wpforms-confirmation-379');
+
+  if ( $submit_succuess.length ){
+      gtag('event', 'contact', { 'event_category' : 'Form', 'event_action' : 'Submitted', 'event_label' : 'Contact Form'})
+  }
+};
+</script>
+<?php elseif(is_archive() || is_single() || is_home()) : ?>
+<script>
+window.onload = (e) => {
+
+  var $submit_succuess = $('#wpforms-confirmation-145');
+
+  if ( $submit_succuess.length ){
+      gtag('event', 'contact', { 'event_category' : 'Form', 'event_action' : 'Submitted', 'event_label' : 'Sidebar Contact Form'})
+  }
+};
+</script>
+<?php endif; ?>
 
 
 </body>
