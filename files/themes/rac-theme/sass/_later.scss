@@ -813,15 +813,32 @@ figcaption { @extend %small; color: $gray5; }
 .qtip-focus {
   display: block;
    top: 40vh;
-   left: 3rem;
+   left: 1.5rem;
 }
+
+.simcal-today > [style] { border: .01rem solid $magenta !important; }
+.simcal-today .simcal-day-number { background-color: $magenta !important; }
+
+.simcal-default-calendar-grid .simcal-events-dots {
+  width: 100%;
+  cursor: pointer;
+  display: block;
+
+  @include hover { background: $lavender0; }
+}
+
+
+
 
 .qtip-content {
   min-width: 15rem;
   max-width: 25rem;
   background: white;
   overflow: visible;
-  padding: .5rem 2rem 2.5rem;
+  padding-top: .5rem;
+  padding-right: 2rem;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
 
   -webkit-box-shadow: 0 0 .2rem rgba(0,0,0,.2);
   box-shadow: 0 0 .2rem rgba(0,0,0,.2);
