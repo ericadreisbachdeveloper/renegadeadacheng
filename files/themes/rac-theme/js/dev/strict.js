@@ -1,4 +1,5 @@
-// minified with
+// minified with https://javascript-minifier.com/
+// output to js/strict.min.js
 
 (function ($, root, undefined) {
 	$(function () {

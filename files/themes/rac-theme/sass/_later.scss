@@ -756,6 +756,8 @@ figcaption { @extend %small; color: $gray5; }
 // Calendar - grid
 .simcal-calendar-grid .simcal-nav { position: relative; }
 
+.simcal-week { vertical-align: top; }
+
 .simcal-week-day { font-weight: normal; }
 
 .simcal-calendar-grid {
@@ -783,6 +785,10 @@ figcaption { @extend %small; color: $gray5; }
   .simcal-event { // li
     line-height: 1.1;
     padding-top: .5rem;
+
+    &+ .simcal-event {
+      padding-top: 2rem;
+    }
   }
 
   // today  ... if you want to override!
@@ -790,7 +796,7 @@ figcaption { @extend %small; color: $gray5; }
 
   .simcal-event-title {
     @extend %link-line;
-    @extend %small;
+    @extend %text;
     color: $magenta;
     line-height: 1.1;
     cursor: pointer;
