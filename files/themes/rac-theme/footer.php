@@ -91,24 +91,24 @@ document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1
 
 
 <!-- trigger form successful submission as event in Google analytics -->
-<?php if(is_page(array('contact', 'producing', 'speaking'))) : ?>
+<?php if(is_archive() || is_single() || is_home()) : ?>
 <script type='text/javascript'>
 window.onload = (e) => {
 
-  var $submit_succuess = $('#wpforms-confirmation-379');
+  var $submit_success = $('#wpforms-confirmation-379');
 
-  if ( $submit_succuess.length ){
+  if ( $submit_success.length ){
       gtag('event', 'contact', { 'event_category' : 'Form', 'event_action' : 'Submitted', 'event_label' : 'Contact Form'})
   }
 };
 </script>
-<?php elseif(is_archive() || is_single() || is_home()) : ?>
+<?php elseif(is_page(array('contact', 'producing', 'speaking'))) : ?>
 <script>
 window.onload = (e) => {
 
-  var $submit_succuess = $('#wpforms-confirmation-145');
+  var $submit_success = $('#wpforms-confirmation-145');
 
-  if ( $submit_succuess.length ){
+  if ( $submit_success.length ){
       gtag('event', 'contact', { 'event_category' : 'Form', 'event_action' : 'Submitted', 'event_label' : 'Sidebar Contact Form'})
   }
 };
