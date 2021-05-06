@@ -98,7 +98,7 @@ window.onload = (e) => {
   var $submit_success = $('#wpforms-confirmation-379');
 
   if ( $submit_success.length ){
-      gtag('event', 'contact', { 'event_category' : 'Form', 'event_action' : 'Submitted', 'event_label' : 'Contact Form'})
+      gtag('event', 'contact', { 'event_category' : 'Form', 'event_action' : 'Submitted', 'event_label' : 'Sidebar Contact Form'})
   }
 };
 </script>
@@ -109,7 +109,7 @@ window.onload = (e) => {
   var $submit_success = $('#wpforms-confirmation-145');
 
   if ( $submit_success.length ){
-      gtag('event', 'contact', { 'event_category' : 'Form', 'event_action' : 'Submitted', 'event_label' : 'Sidebar Contact Form'})
+      gtag('event', 'contact', { 'event_category' : 'Form', 'event_action' : 'Submitted', 'event_label' : 'Main Contact Form'})
   }
 };
 </script>
