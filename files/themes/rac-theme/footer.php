@@ -77,7 +77,6 @@
 
 
 <!-- theme "later" styles -->
-<?php global $style_vsn; ?>
 <style>
 <?php _e(file_get_contents(TDIR . '/css/later.css')); ?>
 </style>

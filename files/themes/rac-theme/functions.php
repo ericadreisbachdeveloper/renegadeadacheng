@@ -904,3 +904,8 @@ add_filter( 'get_the_archive_title', function ( $title ) {
     return $title;
 
 });
+
+
+
+// 34. removing default sitemap
+add_filter('wp_sitemaps_enabled', '__return_false');
