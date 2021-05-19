@@ -142,7 +142,7 @@ function dbllc_header_scripts() {
 			//wp_register_script('aos', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js');
 			wp_enqueue_script('aos');
 
-			wp_register_script('strict', TDIR . '/js/strict.min.js', array('cloudjquery'), '1.0.3');
+			wp_register_script('strict', TDIR . '/js/strict.min.js', array('cloudjquery'), '1.0.5');
 			wp_enqueue_script('strict');
   }
 }

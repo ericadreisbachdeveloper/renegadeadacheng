@@ -52,48 +52,6 @@
 
 
 
-		// Add two-part closing animation to navbar toggler
-		$('button[data-target="#navmenu"]').on('click', function(){
-
-			// the hamburger
-			if( $('#navmenu').hasClass('show')) {
-				$('button[data-target="#navmenu"]').addClass('user-collapsed');
-				$('#navmenu').removeClass('show').attr('aria-expanded', 'false').addClass('collapsed');
-				$('.navbar-toggler').attr('aria-expanded', 'false').addClass('collapsed');
-				$('#navmenu').css('z-index', '');
-			}
-
-			// the x
-			else {
-				$('#navmenu').addClass('show').attr('aria-expanded', 'true').removeClass('collapsed');
-				$('.navbar-toggler').attr('aria-expanded', 'true').removeClass('collapsed');
-				$('#navmenu').css('z-index', '9999 !important');
-				console.log('closed nav')
-			}
-		});
-
-
-
-
-		// Show subnavs on mobile by clicking .open-submenu-a carets
-		$('.open-submenu-a').on('click', function(){
-			$(this).toggleClass('mobile-show-submenu');
-			return false;
-		});
-
-
-
-		// Show subnav on mobile if clicked a menu link with href="#"
-		$('.navbar-nav li a[href="#"]').on('click', function(){
-			if ( $(this).parent('li').find('.open-submenu-a').hasClass('mobile-show-submenu') ) {
-				$(this).parent('li').find('.open-submenu-a').removeClass('mobile-show-submenu')
-			}
-			else {
-				$(this).parent('li').find('.open-submenu-a').addClass('mobile-show-submenu');
-			}
-		});
-
-
 
 		// If viewing a child page
 		// show its containing submenu on mobile by default

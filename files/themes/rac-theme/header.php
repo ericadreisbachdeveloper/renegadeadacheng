@@ -7,7 +7,8 @@
   $buffer = Minify_HTML::minify($buffer);
   return $buffer;
 }
-ob_start('sanitize_output'); ?>
+// ob_start('sanitize_output');
+?>
 
 
 <meta charset="<?php bloginfo('charset'); ?>">
@@ -300,7 +301,7 @@ ob_start('sanitize_output'); ?>
 				<nav class="nav">
 
 					<div class="navbar-header">
-						<button class="navbar-toggler navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation">
+						<button id="nav-toggle" class="navbar-toggler navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="sr-only">Toggle navigation</span>
 							<span class="opennav icon-bar -top"></span>
 							<span class="opennav icon-bar -middle"></span>
@@ -318,6 +319,10 @@ ob_start('sanitize_output'); ?>
 					</div>
 
 				</nav>
+
+
+				<!-- mobile nav - written in vanilla javascript -->
+				<script><?= file_get_contents(TDIR . '/js/mobile-nav.min.js'); ?></script>
 
 
 			</div><!-- /.gutenberg-container -->
