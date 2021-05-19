@@ -58,6 +58,7 @@
 			// the hamburger
 			if( $('#navmenu').hasClass('show')) {
 				$('button[data-target="#navmenu"]').addClass('user-collapsed');
+				$('#navmenu').css('z-index', 'initial');
 				$('#navmenu').removeClass('show').attr('aria-expanded', 'false').addClass('collapsed');
 				$('.navbar-toggler').attr('aria-expanded', 'false').addClass('collapsed');
 			}
@@ -66,6 +67,8 @@
 			else {
 				$('#navmenu').addClass('show').attr('aria-expanded', 'true').removeClass('collapsed');
 				$('.navbar-toggler').attr('aria-expanded', 'true').removeClass('collapsed');
+				$('#navmenu').css('z-index', '9999 !important');
+				console.log('closed nav')
 			}
 		});
 
