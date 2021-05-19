@@ -18,10 +18,12 @@ navtoggle.addEventListener('click', function(e) {
     navmenu.classList.remove('show');
     navmenu.classList.add('collapsed');
     navmenu.setAttribute('aria-expanded', 'false');
+    navmenu.style.zIndex="unset";
+    navmenu.style.backgroundColor="transparent";
   }
 
 
-  // click turns toggle back to x
+  // click turns toggle to x
   else {
 
     navtoggle.classList.remove('collapsed');
@@ -30,6 +32,8 @@ navtoggle.addEventListener('click', function(e) {
     navmenu.classList.add('show');
     navmenu.classList.remove('collapsed');
     navmenu.setAttribute('aria-expanded', 'true');
+    navmenu.style.zIndex="9999";
+    navmenu.style.backgroundColor="white";
   }
 
 });

@@ -322,7 +322,7 @@
 
 
 				<!-- mobile nav - written in vanilla javascript -->
-				<script><?= file_get_contents(TDIR . '/js/mobile-nav.min.js'); ?></script>
+				<script><?= file_get_contents(TDIR . '/js/dev/mobile-nav.js'); ?></script>
 
 
 			</div><!-- /.gutenberg-container -->
