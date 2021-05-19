@@ -58,9 +58,9 @@
 			// the hamburger
 			if( $('#navmenu').hasClass('show')) {
 				$('button[data-target="#navmenu"]').addClass('user-collapsed');
-				$('#navmenu').css('z-index', 'initial');
 				$('#navmenu').removeClass('show').attr('aria-expanded', 'false').addClass('collapsed');
 				$('.navbar-toggler').attr('aria-expanded', 'false').addClass('collapsed');
+				$('#navmenu').css('z-index', '');
 			}
 
 			// the x
