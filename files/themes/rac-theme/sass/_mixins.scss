@@ -163,11 +163,8 @@
 }
 
 @mixin clip-path($args...) {
-  -ms-clip-path: $args;
-   -o-clip-path: $args;
-    -moz-clip-path: $args;
-     -webkit-clip-path: $args;
-      clip-path: $args;
+  -webkit-clip-path: $args;
+   clip-path: $args;
 }
 
 

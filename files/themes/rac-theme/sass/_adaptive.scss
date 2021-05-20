@@ -175,11 +175,14 @@
   #navmenu .search { background: none; }
 
   // undoing mobile stuff
-  .navbar-collapse { overflow-x: unset; }
-  .navbar-collapse.collapse,
-  .navbar-collapse.collapse.show
-  { display: block; clip-path: unset; }
+  #navmenu { overflow-x: unset; }
+  #navmenu.collapse,
+  #navmenu.collapse.show { display: block; overflow: visible; clip-path: unset; -webkit-clip-path: unset; }
 
+  #navmenu .navbar-nav > .menu-item:first-of-type { border-top:    none; }
+  #navmenu .navbar-nav > .menu-item               { border-bottom: none; }
+  #navmenu .navbar-nav .sub-menu > .menu-item:first-of-type { border-top:    none; }
+  #navmenu .navbar-nav .sub-menu > .menu-item               { border-bottom: none; }
 
                     .logo-div { float: left; }
   .gutenberg-container > .nav { float: right; }

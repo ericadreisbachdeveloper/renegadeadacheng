@@ -3,7 +3,7 @@
 ------------------------ */
 
 $opennav_timing: .3s;
-$mobile-nav-border-color: rgba(255,255,255,.44);
+$mobile-nav-border-color: rgba(0,0,0,.1);
 
 
 // Default - hide menu until main menu is set up
@@ -70,27 +70,17 @@ $navh: 6rem;
 
 
 
-// no clip-path support? no animation!
-.logo-div { background: $cream1; }
-
-.navbar-collapse {
+// fallback
+#navmenu {
   overflow-x: hidden;
-
-  &.collapse {
-    height: 0;
-    overflow: hidden;
-  }
-
-  &.collapse.show {
-    height: auto;
-    position: relative;
-  }
+  &.collapse      { height: 0; overflow: hidden; }
+  &.collapse.show { height: auto; }
 }
 
 
 
 // clip-path support with aimation
-@supports(-ms-clip-path: polygon(0 0, 100vw 0, 100vw 100%, 0 100%) ) or (-o-clip-path: polygon(0 0, 100vw 0, 100vw 100%, 0 100%) ) or (-moz-clip-path: polygon(0 0, 100vw 0, 100vw 100%, 0 100%) ) or (-webkit-clip-path: polygon(0 0, 100vw 0, 100vw 100%, 0 100%) ) or (clip-path: polygon(0 0, 100vw 0, 100vw 100%, 0 100%) ) {
+@supports( (-webkit-clip-path: polygon(0 0, 100% 0, 100% 100vh, 0 100vh) ) or (clip-path: polygon(0 0, 100% 0, 100% 100vh, 0 100vh) ) ) {
 
   .logo-div { background: none; }
 
@@ -99,11 +89,11 @@ $navh: 6rem;
 
     &.collapse {
       @include clip-path( polygon(0 0, 100% 0, 100% 0, 0 0) );
-      @include transition-multi(clip-path .4s ease, -webkit-clip-path .4s ease, -ms-clip-path .4s ease, -o-clip-path .4s ease, -moz-clip-path .4s ease);
+      @include transition-multi(clip-path .2s ease, -webkit-clip-path .2s ease);
     }
 
     &.collapse.show {
-      @include clip-path( polygon(0 0, 100vw 0, 100vw 100%, 0 100%) );
+      @include clip-path( polygon(0 0, 100% 0, 100% 100vh, 0 100vh) );
       overflow-y: scroll;
       position: relative;
     }
@@ -122,11 +112,14 @@ $navh: 6rem;
   // position relative on ALL li allows for correct display
   // of current nav dot
   // on mobile
-  .menu-item { position: relative; }  // li
+  .menu-item {  position: relative; }  // li
 
-  &> .menu-item:not(.menu-item-type-custom) > [href] {
-    border-bottom: .05rem solid $mobile-nav-border-color;
-  }
+  &> .menu-item:first-of-type { border-top:    .05rem solid $mobile-nav-border-color; }
+  &> .menu-item               { border-bottom: .05rem solid $mobile-nav-border-color; }
+
+  .sub-menu > .menu-item:first-of-type { border-top:    .05rem solid $mobile-nav-border-color; }
+  .sub-menu > .menu-item               { border-bottom: .05rem solid $mobile-nav-border-color; }
+  .sub-menu > .menu-item:last-of-type  { border-bottom: none; }
 }
 
 
@@ -143,7 +136,7 @@ $navh: 6rem;
     @include transition-one(background);
 
     &> [href] {
-      padding: 1rem 1.5rem 1rem 2rem;
+      padding: 1.3rem 1.5rem 1rem 2rem;
     }
   }
 
@@ -250,7 +243,7 @@ $navh: 6rem;
 
   // 1. show the caret for top-level menu items with class .menu-item-has-children
   width: 7rem;
-  height: 3.1rem;
+  height: 3.5rem;
   background-color: transparent;
   border-left: .05rem solid $mobile-nav-border-color;
   display: block;
@@ -260,14 +253,16 @@ $navh: 6rem;
    right: 0;
 
   &:after {
-    width: 7em;
-    height: 3rem;
+    width: 7rem;
+    height: 3.5rem;
     transform: rotate(0deg) scale(1) skew(0deg) translateX(0px) translateY(0px);
     content: "";
     display: block;
     position: absolute;
-    right: 0;
-    top: 0;
+     right: 0;
+     top: 0;
+
+    background-size: 1rem;
     background-position: 50% 50%;
     background-repeat: no-repeat;
 
@@ -320,7 +315,7 @@ $navh: 6rem;
     text-transform: none;
 
     // 6. submenu item padding
-    a:not([href*="#"]) { padding: 1rem 0 1rem 3.5rem; }
+    a:not([href*="#"]) { padding: 1.3rem 0 1rem 3.5rem; }
   }
 }
 
@@ -357,7 +352,7 @@ $navh: 6rem;
     background: $nearblack;
 
     position: absolute;
-     top: 1.3rem;
+     top: 1.6rem;
      left: 1rem;
   }
 }
