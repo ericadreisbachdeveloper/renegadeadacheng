@@ -49,7 +49,7 @@
 	.footer-nav + .footer-social-container { padding-top: 6.5rem; }
 	.site-footer > .footer-social-container:first-child { padding-top: 3rem; }
 
-	.footer-social-container { height: 32.386rem; padding-bottom: 3rem; }
+	.footer-social-container { height: 35.386rem; padding-bottom: 3rem; }
 	.footer-social-container .container { height: 26.086rem; }
 
 	#nav_menu-3 { height: 6.016rem; }
