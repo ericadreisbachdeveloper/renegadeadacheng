@@ -74,7 +74,7 @@ $navh: 6rem;
 #navmenu {
   overflow-x: hidden;
   &.collapse      { height: 0; overflow: hidden; }
-  &.collapse.show { height: auto; }
+  &.collapse.show { height: auto; max-height: calc(100vh - #{$navh}); overflow: scroll; border-top: .05rem solid $mobile-nav-border-color;  }
 }
 
 
@@ -93,13 +93,12 @@ $navh: 6rem;
     }
 
     &.collapse.show {
-      @include clip-path( polygon(0 0, 100% 0, 100% 100vh, 0 100vh) );
+      @include clip-path( polygon(0 0, 100% 0, 100% calc(100vh - 6rem), 0 calc(100vh - 6rem) ) );
       overflow-y: scroll;
       position: relative;
     }
   }
 }
-
 
 
 
@@ -114,7 +113,7 @@ $navh: 6rem;
   // on mobile
   .menu-item {  position: relative; }  // li
 
-  &> .menu-item:first-of-type { border-top:    .05rem solid $mobile-nav-border-color; }
+
   &> .menu-item               { border-bottom: .05rem solid $mobile-nav-border-color; }
 
   .sub-menu > .menu-item:first-of-type { border-top:    .05rem solid $mobile-nav-border-color; }
