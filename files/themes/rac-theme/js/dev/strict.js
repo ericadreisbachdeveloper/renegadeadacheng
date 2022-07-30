@@ -82,7 +82,7 @@
 
 
 		// Links in menu with id including the word "social" open in new window
-		$('.menu[id*="social"]').find('li').each(function(){
+		$('.menu[id*="social"]').find('li').each(function() {
 			$(this).find('a').attr('target', '_blank').attr('rel', 'noopener');
 		});
 

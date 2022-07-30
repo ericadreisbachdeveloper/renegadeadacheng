@@ -2,7 +2,7 @@
 
 
 
-<form class="search" method="get" action="<?php _e(home_url()); ?>" role="search">
+<form class="search" method="post" action="<?php _e(home_url()); ?>" role="search">
 
 	<a href="#" data-display-search role="button" aria-pressed="false" aria-label="Show/Hide Search Form"></a>
 

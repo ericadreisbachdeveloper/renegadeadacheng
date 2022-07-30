@@ -134,7 +134,7 @@ function dbllc_header_scripts() {
 			wp_register_script('cloudjquery', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), '3.6.0', false);
 			wp_enqueue_script('cloudjquery');
 
-			wp_register_script('lazysizes-min', TDIR . '/js/lazysizes.5.2.2.min.js', array(), '5.2.2', false);
+			wp_register_script('lazysizes-min', TDIR . '/js/lazysizes.5.2.2.min.js', array(), '', false);
 			wp_enqueue_script('lazysizes-min');
 
 			wp_register_script('aos', 'https://unpkg.com/aos@2.3.1/dist/aos.js');

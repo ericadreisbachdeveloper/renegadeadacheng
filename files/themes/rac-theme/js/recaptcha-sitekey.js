@@ -1,6 +1,5 @@
 // reCAPTCHA v2 inivisible
 // get sitekey at https://www.google.com/recaptcha/admin
-// from sj.ada.cheng@gmail.com account
 // src https://developers.google.com/recaptcha/docs/invisible#auto_render
 
 
@@ -11,5 +10,5 @@ function onSubmit(token) {
 
 // with button id
 jQuery(document).ready(function(){
-	jQuery('#wp-submit').addClass('g-recaptcha').attr('data-sitekey', '6LdyE14aAAAAAAsiHd0-dYzpQ3G2vrz81wvROiSt').attr('data-callback', 'onSubmit').attr('data-action', 'submit');
+	jQuery('#wp-submit').addClass('g-recaptcha').attr('data-sitekey', '6LfUtaceAAAAAKk48eX4kg7R02-GdQlw53kdL2Oy').attr('data-callback', 'onSubmit').attr('data-action', 'submit');
 });
