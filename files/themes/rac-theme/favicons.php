@@ -8,16 +8,16 @@
 
 <!-- 196 -->
 <!-- Favicon Chrome for Android -->
-<link rel="shortcut icon" sizes="196x196" type="image/png" href="<?php _e(TDIR); ?>/favicons/favicon-196.png">
+<link rel="shortcut icon" sizes="196x196" type="image/png" href="<?php _e(TDIR); ?>/jrdkfgjs/favicons/favicon-196.png">
 
 
 <!-- 180 -->
-<link rel="apple-touch-icon-precomposed" href="<?php _e(TDIR); ?>/favicons/favicon-180.png">
+<link rel="apple-touch-icon-precomposed" href="<?php _e(TDIR); ?>/jrdkfgjs/favicons/favicon-180.png">
 
 
 <!-- 144 -->
 <meta name="msapplication-TileColor" content="#FFFFFF">
-<meta name="msapplication-TileImage" content="<?php _e(TDIR); ?>/favicons/favicon-144.png">
+<meta name="msapplication-TileImage" content="<?php _e(TDIR); ?>/jrdkfgjs/favicons/favicon-144.png">
 
 
 <!-- ieconfig.xml -->
