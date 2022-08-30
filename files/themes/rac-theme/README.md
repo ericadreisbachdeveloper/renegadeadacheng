@@ -51,7 +51,7 @@ and **Simple Calendar - Google Calendar Pro Add-on** <br />
   Easy database backups and migration
 
 - **WPForms Lite** https://wordpress.org/plugins/wpforms-lite/ <br />
- Simple, secure, free contact forms; lacks the power of Gravity Forms, but also lacks Gravity Forms's <span class="nowrap">page-slowing</span> overhead 
+ Simple, secure, free contact forms; lacks the power of Gravity Forms, but also lacks Gravity Forms's <span class="nowrap">page-slowing</span> overhead
 
 
 ## SEO
