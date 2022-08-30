@@ -59,8 +59,6 @@ and **Simple Calendar - Google Calendar Pro Add-on** <br />
 
 *Sharing image* defaults to the Featured Image field for each post and page. If no image is present, the default image under *Social Media + Sharing* in the Wordpress admin section will be used.
 
-*Schema* ... ?
-
 
 ## Styles
 This site was built with SASS to generate two main style files: `css/style.css` and `css/later.css`.
